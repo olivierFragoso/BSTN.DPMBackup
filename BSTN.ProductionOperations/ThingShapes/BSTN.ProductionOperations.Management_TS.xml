@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <ThingShapes>
+        <ThingShape
+         aspect.isSystemObject="false"
+         className=""
+         description="Manages business logic to process production data for DPM"
+         documentationContent=""
+         homeMashup=""
+         name="BSTN.ProductionOperations.Management_TS"
+         projectName="BSTN.ProductionOperations"
+         tags="">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="AddChangeDelayTime">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="AddStandardChangeoverTime">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Check if the material is existent in DPM"
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="CheckExistentMaterial">
+                    <ResultType
+                     baseType="BOOLEAN"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="material"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="workUnitThingName"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="//Create and start new Job Order on DPM "
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="CreateAndStartNewJobOrder">
+                    <ResultType
+                     aspect.dataShape="WorkUnitName_DS"
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.dataShape="JobOrderDetails_DS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="jobOrderCreationInfoTable"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="ProcessProductionOperationData">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="UpdateProductionProcessedData">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="UpdateProductionQuantity">
+                    <ResultType
+                     aspect.dataShape="NamedVTQ"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.dataShape="JobOrderDetails_DS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="JobOrderDetails"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="AddChangeDelayTime">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code></code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="AddStandardChangeoverTime">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code></code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="CheckExistentMaterial">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let exist = false;
+                                    
+                                    Things[workUnitThingName].GetPTCExecutionWorkMasterMaterials().rows.toArray().forEach(row => {
+                                    	if (row.id === material) {
+                                    		exist = true;
+                                    	}
+                                    });
+                                    
+                                    
+                                    result = exist;
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="CreateAndStartNewJobOrder">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let eventType;
+                                    let jobOrderID;
+                                    let material;
+                                    let workUnit;
+                                    let txnQuantity;
+                                    let txnTimestamp;
+                                    let modelUID;
+                                    let materialMasterUID;
+                                    
+                                    try {
+                                    	jobOrderCreationInfoTable.rows.toArray().forEach(row => {
+                                    		eventType = row.eventType;
+                                    		jobOrderID = row.jobOrderID;
+                                    		material = row.material;
+                                    		txnQuantity = row.txnQuantity;
+                                    		txnTimestamp = row.txnTimestamp;
+                                    
+                                    		//Getting the workunit thingname
+                                    		// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(WorkUnitName_DS)
+                                    		workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    			infoTableName: "InfoTable",
+                                    			dataShapeName: "WorkUnitName_DS"
+                                    		});
+                                    
+                                    		workUnitItemInfotable.item = row.workUnit;
+                                    
+                                    		resultingWorkUnitItemInfotable = Things["PTC.MfgModelImpl.Manager"].GetModelsByName({
+                                    			modelNames: workUnitItemInfotable
+                                    		});
+                                    
+                                    		workUnit = resultingWorkUnitItemInfotable.thingName;
+                                    
+                                    		if (eventType === "JOCreation") {
+                                    			//Creating JobOrders
+                                    			//WorkUnitString Might change 
+                                    			modelUID = Things[workUnit].PTCModelUid;
+                                    			Things[workUnit].GetPTCExecutionWorkMasterMaterials().rows.toArray().forEach(row => {
+                                    				if (row.id === material) {
+                                    					materialMasterUID = row.uid;
+                                    				}
+                                    			});
+                                    
+                                    			    //The AddJobOrder has to be called twice. One for creating and the other for dispatching
+                                    				// result: INFOTABLE dataShape: "PTC.JobOrder.JobOrder"
+                                    			let jobOrderCreationInfotable = Things["PTCDTS.InterfaceImpl.Manager"].AddJobOrder({
+                                    				quantity: txnQuantity /* NUMBER */ ,
+                                    				plannedStartTime: Date.now() /* DATETIME */ ,
+                                    				JoborderStatus: "Pending" /* STRING */ ,
+                                    				plannedEndTime: undefined /* DATETIME */ ,
+                                    				eventTime: txnTimestamp /* DATETIME */ ,
+                                    				id: jobOrderID /* STRING */ ,
+                                    				modelUid: modelUID /* LONG */ ,
+                                    				materialMasterUid: materialMasterUID /* LONG */
+                                    			});
+                                    
+                                    			jobOrderCreationInfotable = Things["PTCDTS.InterfaceImpl.Manager"].AddJobOrder({
+                                    				quantity: txnQuantity /* NUMBER */ ,
+                                    				plannedStartTime: Date.now() /* DATETIME */ ,
+                                    				JoborderStatus: "Dispatched" /* STRING */ ,
+                                    				plannedEndTime: undefined /* DATETIME */ ,
+                                    				eventTime: txnTimestamp /* DATETIME */ ,
+                                    				id: jobOrderID /* STRING */ ,
+                                    				modelUid: modelUID /* LONG */ ,
+                                    				materialMasterUid: materialMasterUID /* LONG */
+                                    			});
+                                                			
+                                    			//After Order is created and dispatched, we reflect it on production dashboard
+                                    			let infotableUpdateJobOrder = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    				infoTableName: "InfoTable",
+                                    				dataShapeName: "NamedVTQ"
+                                    			});
+                                    
+                                                //let newDateTime = txnTimestamp.setSeconds(txnTimestamp.getSeconds() + 3);
+                                                
+                                    			infotableUpdateJobOrder.name = "PTCJobOrderID";
+                                    			infotableUpdateJobOrder.quality = "Good";
+                                    			infotableUpdateJobOrder.time = Date.now();
+                                    			infotableUpdateJobOrder.value = jobOrderID;
+                                    
+                                    			Things[workUnit].UpdatePropertyValues({
+                                    				values: infotableUpdateJobOrder /* INFOTABLE {"dataShape":"NamedVTQ"} */
+                                    			});
+                                    		}
+                                    	});
+                                    } catch (err) {
+                                    	throw err;
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="ProcessProductionOperationData">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code></code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="UpdateProductionProcessedData">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code></code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="UpdateProductionQuantity">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let eventType;
+                                    let jobOrderID;
+                                    let material;
+                                    let workUnit;
+                                    let txnQuantity;
+                                    let txnTimestamp;
+                                    let result;
+                                    
+                                    try {
+                                    	JobOrderDetails.rows.toArray().forEach(row => {
+                                    		eventType = row.eventType;
+                                    		jobOrderID = row.jobOrderID;
+                                    		material = row.material;
+                                    		txnQuantity = row.txnQuantity;
+                                    		txnTimestamp = row.txnTimestamp;
+                                            
+                                            workUnitItemInfotable.item = row.workUnit;
+                                    
+                                    		resultingWorkUnitItemInfotable = Things["PTC.MfgModelImpl.Manager"].GetModelsByName({
+                                    			modelNames: workUnitItemInfotable
+                                    		});
+                                    
+                                    		workUnit = resultingWorkUnitItemInfotable.thingName;
+                                    		
+                                            //Updating the quantity using the updatePropertyValues service
+                                    		if (eventType === "JOQtyProduced") {
+                                                
+                                                // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(NamedVTQ)
+                                                let infotableUpdateQuantity = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                                	infoTableName: "InfoTable",
+                                                	dataShapeName: "NamedVTQ"
+                                                });
+                                                
+                                                infotableUpdateQuantity.name = "PTCProductionCount";
+                                                infotableUpdateQuantity.quality = "Good";
+                                                infotableUpdateQuantity.time = txnTimestamp;
+                                                infotableUpdateQuantity.value = txnQuantity;
+                                                
+                                    			Things[workUnit].UpdatePropertyValues({
+                                    				values: infotableUpdateQuantity /* INFOTABLE {"dataShape":"NamedVTQ"} */
+                                    			});
+                                                
+                                                result = infotableUpdateQuantity;
+                                    		}
+                                    	});
+                                    } catch (err) {
+                                    	throw err;
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>
