@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <ApplicationKeys>
+        <ApplicationKey
+         clientName=""
+         description=""
+         documentationContent=""
+         expirationDate="2030-03-23T13:40:00.000Z"
+         homeMashup="BSTN.NOTEvent.LossEntry_MU"
+         ipWhitelist=""
+         keyId=""
+         name="BSTN.NOTEvent.LossEntry_AppKey"
+         projectName="BSTN.NOTEvent"
+         tags=""
+         userNameReference="BSTN.NOTEvent.AppKey.User">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+        </ApplicationKey>
+    </ApplicationKeys>
+</Entities>

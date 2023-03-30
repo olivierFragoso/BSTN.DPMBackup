@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <ApplicationKeys>
+        <ApplicationKey
+         clientName=""
+         description=""
+         documentationContent=""
+         expirationDate="2030-03-28T04:00:00.000Z"
+         homeMashup=""
+         ipWhitelist=""
+         keyId=""
+         name="BSTN.GABEInterface_AppKey"
+         projectName="BSTN.GABEInterface"
+         tags=""
+         userNameReference="BSTN.GABEInterface.AppKey.User">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+        </ApplicationKey>
+    </ApplicationKeys>
+</Entities>
