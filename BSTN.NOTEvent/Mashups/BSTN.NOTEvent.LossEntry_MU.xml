@@ -161,6 +161,14 @@
                  name="connectionTest"
                  ordinal="0"></FieldDefinition>
                 <FieldDefinition
+                 aspect.bindingDirection="BOTH"
+                 aspect.dataShape="PTC.OperationKPI.AllEvents"
+                 aspect.isMandatory="false"
+                 baseType="INFOTABLE"
+                 description=""
+                 name="currentEvent"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
                  aspect.bindingDirection="IN"
                  aspect.isMandatory="false"
                  baseType="THINGNAME"
@@ -291,24 +299,40 @@
                   "DataName" : "Things_BSTN.NOTEvent.Manager",
                   "EntityName" : "BSTN.NOTEvent.Manager",
                   "EntityType" : "Things",
-                  "Id" : "030fc116-e60f-4e6a-a634-4226596bc294",
+                  "Id" : "d8101c34-0971-4193-8dbf-db66842ac822",
                   "RefreshInterval" : 0,
                   "Services" : [ {
                     "APIMethod" : "post",
                     "Characteristic" : "Services",
-                    "Id" : "c5eaf3cf-4119-4918-9071-6517e25902c4",
-                    "Name" : "GetWorkCenterThingname",
-                    "Parameters" : { },
-                    "RefreshInterval" : 0,
-                    "Target" : "GetWorkCenterThingname"
-                  }, {
-                    "APIMethod" : "post",
-                    "Characteristic" : "Services",
-                    "Id" : "70294b95-65ee-4983-b67d-703abf7bdb46",
+                    "Id" : "6434edeb-264d-46b2-8960-845bf398ccbd",
                     "Name" : "GetThingNameFromCMTAsset",
                     "Parameters" : { },
                     "RefreshInterval" : 0,
                     "Target" : "GetThingNameFromCMTAsset"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "6805eca2-735d-46c8-9757-07b114d2685c",
+                    "Name" : "CreateEvent",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "CreateEvent"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "cb3c5180-4a78-41be-857b-3ba8a19b8519",
+                    "Name" : "UpdateEvent",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "UpdateEvent"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "a12301f0-2d7a-47c3-8604-b819c8177ffc",
+                    "Name" : "EndNOTEvent",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "EndNOTEvent"
                   } ]
                 },
                 "UserExtensions" : {
@@ -487,22 +511,6 @@
                 "SourceDetails" : "AllData",
                 "SourceId" : "GetPacemakerInfoForWorkCenter",
                 "SourceSection" : "DynamicThingShapes_PTC.ProductionDashboard.Management_TS",
-                "TargetArea" : "UI",
-                "TargetId" : "mashupcontainer-9",
-                "TargetSection" : ""
-              }, {
-                "Id" : "3b7e6215-f87f-43c0-a762-629c6f80e191",
-                "PropertyMaps" : [ {
-                  "SourceProperty" : "workCenterThingName",
-                  "SourcePropertyBaseType" : "THINGNAME",
-                  "SourcePropertyType" : "property",
-                  "TargetProperty" : "workCenterThingname",
-                  "TargetPropertyBaseType" : "THINGNAME",
-                  "TargetPropertyType" : "property"
-                } ],
-                "SourceArea" : "Mashup",
-                "SourceId" : "mashup-root",
-                "SourceSection" : "",
                 "TargetArea" : "UI",
                 "TargetId" : "mashupcontainer-9",
                 "TargetSection" : ""
@@ -914,7 +922,7 @@
                 "TargetId" : "mashup-root",
                 "TargetSection" : ""
               }, {
-                "Id" : "5c0665f6-2b45-4e60-9319-b0a01ac1f942",
+                "Id" : "69f3b1d7-5fe8-4cf3-b03b-20af47bda19d",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Output",
                   "SourcePropertyBaseType" : "BOOLEAN",
@@ -948,23 +956,7 @@
                 "TargetId" : "expression2-54",
                 "TargetSection" : ""
               }, {
-                "Id" : "895f8484-a12c-4c68-8ee1-bd6c14749d14",
-                "PropertyMaps" : [ {
-                  "SourceProperty" : "Output",
-                  "SourcePropertyBaseType" : "BOOLEAN",
-                  "SourcePropertyType" : "Property",
-                  "TargetProperty" : "Disabled",
-                  "TargetPropertyBaseType" : "BOOLEAN",
-                  "TargetPropertyType" : "property"
-                } ],
-                "SourceArea" : "UI",
-                "SourceId" : "expression2-54",
-                "SourceSection" : "",
-                "TargetArea" : "UI",
-                "TargetId" : "ptcsbutton-40",
-                "TargetSection" : ""
-              }, {
-                "Id" : "85baa755-4f24-4165-b08a-38c5e9e441dc",
+                "Id" : "fdf28e2f-33f3-43a1-aa3e-3af25376d319",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Output",
                   "SourcePropertyBaseType" : "BOOLEAN",
@@ -1011,6 +1003,208 @@
                 "TargetArea" : "UI",
                 "TargetId" : "mashupcontainer-9",
                 "TargetSection" : ""
+              }, {
+                "Id" : "d72e2747-8210-4761-bbf7-9284de4c29bd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "selectedReason",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "selectedReason",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "bf3be970-313b-4622-9459-00ed92db28ac",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "workUnitName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "workUnitName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "d816c90c-592a-45b3-acea-c06f52c836bb",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "workUnitName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "workUnitName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetThingNameFromCMTAsset",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "1e1ea8b3-d574-4574-ac9d-a911d104f7c1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "workCenterThingname",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetThingNameFromCMTAsset",
+                "SourceSection" : "Things_BSTN.NOTEvent.Manager",
+                "TargetArea" : "UI",
+                "TargetId" : "mashupcontainer-9",
+                "TargetSection" : ""
+              }, {
+                "Id" : "22b3eb71-0d36-4e39-b34b-3760623bfe59",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "currentEvent",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "CreateEvent",
+                "SourceSection" : "Things_BSTN.NOTEvent.Manager",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a6223549-77d6-498a-995b-9ddc570e922b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "workUnitName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "workUnitName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "e4ec059a-a201-41a4-b422-06d014cf4012",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "currentEvent",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "SubProperty" : "eventUid",
+                  "TargetProperty" : "eventUid",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "AllData",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "4e10bba1-b720-4334-ad75-56433fd2b61a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "currentEvent",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "SubProperty" : "eventUid",
+                  "TargetProperty" : "eventUid",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "AllData",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EndNOTEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "da4fd0f5-69c3-4b0c-895e-2abb6924c307",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "currentEvent",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "property",
+                  "SubProperty" : "eventTime",
+                  "TargetProperty" : "NOTStartTime",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "AllData",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "27da0056-3588-4729-96a0-1b4ec1e00470",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "currentEvent",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "property",
+                  "SubProperty" : "eventTime",
+                  "TargetProperty" : "NOTStartTime",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "AllData",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EndNOTEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "c7d609ff-19b5-49f3-86cf-7333e7b75d38",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "workUnitName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "workUnitName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EndNOTEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "bbd04294-4ca4-4019-b0c4-9082275c6446",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "selectedReason",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "selectedReason",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EndNOTEvent",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
               } ],
               "DesignTimePermissions" : { },
               "Events" : [ {
@@ -1039,7 +1233,7 @@
                 "EventTriggerEvent" : "Clicked",
                 "EventTriggerId" : "ptcsbutton-39",
                 "EventTriggerSection" : "",
-                "Id" : "b91abad7-4a3a-4ff8-a424-7f3159e7e752"
+                "Id" : "d8030c36-9135-43f5-86b1-63d86e8093b6"
               }, {
                 "EventHandlerArea" : "UI",
                 "EventHandlerId" : "expression2-51",
@@ -1048,7 +1242,7 @@
                 "EventTriggerEvent" : "Clicked",
                 "EventTriggerId" : "ptcsbutton-41",
                 "EventTriggerSection" : "",
-                "Id" : "38097ba9-934c-4df1-8a41-026ec83828a1"
+                "Id" : "a6a45e15-2b1f-4b7c-a604-cbbfe716d248"
               }, {
                 "EventHandlerArea" : "UI",
                 "EventHandlerId" : "expression2-54",
@@ -1070,21 +1264,39 @@
               }, {
                 "EventHandlerArea" : "Data",
                 "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
-                "EventHandlerService" : "GetWorkCenterThingname",
-                "EventTriggerArea" : "Mashup",
-                "EventTriggerEvent" : "Loaded",
-                "EventTriggerId" : "mashup-root",
-                "EventTriggerSection" : "",
-                "Id" : "bc5ea7c6-988f-468e-a068-70f754493453"
-              }, {
-                "EventHandlerArea" : "Data",
-                "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
                 "EventHandlerService" : "GetThingNameFromCMTAsset",
                 "EventTriggerArea" : "Mashup",
                 "EventTriggerEvent" : "Loaded",
                 "EventTriggerId" : "mashup-root",
                 "EventTriggerSection" : "",
-                "Id" : "169f073f-8b69-4d4b-b4ca-e17dc55629a6"
+                "Id" : "58f2f4cf-da8f-40bf-b3e9-24257e462165"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
+                "EventHandlerService" : "CreateEvent",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "95c6f5f4-05f7-4a8d-a4f8-00c78b4a315c"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
+                "EventHandlerService" : "UpdateEvent",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "ptcsbutton-39",
+                "EventTriggerSection" : "",
+                "Id" : "949379cd-dbcd-49f7-a199-fdaba21ca757"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
+                "EventHandlerService" : "EndNOTEvent",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "ptcsbutton-41",
+                "EventTriggerSection" : "",
+                "Id" : "89f30f30-1f9f-4d30-93bf-47af63ed5f59"
               } ],
               "Reminders" : [ ],
               "RunTimePermissions" : { },
@@ -1496,6 +1708,15 @@
                   "Z-index" : 10,
                   "__TypeDisplayName" : "Mashup",
                   "_currentParameterDefs" : [ {
+                    "Aspects" : {
+                      "bindingDirection" : "BOTH",
+                      "dataShape" : "PTC.OperationKPI.AllEvents",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "INFOTABLE",
+                    "Description" : "",
+                    "ParameterName" : "currentEvent"
+                  }, {
                     "Aspects" : {
                       "bindingDirection" : "BOTH",
                       "isMandatory" : false
@@ -3553,7 +3774,7 @@
                           "ButtonType" : "primary",
                           "ContextID" : "",
                           "CustomClass" : "PTCPDCancelButton",
-                          "Disabled" : false,
+                          "Disabled" : true,
                           "DisplayName" : "ptcs-button-40",
                           "Id" : "ptcsbutton-40",
                           "Label" : "Create BAMM Work Order",

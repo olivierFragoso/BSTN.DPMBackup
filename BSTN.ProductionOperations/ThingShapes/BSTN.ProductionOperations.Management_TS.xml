@@ -58,18 +58,18 @@
                  name="CheckExistentMaterial">
                     <ResultType
                      baseType="BOOLEAN"
-                     description=""
+                     description="Returns true if material we are searching for exists. "
                      name="result"
                      ordinal="0"></ResultType>
                     <ParameterDefinitions>
                         <FieldDefinition
                          baseType="STRING"
-                         description=""
+                         description="The material we are checking that exists"
                          name="material"
                          ordinal="2"></FieldDefinition>
                         <FieldDefinition
                          baseType="STRING"
-                         description=""
+                         description="WorkunitThingName to search for materials"
                          name="workUnitThingName"
                          ordinal="1"></FieldDefinition>
                     </ParameterDefinitions>
@@ -93,7 +93,7 @@
                         <FieldDefinition
                          aspect.dataShape="JobOrderDetails_DS"
                          baseType="INFOTABLE"
-                         description=""
+                         description="Infotable containing jobOrderDetails to start the JobOrders"
                          name="jobOrderCreationInfoTable"
                          ordinal="1"></FieldDefinition>
                     </ParameterDefinitions>
@@ -101,15 +101,33 @@
                 <ServiceDefinition
                  aspect.isAsync="false"
                  category=""
-                 description=""
+                 description="Service that follows the Production Operation Logic and creates and starts orders, updates quantity, checks for material and add changeovers accordingly."
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="JobOrderProcess">
+                    <ResultType
+                     aspect.dataShape="JobOrderDetails_DS"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Service that obtains the Production Operation Data through the GABE Interface."
                  isAllowOverride="false"
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
                  name="ProcessProductionOperationData">
                     <ResultType
-                     baseType="NOTHING"
-                     description=""
+                     aspect.dataShape="JobOrderDetails_DS"
+                     baseType="INFOTABLE"
+                     description="Infotable returned from gabe containing all the Production Operations Data"
                      name="result"
                      ordinal="0"></ResultType>
                     <ParameterDefinitions></ParameterDefinitions>
@@ -133,7 +151,7 @@
                 <ServiceDefinition
                  aspect.isAsync="false"
                  category=""
-                 description=""
+                 description="Service for updating the Production quantity of the current WU"
                  isAllowOverride="false"
                  isLocalOnly="false"
                  isOpen="false"
@@ -298,14 +316,14 @@
                                     
                                     		//Getting the workunit thingname
                                     		// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(WorkUnitName_DS)
-                                    		workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    		let workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
                                     			infoTableName: "InfoTable",
                                     			dataShapeName: "WorkUnitName_DS"
                                     		});
                                     
                                     		workUnitItemInfotable.item = row.workUnit;
                                     
-                                    		resultingWorkUnitItemInfotable = Things["PTC.MfgModelImpl.Manager"].GetModelsByName({
+                                    		let resultingWorkUnitItemInfotable = Things["PTC.MfgModelImpl.Manager"].GetModelsByName({
                                     			modelNames: workUnitItemInfotable
                                     		});
                                     
@@ -352,6 +370,7 @@
                                     			});
                                     
                                                 //let newDateTime = txnTimestamp.setSeconds(txnTimestamp.getSeconds() + 3);
+                                                let newDateTime = new Date();
                                                 
                                     			infotableUpdateJobOrder.name = "PTCJobOrderID";
                                     			infotableUpdateJobOrder.quality = "Good";
@@ -366,6 +385,61 @@
                                     } catch (err) {
                                     	throw err;
                                     }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="JobOrderProcess">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    //Process Production Operation Data
+                                    let jobOrderDetailsInfotable = me.ProcessProductionOperationData();
+                                    
+                                    jobOrderDetailsInfotable.rows.toArray().forEach(row => {
+                                        
+                                        //Check if it is JOCreation, JOQtyProduced or JOChangeOver
+                                        
+                                        //Check if material is different
+                                        
+                                        //Calculate Changeover
+                                        
+                                        //Check if material exists within DPM
+                                    	if (row.ID === 12348) {
+                                    		row.Material = "ABA1BFP";
+                                    		row.EventType = "JOCreation";
+                                    	}
+                                        
+                                        //Create Job order
+                                    });
+                                    
+                                    
+                                    result = jobOrderDetailsInfotable;
+                                    
+                                    //Return jobOrderDetails and update
                                     ]]>
                                     </code>
                                 </Row>
@@ -395,7 +469,12 @@
                             </DataShape>
                             <Rows>
                                 <Row>
-                                    <code></code>
+                                    <code>
+                                    <![CDATA[
+                                    // result: INFOTABLE dataShape: "BSTN.GABEInterface.JobOrderDetails.DS"
+                                    let result = Things["BSTN.GABEInterface.Manager"].GetProductionOperationsData();
+                                    ]]>
+                                    </code>
                                 </Row>
                             </Rows>
                         </ConfigurationTable>
@@ -461,6 +540,7 @@
                                     let txnTimestamp;
                                     let result;
                                     
+                                    
                                     try {
                                     	JobOrderDetails.rows.toArray().forEach(row => {
                                     		eventType = row.eventType;
@@ -468,34 +548,39 @@
                                     		material = row.material;
                                     		txnQuantity = row.txnQuantity;
                                     		txnTimestamp = row.txnTimestamp;
-                                            
-                                            workUnitItemInfotable.item = row.workUnit;
+                                    
+                                    		let workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    			infoTableName: "InfoTable",
+                                    			dataShapeName: "WorkUnitName_DS"
+                                    		});
+                                    
+                                    		workUnitItemInfotable.item = row.workUnit;
                                     
                                     		resultingWorkUnitItemInfotable = Things["PTC.MfgModelImpl.Manager"].GetModelsByName({
                                     			modelNames: workUnitItemInfotable
                                     		});
                                     
                                     		workUnit = resultingWorkUnitItemInfotable.thingName;
-                                    		
-                                            //Updating the quantity using the updatePropertyValues service
+                                    
+                                    		//Updating the quantity using the updatePropertyValues service
                                     		if (eventType === "JOQtyProduced") {
-                                                
-                                                // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(NamedVTQ)
-                                                let infotableUpdateQuantity = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
-                                                	infoTableName: "InfoTable",
-                                                	dataShapeName: "NamedVTQ"
-                                                });
-                                                
-                                                infotableUpdateQuantity.name = "PTCProductionCount";
-                                                infotableUpdateQuantity.quality = "Good";
-                                                infotableUpdateQuantity.time = txnTimestamp;
-                                                infotableUpdateQuantity.value = txnQuantity;
-                                                
+                                    
+                                    			// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(NamedVTQ)
+                                    			let infotableUpdateQuantity = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    				infoTableName: "InfoTable",
+                                    				dataShapeName: "NamedVTQ"
+                                    			});
+                                    
+                                    			infotableUpdateQuantity.name = "PTCProductionCount";
+                                    			infotableUpdateQuantity.quality = "Good";
+                                    			infotableUpdateQuantity.time = txnTimestamp;
+                                    			infotableUpdateQuantity.value = txnQuantity;
+                                    
                                     			Things[workUnit].UpdatePropertyValues({
                                     				values: infotableUpdateQuantity /* INFOTABLE {"dataShape":"NamedVTQ"} */
                                     			});
-                                                
-                                                result = infotableUpdateQuantity;
+                                    
+                                    			result = infotableUpdateQuantity;
                                     		}
                                     	});
                                     } catch (err) {

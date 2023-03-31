@@ -3,21 +3,14 @@
  majorVersion="9"
  minorVersion="3"
  universal="password">
-    <Projects>
-        <Project
-         artifactId=""
-         aspect.projectType="Component"
-         dependsOn="{&quot;extensions&quot;:&quot;PTC.Base:1.2.1,PTC.ProductionDashboard:1.2.1,PTC.ModelManagement:1.2.1,PTC.MfgModel:1.2.1,PTC.OperationKPI:1.2.1,PTC.ReasonCode:1.2.1,PTC.OperationKPIImpl:1.2.1&quot;,&quot;projects&quot;:&quot;PTC.Base:0.0.0,BSTN.GABEInterface:1.0.0&quot;}"
+    <DataShapes>
+        <DataShape
+         baseDataShape=""
          description=""
          documentationContent=""
-         groupId=""
          homeMashup=""
-         minPlatformVersion=""
-         name="BSTN.NOTEvent"
-         packageVersion="1.0.0"
+         name="BSTN.NOTEvent.ChangeNOT_DS"
          projectName="BSTN.NOTEvent"
-         publishResult=""
-         state="DRAFT"
          tags="">
             <avatar></avatar>
             <DesignTimePermissions>
@@ -33,6 +26,7 @@
             </VisibilityPermissions>
             <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
             <ConfigurationTables></ConfigurationTables>
-        </Project>
-    </Projects>
+            <FieldDefinitions></FieldDefinitions>
+        </DataShape>
+    </DataShapes>
 </Entities>

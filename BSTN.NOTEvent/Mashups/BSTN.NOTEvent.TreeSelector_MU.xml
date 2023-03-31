@@ -2050,6 +2050,39 @@
                 "TargetArea" : "UI",
                 "TargetId" : "ptcsdropdown-44",
                 "TargetSection" : ""
+              }, {
+                "Id" : "2bac0643-9ab9-4b9f-a532-7bac4324b386",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "workUnitName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "workUnitName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetThingNameFromCMTAsset",
+                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+              }, {
+                "Id" : "6db72c06-7efc-412b-9a7f-f6f4bc9e1a28",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "workCenterThingname",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetThingNameFromCMTAsset",
+                "SourceSection" : "Things_BSTN.NOTEvent.Manager",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
               } ],
               "DesignTimePermissions" : { },
               "Events" : [ {
