@@ -220,7 +220,7 @@
                             <value></value>
                         </Row>
                         <Row>
-                            <lastUpdateTime>1970-01-01T00:00:00.000Z</lastUpdateTime>
+                            <lastUpdateTime>2023-04-04T17:29:52.210Z</lastUpdateTime>
                             <name>
                             <![CDATA[
                             UseGitCommitUserValues
@@ -254,7 +254,14 @@
                     </Rows>
                 </ConfigurationTable>
             </ConfigurationTables>
-            <PersistentValues></PersistentValues>
+            <PersistentValues>
+                <PersistentValue
+                 name="IDE_LicenseClicked">
+                <![CDATA[
+                {"IDE_LicenseClicked":true}
+                ]]>
+                </PersistentValue>
+            </PersistentValues>
         </User>
     </Users>
 </Entities>

@@ -223,7 +223,7 @@
                                     // returns 0 if SQL Command failed, returns 1 if SQL Command successful
                                     
                                     // result: NUMBER
-                                    let result = Things["BSTN.GABEInterface.SQLThingUtility"].CallDeleteProcessedNOT({
+                                    let result = Things["BSTN.GABEInterface.SQLThingUtility"].CallDeleteCompletedNOT({
                                     	WorkUnit: WorkUnit /* STRING [Required] */
                                     });
                                     ]]>

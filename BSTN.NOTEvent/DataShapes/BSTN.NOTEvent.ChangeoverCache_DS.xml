@@ -9,8 +9,8 @@
          description=""
          documentationContent=""
          homeMashup=""
-         name="JobOrderDetails_DS"
-         projectName="BSTN.ProductionOperations"
+         name="BSTN.NOTEvent.ChangeoverCache_DS"
+         projectName="BSTN.NOTEvent"
          tags="">
             <avatar></avatar>
             <DesignTimePermissions>
@@ -29,58 +29,40 @@
             <FieldDefinitions>
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
-                 baseType="INTEGER"
-                 description=""
-                 name="Duration"
-                 ordinal="26"></FieldDefinition>
-                <FieldDefinition
-                 aspect.isPrimaryKey="false"
                  baseType="STRING"
                  description=""
-                 name="EventType"
-                 ordinal="20"></FieldDefinition>
-                <FieldDefinition
-                 aspect.isPrimaryKey="true"
-                 baseType="INTEGER"
-                 description=""
-                 name="ID"
-                 ordinal="19"></FieldDefinition>
-                <FieldDefinition
-                 aspect.isPrimaryKey="false"
-                 baseType="STRING"
-                 description=""
-                 name="JobOrderID"
-                 ordinal="21"></FieldDefinition>
-                <FieldDefinition
-                 aspect.isPrimaryKey="false"
-                 baseType="STRING"
-                 description=""
-                 name="Material"
-                 ordinal="22"></FieldDefinition>
-                <FieldDefinition
-                 aspect.isPrimaryKey="false"
-                 baseType="BOOLEAN"
-                 description=""
-                 name="Processed"
-                 ordinal="27"></FieldDefinition>
-                <FieldDefinition
-                 aspect.isPrimaryKey="false"
-                 baseType="INTEGER"
-                 description=""
-                 name="TxnQuantity"
-                 ordinal="24"></FieldDefinition>
+                 name="changeType"
+                 ordinal="6"></FieldDefinition>
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
                  baseType="DATETIME"
                  description=""
-                 name="TxnTimestamp"
-                 ordinal="25"></FieldDefinition>
+                 name="endStdChangeTime"
+                 ordinal="5"></FieldDefinition>
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
                  baseType="STRING"
                  description=""
-                 name="WorkUnit"
-                 ordinal="23"></FieldDefinition>
+                 name="eventComments"
+                 ordinal="4"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="DATETIME"
+                 description=""
+                 name="NOTEndTime"
+                 ordinal="3"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="DATETIME"
+                 description=""
+                 name="NOTStartTime"
+                 ordinal="2"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="STRING"
+                 description=""
+                 name="workUnitName"
+                 ordinal="1"></FieldDefinition>
             </FieldDefinitions>
         </DataShape>
     </DataShapes>

@@ -23,10 +23,10 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
-                 name="CreateEvent">
+                 name="CreateChangeoverEvents">
                     <ResultType
                      aspect.dataShape="PTC.OperationKPI.AllEvents"
-                     baseType="INFOTABLE"
+                     baseType="NOTHING"
                      description=""
                      name="result"
                      ordinal="0"></ResultType>
@@ -35,7 +35,7 @@
                          baseType="STRING"
                          description=""
                          name="workUnitName"
-                         ordinal="4"></FieldDefinition>
+                         ordinal="8"></FieldDefinition>
                     </ParameterDefinitions>
                 </ServiceDefinition>
                 <ServiceDefinition
@@ -64,6 +64,7 @@
                  isPrivate="false"
                  name="EndNOTEvent">
                     <ResultType
+                     aspect.dataShape="PTC.OperationKPI.AllEvents"
                      baseType="NOTHING"
                      description=""
                      name="result"
@@ -75,16 +76,12 @@
                          name="eventComments"
                          ordinal="5"></FieldDefinition>
                         <FieldDefinition
-                         baseType="STRING"
-                         description=""
-                         name="eventUid"
-                         ordinal="4"></FieldDefinition>
-                        <FieldDefinition
                          baseType="DATETIME"
                          description=""
                          name="NOTStartTime"
                          ordinal="1"></FieldDefinition>
                         <FieldDefinition
+                         aspect.dataShape="PTC.ReasonCode.ReasonTreeGrid"
                          baseType="INFOTABLE"
                          description=""
                          name="selectedReason"
@@ -104,9 +101,71 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
+                 name="example">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetModelUidFromCMTAsset">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="workUnitName"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetNOTCategory">
+                    <ResultType
+                     aspect.dataShape="PTC.ReasonCode.ReasonTreeGrid"
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.dataShape="PTC.ReasonCode.ReasonTreeGrid"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="NOTReason"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
                  name="GetNOTDuration">
                     <ResultType
-                     baseType="NUMBER"
+                     baseType="INTEGER"
                      description=""
                      name="result"
                      ordinal="0"></ResultType>
@@ -126,7 +185,30 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
-                 name="GetProductionAccountingData">
+                 name="GetNOTReason">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.dataShape="PTC.ReasonCode.ReasonTreeGrid"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="NOTReason"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetProductionBlockAtNOTStart">
                     <ResultType
                      aspect.dataShape="PTC.OperationKPI.ProductionBlock"
                      baseType="INFOTABLE"
@@ -154,7 +236,30 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
-                 name="GetThingNameFromCMTAsset">
+                 name="GetWorkCenterThingNameFromCMTAsset">
+                    <ResultType
+                     aspect.dataShape="RootEntityList"
+                     baseType="THINGNAME"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="workUnitName"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetWorkUnitThingNameFromCMTAsset">
                     <ResultType
                      baseType="THINGNAME"
                      description=""
@@ -208,49 +313,6 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
-                 name="UpdateEvent">
-                    <ResultType
-                     aspect.dataShape="PTC.OperationKPI.AllEvents"
-                     baseType="INFOTABLE"
-                     description=""
-                     name="result"
-                     ordinal="0"></ResultType>
-                    <ParameterDefinitions>
-                        <FieldDefinition
-                         baseType="STRING"
-                         description=""
-                         name="eventComments"
-                         ordinal="6"></FieldDefinition>
-                        <FieldDefinition
-                         baseType="STRING"
-                         description=""
-                         name="eventUid"
-                         ordinal="4"></FieldDefinition>
-                        <FieldDefinition
-                         baseType="DATETIME"
-                         description=""
-                         name="NOTStartTime"
-                         ordinal="3"></FieldDefinition>
-                        <FieldDefinition
-                         baseType="INFOTABLE"
-                         description=""
-                         name="selectedReason"
-                         ordinal="6"></FieldDefinition>
-                        <FieldDefinition
-                         baseType="STRING"
-                         description=""
-                         name="workUnitName"
-                         ordinal="8"></FieldDefinition>
-                    </ParameterDefinitions>
-                </ServiceDefinition>
-                <ServiceDefinition
-                 aspect.isAsync="false"
-                 category=""
-                 description=""
-                 isAllowOverride="false"
-                 isLocalOnly="false"
-                 isOpen="false"
-                 isPrivate="false"
                  name="UpdateNOTReason">
                     <ResultType
                      baseType="NOTHING"
@@ -259,7 +321,8 @@
                      ordinal="0"></ResultType>
                     <ParameterDefinitions>
                         <FieldDefinition
-                         baseType="STRING"
+                         aspect.dataShape="PTC.ReasonCode.ReasonTreeGrid"
+                         baseType="INFOTABLE"
                          description=""
                          name="selectedReason"
                          ordinal="2"></FieldDefinition>
@@ -277,7 +340,7 @@
                 <ServiceImplementation
                  description=""
                  handlerName="Script"
-                 name="CreateEvent">
+                 name="CreateChangeoverEvents">
                     <ConfigurationTables>
                         <ConfigurationTable
                          dataShapeName=""
@@ -298,43 +361,111 @@
                                 <Row>
                                     <code>
                                     <![CDATA[
-                                    // Initialize
-                                    let impact = 1;
-                                    // Get thing name from passed workUnitName
-                                    let thingName = me.GetThingNameFromCMTAsset({
+                                    let workUnit = me.GetWorkUnitThingNameFromCMTAsset({
                                     	workUnitName: workUnitName /* STRING */
                                     });
-                                    // Get new date to use as start time
-                                    let NOTStartTime = new Date();
-                                    // Get current production block at time of event
-                                    let productionBlock = me.GetProductionAccountingData({
-                                    	thingName: thingName /* THINGNAME */,
-                                    	NOTStartTime: NOTStartTime /* DATETIME */
+                                    
+                                    cached = Things[workUnit].cachedChangeover;
+                                    
+                                    let modelUid = me.GetModelUidFromCMTAsset({
+                                    	workUnitName: workUnitName /* STRING */
                                     });
+                                    
+                                    // Get Production block for beginning of NOT Event
+                                    let productionBlock = me.GetProductionBlockAtNOTStart({
+                                    	thingName: workUnit /* THINGNAME */,
+                                    	NOTStartTime: cached.NOTStartTime /* DATETIME */
+                                    });
+                                    
+                                    // initialize change reason
+                                    let stdChangeReason = cached.changeType + " Change Criteria";
+                                    
+                                    // check if Change Delay is present
+                                    let isChangeDelay = false;
+                                    if(cached.endStdChangeTime < cached.NOTEndTime){
+                                        isChangeDelay = true;
+                                    }
+                                    
+                                    // calculate std change impact
+                                    let stdChangeImpact = 1;
+                                    if (isChangeDelay){
+                                        stdChangeImpact = Math.trunc((cached.endStdChangeTime - cached.NOTStartTime)/60000);
+                                    } else {
+                                        stdChangeImpact = Math.trunc((cached.NOTEndTime - cached.NOTStartTime)/60000);
+                                    }
+                                    
+                                    // Get reasonCodeElements for std change
+                                    let stdChangeReasonCodeElements = getReasonCodeElements("7", modelUid, stdChangeReason);
                                     
                                     // result: INFOTABLE dataShape: "PTC.OperationKPI.AllEvents"
                                     let result = Things["PTC.ProductionDashboard.Manager"].CreateOrUpdateEvent({
-                                    	comments: undefined /* STRING */,
+                                    	comments: cached.eventComments /* STRING */,
                                     	eventCategory: undefined /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
                                     	eventUid: undefined /* STRING */,
-                                    	impact: impact /* NUMBER [Required] */,
+                                    	impact: stdChangeImpact /* NUMBER [Required] */,
                                     	reallocateFromGoodCount: undefined /* BOOLEAN {"defaultValue":false} */,
-                                    	thingName: thingName /* THINGNAME [Required] */,
+                                    	thingName: workUnit /* THINGNAME [Required] */,
                                     	productionBlock: productionBlock /* INFOTABLE [Required] {"dataShape":"PTC.ProductionDashboard.ProductionBlock"} */,
-                                    	dataShapeName: undefined /* DATASHAPENAME */,
-                                    	isAutomation: undefined /* BOOLEAN {"defaultValue":false} */,
-                                    	reasonCodeElements: undefined /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
-                                    	eventTime: NOTStartTime /* DATETIME */,
-                                    	modelUid: undefined /* STRING */,
+                                    	dataShapeName: "PTC.OperationKPI.LossEvent" /* DATASHAPENAME */,
+                                    	isAutomation: false /* BOOLEAN {"defaultValue":false} */,
+                                    	reasonCodeElements: stdChangeReasonCodeElements /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                    	eventTime: cached.NOTStartTime /* DATETIME */,
+                                    	modelUid: modelUid /* STRING */,
                                     	reasonModelUid: undefined /* STRING */,
                                     	sourceEventUid: undefined /* STRING */
                                     });
                                     
-                                    //Update event to GABE
-                                    me.UpdateNOTReason({
-                                    	workUnitName: workUnitName /* STRING */,
-                                    	selectedReason: "Unknown" /* STRING */
-                                    });
+                                    // If change delay present run again
+                                    if(isChangeDelay){
+                                        // Get Change Delay Impact
+                                        let changeDelayImpact = Math.trunc((cached.NOTEndTime - cached.endStdChangeTime)/60000);
+                                        
+                                        // Get reasonCodeElements for std change
+                                        let changeDelayReason = cached.changeType + " Change Delay";
+                                    	let changeDelayReasonCodeElements = getReasonCodeElements("7", modelUid, changeDelayReason); 
+                                        // result: INFOTABLE dataShape: "PTC.OperationKPI.AllEvents"
+                                        let result = Things["PTC.ProductionDashboard.Manager"].CreateOrUpdateEvent({
+                                        	comments: cached.eventComments /* STRING */,
+                                        	eventCategory: undefined /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                        	eventUid: undefined /* STRING */,
+                                        	impact: changeDelayImpact /* NUMBER [Required] */,
+                                        	reallocateFromGoodCount: undefined /* BOOLEAN {"defaultValue":false} */,
+                                        	thingName: workUnit /* THINGNAME [Required] */,
+                                        	productionBlock: productionBlock /* INFOTABLE [Required] {"dataShape":"PTC.ProductionDashboard.ProductionBlock"} */,
+                                        	dataShapeName: "PTC.OperationKPI.LossEvent" /* DATASHAPENAME */,
+                                        	isAutomation: false /* BOOLEAN {"defaultValue":false} */,
+                                        	reasonCodeElements: changeDelayReasonCodeElements /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                        	eventTime: cached.endStdChangeTime /* DATETIME */,
+                                        	modelUid: modelUid /* STRING */,
+                                        	reasonModelUid: undefined /* STRING */,
+                                        	sourceEventUid: undefined /* STRING */
+                                        });
+                                    }
+                                    
+                                    
+                                    
+                                    //functions
+                                    function getReasonCodeElements(reasonCategoryUid, modelUid, reasonName){
+                                        let reasonManager = "PTC.ReasonCodeImpl.Manager";
+                                        let reasonTree = Things[reasonManager].GetReasonTreeGrid({
+                                            includeReasonTypeNames: undefined /* STRING */,
+                                            onlyReasonCategories: false /* BOOLEAN {"defaultValue":false} */,
+                                            onlyEnabledReason: true /* BOOLEAN {"defaultValue":false} */,
+                                            filterReasonCategoryUid: reasonCategoryUid /* STRING */,
+                                            modelUid: modelUid /* STRING */,
+                                            materialMasterUid: undefined /* STRING */
+                                        });
+                                        return Resources["InfoTableFunctions"].Query({
+                                            t: reasonTree /* INFOTABLE */,
+                                            query: {
+                                              "filters":{
+                                              "type": "LIKE",
+                                              "fieldName": "reasonName",
+                                              "value": reasonName
+                                              }
+                                            } 
+                                        });
+                                    }
                                     ]]>
                                     </code>
                                 </Row>
@@ -394,28 +525,223 @@
                                 <Row>
                                     <code>
                                     <![CDATA[
-                                    me.UpdateEvent({
-                                    	NOTStartTime: NOTStartTime /* DATETIME */,
-                                    	eventUid: eventUid /* STRING */,
-                                    	selectedReason: selectedReason /* INFOTABLE */,
-                                    	eventComments: eventComments /* STRING */,
+                                    let impact = me.GetNOTDuration({
+                                    	NOTStartTime: NOTStartTime /* DATETIME */
+                                    });
+                                    
+                                    let workUnit = me.GetWorkUnitThingNameFromCMTAsset({
                                     	workUnitName: workUnitName /* STRING */
                                     });
                                     
-                                    me.CreateEvent({
+                                    let modelUid = me.GetModelUidFromCMTAsset({
                                     	workUnitName: workUnitName /* STRING */
                                     });
                                     
-                                    // result: INTEGER
-                                    Things["BSTN.GABEInterface.Manager"].UpdateNOTReasonCodeForCMT({
-                                    	WorkUnit: workUnitName /* STRING [Required] */,
-                                    	Reason: selectedReason.reasonName /* STRING [Required] */
+                                    // Get Production block for beginning of NOT Event
+                                    let productionBlock = me.GetProductionBlockAtNOTStart({
+                                    	thingName: workUnit /* THINGNAME */,
+                                    	NOTStartTime: NOTStartTime /* DATETIME */
                                     });
+                                    
+                                    // Get reasonCodeElements
+                                    let reasonCodeElements = getReasonCodeElements(selectedReason.reasonCategoryUid, modelUid, selectedReason.reasonName);
+                                    
+                                    // Check if Changeover NOT
+                                    if(selectedReason.reasonCategoryName == "Changeover"){
+                                        //Send to Changeover cache    
+                                        let NOTEndTime = new Date();
+                                        // BSTN.NOTEvent.ChangeoverCache_DS entry object
+                                        let newEntry = {
+                                            workUnitName: workUnitName, // STRING
+                                            NOTStartTime: NOTStartTime, // DATETIME
+                                            NOTEndTime: NOTEndTime, // DATETIME
+                                            eventComments: eventComments // STRING
+                                        };
+                                        
+                                        Things[workUnit].cachedChangeover.RemoveAllRows();
+                                        Things[workUnit].cachedChangeover.AddRow(newEntry);    
+                                    } else {
+                                        // result: INFOTABLE dataShape: "PTC.OperationKPI.AllEvents"
+                                        let result = Things["PTC.ProductionDashboard.Manager"].CreateOrUpdateEvent({
+                                        	comments: eventComments /* STRING */,
+                                        	eventCategory: undefined /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                        	eventUid: undefined /* STRING */,
+                                        	impact: impact /* NUMBER [Required] */,
+                                        	reallocateFromGoodCount: undefined /* BOOLEAN {"defaultValue":false} */,
+                                        	thingName: workUnit /* THINGNAME [Required] */,
+                                        	productionBlock: productionBlock /* INFOTABLE [Required] {"dataShape":"PTC.ProductionDashboard.ProductionBlock"} */,
+                                        	dataShapeName: "PTC.OperationKPI.LossEvent" /* DATASHAPENAME */,
+                                        	isAutomation: false /* BOOLEAN {"defaultValue":false} */,
+                                        	reasonCodeElements: reasonCodeElements /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                        	eventTime: NOTStartTime /* DATETIME */,
+                                        	modelUid: modelUid /* STRING */,
+                                        	reasonModelUid: undefined /* STRING */,
+                                        	sourceEventUid: undefined /* STRING */
+                                        });  
+                                    }
                                     
                                     // result: INTEGER
                                     Things["BSTN.GABEInterface.Manager"].DeleteCompletedNOT({
                                     	WorkUnit: workUnitName /* STRING [Required] */
                                     });
+                                    
+                                    
+                                    
+                                    //functions
+                                    function getReasonCodeElements(reasonCategoryUid, modelUid, reasonName){
+                                        let reasonManager = "PTC.ReasonCodeImpl.Manager";
+                                        let reasonTree = Things[reasonManager].GetReasonTreeGrid({
+                                            includeReasonTypeNames: undefined /* STRING */,
+                                            onlyReasonCategories: false /* BOOLEAN {"defaultValue":false} */,
+                                            onlyEnabledReason: true /* BOOLEAN {"defaultValue":false} */,
+                                            filterReasonCategoryUid: reasonCategoryUid /* STRING */,
+                                            modelUid: modelUid /* STRING */,
+                                            materialMasterUid: undefined /* STRING */
+                                        });
+                                        return Resources["InfoTableFunctions"].Query({
+                                            t: reasonTree /* INFOTABLE */,
+                                            query: {
+                                              "filters":{
+                                              "type": "LIKE",
+                                              "fieldName": "reasonName",
+                                              "value": reasonName
+                                              }
+                                            } 
+                                        });
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="example">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    //Get workUnitThingname from job order
+                                    
+                                    let cached = Things[workUnitThingname].cachedChangeover;
+                                    
+                                    // do your calculations here
+                                    	// use this to get your variables you need:
+                                    	//let NOTStartTime = cached[0].NOTStartTime;
+                                    
+                                    
+                                    // insert calculations here
+                                    	// use this to write back to infotable
+                                    	//cached[0].endSTDChangeTime = endStdChangeTime;
+                                    
+                                    
+                                    // call service to create events in DPM (GABE work unit name)
+                                    	Things["BSTN.NOTEvent.Manager"].CreateChangeoverEvents(workUnitName);
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetModelUidFromCMTAsset">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // Get Infotable of all Work Centers
+                                    	// result: INFOTABLE dataShape: "RootEntityList"
+                                    let workUnitList = ThingTemplates["PTC.MfgModel.DefaultWorkunit_TT"].GetImplementingThingsWithData();
+                                    // Query list of Work Centers for match
+                                    	// Provide your filter using the format as described in the help topic "Query Parameter for Query Services"
+                                    let query = {
+                                     "filters": {
+                                       "type": "LIKE",
+                                       "fieldName": "name",
+                                       "value": "*" + workUnitName
+                                     }
+                                    };
+                                    
+                                    let params = {
+                                      t: workUnitList /* INFOTABLE */,
+                                      query: query  /* QUERY */
+                                    };
+                                    
+                                    let workUnitInfo = Resources["InfoTableFunctions"].Query(params);
+                                    
+                                    //Pull Work Center Name from the data row
+                                    
+                                    let result = workUnitInfo.PTCModelUid;
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetNOTCategory">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let result = NOTReason.reasonCategoryName;
                                     ]]>
                                     </code>
                                 </Row>
@@ -450,7 +776,7 @@
                                     let currentTime = new Date();
                                     let startTime = NOTStartTime;
                                     let duration = (currentTime - startTime)/60000;
-                                    result = Math.round(duration);
+                                    let result = Math.trunc(duration);
                                     ]]>
                                     </code>
                                 </Row>
@@ -461,7 +787,39 @@
                 <ServiceImplementation
                  description=""
                  handlerName="Script"
-                 name="GetProductionAccountingData">
+                 name="GetNOTReason">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let result = NOTReason.reasonName;
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetProductionBlockAtNOTStart">
                     <ConfigurationTables>
                         <ConfigurationTable
                          dataShapeName=""
@@ -504,7 +862,7 @@
                 <ServiceImplementation
                  description=""
                  handlerName="Script"
-                 name="GetThingNameFromCMTAsset">
+                 name="GetWorkCenterThingNameFromCMTAsset">
                     <ConfigurationTables>
                         <ConfigurationTable
                          dataShapeName=""
@@ -547,7 +905,61 @@
                                     
                                     //Pull Work Center Name from the data row
                                     
-                                    result = workCenterInfo.name;
+                                    let result = workCenterInfo.name;
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetWorkUnitThingNameFromCMTAsset">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // Get Infotable of all Work Centers
+                                    	// result: INFOTABLE dataShape: "RootEntityList"
+                                    let workUnitList = ThingTemplates["PTC.MfgModel.DefaultWorkunit_TT"].GetImplementingThingsWithData();
+                                    // Query list of Work Centers for match
+                                    	// Provide your filter using the format as described in the help topic "Query Parameter for Query Services"
+                                    let query = {
+                                     "filters": {
+                                       "type": "LIKE",
+                                       "fieldName": "name",
+                                       "value": "*" + workUnitName
+                                     }
+                                    };
+                                    
+                                    let params = {
+                                      t: workUnitList /* INFOTABLE */,
+                                      query: query  /* QUERY */
+                                    };
+                                    
+                                    let workUnitInfo = Resources["InfoTableFunctions"].Query(params);
+                                    
+                                    //Pull Work Center Name from the data row
+                                    
+                                    let result = workUnitInfo.name;
                                     ]]>
                                     </code>
                                 </Row>
@@ -610,76 +1022,6 @@
                             <Rows>
                                 <Row>
                                     <code></code>
-                                </Row>
-                            </Rows>
-                        </ConfigurationTable>
-                    </ConfigurationTables>
-                </ServiceImplementation>
-                <ServiceImplementation
-                 description=""
-                 handlerName="Script"
-                 name="UpdateEvent">
-                    <ConfigurationTables>
-                        <ConfigurationTable
-                         dataShapeName=""
-                         description=""
-                         isMultiRow="false"
-                         name="Script"
-                         ordinal="0">
-                            <DataShape>
-                                <FieldDefinitions>
-                                    <FieldDefinition
-                                     baseType="STRING"
-                                     description="code"
-                                     name="code"
-                                     ordinal="0"></FieldDefinition>
-                                </FieldDefinitions>
-                            </DataShape>
-                            <Rows>
-                                <Row>
-                                    <code>
-                                    <![CDATA[
-                                    let thingName = me.GetThingNameFromCMTAsset({
-                                    	workUnitName: workUnitName /* STRING */
-                                    });
-                                    
-                                    let impact = me.GetNOTDuration({
-                                    	NOTStartTime: NOTStartTime /* DATETIME */
-                                    });
-                                    
-                                    let productionBlock = me.GetProductionAccountingData({
-                                    	thingName: thingName /* THINGNAME */,
-                                    	NOTStartTime: NOTStartTime /* DATETIME */
-                                    });
-                                    
-                                    let reasonModelUid = selectedReason.reasonModelUid;
-                                    let eventCategory = selectedReason.reasonCategoryName;
-                                    
-                                    
-                                    // result: INFOTABLE dataShape: "PTC.OperationKPI.AllEvents"
-                                    let result = Things["PTC.ProductionDashboard.Manager"].CreateOrUpdateEvent({
-                                    	comments: eventComments /* STRING */,
-                                    	eventCategory: eventCategory /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
-                                    	eventUid: eventUid /* STRING */,
-                                    	impact: impact /* NUMBER [Required] */,
-                                    	reallocateFromGoodCount: undefined /* BOOLEAN {"defaultValue":false} */,
-                                    	thingName: thingName /* THINGNAME [Required] */,
-                                    	productionBlock: productionBlock /* INFOTABLE [Required] {"dataShape":"PTC.ProductionDashboard.ProductionBlock"} */,
-                                    	dataShapeName: undefined /* DATASHAPENAME */,
-                                    	isAutomation: undefined /* BOOLEAN {"defaultValue":false} */,
-                                    	reasonCodeElements: undefined /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
-                                    	eventTime: NOTStartTime /* DATETIME */,
-                                    	modelUid: undefined /* STRING */,
-                                    	reasonModelUid: undefined /* STRING */,
-                                    	sourceEventUid: undefined /* STRING */
-                                    });
-                                    
-                                    me.UpdateNOTReason({
-                                    	workUnitName: workUnitName /* STRING */,
-                                    	selectedReason: selectedReason.reasonName /* STRING */
-                                    });
-                                    ]]>
-                                    </code>
                                 </Row>
                             </Rows>
                         </ConfigurationTable>

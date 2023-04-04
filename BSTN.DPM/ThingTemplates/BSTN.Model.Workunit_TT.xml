@@ -268,9 +268,25 @@
             <RemotePropertyBindings></RemotePropertyBindings>
             <RemoteServiceBindings></RemoteServiceBindings>
             <RemoteEventBindings></RemoteEventBindings>
-            <AlertConfigurations></AlertConfigurations>
+            <AlertConfigurations>
+                <AlertDefinitions
+                 name="cachedChangeover"></AlertDefinitions>
+            </AlertConfigurations>
             <ThingShape>
-                <PropertyDefinitions></PropertyDefinitions>
+                <PropertyDefinitions>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.dataShape="BSTN.NOTEvent.ChangeoverCache_DS"
+                     aspect.isIndexed="false"
+                     aspect.isPersistent="false"
+                     baseType="INFOTABLE"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="cachedChangeover"
+                     ordinal="2"></PropertyDefinition>
+                </PropertyDefinitions>
                 <ServiceDefinitions></ServiceDefinitions>
                 <EventDefinitions></EventDefinitions>
                 <ServiceMappings></ServiceMappings>
@@ -294,6 +310,9 @@
                  name="PTC.Status.ModelLogic_TS"
                  type="ThingShape"></ImplementedShape>
                 <ImplementedShape
+                 name="PTC.MaterialMaster.ModelLogic_TS"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
                  name="PTC.Shift.ModelLogic_TS"
                  type="ThingShape"></ImplementedShape>
                 <ImplementedShape
@@ -301,9 +320,6 @@
                  type="ThingShape"></ImplementedShape>
                 <ImplementedShape
                  name="PTC.OperationKPI.AnalysisModelLogic_TS"
-                 type="ThingShape"></ImplementedShape>
-                <ImplementedShape
-                 name="PTC.MaterialMaster.ModelLogic_TS"
                  type="ThingShape"></ImplementedShape>
             </ImplementedShapes>
             <SharedConfigurationTables>

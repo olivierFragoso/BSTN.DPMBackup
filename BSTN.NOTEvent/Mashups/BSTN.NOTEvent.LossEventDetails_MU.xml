@@ -249,14 +249,14 @@
                  aspect.isMandatory="false"
                  baseType="STRING"
                  description=""
-                 name="NOTcategory"
+                 name="NOTCategory"
                  ordinal="0"></FieldDefinition>
                 <FieldDefinition
                  aspect.bindingDirection="BOTH"
                  aspect.isMandatory="false"
                  baseType="STRING"
                  description=""
-                 name="NOTreason"
+                 name="NOTReason"
                  ordinal="0"></FieldDefinition>
                 <FieldDefinition
                  aspect.bindingDirection="BOTH"
@@ -392,22 +392,6 @@
                     "Parameters" : { },
                     "RefreshInterval" : 0,
                     "Target" : "GetNOTDuration"
-                  }, {
-                    "APIMethod" : "post",
-                    "Characteristic" : "Services",
-                    "Id" : "c98ae10f-84ff-4320-ac6f-ebcb1a3dc9b6",
-                    "Name" : "GetNOTEventCategory",
-                    "Parameters" : { },
-                    "RefreshInterval" : 0,
-                    "Target" : "GetNOTEventCategory"
-                  }, {
-                    "APIMethod" : "post",
-                    "Characteristic" : "Services",
-                    "Id" : "84fc9f0b-189e-4c7a-97a8-c9803b4d97c1",
-                    "Name" : "GetNOTEventReason",
-                    "Parameters" : { },
-                    "RefreshInterval" : 0,
-                    "Target" : "GetNOTEventReason"
                   } ]
                 },
                 "UserExtensions" : {
@@ -427,7 +411,7 @@
                 }
               },
               "DataBindings" : [ {
-                "Id" : "6ba5dcbc-bc9c-477f-bd91-5329ffe6231f",
+                "Id" : "7e72d536-8d61-4628-a4f4-c1c72a420007",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "comments",
                   "SourcePropertyBaseType" : "STRING",
@@ -444,7 +428,7 @@
                 "TargetId" : "ptcstextarea-20",
                 "TargetSection" : ""
               }, {
-                "Id" : "484e6279-0608-4961-b31b-951e6ba79532",
+                "Id" : "b94cd659-3b7e-4518-8276-9cf692b3bbec",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Text",
                   "SourcePropertyBaseType" : "STRING",
@@ -527,7 +511,7 @@
                 "TargetId" : "expression2-97",
                 "TargetSection" : ""
               }, {
-                "Id" : "46c3a327-621c-4f14-98e7-14d06421f5b7",
+                "Id" : "cfa218f6-7428-483a-b8b2-f7202fea06e2",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Text",
                   "SourcePropertyBaseType" : "STRING",
@@ -1093,59 +1077,7 @@
                 "TargetId" : "ptcslabel-111",
                 "TargetSection" : ""
               }, {
-                "Id" : "a1465c04-9771-43ee-81d1-6666fdc3f93b",
-                "PropertyMaps" : [ {
-                  "SourceProperty" : "result",
-                  "SourcePropertyBaseType" : "STRING",
-                  "SourcePropertyType" : "Field",
-                  "TargetProperty" : "LabelText",
-                  "TargetPropertyBaseType" : "STRING",
-                  "TargetPropertyType" : "property"
-                } ],
-                "SourceArea" : "Data",
-                "SourceDetails" : "AllData",
-                "SourceId" : "GetNOTEventCategory",
-                "SourceSection" : "Things_BSTN.NOTEvent.Manager",
-                "TargetArea" : "UI",
-                "TargetId" : "ptcslabel-89",
-                "TargetSection" : ""
-              }, {
-                "Id" : "91ea14cd-9d78-4ebb-857c-e5f38d8cd8c0",
-                "PropertyMaps" : [ {
-                  "SourceProperty" : "result",
-                  "SourcePropertyBaseType" : "STRING",
-                  "SourcePropertyType" : "Field",
-                  "TargetProperty" : "LabelText",
-                  "TargetPropertyBaseType" : "STRING",
-                  "TargetPropertyType" : "property"
-                } ],
-                "SourceArea" : "Data",
-                "SourceDetails" : "AllData",
-                "SourceId" : "GetNOTEventReason",
-                "SourceSection" : "Things_BSTN.NOTEvent.Manager",
-                "TargetArea" : "UI",
-                "TargetId" : "ptcslabel-90",
-                "TargetSection" : ""
-              }, {
-                "Id" : "83c66d20-1a30-4f08-af67-b8a45c5a90bb",
-                "PropertyMaps" : [ {
-                  "SourceProperty" : "selectedReason",
-                  "SourcePropertyBaseType" : "STRING",
-                  "SourcePropertyType" : "property",
-                  "SubProperty" : "reasonName",
-                  "TargetProperty" : "NOTReason",
-                  "TargetPropertyBaseType" : "STRING",
-                  "TargetPropertyType" : "Parameter"
-                } ],
-                "SourceArea" : "Mashup",
-                "SourceDetails" : "AllData",
-                "SourceId" : "mashup-root",
-                "SourceSection" : "",
-                "TargetArea" : "Data",
-                "TargetId" : "GetNOTEventReason",
-                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
-              }, {
-                "Id" : "bdace13f-66e7-46c3-a88c-576d68837075",
+                "Id" : "cca734a4-0c92-4e26-ae4c-721e023136af",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "selectedReason",
                   "SourcePropertyBaseType" : "STRING",
@@ -1163,23 +1095,37 @@
                 "TargetId" : "ptcstextfield-7",
                 "TargetSection" : ""
               }, {
-                "Id" : "a455b5d5-4023-4367-a8eb-b4c20ad83f9e",
+                "Id" : "840d702f-a126-4ded-8ba1-52312054b828",
                 "PropertyMaps" : [ {
-                  "SourceProperty" : "selectedReason",
+                  "SourceProperty" : "NOTReason",
                   "SourcePropertyBaseType" : "STRING",
                   "SourcePropertyType" : "property",
-                  "SubProperty" : "reasonCategoryName",
-                  "TargetProperty" : "NOTCategory",
+                  "TargetProperty" : "LabelText",
                   "TargetPropertyBaseType" : "STRING",
-                  "TargetPropertyType" : "Parameter"
+                  "TargetPropertyType" : "property"
                 } ],
                 "SourceArea" : "Mashup",
-                "SourceDetails" : "AllData",
                 "SourceId" : "mashup-root",
                 "SourceSection" : "",
-                "TargetArea" : "Data",
-                "TargetId" : "GetNOTEventCategory",
-                "TargetSection" : "Things_BSTN.NOTEvent.Manager"
+                "TargetArea" : "UI",
+                "TargetId" : "ptcslabel-90",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f51a5715-ca74-428c-83c7-49630f530e40",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "NOTCategory",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "LabelText",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "ptcslabel-89",
+                "TargetSection" : ""
               } ],
               "DesignTimePermissions" : { },
               "Events" : [ {
@@ -1208,7 +1154,7 @@
                 "EventTriggerEvent" : "Changed",
                 "EventTriggerId" : "ptcstextfield-7",
                 "EventTriggerSection" : "",
-                "Id" : "f10fd9c6-6441-4108-b817-9e15d52f53bb"
+                "Id" : "0a2061e0-702a-46e5-a6ad-2cec340a158c"
               }, {
                 "EventHandlerArea" : "UI",
                 "EventHandlerId" : "expression2-95",
@@ -1365,24 +1311,6 @@
               }, {
                 "EventHandlerArea" : "Data",
                 "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
-                "EventHandlerService" : "GetNOTEventCategory",
-                "EventTriggerArea" : "Mashup",
-                "EventTriggerEvent" : "SaveClickedChanged",
-                "EventTriggerId" : "mashup-root",
-                "EventTriggerSection" : "",
-                "Id" : "787929a8-619e-4ac5-82e3-ed9686e58f26"
-              }, {
-                "EventHandlerArea" : "Data",
-                "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
-                "EventHandlerService" : "GetNOTEventReason",
-                "EventTriggerArea" : "Mashup",
-                "EventTriggerEvent" : "SaveClickedChanged",
-                "EventTriggerId" : "mashup-root",
-                "EventTriggerSection" : "",
-                "Id" : "481a5464-a68c-4537-8135-5eeed8f197b0"
-              }, {
-                "EventHandlerArea" : "Data",
-                "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
                 "EventHandlerService" : "GetNOTDuration",
                 "EventTriggerArea" : "UI",
                 "EventTriggerEvent" : "Refresh",
@@ -1414,6 +1342,8 @@
                   "MashupToEditGadget" : "DefaultMashupToEditGadget",
                   "MinHeight" : 0,
                   "MinWidth" : 0,
+                  "NOTCategory" : "Unknown",
+                  "NOTReason" : "Unknown",
                   "ResponsiveLayout" : true,
                   "Rows" : 0,
                   "ShowDataLoading" : true,
@@ -1883,7 +1813,7 @@
                     },
                     "BaseType" : "STRING",
                     "Description" : "",
-                    "ParameterName" : "NOTreason"
+                    "ParameterName" : "NOTReason"
                   }, {
                     "Aspects" : {
                       "bindingDirection" : "BOTH",
@@ -1891,7 +1821,7 @@
                     },
                     "BaseType" : "STRING",
                     "Description" : "",
-                    "ParameterName" : "NOTcategory"
+                    "ParameterName" : "NOTCategory"
                   }, {
                     "Aspects" : {
                       "bindingDirection" : "IN",

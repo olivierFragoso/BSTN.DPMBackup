@@ -570,11 +570,11 @@
                   "Services" : [ {
                     "APIMethod" : "post",
                     "Characteristic" : "Services",
-                    "Id" : "07ea7530-9472-48d3-aee3-1b52f3495476",
-                    "Name" : "GetThingNameFromCMTAsset",
+                    "Id" : "ee66cf6c-6e81-4772-a3b5-d80d610177b2",
+                    "Name" : "GetWorkCenterThingNameFromCMTAsset",
                     "Parameters" : { },
                     "RefreshInterval" : 0,
-                    "Target" : "GetThingNameFromCMTAsset"
+                    "Target" : "GetWorkCenterThingNameFromCMTAsset"
                   } ]
                 },
                 "UserExtensions" : {
@@ -710,7 +710,7 @@
                 "TargetId" : "ptcsdropdown-44",
                 "TargetSection" : ""
               }, {
-                "Id" : "956eb355-5bad-4406-a10e-d460ec5663ec",
+                "Id" : "c69c2c4c-b52c-4df1-aa04-e4032b0f332a",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "showImpact",
                   "SourcePropertyBaseType" : "BOOLEAN",
@@ -742,7 +742,7 @@
                 "TargetId" : "ptcscheckbox-52",
                 "TargetSection" : ""
               }, {
-                "Id" : "770939ab-4c5f-4d1b-a5d5-a1e9db5c9fe5",
+                "Id" : "a7fc1170-44bf-45de-8f6d-495b9cbd21e6",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Output",
                   "SourcePropertyBaseType" : "NUMBER",
@@ -925,7 +925,7 @@
                 "TargetId" : "ptcsdropdown-44",
                 "TargetSection" : ""
               }, {
-                "Id" : "c1e9f225-2ba3-415b-9b76-fd7f14757e94",
+                "Id" : "4af1b06d-7484-4533-a698-aa35a5fd32e8",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "impactLabelText",
                   "SourcePropertyBaseType" : "STRING",
@@ -958,7 +958,7 @@
                 "TargetId" : "ptcscheckbox-52",
                 "TargetSection" : ""
               }, {
-                "Id" : "d31ad037-6b9a-4859-9ba0-c1dec7b776cf",
+                "Id" : "b8085ac6-d578-49ee-a266-df0f589cbb43",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Output",
                   "SourcePropertyBaseType" : "BOOLEAN",
@@ -1024,7 +1024,7 @@
                 "TargetId" : "expression2-64",
                 "TargetSection" : ""
               }, {
-                "Id" : "b576c1c9-c174-4ca8-b4d5-7f9b6cf70897",
+                "Id" : "49d37a2b-de60-4ce9-a286-4ad6723afe65",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Output",
                   "SourcePropertyBaseType" : "NUMBER",
@@ -1685,7 +1685,7 @@
                 "TargetId" : "expression2-92",
                 "TargetSection" : ""
               }, {
-                "Id" : "d8b81240-f3f3-4ea0-be32-554fb0950f09",
+                "Id" : "ac94dad8-2062-42c3-9a83-ac1437f98998",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Text",
                   "SourcePropertyBaseType" : "STRING",
@@ -1933,7 +1933,7 @@
                 "TargetId" : "ptcsimage-50",
                 "TargetSection" : ""
               }, {
-                "Id" : "7e23e08d-98cc-4286-9fb1-fb7506202d51",
+                "Id" : "dd519a26-24cd-4564-8f5c-a1d454157253",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "Text",
                   "SourcePropertyBaseType" : "STRING",
@@ -2034,24 +2034,7 @@
                 "TargetId" : "expression2-73",
                 "TargetSection" : ""
               }, {
-                "Id" : "8398a8b5-b6f0-4329-ac41-e56f1d827633",
-                "PropertyMaps" : [ {
-                  "SourceProperty" : "result",
-                  "SourcePropertyBaseType" : "THINGNAME",
-                  "SourcePropertyType" : "Field",
-                  "TargetProperty" : "SelectedText",
-                  "TargetPropertyBaseType" : "STRING",
-                  "TargetPropertyType" : "property"
-                } ],
-                "SourceArea" : "Data",
-                "SourceDetails" : "AllData",
-                "SourceId" : "GetThingNameFromCMTAsset",
-                "SourceSection" : "Things_BSTN.NOTEvent.Manager",
-                "TargetArea" : "UI",
-                "TargetId" : "ptcsdropdown-44",
-                "TargetSection" : ""
-              }, {
-                "Id" : "2bac0643-9ab9-4b9f-a532-7bac4324b386",
+                "Id" : "d398a321-392e-48c2-9d84-6e676e60eae6",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "workUnitName",
                   "SourcePropertyBaseType" : "STRING",
@@ -2064,10 +2047,10 @@
                 "SourceId" : "mashup-root",
                 "SourceSection" : "",
                 "TargetArea" : "Data",
-                "TargetId" : "GetThingNameFromCMTAsset",
+                "TargetId" : "GetWorkCenterThingNameFromCMTAsset",
                 "TargetSection" : "Things_BSTN.NOTEvent.Manager"
               }, {
-                "Id" : "6db72c06-7efc-412b-9a7f-f6f4bc9e1a28",
+                "Id" : "09b8b1f0-9ae3-4d2f-9516-aefb4512deeb",
                 "PropertyMaps" : [ {
                   "SourceProperty" : "result",
                   "SourcePropertyBaseType" : "THINGNAME",
@@ -2078,10 +2061,27 @@
                 } ],
                 "SourceArea" : "Data",
                 "SourceDetails" : "AllData",
-                "SourceId" : "GetThingNameFromCMTAsset",
+                "SourceId" : "GetWorkCenterThingNameFromCMTAsset",
                 "SourceSection" : "Things_BSTN.NOTEvent.Manager",
                 "TargetArea" : "Mashup",
                 "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c41e697b-77ee-4420-87ea-4c7ac965f180",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "SelectedText",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetWorkCenterThingNameFromCMTAsset",
+                "SourceSection" : "Things_BSTN.NOTEvent.Manager",
+                "TargetArea" : "UI",
+                "TargetId" : "ptcsdropdown-44",
                 "TargetSection" : ""
               } ],
               "DesignTimePermissions" : { },
@@ -2129,7 +2129,7 @@
                 "EventTriggerEvent" : "resetUseRemainingTimeChanged",
                 "EventTriggerId" : "mashup-root",
                 "EventTriggerSection" : "",
-                "Id" : "bd861e71-7769-4f31-b1ca-1f0367c27afb"
+                "Id" : "d53d5881-a39b-44c0-9358-4a346dd31ed9"
               }, {
                 "EventHandlerArea" : "UI",
                 "EventHandlerId" : "ptcscheckbox-52",
@@ -2156,7 +2156,7 @@
                 "EventTriggerEvent" : "True",
                 "EventTriggerId" : "validator2-54",
                 "EventTriggerSection" : "",
-                "Id" : "e662fe4e-f22c-47a8-b145-f6031407ee17"
+                "Id" : "a2b8763b-3dc7-4abb-af9c-2648ac1e712b"
               }, {
                 "EventHandlerArea" : "UI",
                 "EventHandlerId" : "validator2-60",
@@ -2237,7 +2237,7 @@
                 "EventTriggerEvent" : "resetImpactChanged",
                 "EventTriggerId" : "mashup-root",
                 "EventTriggerSection" : "",
-                "Id" : "2719b0b1-3fb2-41d5-a2cf-6eed4da70820"
+                "Id" : "1808f0f6-51c8-4221-88fd-bfa772bee952"
               }, {
                 "EventHandlerArea" : "UI",
                 "EventHandlerId" : "validator2-57",
@@ -2367,12 +2367,21 @@
               }, {
                 "EventHandlerArea" : "Data",
                 "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
-                "EventHandlerService" : "GetThingNameFromCMTAsset",
+                "EventHandlerService" : "GetWorkCenterThingNameFromCMTAsset",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "workUnitNameChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "5a7d70d0-7385-4eb1-93a1-10112b7f17ac"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_BSTN.NOTEvent.Manager",
+                "EventHandlerService" : "GetWorkCenterThingNameFromCMTAsset",
                 "EventTriggerArea" : "Mashup",
                 "EventTriggerEvent" : "Loaded",
                 "EventTriggerId" : "mashup-root",
                 "EventTriggerSection" : "",
-                "Id" : "6f2800fd-7907-4d1e-b2cf-18de79e5359c"
+                "Id" : "79f8f4ea-d46b-4c24-99cf-559c24578a0c"
               } ],
               "Reminders" : [ ],
               "RunTimePermissions" : { },
