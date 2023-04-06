@@ -23,6 +23,28 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
+                 name="CheckForExistingMaterial">
+                    <ResultType
+                     baseType="INTEGER"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="MaterialID"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
                  name="DeleteCompletedNOT">
                     <ResultType
                      baseType="INTEGER"
@@ -88,6 +110,73 @@
                      name="result"
                      ordinal="0"></ResultType>
                     <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="UpdateMaterialMaster">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INTEGER"
+                         description=""
+                         name="assemblyrelationship"
+                         ordinal="6"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INTEGER"
+                         description=""
+                         name="assemblytype"
+                         ordinal="5"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INTEGER"
+                         description=""
+                         name="defaultunit"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="description"
+                         ordinal="7"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INTEGER"
+                         description=""
+                         name="enable"
+                         ordinal="4"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="id"
+                         ordinal="8"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INTEGER"
+                         description=""
+                         name="siteuid"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="source"
+                         ordinal="9"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INTEGER"
+                         description=""
+                         name="uid"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INTEGER"
+                         description=""
+                         name="version"
+                         ordinal="10"></FieldDefinition>
+                    </ParameterDefinitions>
                 </ServiceDefinition>
                 <ServiceDefinition
                  aspect.isAsync="false"
@@ -194,6 +283,56 @@
                 <ServiceImplementation
                  description=""
                  handlerName="Script"
+                 name="CheckForExistingMaterial">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     baseType="JSON"
+                                     description=""
+                                     name="editorSettings"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // result: INFOTABLE dataShape: ""
+                                    let check = Things["BSTN.GABEInterface.SQLThingUtility"].CheckForExistingMaterial({
+                                    	MaterialID: MaterialID /* STRING */
+                                    });
+                                    
+                                    let result = 0;
+                                    if (check.getRowCount() >0){result = check[0].uid;}
+                                    ]]>
+                                    </code>
+                                    <editorSettings>
+                                        <json>
+                                        <![CDATA[
+                                        {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":24,"lineNumber":7},"position":{"column":24,"lineNumber":7}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":8,"foldedImports":false}}}}
+                                        ]]>
+                                        </json>
+                                    </editorSettings>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
                  name="DeleteCompletedNOT">
                     <ConfigurationTables>
                         <ConfigurationTable
@@ -276,7 +415,7 @@
                                     <editorSettings>
                                         <json>
                                         <![CDATA[
-                                        {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":74,"lineNumber":2},"position":{"column":74,"lineNumber":2}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":3,"foldedImports":false}}}}
+                                        {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":87,"lineNumber":2},"position":{"column":87,"lineNumber":2}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":3,"foldedImports":false}}}}
                                         ]]>
                                         </json>
                                     </editorSettings>
@@ -367,6 +506,62 @@
                                         <json>
                                         <![CDATA[
                                         {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":76,"lineNumber":2},"position":{"column":76,"lineNumber":2}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":3,"foldedImports":false}}}}
+                                        ]]>
+                                        </json>
+                                    </editorSettings>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="UpdateMaterialMaster">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     baseType="JSON"
+                                     description=""
+                                     name="editorSettings"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // result: NUMBER
+                                    let result = Things["BSTN.GABEInterface.SQLThingUtility"].CallUpdateMaterialMaster({
+                                    	uid: uid /* INTEGER */,
+                                    	siteuid: siteuid /* INTEGER */,
+                                    	defaultunit: defaultunit /* INTEGER */,
+                                    	enable: enable /* INTEGER */,
+                                    	assemblytype: assemblytype /* INTEGER */,
+                                    	assemblyrelationship: assemblyrelationship /* INTEGER */,
+                                    	description: description /* STRING */,
+                                    	id: id /* STRING */,
+                                    	source: source /* STRING */,
+                                    	version: version /* INTEGER */
+                                    });
+                                    ]]>
+                                    </code>
+                                    <editorSettings>
+                                        <json>
+                                        <![CDATA[
+                                        {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":4,"lineNumber":13},"position":{"column":4,"lineNumber":13}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":13,"foldedImports":false}}}}
                                         ]]>
                                         </json>
                                     </editorSettings>

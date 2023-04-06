@@ -6,11 +6,11 @@
     <DataShapes>
         <DataShape
          baseDataShape=""
-         description=""
+         description="This material master data allows to have material master. {PTC.MaterialMaster.MaterialMaster}"
          documentationContent=""
          homeMashup=""
-         name="JobOrderDetails_DS"
-         projectName="BSTN.ProductionOperations"
+         name="BSTN.MasterDataImport.Material_DS"
+         projectName="BSTN.MasterDataImport"
          tags="">
             <avatar></avatar>
             <DesignTimePermissions>
@@ -30,63 +30,58 @@
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
                  baseType="INTEGER"
-                 description=""
-                 name="Duration"
-                 ordinal="9"></FieldDefinition>
+                 description="It is valid value list or enumeration that captures relationship between assemblies."
+                 name="assemblyrelationship"
+                 ordinal="22"></FieldDefinition>
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
-                 baseType="STRING"
-                 description=""
-                 name="EventType"
-                 ordinal="2"></FieldDefinition>
-                <FieldDefinition
-                 aspect.isPrimaryKey="true"
                  baseType="INTEGER"
                  description=""
-                 name="ID"
-                 ordinal="1"></FieldDefinition>
+                 name="assemblytype"
+                 ordinal="21"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="LONG"
+                 description="Default unit of measure for the material master data "
+                 name="defaultunit"
+                 ordinal="23"></FieldDefinition>
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
                  baseType="STRING"
-                 description=""
-                 name="JobOrderID"
-                 ordinal="3"></FieldDefinition>
+                 description="Description of material master"
+                 name="description"
+                 ordinal="14"></FieldDefinition>
                 <FieldDefinition
-                 aspect.isPrimaryKey="false"
-                 baseType="STRING"
-                 description=""
-                 name="Material"
-                 ordinal="4"></FieldDefinition>
-                <FieldDefinition
+                 aspect.defaultValue="true"
                  aspect.isPrimaryKey="false"
                  baseType="BOOLEAN"
-                 description=""
-                 name="Processed"
-                 ordinal="10"></FieldDefinition>
+                 description="Enabling masterial master flag"
+                 name="enable"
+                 ordinal="19"></FieldDefinition>
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
                  baseType="STRING"
-                 description=""
-                 name="Reason"
-                 ordinal="8"></FieldDefinition>
+                 description="Identifier of the material master. Typically it is part of primary key in the source system."
+                 name="id"
+                 ordinal="18"></FieldDefinition>
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
-                 baseType="INTEGER"
-                 description=""
-                 name="TxnQuantity"
-                 ordinal="6"></FieldDefinition>
-                <FieldDefinition
-                 aspect.isPrimaryKey="false"
-                 baseType="DATETIME"
-                 description=""
-                 name="TxnTimestamp"
-                 ordinal="7"></FieldDefinition>
+                 baseType="LONG"
+                 description="Unique identifier of the site to which this material master is associated with"
+                 name="siteuid"
+                 ordinal="20"></FieldDefinition>
                 <FieldDefinition
                  aspect.isPrimaryKey="false"
                  baseType="STRING"
-                 description=""
-                 name="WorkUnit"
-                 ordinal="5"></FieldDefinition>
+                 description="Source from which material master is copied from."
+                 name="source"
+                 ordinal="17"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="STRING"
+                 description="Version of the material master."
+                 name="version"
+                 ordinal="16"></FieldDefinition>
             </FieldDefinitions>
         </DataShape>
     </DataShapes>

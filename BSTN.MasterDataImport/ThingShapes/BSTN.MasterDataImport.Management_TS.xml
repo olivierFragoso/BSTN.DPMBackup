@@ -14,10 +14,249 @@
          projectName="BSTN.MasterDataImport"
          tags="">
             <PropertyDefinitions></PropertyDefinitions>
-            <ServiceDefinitions></ServiceDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="CheckForExistingMaterial">
+                    <ResultType
+                     baseType="INTEGER"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description=""
+                         name="MaterialID"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetMaterialMasterData">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="transformMaterialDetails">
+                    <ResultType
+                     aspect.dataShape="BSTN.MasterDataImport.Material_DS"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
             <EventDefinitions></EventDefinitions>
             <ServiceMappings></ServiceMappings>
-            <ServiceImplementations></ServiceImplementations>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="CheckForExistingMaterial">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     baseType="JSON"
+                                     description=""
+                                     name="editorSettings"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // result: INTEGER
+                                    let result = Things["BSTN.GABEInterface.Manager"].CheckForExistingMaterial({
+                                    	MaterialID: MaterialID /* STRING */
+                                    });
+                                    ]]>
+                                    </code>
+                                    <editorSettings>
+                                        <json>
+                                        <![CDATA[
+                                        {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":4,"lineNumber":4},"position":{"column":4,"lineNumber":4}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":4,"foldedImports":false}}}}
+                                        ]]>
+                                        </json>
+                                    </editorSettings>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetMaterialMasterData">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     baseType="JSON"
+                                     description=""
+                                     name="editorSettings"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // result: INFOTABLE dataShape: "BSTN.GABEInterface.MaterialDetails.DS"
+                                    let result = Things["BSTN.GABEInterface.Manager"].GetMaterialMasterData();
+                                    ]]>
+                                    </code>
+                                    <editorSettings>
+                                        <json>
+                                        <![CDATA[
+                                        {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":75,"lineNumber":2},"position":{"column":75,"lineNumber":2}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":2,"foldedImports":false}}}}
+                                        ]]>
+                                        </json>
+                                    </editorSettings>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="transformMaterialDetails">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     baseType="JSON"
+                                     description=""
+                                     name="editorSettings"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let newMaterialDetails = me.GetMaterialMasterData();
+                                    
+                                    let updateTable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                        infoTableName: "InfoTable",
+                                        dataShapeName: "BSTN.MasterDataImport.Material_DS"
+                                    });
+                                    
+                                    newMaterialDetails.rows.toArray().forEach(row => {
+                                    
+                                    //result: integer -- Returns uid if material exists, returns 0 if the material is new
+                                    let existingRow = me.CheckForExistingMaterial({
+                                    	MaterialID: row.MaterialID /* STRING */
+                                    });
+                                    
+                                    if (existingRow > 0){
+                                    
+                                    Things["BSTN.GABEInterface.Manager"].UpdateMaterialMaster({
+                                    	uid: existingRow /* INTEGER */,
+                                    	siteuid: 1 /* INTEGER */,
+                                    	defaultunit: 6 /* INTEGER */,
+                                    	enable: 1 /* INTEGER */,
+                                    	assemblytype: null /* INTEGER */,
+                                    	assemblyrelationship: null /* INTEGER */,
+                                    	description: row.Description /* STRING */,
+                                    	id: row.MaterialID /* STRING */,
+                                    	source: null /* STRING */,
+                                    	version: row.Version /* INTEGER */
+                                    });
+                                    
+                                    
+                                    
+                                    // // BSTN.MasterDataImport.Material_DS entry object
+                                    // var newEntry = {
+                                    //     description: row.Description, // STRING
+                                    //     version: row.Version, // STRING
+                                    //     source: null, // STRING
+                                    //     id: row.MaterialID, // STRING
+                                    //     enable: 1, // BOOLEAN {"defaultValue":true}
+                                    //     siteuid: 1, // LONG
+                                    //     assemblytype: null, // INTEGER
+                                    //     assemblyrelationship: null, // INTEGER
+                                    //     defaultunit: row.DefaultUnit // LONG
+                                    }
+                                    
+                                    // updateTable.AddRow(newEntry);
+                                    });
+                                    // let result = updateTable;
+                                    ]]>
+                                    </code>
+                                    <editorSettings>
+                                        <json>
+                                        <![CDATA[
+                                        {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":2,"lineNumber":43},"position":{"column":2,"lineNumber":43}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":47,"foldedImports":false}}}}
+                                        ]]>
+                                        </json>
+                                    </editorSettings>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
             <Subscriptions></Subscriptions>
             <avatar></avatar>
             <DesignTimePermissions>

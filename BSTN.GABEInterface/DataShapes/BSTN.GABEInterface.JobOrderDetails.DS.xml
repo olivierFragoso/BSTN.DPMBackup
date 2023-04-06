@@ -31,47 +31,53 @@
                  baseType="INTEGER"
                  description="Duration"
                  name="Duration"
-                 ordinal="7"></FieldDefinition>
+                 ordinal="9"></FieldDefinition>
                 <FieldDefinition
                  baseType="STRING"
                  description="EventType"
                  name="EventType"
-                 ordinal="1"></FieldDefinition>
+                 ordinal="2"></FieldDefinition>
                 <FieldDefinition
                  baseType="INTEGER"
                  description="ID"
                  name="ID"
-                 ordinal="0"></FieldDefinition>
+                 ordinal="1"></FieldDefinition>
                 <FieldDefinition
                  baseType="STRING"
                  description="JobOrderID"
                  name="JobOrderID"
-                 ordinal="2"></FieldDefinition>
+                 ordinal="3"></FieldDefinition>
                 <FieldDefinition
                  baseType="STRING"
                  description="Material"
                  name="Material"
-                 ordinal="3"></FieldDefinition>
+                 ordinal="4"></FieldDefinition>
                 <FieldDefinition
                  baseType="BOOLEAN"
                  description="Processed"
                  name="Processed"
+                 ordinal="10"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="STRING"
+                 description=""
+                 name="Reason"
                  ordinal="8"></FieldDefinition>
                 <FieldDefinition
                  baseType="INTEGER"
                  description="TxnQuantity"
                  name="TxnQuantity"
-                 ordinal="5"></FieldDefinition>
+                 ordinal="6"></FieldDefinition>
                 <FieldDefinition
                  baseType="DATETIME"
                  description="TxnTimestamp"
                  name="TxnTimestamp"
-                 ordinal="6"></FieldDefinition>
+                 ordinal="7"></FieldDefinition>
                 <FieldDefinition
                  baseType="STRING"
                  description="WorkUnit"
                  name="WorkUnit"
-                 ordinal="4"></FieldDefinition>
+                 ordinal="5"></FieldDefinition>
             </FieldDefinitions>
         </DataShape>
     </DataShapes>

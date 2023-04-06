@@ -41,11 +41,19 @@
                  isPrivate="false"
                  name="AddStandardChangeoverTime">
                     <ResultType
-                     baseType="NOTHING"
+                     aspect.dataShape="BSTN.NOTEvent.ChangeoverCache_DS"
+                     baseType="DATETIME"
                      description=""
                      name="result"
                      ordinal="0"></ResultType>
-                    <ParameterDefinitions></ParameterDefinitions>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.dataShape="JobOrderDetails_DS"
+                         baseType="INFOTABLE"
+                         description="JobOrdersInfotableRow"
+                         name="jobOrderDetailsChangeover"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
                 </ServiceDefinition>
                 <ServiceDefinition
                  aspect.isAsync="false"
@@ -140,7 +148,7 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
-                 name="Test">
+                 name="test">
                     <ResultType
                      baseType="INFOTABLE"
                      description=""
@@ -175,7 +183,7 @@
                  name="UpdateProductionQuantity">
                     <ResultType
                      aspect.dataShape="NamedVTQ"
-                     baseType="INFOTABLE"
+                     baseType="NOTHING"
                      description=""
                      name="result"
                      ordinal="0"></ResultType>
@@ -242,7 +250,44 @@
                             </DataShape>
                             <Rows>
                                 <Row>
-                                    <code></code>
+                                    <code>
+                                    <![CDATA[
+                                    let NOTEventManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.NOTEvent.Manager"});
+                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"});
+                                    
+                                    //Getting WU thingName
+                                    let workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    	infoTableName: "InfoTable",
+                                    	dataShapeName: "WorkUnitName_DS"
+                                    });
+                                    workUnitItemInfotable.item = jobOrderDetailsChangeover.WorkUnit;
+                                    
+                                    resultingWorkUnitItemInfotable = Things[mfgModelManager].GetModelsByName({
+                                    	modelNames: workUnitItemInfotable
+                                    });
+                                    let workUnit = resultingWorkUnitItemInfotable.thingName;
+                                    
+                                    let cached = Things[workUnit].cachedChangeover;
+                                    
+                                    let NOTStartTime = cached[0].NOTStartTime;
+                                    let NOTEndTime = cached[0].NOTEndTime;
+                                    
+                                    let actualChangeOver = Math.abs(NOTEndTime - NOTStartTime);
+                                    let duration = jobOrderDetailsChangeover.Duration;
+                                    
+                                    let stdChangeOverTimestamp = +NOTStartTime + (duration * 60 * 1000);
+                                    let endStdChangeTime = new Date(stdChangeOverTimestamp);
+                                    
+                                    Things[workUnit].cachedChangeover.endStdChangeTime = endStdChangeTime;
+                                    Things[workUnit].cachedChangeover.changeType = jobOrderDetailsChangeover.Reason;
+                                    
+                                    Things[NOTEventManager].CreateChangeoverEvents({
+                                    	workUnitName: jobOrderDetailsChangeover.WorkUnit /* STRING */
+                                    });
+                                    
+                                    let result = endStdChangeTime;
+                                    ]]>
+                                    </code>
                                 </Row>
                             </Rows>
                         </ConfigurationTable>
@@ -321,7 +366,7 @@
                                     let txnTimestamp;
                                     let modelUID;
                                     let materialMasterUID;
-                                    let mfgModelManager = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"})];
+                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"});
                                     
                                     try {
                                     	jobOrderCreationInfoTable.rows.toArray().forEach(row => {
@@ -340,7 +385,7 @@
                                     
                                     		workUnitItemInfotable.item = row.WorkUnit;
                                     
-                                    		let resultingWorkUnitItemInfotable = mfgModelManager.GetModelsByName({
+                                    		let resultingWorkUnitItemInfotable = Things[mfgModelManager].GetModelsByName({
                                     			modelNames: workUnitItemInfotable
                                     		});
                                     
@@ -435,8 +480,8 @@
                                     let jobOrderDetailsInfotable = me.ProcessProductionOperationData();
                                     let result;
                                     let infotableIndex = 0;
-                                    let productionOperationsManager = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.ProductionOperations.Manager"})];
-                                    let GABEInterfaceManager = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.GABEInterface.Manager"})];
+                                    let productionOperationsManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.ProductionOperations.Manager"});
+                                    let GABEInterfaceManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.GABEInterface.Manager"});
                                     
                                     // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(JobOrderDetails_DS)
                                     let processJobOrderDetailsInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
@@ -449,13 +494,13 @@
                                     
                                     	//Check if it is JOCreation, JOQtyProduced or JOChangeOver
                                     	if (row.EventType === "JOCreation") {
-                                    		productionOperationsManager.CreateAndStartNewJobOrder({
+                                    		Things[productionOperationsManager].CreateAndStartNewJobOrder({
                                     			jobOrderCreationInfoTable: processJobOrderDetailsInfotable /* INFOTABLE {"dataShape":"JobOrderDetails_DS"} */
                                     		});
                                     	}
                                     	if (row.EventType === "JOQtyProduced") {
                                     		// result: INFOTABLE dataShape: "NamedVTQ"
-                                    		productionOperationsManager.UpdateProductionQuantity({
+                                    		Things[productionOperationsManager].UpdateProductionQuantity({
                                     			JobOrderDetails: processJobOrderDetailsInfotable /* INFOTABLE {"dataShape":"JobOrderDetails_DS"} */
                                     		});
                                     	}
@@ -467,7 +512,7 @@
                                     	//Check if material exists within DPM
                                     	//UpdateProductionProcessedData
                                     	row.Processed = true;
-                                    	GABEInterfaceManager.UpdateProductionOperationsProcessedFlag({
+                                    	Things[GABEInterfaceManager].UpdateProductionOperationsProcessedFlag({
                                     		ID: row.ID /* INTEGER [Required] */
                                     	});
                                     	infotableIndex++;
@@ -519,7 +564,7 @@
                 <ServiceImplementation
                  description=""
                  handlerName="Script"
-                 name="Test">
+                 name="test">
                     <ConfigurationTables>
                         <ConfigurationTable
                          dataShapeName=""
@@ -540,11 +585,14 @@
                                 <Row>
                                     <code>
                                     <![CDATA[
-                                    // table: INFOTABLE dataShape: ""
-                                    let mfgModelManager = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"})];
+                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"});
+                                    //let mfgModelManager = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"})];
                                     
-                                    //let result = mfgModelManager.GetDBInfo();
-                                    let result = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"});
+                                    //let test1 = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"})];
+                                    
+                                    Things[mfgModelManager].GetPropertyValues();
+                                    
+                                    let result = Things[mfgModelManager].GetPropertyValues();
                                     ]]>
                                     </code>
                                 </Row>
@@ -610,9 +658,9 @@
                                     let workUnit;
                                     let txnQuantity;
                                     let txnTimestamp;
-                                    let mfgModelManager = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"})];
+                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"});
                                     
-                                    let result;
+                                    //let result = mfgModelManager;
                                     
                                     try {
                                     	JobOrderDetails.rows.toArray().forEach(row => {
@@ -629,7 +677,7 @@
                                     
                                     		workUnitItemInfotable.item = row.WorkUnit;
                                     
-                                    		resultingWorkUnitItemInfotable = mfgModelManager.GetModelsByName({
+                                    		resultingWorkUnitItemInfotable = Things[mfgModelManager].GetModelsByName({
                                     			modelNames: workUnitItemInfotable
                                     		});
                                     
@@ -653,7 +701,7 @@
                                     				values: infotableUpdateQuantity /* INFOTABLE {"dataShape":"NamedVTQ"} */
                                     			});
                                     
-                                    			result = infotableUpdateQuantity;
+                                    //			result = mfgModelManager;
                                     		}
                                     	});
                                     } catch (err) {
