@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <ThingShapes>
+        <ThingShape
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         className=""
+         description="Thing Shape provides common configurations for all building block managers"
+         documentationContent=""
+         homeMashup=""
+         name="PTC.Base.ConfigManagement_TS"
+         projectName="PTC.Base"
+         tags="">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Adds an entry into the MenuConfiguration table."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="AddMenuConfigurationEntry">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="MASHUPNAME"
+                         description="The name of the mashup for the menu item"
+                         name="menuItemMashupName"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="The name of the menu"
+                         name="menuName"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INTEGER"
+                         description="The optional ordering for the menu item"
+                         name="menuOrderPreference"
+                         ordinal="5"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="The localization key for the menu section"
+                         name="menuSectionKey"
+                         ordinal="4"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="The localization key for the menu title"
+                         name="menuTitleKey"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.dataShape="PTC.Base.ComponentMenuConfiguration"
+                         baseType="INFOTABLE"
+                         description="Submenu"
+                         name="submenu"
+                         ordinal="6"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Deletes an entry from the MenuConfiguration table."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="DeleteMenuConfigurationEntry">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="MASHUPNAME"
+                         description="The name of the mashup for the menu item"
+                         name="menuItemMashupName"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="The name of the menu"
+                         name="menuName"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="The localization key for the menu title"
+                         name="menuTitleKey"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns all configured managers for the building block. Will grab entries from Global Configuration if they are not found in local configuration."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetAllConfiguredManagers">
+                    <ResultType
+                     aspect.dataShape="PTC.Base.ManagerConfiguration"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns all configured managers for the building block. Will grab entries from Global Configuration if they are not found in local configuration."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetAllOrderedConfiguredManagers">
+                    <ResultType
+                     aspect.dataShape="PTC.Base.ManagerConfiguration"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns an entry in the Configured Manager table based on passed in identifier"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetConfiguredManagerForIdentifier">
+                    <ResultType
+                     baseType="THINGNAME"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Configuration table unique identifier."
+                         name="identifier"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns a configured mashup name from mashup configuration table based on passed in identifier."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetConfiguredMashupForIdentifier">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Unique identifier for the mashup configuration table."
+                         name="identifier"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns the configured menu for the specified menu name."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetConfiguredMenu">
+                    <ResultType
+                     aspect.dataShape="PTC.Base.ComponentMenuConfiguration"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="STRING"
+                         description="Name of the menu to return menu items for"
+                         name="menuName"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns a list of configured menu items based on passed in menu name."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetConfiguredMenuItemsForMenu">
+                    <ResultType
+                     aspect.dataShape="MenuEntry"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Name of the menu to return menu items for"
+                         name="menuName"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns configured thing name from configuration table for passed in identifier."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetConfiguredThingNameForIdentifier">
+                    <ResultType
+                     baseType="THINGNAME"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Unique Identifier for the Thing configuration table"
+                         name="identifier"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="AddMenuConfigurationEntry">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                    	let menuTable = me.GetConfigurationTable({
+                                    		tableName: 'MenuConfiguration' /* STRING */
+                                    	});
+                                    	let addMenu = true;
+                                    	menuTable.rows.toArray().forEach(row => {
+                                    		if (row.menuTitleKey === menuTitleKey && row.menuItemMashupName === menuItemMashupName && row.menuName === menuName) {
+                                    			addMenu = false;
+                                    		}
+                                    	});
+                                    	if (addMenu) {
+                                    		menuTable.AddRow({
+                                    			menuTitleKey: menuTitleKey,
+                                    			menuItemMashupName: menuItemMashupName,
+                                    			menuName: menuName,
+                                    			menuSectionKey: menuSectionKey,
+                                    			menuOrderPreference: menuOrderPreference,
+                                    			submenu: submenu
+                                    		});
+                                    	}
+                                    	me.SetMultiRowConfigurationTable({
+                                    		configurationTable: menuTable /* INFOTABLE */ ,
+                                    		persistent: true /* BOOLEAN */ ,
+                                    		tableName: 'MenuConfiguration' /* STRING */
+                                    	});
+                                    } catch (err) {
+                                    	logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="DeleteMenuConfigurationEntry">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                    	let menuTable = me.GetConfigurationTable({
+                                    		tableName: 'MenuConfiguration' /* STRING */
+                                    	});
+                                    	let rowToDelete = DataShapes['PTC.Base.ComponentMenuConfiguration'].CreateValues();
+                                    	menuTable.rows.toArray().forEach(row => {
+                                    		if (row.menuTitleKey === menuTitleKey && row.menuItemMashupName === menuItemMashupName && row.menuName === menuName) {
+                                    			rowToDelete.AddRow(row);
+                                    		}
+                                    	});
+                                    	if (rowToDelete.rows.length > 0) {
+                                    		me.DeleteConfigurationTableRows({
+                                    			values: rowToDelete /* INFOTABLE */ ,
+                                    			persistent: true /* BOOLEAN */ ,
+                                    			tableName: 'MenuConfiguration' /* STRING */
+                                    		});
+                                    	}
+                                    } catch (err) {
+                                    	logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetAllConfiguredManagers">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    	infoTableName: "InfoTable",
+                                    	dataShapeName: "PTC.Base.ManagerConfiguration"
+                                    });
+                                    
+                                    try {
+                                    	let componentManagerList = [];
+                                    
+                                    	let localConfigs = me.GetConfigurationTable({
+                                    		tableName: "ManagerConfiguration" /* STRING */
+                                    	});
+                                    
+                                    	if (localConfigs && localConfigs.rows.length > 0) {
+                                    		localConfigs.rows.toArray().forEach(row => {
+                                    			componentManagerList[row.id] = row.id;
+                                                result.AddRow(row);
+                                    		});
+                                    	}
+                                    
+                                    	let baseManager = Things["PTC.Base.EntryPoint"].GetConfiguredComponentManager();
+                                    	let globalConfigs = Things[baseManager].GetAllGlobalDefaultManagers();
+                                    
+                                        if (globalConfigs && globalConfigs.rows.length > 0) {
+                                            globalConfigs.rows.toArray().forEach(row => {
+                                               	 if(!componentManagerList[row.id]) {
+                                                  	result.AddRow(row);   
+                                                 }
+                                            });
+                                        }
+                                        
+                                    } catch (err) {
+                                    	logger.error(me.name + " - " + err.fileName + ":" + err.lineNumber + " - " + err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetAllOrderedConfiguredManagers">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result = me.GetAllConfiguredManagers();
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetConfiguredManagerForIdentifier">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result;
+                                    
+                                    var componentManager = me.name;
+                                    try {
+                                        try {
+                                            var mashupConfigTable = Things[componentManager].GetConfigurationTable({
+                                                tableName: "ManagerConfiguration" /* STRING */
+                                            });
+                                    
+                                            if (mashupConfigTable && mashupConfigTable.rows.length > 0) {
+                                                mashupConfigTable.rows.toArray().forEach(row => {
+                                                    if (row.id == identifier) {
+                                                        result = row.managerThingName;
+                                                    }
+                                                });
+                                            }
+                                        } catch (err) {
+                                            logger.error(me.name + " - " + err.fileName + ":" + err.lineNumber + " - " + err);
+                                        }
+                                        
+                                        if(!result) {
+                                        	let baseManager = Things["PTC.Base.EntryPoint"].GetConfiguredComponentManager();
+                                            result = Things[baseManager].GetGlobalDefaultManagerForIdentifier({
+                                                uid: identifier /* STRING */
+                                            });
+                                        }    
+                                    } catch (err) {
+                                    	logger.error(me.name + " - " + err.fileName + ":" + err.lineNumber + " - " + err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetConfiguredMashupForIdentifier">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let result = "";
+                                    try {
+                                        let managerRow = me.GetConfigurationTableRow({
+                                            tableName: "MashupConfiguration",
+                                            key: identifier
+                                        });
+                                        result = managerRow.mashupName;
+                                    } catch (err) {
+                                        logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                        throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    if (!result) {
+                                        logger.warn("No Manager was found for identifier [{}]", identifier);
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetConfiguredMenu">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                    	var result = me.GetConfigurationTable({
+                                    		tableName: "MenuConfiguration"
+                                    	});
+                                    
+                                    	result.Filter({
+                                    		"menuName": menuName
+                                    	});
+                                    } catch (err) {
+                                    	logger.error("Thing [{}] Service [{}] error at line [{}] : {}", me.name, err.fileName, err.lineNumber, err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetConfiguredMenuItemsForMenu">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    	infoTableName: "InfoTable",
+                                    	dataShapeName: "MenuEntry"
+                                    });
+                                    
+                                    var menuId = 2;
+                                    if (menuName) {
+                                    	var managers = ThingShapes["PTC.Base.ConfigManagement_TS"].QueryImplementingThings({
+                                    		maxItems: 1000 /* NUMBER */
+                                    	});
+                                    
+                                    	result.AddRow({
+                                    		description: "", //shape.description,
+                                    		title: "Dummy",
+                                    		linkType: "Menu",
+                                    		isDefault: false, //isDefault,
+                                    		menuId: "1"
+                                    	});
+                                    
+                                    	let menuConfigurations = [];
+                                    	if (managers && managers.rows.length > 0) {
+                                    		managers.rows.toArray().forEach(row => {
+                                    			if (row.name && Things[row.name]) {
+                                    				var table = Things[row.name].GetConfiguredMenu({
+                                    					"menuName": "MasterMenuNavigation"
+                                    				});
+                                    				menuConfigurations = menuConfigurations.concat(table.rows.toArray());
+                                    			}
+                                    		});
+                                    	}
+                                    
+                                    	menuConfigurations.sort((a, b) => a.menuOrderPreference - b.menuOrderPreference).forEach(tableRow => {
+                                    		if (tableRow.menuName == menuName) {
+                                    			addMenu(tableRow, "1");
+                                    			menuId = (Number(menuId) + 1).toString();
+                                    		}
+                                    	});
+                                    }
+                                    
+                                    function addMenu(row, parentMenuId) {
+                                    	let subMenuRows = row.submenu;
+                                    	let menuTitleKey = row.menuTitleKey;
+                                    	let menuTitle = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken({
+                                    		token: menuTitleKey
+                                    	});
+                                    
+                                    	if (subMenuRows && subMenuRows.rows.length > 0) {
+                                    		result.AddRow({
+                                    			description: "",
+                                    			title: menuTitle,
+                                    			linkTarget: "",
+                                    			linkType: "Menu",
+                                    			isDefault: false,
+                                    			menuId: menuId,
+                                    			parentMenuId: parentMenuId
+                                    		});
+                                    
+                                    		parentMenuId = menuId;
+                                    		menuId = (Number(menuId) + 1).toString();
+                                    		subMenuRows.rows.toArray().sort((a, b) => a.menuOrderPreference - b.menuOrderPreference).forEach(subMenuRow => {
+                                    			menuId = addMenu(subMenuRow, parentMenuId);
+                                    		});
+                                    	} else {
+                                    		let destinationMashup = !row.linkType || row.linkType == "Mashup" ? Mashups[row.menuItemMashupName] : true;
+                                    		if (destinationMashup) {
+                                    			result.AddRow({
+                                    				description: "",
+                                    				title: menuTitle,
+                                    				linkTarget: row.linkTarget || "Self",
+                                    				linkType: row.linkType || "Mashup",
+                                    				isDefault: false,
+                                    				menuId: menuId,
+                                    				parentMenuId: parentMenuId,
+                                    				linkDestination: row.menuItemMashupName
+                                    			});
+                                    		} else {
+                                    			logger.error("Error while retrieving menu items. The Mashup \"" + row.menuItemMashupName + "\' does not exist.");
+                                    		}
+                                    	}
+                                    	return menuId;
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetConfiguredThingNameForIdentifier">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result;
+                                    try {
+                                    	try {
+                                    		let managerRow = me.GetConfigurationTableRow({
+                                    			tableName: "ThingConfiguration",
+                                    			key: identifier
+                                    		});
+                                    		result = managerRow.thingName;
+                                    	} catch (err) {
+                                            //catch first silently
+                                    		logger.debug("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                    	}
+                                    	if (!result) {
+                                    		let baseManager = Things["PTC.Base.EntryPoint"].GetConfiguredComponentManager();
+                                    		let managerRow = Things[baseManager].GetConfigurationTableRow({
+                                    			tableName: "ThingConfiguration",
+                                    			key: identifier
+                                    		});
+                                    		result = managerRow.thingName;
+                                    	}
+                                    } catch (err) {
+                                    	logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    if (!result) {
+                                    	logger.warn("No Manager was found for identifier [{}]", identifier);
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="PTC.Base.Default_OR:PTC.Base.Default_UG"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions>
+                <ConfigurationTableDefinition
+                 category=""
+                 dataShapeName="PTC.Base.ThingConfiguration"
+                 description="Configuration table for any Things that need to be configured. This allows for OOTB things to be customized, and the new version that should be used can be configured here"
+                 isHidden="false"
+                 isMultiRow="true"
+                 name="ThingConfiguration"
+                 ordinal="0"
+                 source="IMPORT"></ConfigurationTableDefinition>
+                <ConfigurationTableDefinition
+                 category=""
+                 dataShapeName="PTC.Base.ManagerConfiguration"
+                 description="Configuration table used to identify managers that the building block should use"
+                 isHidden="false"
+                 isMultiRow="true"
+                 name="ManagerConfiguration"
+                 ordinal="0"
+                 source="IMPORT"></ConfigurationTableDefinition>
+                <ConfigurationTableDefinition
+                 category=""
+                 dataShapeName="PTC.Base.MashupConfiguration"
+                 description=""
+                 isHidden="false"
+                 isMultiRow="true"
+                 name="MashupConfiguration"
+                 ordinal="0"
+                 source="IMPORT"></ConfigurationTableDefinition>
+                <ConfigurationTableDefinition
+                 category=""
+                 dataShapeName="PTC.Base.ComponentMenuConfiguration"
+                 description="Configuration table for dynamic menus. Menu Items can be specified here and they will show up for the given menu name. "
+                 isHidden="false"
+                 isMultiRow="true"
+                 name="MenuConfiguration"
+                 ordinal="0"
+                 source="IMPORT"></ConfigurationTableDefinition>
+            </ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Configuration table used to identify managers that the building block should use"
+                 isMultiRow="true"
+                 name="ManagerConfiguration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="unique identifier for the manager that needs to be configured"
+                             name="id"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             aspect.thingShape="PTC.Base.CommonManagement_TS"
+                             baseType="THINGNAME"
+                             description="Name of the Manager Thing to be configured"
+                             name="managerThingName"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description=""
+                 isMultiRow="true"
+                 name="MashupConfiguration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="unique identifier used to identify the thing or mashup that is being configured"
+                             name="id"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             baseType="MASHUPNAME"
+                             description="name of the mashup to configure"
+                             name="mashupName"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Configuration table for dynamic menus. Menu Items can be specified here and they will show up for the given menu name. "
+                 isMultiRow="true"
+                 name="MenuConfiguration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             baseType="STRING"
+                             description=""
+                             name="menuItemMashupName"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description=""
+                             name="menuName"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             baseType="INTEGER"
+                             description="An optional field to indicate the ordering of the menu items"
+                             name="menuOrderPreference"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             baseType="STRING"
+                             description="Localization table key for the optional section that groups like menus together"
+                             name="menuSectionKey"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             baseType="STRING"
+                             description="Localization table key for the menu label"
+                             name="menuTitleKey"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Base.ComponentMenuConfiguration"
+                             aspect.isPrimaryKey="false"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="submenu"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Configuration table for any Things that need to be configured. This allows for OOTB things to be customized, and the new version that should be used can be configured here"
+                 isMultiRow="true"
+                 name="ThingConfiguration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="unique identifier used to identify the thing or mashup that is being configured"
+                             name="id"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             baseType="THINGNAME"
+                             description="Name of the Thing entity or Mashup entity that is to be configured"
+                             name="thingName"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

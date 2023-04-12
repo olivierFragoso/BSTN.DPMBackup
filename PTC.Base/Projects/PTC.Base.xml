@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <Projects>
+        <Project
+         artifactId="base"
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         aspect.projectType="Component"
+         dependsOn="{&quot;extensions&quot;:&quot;&quot;,&quot;projects&quot;:&quot;&quot;}"
+         description="Base Building Block Project"
+         documentationContent=""
+         groupId="com.ptc.solutions.buildingblocks"
+         homeMashup=""
+         minPlatformVersion="9.3.7"
+         name="PTC.Base"
+         packageVersion="1.2.1"
+         projectName="PTC.Base"
+         publishResult=""
+         state="DRAFT"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="PTC.Base.Default_OR:PTC.Base.BaseManagementPermission"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+        </Project>
+    </Projects>
+</Entities>

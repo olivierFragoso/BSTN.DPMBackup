@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <DataShapes>
+        <DataShape
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         baseDataShape=""
+         description="Data Shape which is used to get the list of time periods.{PTC.Base.TimePeriod} "
+         documentationContent=""
+         homeMashup=""
+         name="PTC.Base.TimePeriod"
+         projectName="PTC.Base"
+         tags="PTC:DataShape">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <FieldDefinitions>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="DATETIME"
+                 description="End of the time period"
+                 name="endDateTime"
+                 ordinal="3"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="STRING"
+                 description="Identifier of the time period"
+                 name="id"
+                 ordinal="1"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="false"
+                 baseType="DATETIME"
+                 description="Start of the time period"
+                 name="startDateTime"
+                 ordinal="2"></FieldDefinition>
+            </FieldDefinitions>
+        </DataShape>
+    </DataShapes>
+</Entities>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StateDefinitions>
+        <StateDefinition
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Job_Status"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "stateDefinitions" : [ {
+                "defaultStyleDefinition" : "TW_ML_JobUnknownStyle",
+                "defaultValue" : "UNKNOWN",
+                "description" : "",
+                "displayString" : "Unknown",
+                "name" : "Unknown"
+              }, {
+                "defaultStyleDefinition" : "TW_ML_JobRunningStyle",
+                "defaultValue" : "RUNNING",
+                "description" : "",
+                "displayString" : "Running",
+                "name" : "Running"
+              }, {
+                "defaultStyleDefinition" : "TW_ML_JobCompletedStyle",
+                "defaultValue" : "COMPLETED",
+                "description" : "",
+                "displayString" : "Completed",
+                "name" : "Completed"
+              }, {
+                "defaultStyleDefinition" : "TW_ML_JobFailedStyle",
+                "defaultValue" : "FAILED",
+                "description" : "",
+                "displayString" : "Failed",
+                "name" : "Failed"
+              }, {
+                "defaultStyleDefinition" : "TW_ML_JobQueuedStyle",
+                "defaultValue" : "QUEUED",
+                "description" : "",
+                "displayString" : "Queued",
+                "name" : "Queued"
+              }, {
+                "defaultStyleDefinition" : "TW_ML_JobRunningStyle",
+                "defaultValue" : "LOADING",
+                "description" : "",
+                "displayString" : "Loading",
+                "name" : "Loading"
+              }, {
+                "defaultStyleDefinition" : "TW_ML_JobRunningStyle",
+                "defaultValue" : "OPTIMIZING",
+                "description" : "",
+                "displayString" : "Optimizing",
+                "name" : "Optimizing"
+              }, {
+                "defaultStyleDefinition" : "TW_ML_JobQueuedStyle",
+                "defaultValue" : "QUEUED FOR OPTIMIZATION",
+                "description" : "",
+                "displayString" : "Queued For Optimization",
+                "name" : "Queued For Optimization"
+              }, {
+                "defaultStyleDefinition" : "TW_ML_JobUnknownStyle",
+                "description" : "",
+                "displayString" : "UNKNOWN",
+                "name" : "UNKNOWN"
+              } ],
+              "stateType" : "string"
+            }
+            ]]>
+            </content>
+        </StateDefinition>
+    </StateDefinitions>
+</Entities>

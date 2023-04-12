@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StyleDefinitions>
+        <StyleDefinition
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         description="***DEPRECATED DPM 1.2.0*** This entity will be deleted in a future release. Style definition for menu hover style. {PTC.Base.MenuHoverStyle_SY}"
+         documentationContent=""
+         homeMashup=""
+         name="PTC.Base.MenuHoverStyle_SY"
+         projectName="PTC.Base"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "backgroundColor" : "rgba(0,148,200,1)",
+              "displayString" : "",
+              "fontEmphasisBold" : false,
+              "fontEmphasisItalic" : false,
+              "fontEmphasisUnderline" : false,
+              "foregroundColor" : "",
+              "image" : "",
+              "lineColor" : "",
+              "lineStyle" : "none",
+              "lineThickness" : "0",
+              "secondaryBackgroundColor" : "rgba(0,148,200,1)",
+              "textSize" : "xlarge"
+            }
+            ]]>
+            </content>
+        </StyleDefinition>
+    </StyleDefinitions>
+</Entities>

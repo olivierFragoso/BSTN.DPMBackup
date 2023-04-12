@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <DataShapes>
+        <DataShape
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         baseDataShape=""
+         description="Database to identify the default database schema configuration table."
+         documentationContent=""
+         homeMashup=""
+         name="PTC.Base.DefaultDatabaseConfigurationTable"
+         projectName="PTC.Base"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <FieldDefinitions>
+                <FieldDefinition
+                 aspect.isPrimaryKey="true"
+                 baseType="THINGNAME"
+                 description="Database Connection Entity. "
+                 name="defaultDatabaseConnection"
+                 ordinal="1"></FieldDefinition>
+            </FieldDefinitions>
+        </DataShape>
+    </DataShapes>
+</Entities>

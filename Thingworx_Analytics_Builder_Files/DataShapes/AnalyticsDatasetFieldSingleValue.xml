@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <DataShapes>
+        <DataShape
+         aspect.isExtension="true"
+         baseDataShape=""
+         description="A representation of a single value (or range of values in the case of a CONTINUOUS field) of a single field of a dataset, and metadata related to that value"
+         documentationContent=""
+         homeMashup=""
+         name="AnalyticsDatasetFieldSingleValue"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <FieldDefinitions>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="conditionAsString"
+                 ordinal="12"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Format of the data (STRING,DOUBLE,BOOLEAN,INTEGER)"
+                 name="dataType"
+                 ordinal="1"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="displayValue"
+                 ordinal="8"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Name of the field"
+                 name="fieldName"
+                 ordinal="2"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="includedOrExcluded"
+                 ordinal="11"></FieldDefinition>
+                <FieldDefinition
+                 baseType="BOOLEAN"
+                 description="Is this particular value a missing value"
+                 name="isMissingValue"
+                 ordinal="13"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description="Maximum observed value for Continuous fields"
+                 name="max"
+                 ordinal="3"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description="Minimum observed value for Continuous fields"
+                 name="min"
+                 ordinal="4"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description=""
+                 name="numRecords"
+                 ordinal="9"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Behavior of the data (CONTINUOUS,CATEGORICAL,ORDINAL,BOOLEAN,TEMPORAL,ENTITY_ID)"
+                 name="opType"
+                 ordinal="5"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="percentRecords"
+                 ordinal="10"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description="Time inbetween observations in Temporal field"
+                 name="timeSamplingInterval"
+                 ordinal="6"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="value"
+                 ordinal="7"></FieldDefinition>
+            </FieldDefinitions>
+        </DataShape>
+    </DataShapes>
+</Entities>

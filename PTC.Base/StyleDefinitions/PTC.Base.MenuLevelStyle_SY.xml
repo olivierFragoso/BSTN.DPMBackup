@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StyleDefinitions>
+        <StyleDefinition
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         aspect.isThemeObject="true"
+         description="***DEPRECATED DPM 1.2.0*** This entity will be deleted in a future release. Style definition for menu level. {PTC.Base.MenuLevelStyle_SY}"
+         documentationContent=""
+         homeMashup=""
+         name="PTC.Base.MenuLevelStyle_SY"
+         projectName="PTC.Base"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "backgroundColor" : "rgba(61,70,71,1)",
+              "displayString" : "",
+              "fontEmphasisBold" : false,
+              "fontEmphasisItalic" : false,
+              "fontEmphasisUnderline" : false,
+              "foregroundColor" : "rgba(255,255,255,1)",
+              "image" : "",
+              "lineColor" : "",
+              "lineStyle" : "none",
+              "lineThickness" : 1,
+              "secondaryBackgroundColor" : "",
+              "textSize" : "large"
+            }
+            ]]>
+            </content>
+        </StyleDefinition>
+    </StyleDefinitions>
+</Entities>

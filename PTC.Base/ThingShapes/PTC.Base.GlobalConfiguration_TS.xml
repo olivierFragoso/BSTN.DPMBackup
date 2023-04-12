@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <ThingShapes>
+        <ThingShape
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         className=""
+         description="Base Specific thing shape that will get applied to the PTC.Base.Manager Template. Will be used to store solution specific global configurations."
+         documentationContent=""
+         homeMashup=""
+         name="PTC.Base.GlobalConfiguration_TS"
+         projectName="PTC.Base"
+         tags="">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Adds a record to the global configuration table on Base"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="AddGlobalManagerConfigurationEntry">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Unique identifier for the global manager config table"
+                         name="key"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="THINGNAME"
+                         description="name of the manager thing to add to the database"
+                         name="managerName"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns all of the default managers configured in the global manager configuration table."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetAllGlobalDefaultManagers">
+                    <ResultType
+                     aspect.dataShape="PTC.Base.ManagerConfiguration"
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns the thing name of the default database configured for the solution"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetDefaultConfiguredSolutionName">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns the configured manager thing for the passed in identifier"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetGlobalDefaultManagerForIdentifier">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Unique identifier for the manager configuration table."
+                         name="uid"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="AddGlobalManagerConfigurationEntry">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                        
+                                        let rowToAdd = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "PTC.Base.ManagerConfiguration"
+                                        });
+                                        
+                                        rowToAdd.AddRow({
+                                        	id:key,
+                                            managerThingName:managerName
+                                        });
+                                        
+                                        me.SetConfigurationTableRows({
+                                            values: rowToAdd /* INFOTABLE */,
+                                            persistent: true /* BOOLEAN */,
+                                            tableName: "DefaultGlobalManagerConfiguration" /* STRING */
+                                        });
+                                        
+                                    } catch (err) {
+                                        logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                        throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetAllGlobalDefaultManagers">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let result;
+                                    try {
+                                        result = me.GetConfigurationTable({
+                                            tableName: "DefaultGlobalManagerConfiguration"
+                                        });
+                                    } catch (err) {
+                                        logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                        throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    if (!result) {
+                                        logger.warn("No Manager was found for identifier [{}]", uid);
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetDefaultConfiguredSolutionName">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                        var result = me.GetConfigurationTable({
+                                            tableName: "DefaultSolutionNameConfiguration" /* STRING */
+                                        }).solutionName;
+                                    } catch (err) {
+                                        logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                        throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetGlobalDefaultManagerForIdentifier">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let result = "";
+                                    try {
+                                        
+                                        var mashupConfigTable = me.GetConfigurationTable({
+                                            tableName: "DefaultGlobalManagerConfiguration" /* STRING */
+                                        });
+                                    
+                                        if (mashupConfigTable && mashupConfigTable.rows.length > 0) {
+                                            mashupConfigTable.rows.toArray().forEach(row => {
+                                                if (row.id == uid) {
+                                                    result = row.managerThingName;
+                                                }
+                                            });
+                                        }
+                                    } catch (err) {
+                                        logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                        throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    if (!result) {
+                                        logger.warn("No Manager was found for identifier [{}]", uid);
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions>
+                <ConfigurationTableDefinition
+                 category=""
+                 dataShapeName="PTC.Base.SolutionNameConfiguration"
+                 description="Configuration table that is used to hold the configured solution name for the suite of installed building blocks."
+                 isHidden="false"
+                 isMultiRow="false"
+                 name="DefaultSolutionNameConfiguration"
+                 ordinal="0"
+                 source="IMPORT"></ConfigurationTableDefinition>
+                <ConfigurationTableDefinition
+                 category=""
+                 dataShapeName="PTC.Base.ManagerConfiguration"
+                 description="Contains a list of configured default managers to use for each building block."
+                 isHidden="false"
+                 isMultiRow="true"
+                 name="DefaultGlobalManagerConfiguration"
+                 ordinal="0"
+                 source="IMPORT"></ConfigurationTableDefinition>
+            </ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Contains a list of configured default managers to use for each building block."
+                 isMultiRow="true"
+                 name="DefaultGlobalManagerConfiguration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="unique identifier for the manager that needs to be configured"
+                             name="id"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             aspect.thingShape="PTC.Base.CommonManagement_TS"
+                             baseType="THINGNAME"
+                             description="Name of the Manager Thing to be configured"
+                             name="managerThingName"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Configuration table that is used to hold the configured solution name for the suite of installed building blocks."
+                 isMultiRow="false"
+                 name="DefaultSolutionNameConfiguration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="String representation of the name of the solution to use with this environment"
+                             name="solutionName"
+                             ordinal="1"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <solutionName></solutionName>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StateDefinitions>
+        <StateDefinition
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Scoring_Causal_Techinques"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "stateDefinitions" : [ {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "FULL_RANGE",
+                "description" : "",
+                "displayString" : "Full Range",
+                "name" : "Full Range"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "DISTANCE_FROM_MAX",
+                "description" : "",
+                "displayString" : "Distance From Max",
+                "name" : "Distance From Max"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "DISTANCE_FROM_MIN",
+                "description" : "",
+                "displayString" : "Distance From Min",
+                "name" : "Distance From Min"
+              }, {
+                "defaultStyleDefinition" : "",
+                "description" : "",
+                "displayString" : "FULL_RANGE",
+                "name" : "FULL_RANGE"
+              } ],
+              "stateType" : "string"
+            }
+            ]]>
+            </content>
+        </StateDefinition>
+    </StateDefinitions>
+</Entities>

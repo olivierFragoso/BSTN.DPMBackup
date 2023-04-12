@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StateDefinitions>
+        <StateDefinition
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Model_Buttons"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "stateDefinitions" : [ {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Model_Results_v1",
+                "description" : "",
+                "displayString" : "Model Results",
+                "name" : "Model Results"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Signals_v1",
+                "description" : "",
+                "displayString" : "Signals",
+                "name" : "Signals"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Profiles_v1",
+                "description" : "",
+                "displayString" : "Profiles",
+                "name" : "Profiles"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Scoring_Predictions_v1",
+                "description" : "",
+                "displayString" : "Predictive Scoring",
+                "name" : "Predictive Scoring"
+              }, {
+                "defaultStyleDefinition" : "",
+                "description" : "",
+                "displayString" : "TW_ML_Model_Results_v1",
+                "name" : "TW_ML_Model_Results_v1"
+              } ],
+              "stateType" : "string"
+            }
+            ]]>
+            </content>
+        </StateDefinition>
+    </StateDefinitions>
+</Entities>

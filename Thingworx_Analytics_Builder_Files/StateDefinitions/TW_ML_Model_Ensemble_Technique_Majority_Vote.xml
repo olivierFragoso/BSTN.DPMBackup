@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StateDefinitions>
+        <StateDefinition
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Model_Ensemble_Technique_Majority_Vote"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "stateDefinitions" : [ {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "ELITE_AVERAGE",
+                "description" : "",
+                "displayString" : "Elite Average",
+                "name" : "Elite Average"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "AVERAGE",
+                "description" : "",
+                "displayString" : "Average",
+                "name" : "Average"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "BEST",
+                "description" : "",
+                "displayString" : "Best",
+                "name" : "Best"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "MAJORITY_VOTE",
+                "description" : "",
+                "displayString" : "Majority Vote",
+                "name" : "Majority Vote"
+              }, {
+                "defaultStyleDefinition" : "",
+                "description" : "",
+                "displayString" : "ELITE_AVERAGE",
+                "name" : "ELITE_AVERAGE"
+              } ],
+              "stateType" : "string"
+            }
+            ]]>
+            </content>
+        </StateDefinition>
+    </StateDefinitions>
+</Entities>

@@ -1,0 +1,2886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Training_JobDetails_v1"
+         projectName="Thingworx_Analytics_Builder_Files"
+         rows="0.0"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Mashup Mobile Settings"
+                 isHidden="true"
+                 isMultiRow="false"
+                 name="MobileSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Disable Zoom"
+                             baseType="BOOLEAN"
+                             description="Disables zooming in and out within the mashup"
+                             name="disableZoom"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             aspect.friendlyName="Full Screen Mode"
+                             baseType="BOOLEAN"
+                             description="Open the mashup in full screen mode"
+                             name="fullScreenMode"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Height"
+                             baseType="STRING"
+                             description="The height of the mashup page"
+                             name="height"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-height"
+                             aspect.friendlyName="Height Type"
+                             baseType="STRING"
+                             description="Use the height of the device display, or a custom height (in px)"
+                             name="heightType"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Initial Scale"
+                             baseType="NUMBER"
+                             description="The initial zoom scale when the mashup is loaded for the first time"
+                             name="initialScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Shortcut Icon Title"
+                             baseType="STRING"
+                             description="A title for the mashup shortcut on the iOS home screen"
+                             name="iosShortcutIconTitle"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="black-translucent"
+                             aspect.friendlyName="Status Bar Appearance"
+                             baseType="STRING"
+                             description="The style of the iOS status bar"
+                             name="iosStatusBarAppearance"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="10.0"
+                             aspect.friendlyName="Maximum Scale"
+                             baseType="NUMBER"
+                             description="The maximum scale that users can zoom out to"
+                             name="maximumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="0.1"
+                             aspect.friendlyName="Minimum Scale"
+                             baseType="NUMBER"
+                             description="The minimum scale that users can zoom out to"
+                             name="minimumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Width"
+                             baseType="STRING"
+                             description="The width of the mashup page"
+                             name="width"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-width"
+                             aspect.friendlyName="Width Type"
+                             baseType="STRING"
+                             description="Use the width of the device display, or a custom width (in px)"
+                             name="widthType"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <disableZoom>false</disableZoom>
+                            <fullScreenMode>true</fullScreenMode>
+                            <height></height>
+                            <heightType>
+                            <![CDATA[
+                            device-height
+                            ]]>
+                            </heightType>
+                            <initialScale>1.0</initialScale>
+                            <iosShortcutIconTitle></iosShortcutIconTitle>
+                            <iosStatusBarAppearance>
+                            <![CDATA[
+                            black-translucent
+                            ]]>
+                            </iosStatusBarAppearance>
+                            <maximumScale>10.0</maximumScale>
+                            <minimumScale>0.1</minimumScale>
+                            <width></width>
+                            <widthType>
+                            <![CDATA[
+                            device-width
+                            ]]>
+                            </widthType>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="trainingJobId"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW_ML_Helper" : {
+                  "DataName" : "Things_TW_ML_Helper",
+                  "EntityName" : "TW_ML_Helper",
+                  "EntityType" : "Things",
+                  "Id" : "74c3be75-f7a3-47bb-a202-d6dc6fe89857",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "c5172218-c5a6-4d56-bb0c-000ba32e1db0",
+                    "Name" : "GetAnalyticsServerRuntimeInstance",
+                    "Parameters" : {
+                      "mashupName" : "TW_ML_Training_JobDetails_v1"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetAnalyticsServerRuntimeInstance"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "8d5ce732-f6cd-466b-b1a0-70b0b4c3e7fd",
+                    "Name" : "GetJobInfoWithIdAMS",
+                    "Parameters" : {
+                      "microserverName" : "TrainingMicroserver"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetJobInfoWithIdAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "7b56a7bd-4b22-4ba3-9f97-9c1ee1e3e60b",
+                    "Name" : "GetValidationJobInfoFromTrainingJobAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetValidationJobInfoFromTrainingJobAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "8fafa2d5-c724-4406-a80d-642ffa977c40",
+                    "Name" : "ReturnCountForInfoTableAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnCountForInfoTableAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "b6b47a46-b2aa-4a38-9b48-9b1357a20aea",
+                    "Name" : "ReturnOppositeBooleanValueAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnOppositeBooleanValueAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2e0f4773-bee4-4866-b34e-16cc95b77fec",
+                    "Name" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "Parameters" : {
+                      "getTrainingDataMetrics" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetValidationJobInfoFromTrainingJobAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5f91cc6c-c9da-44d9-aac1-99aed87f798e",
+                    "Name" : "ReturnCountForInfoTableAMS1",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnCountForInfoTableAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2d1af7dd-f485-406e-892d-455c256eefb3",
+                    "Name" : "ReturnOppositeBooleanValueAMS1",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnOppositeBooleanValueAMS"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "79e4cc85-7c85-4a77-a753-c9d3df473ffd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "trainingJobId",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "jobId",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetJobInfoWithIdAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "e2ce6428-938d-4b78-8b98-9d3d16473aac",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetJobInfoWithIdAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "48de2420-2c5c-4554-bd91-47aff5184115",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetJobInfoWithIdAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "PropertyDisplay-15",
+                "TargetSection" : ""
+              }, {
+                "Id" : "99c906c0-38f3-4893-a487-b0349fb1916a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "trainingJob",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetJobInfoWithIdAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetValidationJobInfoFromTrainingJobAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "b4520c20-4928-4f0e-ae63-2072daf0e189",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetValidationJobInfoFromTrainingJobAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "1eb43cd4-8124-4141-9814-8871ebbc939f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetValidationJobInfoFromTrainingJobAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "PropertyDisplay-37",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ab01252c-880b-4675-8ae2-7063eddb323a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "jobName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetJobInfoWithIdAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-45",
+                "TargetSection" : ""
+              }, {
+                "Id" : "972234b3-6936-411a-84c6-422168417983",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "infoTable",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetValidationJobInfoFromTrainingJobAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnCountForInfoTableAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "565988ca-4694-4c58-920d-46ed6dba839a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "value",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-64",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnOppositeBooleanValueAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "d285c90e-a696-4517-83bf-8c1c0ee2f270",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "rowCount",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnCountForInfoTableAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-64",
+                "TargetSection" : ""
+              }, {
+                "Id" : "aa1532b6-aa40-4a44-ae85-9b71d62f966f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-64",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "container-60",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d6d8aec9-c089-4663-ad76-39ca0ce4ed09",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnOppositeBooleanValueAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "container-59",
+                "TargetSection" : ""
+              }, {
+                "Id" : "48663a9f-04a6-4f73-b99a-091b1d52e025",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Expanded",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnOppositeBooleanValueAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "container-59",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a1fa4e03-f448-4516-95e5-82f84e8b7399",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetValidationJobInfoFromTrainingJobAMS1",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "06349471-da49-46a2-b78c-cfb110b7287b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "trainingJob",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetJobInfoWithIdAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetValidationJobInfoFromTrainingJobAMS1",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "16c937eb-eac7-4cb8-abd2-9843ba0b7b47",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyDataShape" : [ {
+                    "aspects" : {
+                      "dataShape" : "AnalyticsJobConfigParameter"
+                    },
+                    "baseType" : "INFOTABLE",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "dataShape" : {
+                      "fieldDefinitions" : {
+                        "parameterName" : {
+                          "aspects" : { },
+                          "baseType" : "STRING",
+                          "description" : "The name of the parameter",
+                          "name" : "parameterName",
+                          "ordinal" : 1
+                        },
+                        "parameterValue" : {
+                          "aspects" : { },
+                          "baseType" : "STRING",
+                          "description" : "The value of the parameter",
+                          "name" : "parameterValue",
+                          "ordinal" : 2
+                        }
+                      }
+                    },
+                    "displayName" : "additionalParameters",
+                    "id" : "additionalParameters",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "additionalParameters",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : {
+                      "dataShape" : "AnalyticsDatasetRef"
+                    },
+                    "baseType" : "INFOTABLE",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "dataShape" : {
+                      "fieldDefinitions" : {
+                        "data" : {
+                          "aspects" : { },
+                          "baseType" : "INFOTABLE",
+                          "description" : "An infotable necessary to pass data as part of a request body. Use this parameter ONLY when the datasetUri parameter is body:/. The infotable must be flat (cannot contain nested infotables) and its definition must match the corresponding infotable for the metadata parameter. This infotable must include a row of data for each record. For more information, see <a href=\"https://support.ptc.com/help/thingworx_hc/thingworx_analytics_8/#page/analytics%2Fanalytics-data-key-infotables.html\">Key Analytics Infotables</a> in the Analytics Help Center.",
+                          "name" : "data",
+                          "ordinal" : 5
+                        },
+                        "datasetUri" : {
+                          "aspects" : { },
+                          "baseType" : "STRING",
+                          "description" : "Location of the data",
+                          "name" : "datasetUri",
+                          "ordinal" : 1
+                        },
+                        "exclusions" : {
+                          "aspects" : {
+                            "dataShape" : "GenericStringList"
+                          },
+                          "baseType" : "INFOTABLE",
+                          "dataShape" : {
+                            "fieldDefinitions" : {
+                              "item" : {
+                                "aspects" : {
+                                  "isPrimaryKey" : true
+                                },
+                                "baseType" : "STRING",
+                                "description" : "Item",
+                                "name" : "item",
+                                "ordinal" : 1
+                              }
+                            }
+                          },
+                          "description" : "Fields to remove from the dataset",
+                          "name" : "exclusions",
+                          "ordinal" : 4
+                        },
+                        "filter" : {
+                          "aspects" : { },
+                          "baseType" : "STRING",
+                          "description" : "SQL WHERE clause to refine the dataset",
+                          "name" : "filter",
+                          "ordinal" : 3
+                        },
+                        "format" : {
+                          "aspects" : { },
+                          "baseType" : "STRING",
+                          "description" : "Structure of the data (csv, parquet)",
+                          "name" : "format",
+                          "ordinal" : 2
+                        },
+                        "metadata" : {
+                          "aspects" : {
+                            "dataShape" : "AnalyticsDatasetMetadata"
+                          },
+                          "baseType" : "INFOTABLE",
+                          "dataShape" : {
+                            "fieldDefinitions" : {
+                              "dataType" : {
+                                "aspects" : { },
+                                "baseType" : "STRING",
+                                "description" : "Format of the data (STRING,DOUBLE,BOOLEAN,INTEGER)",
+                                "name" : "dataType",
+                                "ordinal" : 2
+                              },
+                              "fieldName" : {
+                                "aspects" : { },
+                                "baseType" : "STRING",
+                                "description" : "Name of the field",
+                                "name" : "fieldName",
+                                "ordinal" : 1
+                              },
+                              "isStatic" : {
+                                "aspects" : {
+                                  "defaultValue" : false
+                                },
+                                "baseType" : "BOOLEAN",
+                                "description" : "If true, this field remains unchanged over time",
+                                "name" : "isStatic",
+                                "ordinal" : 8
+                              },
+                              "max" : {
+                                "aspects" : { },
+                                "baseType" : "NUMBER",
+                                "description" : "Maximum observed value for Continuous fields",
+                                "name" : "max",
+                                "ordinal" : 5
+                              },
+                              "min" : {
+                                "aspects" : { },
+                                "baseType" : "NUMBER",
+                                "description" : "Minimum observed value for Continuous fields",
+                                "name" : "min",
+                                "ordinal" : 4
+                              },
+                              "opType" : {
+                                "aspects" : { },
+                                "baseType" : "STRING",
+                                "description" : "Behavior of the data (CONTINUOUS,CATEGORICAL,ORDINAL,BOOLEAN,TEMPORAL,ENTITY_ID)",
+                                "name" : "opType",
+                                "ordinal" : 3
+                              },
+                              "timeSamplingInterval" : {
+                                "aspects" : { },
+                                "baseType" : "INTEGER",
+                                "description" : "Time between observations in a Temporal field",
+                                "name" : "timeSamplingInterval",
+                                "ordinal" : 7
+                              },
+                              "values" : {
+                                "aspects" : {
+                                  "dataShape" : "GenericStringList"
+                                },
+                                "baseType" : "INFOTABLE",
+                                "dataShape" : {
+                                  "fieldDefinitions" : {
+                                    "item" : {
+                                      "aspects" : {
+                                        "isPrimaryKey" : true
+                                      },
+                                      "baseType" : "STRING",
+                                      "description" : "Item",
+                                      "name" : "item",
+                                      "ordinal" : 1
+                                    }
+                                  }
+                                },
+                                "description" : "Collection of possible values for Ordinal and Categorical fields",
+                                "name" : "values",
+                                "ordinal" : 6
+                              }
+                            }
+                          },
+                          "description" : "Metadata of the dataset (for providing data as part of request)",
+                          "name" : "metadata",
+                          "ordinal" : 6
+                        }
+                      }
+                    },
+                    "displayName" : "datasetRef",
+                    "id" : "datasetRef",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "datasetRef",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "endDateTime",
+                    "id" : "endDateTime",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "endDateTime",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : {
+                      "isPrimaryKey" : false
+                    },
+                    "baseType" : "DATETIME",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "endDateTimeAsDate",
+                    "id" : "endDateTimeAsDate",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "endDateTimeAsDate",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "jobDescription",
+                    "id" : "jobDescription",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "jobDescription",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : {
+                      "defaultValue" : "ahhh"
+                    },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "jobId",
+                    "id" : "jobId",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "jobId",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "jobName",
+                    "id" : "jobName",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "jobName",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : {
+                      "dataShape" : "FieldValuePair"
+                    },
+                    "baseType" : "INFOTABLE",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "dataShape" : {
+                      "fieldDefinitions" : {
+                        "fieldName" : {
+                          "aspects" : { },
+                          "baseType" : "STRING",
+                          "description" : "The field name",
+                          "name" : "fieldName",
+                          "ordinal" : 1
+                        },
+                        "fieldValue" : {
+                          "aspects" : { },
+                          "baseType" : "STRING",
+                          "description" : "The field value",
+                          "name" : "fieldValue",
+                          "ordinal" : 2
+                        }
+                      }
+                    },
+                    "displayName" : "jobTypesWithId",
+                    "id" : "jobTypesWithId",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "jobTypesWithId",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "message",
+                    "id" : "message",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "message",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "queuedDuration",
+                    "id" : "queuedDuration",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "queuedDuration",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "queuedStartDateTime",
+                    "id" : "queuedStartDateTime",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "queuedStartDateTime",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : {
+                      "isPrimaryKey" : false
+                    },
+                    "baseType" : "DATETIME",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "queuedStartDateTimeAsDate",
+                    "id" : "queuedStartDateTimeAsDate",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "queuedStartDateTimeAsDate",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "referenceUri",
+                    "id" : "referenceUri",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "referenceUri",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "runTime",
+                    "id" : "runTime",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "runTime",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "startDateTime",
+                    "id" : "startDateTime",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "startDateTime",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : {
+                      "isPrimaryKey" : false
+                    },
+                    "baseType" : "DATETIME",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "startDateTimeAsDate",
+                    "id" : "startDateTimeAsDate",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "startDateTimeAsDate",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : { },
+                    "baseType" : "STRING",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "displayName" : "state",
+                    "id" : "state",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "state",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  }, {
+                    "aspects" : {
+                      "dataShape" : "GenericStringList"
+                    },
+                    "baseType" : "INFOTABLE",
+                    "binding" : {
+                      "area" : "Data",
+                      "details" : "AllData",
+                      "id" : "GetValidationJobInfoFromTrainingJobAMS1",
+                      "section" : "Things_TW_ML_Helper"
+                    },
+                    "dataServiceName" : "GetValidationJobInfoFromTrainingJobAMS1",
+                    "dataShape" : {
+                      "fieldDefinitions" : {
+                        "item" : {
+                          "aspects" : {
+                            "isPrimaryKey" : true
+                          },
+                          "baseType" : "STRING",
+                          "description" : "Item",
+                          "name" : "item",
+                          "ordinal" : 1
+                        }
+                      }
+                    },
+                    "displayName" : "tags",
+                    "id" : "tags",
+                    "isBindingSource" : true,
+                    "isBindingTarget" : false,
+                    "isValidDropTarget" : true,
+                    "name" : "tags",
+                    "panelId" : "DataManagement",
+                    "type" : "Field"
+                  } ],
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetValidationJobInfoFromTrainingJobAMS1",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "propertydisplay-78",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6fc1f10c-d1ff-4adf-a64f-810d574c3259",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "infoTable",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetValidationJobInfoFromTrainingJobAMS1",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnCountForInfoTableAMS1",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "e82382b5-c150-402f-a10c-b70b70310025",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "rowCount",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnCountForInfoTableAMS1",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-79",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6a3e1109-0763-4dc1-9771-59b702d576a3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "value",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "validator-79",
+                "SourceSection" : " ",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnOppositeBooleanValueAMS1",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "09f7d24e-8343-40b9-9756-8a7e864623a6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "validator-79",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "container-73",
+                "TargetSection" : ""
+              }, {
+                "Id" : "95ca83ac-bd6e-43c4-ae6a-0f0e84589d16",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnOppositeBooleanValueAMS1",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "container-71",
+                "TargetSection" : ""
+              }, {
+                "Id" : "99993a9f-04a6-4f73-b99a-091b1d52e025",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Expanded",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnOppositeBooleanValueAMS1",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "container-71",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : {
+                "Create" : [ ],
+                "Delete" : [ ],
+                "Metadata" : [ ],
+                "Read" : [ ],
+                "Update" : [ ]
+              },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-36",
+                "EventTriggerSection" : "",
+                "Id" : "53b0bd67-46a5-4ae0-9f53-14a0ab444255"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetAnalyticsServerRuntimeInstance",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "ffee4283-5b0b-4a4d-81bc-0b0d3b687e85"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetJobInfoWithIdAMS",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetAnalyticsServerRuntimeInstance",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "467750c2-e941-4ffa-a1e6-4857a80980f6"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetValidationJobInfoFromTrainingJobAMS",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetJobInfoWithIdAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "4c6a6580-b497-45a3-bf18-1b35425d9c08"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnCountForInfoTableAMS",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetValidationJobInfoFromTrainingJobAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "70885d8f-d9b5-4356-9eb6-08339e6785f5"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-64",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnCountForInfoTableAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "3435633d-4891-4728-a35c-3c3660ea49e8"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnOppositeBooleanValueAMS",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "expression-64",
+                "EventTriggerSection" : " ",
+                "Id" : "2ce9cdec-b5ca-46f3-a6b3-42eda5e7592c"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetValidationJobInfoFromTrainingJobAMS1",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetJobInfoWithIdAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "daf78be3-5f10-4ed5-845c-0cd301ebf44c"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnCountForInfoTableAMS1",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetValidationJobInfoFromTrainingJobAMS1",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "2992f16c-0810-484c-be0b-bc342b77ae82"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-79",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnCountForInfoTableAMS1",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "5c2ceae3-94c2-41c6-8fce-ae39056ea768"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnOppositeBooleanValueAMS1",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "validator-79",
+                "EventTriggerSection" : "",
+                "Id" : "d99dc590-6b5d-4711-b357-ff0d18a90586"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnOppositeBooleanValueAMS1",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "validator-79",
+                "EventTriggerSection" : "",
+                "Id" : "9c12ecb7-d33a-4266-a32d-25b4f351361e"
+              } ],
+              "RunTimePermissions" : {
+                "permissions" : [ ]
+              },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButton" : "SimplePlus",
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImage" : "",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButton" : "SimpleGear",
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "StyleProperties" : {
+                    "data" : { },
+                    "meta" : {
+                      "type" : "WidgetStyler",
+                      "version" : "1.0"
+                    }
+                  },
+                  "StyleTheme" : "Base Theme",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "UseMasterTheme" : false,
+                  "UseTheme" : false,
+                  "UseThemeForHybrids" : false,
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "trainingJobId"
+                  } ],
+                  "id_index" : 79,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 0,
+                    "DisplayName" : "layout-40",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : true,
+                    "HeaderHeight" : 50,
+                    "Id" : "layout-40",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "LastContainer" : false,
+                    "Left" : 355,
+                    "LeftSidebar" : false,
+                    "LeftSidebarWidth" : 0,
+                    "Orientation" : "vertical",
+                    "PctColumn1" : 50,
+                    "PctColumn2" : 50,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 100,
+                    "PctRow2" : 0,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : false,
+                    "RightSidebarWidth" : 0,
+                    "Rows" : 1,
+                    "ShowDataLoading" : false,
+                    "Spacing" : 0,
+                    "Top" : 160,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Header",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-41",
+                      "LastContainer" : false,
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultPanelStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "container",
+                      "userCannotRemove" : true
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "ContainerClass" : "",
+                        "DisplayName" : "panel-44",
+                        "Height" : 200,
+                        "HideScrollbars" : false,
+                        "HorizontalAnchor" : "left",
+                        "Id" : "panel-44",
+                        "LastContainer" : false,
+                        "Left" : 115,
+                        "ResponsiveLayout" : true,
+                        "ShowDataLoading" : true,
+                        "Style" : "DefaultPanelStyle",
+                        "Top" : 20,
+                        "Type" : "panel",
+                        "VerticalAnchor" : "top",
+                        "Visible" : true,
+                        "Width" : 300,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Panel"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "Area" : "UI",
+                          "BackgroundFill" : "content",
+                          "DisplayName" : "model name",
+                          "Height" : 22,
+                          "Id" : "valuedisplay-45",
+                          "ImageScaling" : "Width",
+                          "Label" : "Model Name",
+                          "LabelAlignment" : "left",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "Overflow" : "visible",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "TextIfNoValue" : "",
+                          "TextIfNoValueOffset" : 0,
+                          "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                          "TextWrap" : false,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 0,
+                          "Type" : "valuedisplay",
+                          "UseTheme" : false,
+                          "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                          "ValueDisplayStyle" : "TW.AnalysisServices.Accent2SelectedContentNameStyle",
+                          "ValueFormat" : {
+                            "FormatString" : "full",
+                            "renderer" : "STRING"
+                          },
+                          "ValueFormat_StateParameters" : [ ],
+                          "VerticalAlignment" : "middle",
+                          "Visible" : true,
+                          "Width" : 800,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Value Display",
+                          "__supportsLabel" : true,
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Row 1",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-42",
+                      "LastContainer" : false,
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "container",
+                      "userCannotRemove" : true
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 0,
+                        "DisplayName" : "layout-28",
+                        "Footer" : true,
+                        "FooterHeight" : 50,
+                        "Header" : false,
+                        "HeaderHeight" : 0,
+                        "Id" : "layout-28",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "LastContainer" : false,
+                        "Left" : 335,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "vertical",
+                        "PctColumn1" : 50,
+                        "PctColumn2" : 50,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 100,
+                        "PctRow2" : 0,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : false,
+                        "RightSidebarWidth" : 0,
+                        "Rows" : 1,
+                        "ShowDataLoading" : true,
+                        "Spacing" : 0,
+                        "Top" : 170,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Row",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-29",
+                          "LastContainer" : false,
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "container",
+                          "userCannotRemove" : true
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "Columns" : 3,
+                            "DisplayName" : "Layout-1",
+                            "Footer" : false,
+                            "FooterHeight" : 0,
+                            "Header" : false,
+                            "HeaderHeight" : 0,
+                            "Id" : "Layout-1",
+                            "IncludeSpacingInFixedAreas" : false,
+                            "IsPrintLayout" : false,
+                            "LastContainer" : false,
+                            "Left" : 360,
+                            "LeftSidebar" : false,
+                            "LeftSidebarWidth" : 0,
+                            "Orientation" : "horizontal",
+                            "PctColumn1" : 30,
+                            "PctColumn2" : 30,
+                            "PctColumn3" : 40,
+                            "PctColumn4" : 1,
+                            "PctColumn5" : 1,
+                            "PctColumn6" : 1,
+                            "PctColumn7" : 1,
+                            "PctColumn8" : 1,
+                            "PctRow1" : 50,
+                            "PctRow2" : 50,
+                            "PctRow3" : 0,
+                            "PctRow4" : 0,
+                            "PctRow5" : 0,
+                            "PctRow6" : 0,
+                            "PctRow7" : 0,
+                            "PctRow8" : 0,
+                            "PrintMarginLeftRight" : 0.5,
+                            "PrintMarginTopBottom" : 0.5,
+                            "PrintWidth" : 650,
+                            "ResponsiveLayout" : true,
+                            "RightSidebar" : false,
+                            "RightSidebarWidth" : 0,
+                            "Rows" : 0,
+                            "ShowDataLoading" : true,
+                            "Spacing" : 2,
+                            "Top" : 70,
+                            "Type" : "layout",
+                            "Visible" : true,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Layout"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-2",
+                              "LastContainer" : false,
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container",
+                              "userCannotRemove" : true
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 0,
+                                "DisplayName" : "Layout-4",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : true,
+                                "HeaderHeight" : 40,
+                                "Id" : "Layout-4",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "LastContainer" : false,
+                                "Left" : 220,
+                                "LeftSidebar" : false,
+                                "LeftSidebarWidth" : 0,
+                                "Orientation" : "vertical",
+                                "PctColumn1" : 50,
+                                "PctColumn2" : 50,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 100,
+                                "PctRow2" : 100,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : false,
+                                "RightSidebarWidth" : 0,
+                                "Rows" : 1,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 2,
+                                "Top" : 10,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Header",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-5",
+                                  "LastContainer" : false,
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container",
+                                  "userCannotRemove" : true
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Alignment" : "center",
+                                    "Area" : "UI",
+                                    "BackgroundFill" : "content",
+                                    "Description" : "",
+                                    "DisplayName" : "ValueDisplay-10",
+                                    "Height" : 22,
+                                    "Id" : "ValueDisplay-10",
+                                    "ImageScaling" : "width",
+                                    "Label" : "",
+                                    "LabelAlignment" : "left",
+                                    "LastContainer" : false,
+                                    "Left" : 0,
+                                    "Overflow" : "hidden",
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "TextIfNoValue" : "Training Job",
+                                    "TextIfNoValueOffset" : 0,
+                                    "TextIfNoValueStyle" : "TW_ML_16PointBlackBold",
+                                    "TextWrap" : true,
+                                    "ToolTipField" : "",
+                                    "ToolTipStyle" : "DefaultTooltipStyle",
+                                    "Top" : 0,
+                                    "Type" : "valuedisplay",
+                                    "UseTheme" : false,
+                                    "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                    "ValueDisplayStyle" : "DefaultValueDisplayStyle",
+                                    "VerticalAlignment" : "middle",
+                                    "Visible" : true,
+                                    "Width" : 100,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Value Display",
+                                    "__supportsLabel" : true,
+                                    "__supportsTooltip" : true
+                                  },
+                                  "Widgets" : [ ]
+                                } ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Row 1",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-6",
+                                  "LastContainer" : false,
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container",
+                                  "userCannotRemove" : true
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "AllowEditing" : false,
+                                    "Area" : "UI",
+                                    "DisplayName" : "PropertyDisplay-15",
+                                    "Height" : 200,
+                                    "Id" : "PropertyDisplay-15",
+                                    "InfotableInfo" : "{\"jobId\":{\"name\":\"jobId\",\"aspects\":{\"defaultValue\":\"ahhh\"},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":18,\"Title\":\"Job Id\",\"__showThisField\":true},\"state\":{\"name\":\"state\",\"aspects\":{},\"description\":\"Current state of the job (COMPLETED,RUNNING,FAILED,EXPIRED,QUEUED,UNKNOWN,TERMINATED)\",\"baseType\":\"STRING\",\"ordinal\":1,\"Title\":\"State\",\"__showThisField\":true},\"queuedStartDateTimeAsDate\":{\"name\":\"queuedStartDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":9,\"Title\":\"Queued Start Time\",\"__showThisField\":true},\"queuedDuration\":{\"name\":\"queuedDuration\",\"aspects\":{},\"description\":\"Length of time the job was in the queue\",\"baseType\":\"STRING\",\"ordinal\":10,\"Title\":\"Queued Duration\",\"__showThisField\":true},\"startDateTimeAsDate\":{\"name\":\"startDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":4,\"Title\":\"Start Time\",\"__showThisField\":true},\"endDateTimeAsDate\":{\"name\":\"endDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":6,\"Title\":\"End Time\",\"__showThisField\":true},\"runTime\":{\"name\":\"runTime\",\"aspects\":{},\"description\":\"Length of time the job took to run\",\"baseType\":\"STRING\",\"ordinal\":7,\"Title\":\"Run Time\",\"__showThisField\":true},\"jobDescription\":{\"name\":\"jobDescription\",\"aspects\":{},\"description\":\"Description of this job\",\"baseType\":\"STRING\",\"ordinal\":13,\"Title\":\"Description\",\"__showThisField\":true},\"message\":{\"name\":\"message\",\"aspects\":{},\"description\":\"Extra information for reporting issues about the job\",\"baseType\":\"STRING\",\"ordinal\":2,\"Title\":\"Error Message\",\"__showThisField\":true},\"jobName\":{\"name\":\"jobName\",\"aspects\":{},\"description\":\"Name of this job\",\"baseType\":\"STRING\",\"ordinal\":12,\"Title\":\"jobName\",\"__showThisField\":false},\"referenceUri\":{\"name\":\"referenceUri\",\"aspects\":{},\"description\":\"URI to the job result for reference, if applicable (Data, Training, Clusters)\",\"baseType\":\"STRING\",\"ordinal\":17,\"Title\":\"referenceUri\",\"__showThisField\":false},\"endDateTime\":{\"name\":\"endDateTime\",\"aspects\":{},\"description\":\"Date and time the job was completed\",\"baseType\":\"STRING\",\"ordinal\":5,\"Title\":\"endDateTime\",\"__showThisField\":false},\"tags\":{\"name\":\"tags\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Queryable tags associated with this job\",\"baseType\":\"INFOTABLE\",\"ordinal\":15,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}},\"Title\":\"tags\",\"__showThisField\":false},\"jobTypesWithId\":{\"name\":\"jobTypesWithId\",\"aspects\":{\"dataShape\":\"FieldValuePair\"},\"description\":\"Job types with corresponding job IDs\",\"baseType\":\"INFOTABLE\",\"ordinal\":11,\"dataShape\":{\"fieldDefinitions\":{\"fieldName\":{\"name\":\"fieldName\",\"aspects\":{},\"description\":\"The field name\",\"baseType\":\"STRING\",\"ordinal\":1},\"fieldValue\":{\"name\":\"fieldValue\",\"aspects\":{},\"description\":\"The field value\",\"baseType\":\"STRING\",\"ordinal\":2}}},\"Title\":\"jobTypesWithId\",\"__showThisField\":false},\"startDateTime\":{\"name\":\"startDateTime\",\"aspects\":{},\"description\":\"Date and time the job was started\",\"baseType\":\"STRING\",\"ordinal\":3,\"Title\":\"startDateTime\",\"__showThisField\":false},\"queuedStartDateTime\":{\"name\":\"queuedStartDateTime\",\"aspects\":{},\"description\":\"Date and time the job was submitted\",\"baseType\":\"STRING\",\"ordinal\":8,\"Title\":\"queuedStartDateTime\",\"__showThisField\":false},\"additionalParameters\":{\"name\":\"additionalParameters\",\"aspects\":{\"dataShape\":\"AnalyticsJobConfigParameter\"},\"description\":\"Additional job-specific parameters\",\"baseType\":\"INFOTABLE\",\"ordinal\":16,\"dataShape\":{\"fieldDefinitions\":{\"parameterName\":{\"name\":\"parameterName\",\"aspects\":{},\"description\":\"The name of the parameter\",\"baseType\":\"STRING\",\"ordinal\":1},\"parameterValue\":{\"name\":\"parameterValue\",\"aspects\":{},\"description\":\"The value of the parameter\",\"baseType\":\"STRING\",\"ordinal\":2}}},\"Title\":\"additionalParameters\",\"__showThisField\":false},\"datasetRef\":{\"name\":\"datasetRef\",\"aspects\":{\"dataShape\":\"AnalyticsDatasetRef\"},\"description\":\"Reference to the dataset used for this job\",\"baseType\":\"INFOTABLE\",\"ordinal\":14,\"dataShape\":{\"fieldDefinitions\":{\"filter\":{\"name\":\"filter\",\"aspects\":{},\"description\":\"SQL WHERE clause to refine the dataset\",\"baseType\":\"STRING\",\"ordinal\":3},\"datasetUri\":{\"name\":\"datasetUri\",\"aspects\":{},\"description\":\"Location of the data\",\"baseType\":\"STRING\",\"ordinal\":1},\"metadata\":{\"name\":\"metadata\",\"aspects\":{\"dataShape\":\"AnalyticsDatasetMetadata\"},\"description\":\"Metadata of the dataset (for providing data as part of request)\",\"baseType\":\"INFOTABLE\",\"ordinal\":6,\"dataShape\":{\"fieldDefinitions\":{\"timeSamplingInterval\":{\"name\":\"timeSamplingInterval\",\"aspects\":{},\"description\":\"Time between observations in a Temporal field\",\"baseType\":\"INTEGER\",\"ordinal\":7},\"isStatic\":{\"name\":\"isStatic\",\"aspects\":{\"defaultValue\":false},\"description\":\"If true, this field remains unchanged over time\",\"baseType\":\"BOOLEAN\",\"ordinal\":8},\"fieldName\":{\"name\":\"fieldName\",\"aspects\":{},\"description\":\"Name of the field\",\"baseType\":\"STRING\",\"ordinal\":1},\"min\":{\"name\":\"min\",\"aspects\":{},\"description\":\"Minimum observed value for Continuous fields\",\"baseType\":\"NUMBER\",\"ordinal\":4},\"max\":{\"name\":\"max\",\"aspects\":{},\"description\":\"Maximum observed value for Continuous fields\",\"baseType\":\"NUMBER\",\"ordinal\":5},\"dataType\":{\"name\":\"dataType\",\"aspects\":{},\"description\":\"Format of the data (STRING,DOUBLE,BOOLEAN,INTEGER)\",\"baseType\":\"STRING\",\"ordinal\":2},\"opType\":{\"name\":\"opType\",\"aspects\":{},\"description\":\"Behavior of the data (CONTINUOUS,CATEGORICAL,ORDINAL,BOOLEAN,TEMPORAL,ENTITY_ID)\",\"baseType\":\"STRING\",\"ordinal\":3},\"values\":{\"name\":\"values\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Collection of possible values for Ordinal and Categorical fields\",\"baseType\":\"INFOTABLE\",\"ordinal\":6,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}}}}}},\"data\":{\"name\":\"data\",\"aspects\":{},\"description\":\"An infotable of data (must be flat. for providing data as part of request)\",\"baseType\":\"INFOTABLE\",\"ordinal\":5},\"format\":{\"name\":\"format\",\"aspects\":{},\"description\":\"Structure of the data (csv, parquet)\",\"baseType\":\"STRING\",\"ordinal\":2},\"exclusions\":{\"name\":\"exclusions\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Fields to remove from the dataset\",\"baseType\":\"INFOTABLE\",\"ordinal\":4,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}}}}},\"Title\":\"datasetRef\",\"__showThisField\":false}}",
+                                    "LastContainer" : false,
+                                    "Left" : 0,
+                                    "ResponsiveLayout" : true,
+                                    "ShowAllColumns" : false,
+                                    "ShowDataLoading" : false,
+                                    "ShowEditorsIfNoRowData" : false,
+                                    "Style" : "TW.AnalysisServices.PropertyDisplayStyle",
+                                    "Top" : 0,
+                                    "Type" : "propertydisplay",
+                                    "UseTheme" : false,
+                                    "Visible" : true,
+                                    "Width" : 250,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Property Display"
+                                  },
+                                  "Widgets" : [ ]
+                                } ]
+                              } ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-3",
+                              "LastContainer" : false,
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container",
+                              "userCannotRemove" : true
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 0,
+                                "DisplayName" : "Layout-7",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : true,
+                                "HeaderHeight" : 40,
+                                "Id" : "Layout-7",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "LastContainer" : false,
+                                "Left" : 225,
+                                "LeftSidebar" : false,
+                                "LeftSidebarWidth" : 0,
+                                "Orientation" : "vertical",
+                                "PctColumn1" : 50,
+                                "PctColumn2" : 50,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 100,
+                                "PctRow2" : 0,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : false,
+                                "RightSidebarWidth" : 0,
+                                "Rows" : 1,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 2,
+                                "Top" : 95,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Header",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-8",
+                                  "LastContainer" : false,
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container",
+                                  "userCannotRemove" : true
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Alignment" : "center",
+                                    "Area" : "UI",
+                                    "BackgroundFill" : "content",
+                                    "Description" : "",
+                                    "DisplayName" : "ValueDisplay-11",
+                                    "Height" : 22,
+                                    "Id" : "ValueDisplay-11",
+                                    "ImageScaling" : "width",
+                                    "Label" : "",
+                                    "LabelAlignment" : "left",
+                                    "LastContainer" : false,
+                                    "Left" : 0,
+                                    "Overflow" : "hidden",
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "TextIfNoValue" : "Validation Metrics Job",
+                                    "TextIfNoValueOffset" : 0,
+                                    "TextIfNoValueStyle" : "TW_ML_16PointBlackBold",
+                                    "TextWrap" : true,
+                                    "ToolTipField" : "",
+                                    "ToolTipStyle" : "DefaultTooltipStyle",
+                                    "Top" : 0,
+                                    "Type" : "valuedisplay",
+                                    "UseTheme" : false,
+                                    "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                    "ValueDisplayStyle" : "DefaultValueDisplayStyle",
+                                    "VerticalAlignment" : "middle",
+                                    "Visible" : true,
+                                    "Width" : 100,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Value Display",
+                                    "__supportsLabel" : true,
+                                    "__supportsTooltip" : true
+                                  },
+                                  "Widgets" : [ ]
+                                } ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Row 1",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-9",
+                                  "LastContainer" : false,
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container",
+                                  "userCannotRemove" : true
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "Columns" : 0,
+                                    "DisplayName" : "layout-58",
+                                    "Footer" : false,
+                                    "FooterHeight" : 0,
+                                    "Header" : true,
+                                    "HeaderHeight" : 60,
+                                    "Id" : "layout-58",
+                                    "IncludeSpacingInFixedAreas" : false,
+                                    "IsPrintLayout" : false,
+                                    "LastContainer" : false,
+                                    "Left" : 115,
+                                    "LeftSidebar" : false,
+                                    "LeftSidebarWidth" : 0,
+                                    "Orientation" : "vertical",
+                                    "PctColumn1" : 50,
+                                    "PctColumn2" : 50,
+                                    "PctColumn3" : 1,
+                                    "PctColumn4" : 1,
+                                    "PctColumn5" : 1,
+                                    "PctColumn6" : 1,
+                                    "PctColumn7" : 1,
+                                    "PctColumn8" : 1,
+                                    "PctRow1" : 100,
+                                    "PctRow2" : 0,
+                                    "PctRow3" : 0,
+                                    "PctRow4" : 0,
+                                    "PctRow5" : 0,
+                                    "PctRow6" : 0,
+                                    "PctRow7" : 0,
+                                    "PctRow8" : 0,
+                                    "PrintMarginLeftRight" : 0.5,
+                                    "PrintMarginTopBottom" : 0.5,
+                                    "PrintWidth" : 650,
+                                    "ResponsiveLayout" : true,
+                                    "RightSidebar" : false,
+                                    "RightSidebarWidth" : 0,
+                                    "Rows" : 1,
+                                    "ShowDataLoading" : false,
+                                    "Spacing" : 0,
+                                    "Top" : 80,
+                                    "Type" : "layout",
+                                    "Visible" : true,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Layout"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "AnimateExpandCollapse" : true,
+                                      "Area" : "UI",
+                                      "BGImageRepeat" : "no-repeat",
+                                      "BGImageSize" : "auto",
+                                      "DisplayName" : "Validation Header",
+                                      "ExpandCollapseTabLocation" : "outside",
+                                      "Expanded" : false,
+                                      "Id" : "container-59",
+                                      "LastContainer" : false,
+                                      "MinHeight" : 0,
+                                      "MinWidth" : 0,
+                                      "Overlay" : false,
+                                      "OverlayIsTransparent" : false,
+                                      "ResponsiveLayout" : true,
+                                      "ShowDataLoading" : false,
+                                      "ShowExpandCollapseTab" : false,
+                                      "Style" : "DefaultContainerStyle",
+                                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                                      "TabHeight" : 36,
+                                      "TabLocation" : "center",
+                                      "TabOffset" : 0,
+                                      "TabWidth" : 36,
+                                      "Type" : "container",
+                                      "Visible" : false,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Container",
+                                      "userCannotRemove" : true
+                                    },
+                                    "Widgets" : [ {
+                                      "Properties" : {
+                                        "Area" : "UI",
+                                        "Disabled" : false,
+                                        "DisclosureControl" : "disclosure",
+                                        "DisplayName" : "ptcs-valuedisplay-63",
+                                        "HorizontalAlignment" : "center",
+                                        "Id" : "ptcsvaluedisplay-63",
+                                        "ItemMeta" : {
+                                          "type" : "text"
+                                        },
+                                        "Label" : "",
+                                        "LabelAlignment" : "left",
+                                        "LabelHeight" : 0,
+                                        "LabelType" : "label",
+                                        "LastContainer" : false,
+                                        "Left" : 65,
+                                        "ModalHeight" : 380,
+                                        "ModalWidth" : 600,
+                                        "MultiLine" : false,
+                                        "ResponsiveLayout" : true,
+                                        "ShowDataLoading" : false,
+                                        "TabSequence" : 0,
+                                        "TextIfNoValue" : "This validation job is not available.",
+                                        "Top" : 40,
+                                        "Type" : "ptcsvaluedisplay",
+                                        "UseTheme" : true,
+                                        "VerticalAlignment" : "flex-start",
+                                        "Visible" : true,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Value Display",
+                                        "overflowShowLessTxt" : "[[showLess]]",
+                                        "overflowShowMoreTxt" : "[[showMore]]"
+                                      },
+                                      "Widgets" : [ ]
+                                    } ]
+                                  }, {
+                                    "Properties" : {
+                                      "AnimateExpandCollapse" : true,
+                                      "Area" : "UI",
+                                      "BGImageRepeat" : "no-repeat",
+                                      "BGImageSize" : "auto",
+                                      "DisplayName" : "Row 1",
+                                      "ExpandCollapseTabLocation" : "outside",
+                                      "Expanded" : true,
+                                      "Id" : "container-60",
+                                      "LastContainer" : false,
+                                      "MinHeight" : 0,
+                                      "MinWidth" : 0,
+                                      "Overlay" : false,
+                                      "OverlayIsTransparent" : false,
+                                      "ResponsiveLayout" : true,
+                                      "ShowDataLoading" : true,
+                                      "ShowExpandCollapseTab" : false,
+                                      "Style" : "DefaultContainerStyle",
+                                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                                      "TabHeight" : 36,
+                                      "TabLocation" : "center",
+                                      "TabOffset" : 0,
+                                      "TabWidth" : 36,
+                                      "Type" : "container",
+                                      "Visible" : false,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Container",
+                                      "userCannotRemove" : true
+                                    },
+                                    "Widgets" : [ {
+                                      "Properties" : {
+                                        "AllowEditing" : false,
+                                        "Area" : "UI",
+                                        "DisplayName" : "validation mertics table",
+                                        "Height" : 200,
+                                        "Id" : "PropertyDisplay-37",
+                                        "InfotableInfo" : "{\"jobId\":{\"name\":\"jobId\",\"aspects\":{\"defaultValue\":\"ahhh\"},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":18,\"Title\":\"Job Id\",\"__showThisField\":true},\"state\":{\"name\":\"state\",\"aspects\":{},\"description\":\"Current state of the job (COMPLETED,RUNNING,FAILED,EXPIRED,QUEUED,UNKNOWN,TERMINATED)\",\"baseType\":\"STRING\",\"ordinal\":1,\"Title\":\"State\",\"__showThisField\":true},\"queuedStartDateTimeAsDate\":{\"name\":\"queuedStartDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":9,\"Title\":\"Queued Start Time\",\"__showThisField\":true},\"queuedDuration\":{\"name\":\"queuedDuration\",\"aspects\":{},\"description\":\"Length of time the job was in the queue\",\"baseType\":\"STRING\",\"ordinal\":10,\"Title\":\"Queued Duration\",\"__showThisField\":true},\"startDateTimeAsDate\":{\"name\":\"startDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":4,\"Title\":\"Start Time\",\"__showThisField\":true},\"endDateTimeAsDate\":{\"name\":\"endDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":6,\"Title\":\"End Time\",\"__showThisField\":true},\"runTime\":{\"name\":\"runTime\",\"aspects\":{},\"description\":\"Length of time the job took to run\",\"baseType\":\"STRING\",\"ordinal\":7,\"Title\":\"Run Time\",\"__showThisField\":true},\"jobDescription\":{\"name\":\"jobDescription\",\"aspects\":{},\"description\":\"Description of this job\",\"baseType\":\"STRING\",\"ordinal\":13,\"Title\":\"Description\",\"__showThisField\":true},\"message\":{\"name\":\"message\",\"aspects\":{},\"description\":\"Extra information for reporting issues about the job\",\"baseType\":\"STRING\",\"ordinal\":2,\"Title\":\"Error Message\",\"__showThisField\":true},\"jobName\":{\"name\":\"jobName\",\"aspects\":{},\"description\":\"Name of this job\",\"baseType\":\"STRING\",\"ordinal\":12,\"Title\":\"jobName\",\"__showThisField\":false},\"referenceUri\":{\"name\":\"referenceUri\",\"aspects\":{},\"description\":\"URI to the job result for reference, if applicable (Data, Training, Clusters)\",\"baseType\":\"STRING\",\"ordinal\":17,\"Title\":\"referenceUri\",\"__showThisField\":false},\"endDateTime\":{\"name\":\"endDateTime\",\"aspects\":{},\"description\":\"Date and time the job was completed\",\"baseType\":\"STRING\",\"ordinal\":5,\"Title\":\"endDateTime\",\"__showThisField\":false},\"tags\":{\"name\":\"tags\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Queryable tags associated with this job\",\"baseType\":\"INFOTABLE\",\"ordinal\":15,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}},\"Title\":\"tags\",\"__showThisField\":false},\"jobTypesWithId\":{\"name\":\"jobTypesWithId\",\"aspects\":{\"dataShape\":\"FieldValuePair\"},\"description\":\"Job types with corresponding job IDs\",\"baseType\":\"INFOTABLE\",\"ordinal\":11,\"dataShape\":{\"fieldDefinitions\":{\"fieldName\":{\"name\":\"fieldName\",\"aspects\":{},\"description\":\"The field name\",\"baseType\":\"STRING\",\"ordinal\":1},\"fieldValue\":{\"name\":\"fieldValue\",\"aspects\":{},\"description\":\"The field value\",\"baseType\":\"STRING\",\"ordinal\":2}}},\"Title\":\"jobTypesWithId\",\"__showThisField\":false},\"startDateTime\":{\"name\":\"startDateTime\",\"aspects\":{},\"description\":\"Date and time the job was started\",\"baseType\":\"STRING\",\"ordinal\":3,\"Title\":\"startDateTime\",\"__showThisField\":false},\"queuedStartDateTime\":{\"name\":\"queuedStartDateTime\",\"aspects\":{},\"description\":\"Date and time the job was submitted\",\"baseType\":\"STRING\",\"ordinal\":8,\"Title\":\"queuedStartDateTime\",\"__showThisField\":false},\"additionalParameters\":{\"name\":\"additionalParameters\",\"aspects\":{\"dataShape\":\"AnalyticsJobConfigParameter\"},\"description\":\"Additional job-specific parameters\",\"baseType\":\"INFOTABLE\",\"ordinal\":16,\"dataShape\":{\"fieldDefinitions\":{\"parameterName\":{\"name\":\"parameterName\",\"aspects\":{},\"description\":\"The name of the parameter\",\"baseType\":\"STRING\",\"ordinal\":1},\"parameterValue\":{\"name\":\"parameterValue\",\"aspects\":{},\"description\":\"The value of the parameter\",\"baseType\":\"STRING\",\"ordinal\":2}}},\"Title\":\"additionalParameters\",\"__showThisField\":false},\"datasetRef\":{\"name\":\"datasetRef\",\"aspects\":{\"dataShape\":\"AnalyticsDatasetRef\"},\"description\":\"Reference to the dataset used for this job\",\"baseType\":\"INFOTABLE\",\"ordinal\":14,\"dataShape\":{\"fieldDefinitions\":{\"filter\":{\"name\":\"filter\",\"aspects\":{},\"description\":\"SQL WHERE clause to refine the dataset\",\"baseType\":\"STRING\",\"ordinal\":3},\"datasetUri\":{\"name\":\"datasetUri\",\"aspects\":{},\"description\":\"Location of the data\",\"baseType\":\"STRING\",\"ordinal\":1},\"metadata\":{\"name\":\"metadata\",\"aspects\":{\"dataShape\":\"AnalyticsDatasetMetadata\"},\"description\":\"Metadata of the dataset (for providing data as part of request)\",\"baseType\":\"INFOTABLE\",\"ordinal\":6,\"dataShape\":{\"fieldDefinitions\":{\"timeSamplingInterval\":{\"name\":\"timeSamplingInterval\",\"aspects\":{},\"description\":\"Time between observations in a Temporal field\",\"baseType\":\"INTEGER\",\"ordinal\":7},\"isStatic\":{\"name\":\"isStatic\",\"aspects\":{\"defaultValue\":false},\"description\":\"If true, this field remains unchanged over time\",\"baseType\":\"BOOLEAN\",\"ordinal\":8},\"fieldName\":{\"name\":\"fieldName\",\"aspects\":{},\"description\":\"Name of the field\",\"baseType\":\"STRING\",\"ordinal\":1},\"min\":{\"name\":\"min\",\"aspects\":{},\"description\":\"Minimum observed value for Continuous fields\",\"baseType\":\"NUMBER\",\"ordinal\":4},\"max\":{\"name\":\"max\",\"aspects\":{},\"description\":\"Maximum observed value for Continuous fields\",\"baseType\":\"NUMBER\",\"ordinal\":5},\"dataType\":{\"name\":\"dataType\",\"aspects\":{},\"description\":\"Format of the data (STRING,DOUBLE,BOOLEAN,INTEGER)\",\"baseType\":\"STRING\",\"ordinal\":2},\"opType\":{\"name\":\"opType\",\"aspects\":{},\"description\":\"Behavior of the data (CONTINUOUS,CATEGORICAL,ORDINAL,BOOLEAN,TEMPORAL,ENTITY_ID)\",\"baseType\":\"STRING\",\"ordinal\":3},\"values\":{\"name\":\"values\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Collection of possible values for Ordinal and Categorical fields\",\"baseType\":\"INFOTABLE\",\"ordinal\":6,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}}}}}},\"data\":{\"name\":\"data\",\"aspects\":{},\"description\":\"An infotable of data (must be flat. for providing data as part of request)\",\"baseType\":\"INFOTABLE\",\"ordinal\":5},\"format\":{\"name\":\"format\",\"aspects\":{},\"description\":\"Structure of the data (csv, parquet)\",\"baseType\":\"STRING\",\"ordinal\":2},\"exclusions\":{\"name\":\"exclusions\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Fields to remove from the dataset\",\"baseType\":\"INFOTABLE\",\"ordinal\":4,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}}}}},\"Title\":\"datasetRef\",\"__showThisField\":false}}",
+                                        "LastContainer" : false,
+                                        "Left" : 10,
+                                        "ResponsiveLayout" : true,
+                                        "ShowAllColumns" : false,
+                                        "ShowDataLoading" : false,
+                                        "ShowEditorsIfNoRowData" : false,
+                                        "Style" : "TW.AnalysisServices.PropertyDisplayStyle",
+                                        "Top" : 10,
+                                        "Type" : "propertydisplay",
+                                        "UseTheme" : false,
+                                        "Visible" : true,
+                                        "Width" : 250,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Property Display"
+                                      },
+                                      "Widgets" : [ ]
+                                    } ]
+                                  } ]
+                                } ]
+                              } ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-65",
+                              "LastContainer" : false,
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container",
+                              "userCannotRemove" : true
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 0,
+                                "DisplayName" : "layout-66",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : true,
+                                "HeaderHeight" : 40,
+                                "Id" : "layout-66",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "LastContainer" : false,
+                                "Left" : 225,
+                                "LeftSidebar" : false,
+                                "LeftSidebarWidth" : 0,
+                                "Orientation" : "vertical",
+                                "PctColumn1" : 50,
+                                "PctColumn2" : 50,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 100,
+                                "PctRow2" : 0,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : false,
+                                "RightSidebarWidth" : 0,
+                                "Rows" : 1,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 2,
+                                "Top" : 95,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Column",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-67",
+                                  "LastContainer" : false,
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container",
+                                  "userCannotRemove" : true
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Alignment" : "center",
+                                    "Area" : "UI",
+                                    "BackgroundFill" : "content",
+                                    "Description" : "",
+                                    "DisplayName" : "valuedisplay-68",
+                                    "Height" : 22,
+                                    "Id" : "valuedisplay-68",
+                                    "ImageScaling" : "width",
+                                    "Label" : "",
+                                    "LabelAlignment" : "left",
+                                    "LastContainer" : false,
+                                    "Left" : 0,
+                                    "Overflow" : "hidden",
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "TextIfNoValue" : "Training Metrics Job",
+                                    "TextIfNoValueOffset" : 0,
+                                    "TextIfNoValueStyle" : "TW_ML_16PointBlackBold",
+                                    "TextWrap" : true,
+                                    "ToolTipField" : "",
+                                    "ToolTipStyle" : "DefaultTooltipStyle",
+                                    "Top" : 0,
+                                    "Type" : "valuedisplay",
+                                    "UseTheme" : false,
+                                    "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                    "ValueDisplayStyle" : "DefaultValueDisplayStyle",
+                                    "VerticalAlignment" : "middle",
+                                    "Visible" : true,
+                                    "Width" : 100,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Value Display",
+                                    "__supportsLabel" : true,
+                                    "__supportsTooltip" : true
+                                  },
+                                  "Widgets" : [ ]
+                                } ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Column",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-69",
+                                  "LastContainer" : false,
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container",
+                                  "userCannotRemove" : true
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "Columns" : 0,
+                                    "DisplayName" : "layout-70",
+                                    "Footer" : false,
+                                    "FooterHeight" : 0,
+                                    "Header" : true,
+                                    "HeaderHeight" : 60,
+                                    "Id" : "layout-70",
+                                    "IncludeSpacingInFixedAreas" : false,
+                                    "IsPrintLayout" : false,
+                                    "LastContainer" : false,
+                                    "Left" : 115,
+                                    "LeftSidebar" : false,
+                                    "LeftSidebarWidth" : 0,
+                                    "Orientation" : "vertical",
+                                    "PctColumn1" : 50,
+                                    "PctColumn2" : 50,
+                                    "PctColumn3" : 1,
+                                    "PctColumn4" : 1,
+                                    "PctColumn5" : 1,
+                                    "PctColumn6" : 1,
+                                    "PctColumn7" : 1,
+                                    "PctColumn8" : 1,
+                                    "PctRow1" : 100,
+                                    "PctRow2" : 0,
+                                    "PctRow3" : 0,
+                                    "PctRow4" : 0,
+                                    "PctRow5" : 0,
+                                    "PctRow6" : 0,
+                                    "PctRow7" : 0,
+                                    "PctRow8" : 0,
+                                    "PrintMarginLeftRight" : 0.5,
+                                    "PrintMarginTopBottom" : 0.5,
+                                    "PrintWidth" : 650,
+                                    "ResponsiveLayout" : true,
+                                    "RightSidebar" : false,
+                                    "RightSidebarWidth" : 0,
+                                    "Rows" : 1,
+                                    "ShowDataLoading" : false,
+                                    "Spacing" : 0,
+                                    "Top" : 80,
+                                    "Type" : "layout",
+                                    "Visible" : true,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Layout"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "AnimateExpandCollapse" : true,
+                                      "Area" : "UI",
+                                      "BGImageRepeat" : "no-repeat",
+                                      "BGImageSize" : "auto",
+                                      "DisplayName" : "Training Header",
+                                      "ExpandCollapseTabLocation" : "outside",
+                                      "Expanded" : false,
+                                      "Id" : "container-71",
+                                      "LastContainer" : false,
+                                      "MinHeight" : 0,
+                                      "MinWidth" : 0,
+                                      "Overlay" : false,
+                                      "OverlayIsTransparent" : false,
+                                      "ResponsiveLayout" : true,
+                                      "ShowDataLoading" : false,
+                                      "ShowExpandCollapseTab" : false,
+                                      "Style" : "DefaultContainerStyle",
+                                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                                      "TabHeight" : 36,
+                                      "TabLocation" : "center",
+                                      "TabOffset" : 0,
+                                      "TabWidth" : 36,
+                                      "Type" : "container",
+                                      "Visible" : false,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Container",
+                                      "userCannotRemove" : true
+                                    },
+                                    "Widgets" : [ {
+                                      "Properties" : {
+                                        "Area" : "UI",
+                                        "Disabled" : false,
+                                        "DisclosureControl" : "disclosure",
+                                        "DisplayName" : "ptcsvaluedisplay-72",
+                                        "HorizontalAlignment" : "center",
+                                        "Id" : "ptcsvaluedisplay-72",
+                                        "ItemMeta" : {
+                                          "type" : "text"
+                                        },
+                                        "Label" : "",
+                                        "LabelAlignment" : "left",
+                                        "LabelHeight" : 0,
+                                        "LabelType" : "label",
+                                        "LastContainer" : false,
+                                        "Left" : 65,
+                                        "ModalHeight" : 380,
+                                        "ModalWidth" : 600,
+                                        "MultiLine" : false,
+                                        "ResponsiveLayout" : true,
+                                        "ShowDataLoading" : false,
+                                        "TabSequence" : 0,
+                                        "TextIfNoValue" : "This validation job is not available.",
+                                        "Top" : 40,
+                                        "Type" : "ptcsvaluedisplay",
+                                        "UseTheme" : true,
+                                        "VerticalAlignment" : "flex-start",
+                                        "Visible" : true,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Value Display",
+                                        "overflowShowLessTxt" : "[[showLess]]",
+                                        "overflowShowMoreTxt" : "[[showMore]]"
+                                      },
+                                      "Widgets" : [ ]
+                                    } ]
+                                  }, {
+                                    "Properties" : {
+                                      "AnimateExpandCollapse" : true,
+                                      "Area" : "UI",
+                                      "BGImageRepeat" : "no-repeat",
+                                      "BGImageSize" : "auto",
+                                      "DisplayName" : "Row 1",
+                                      "ExpandCollapseTabLocation" : "outside",
+                                      "Expanded" : true,
+                                      "Id" : "container-73",
+                                      "LastContainer" : false,
+                                      "MinHeight" : 0,
+                                      "MinWidth" : 0,
+                                      "Overlay" : false,
+                                      "OverlayIsTransparent" : false,
+                                      "ResponsiveLayout" : true,
+                                      "ShowDataLoading" : true,
+                                      "ShowExpandCollapseTab" : false,
+                                      "Style" : "DefaultContainerStyle",
+                                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                                      "TabHeight" : 36,
+                                      "TabLocation" : "center",
+                                      "TabOffset" : 0,
+                                      "TabWidth" : 36,
+                                      "Type" : "container",
+                                      "Visible" : true,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Container",
+                                      "userCannotRemove" : true
+                                    },
+                                    "Widgets" : [ {
+                                      "Properties" : {
+                                        "AllowEditing" : false,
+                                        "Area" : "UI",
+                                        "DisplayName" : "training metrics table",
+                                        "Height" : 200,
+                                        "Id" : "propertydisplay-78",
+                                        "InfotableInfo" : "{\"jobId\":{\"name\":\"jobId\",\"aspects\":{\"defaultValue\":\"ahhh\"},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":18,\"Title\":\"Job Id\",\"__showThisField\":true},\"state\":{\"name\":\"state\",\"aspects\":{},\"description\":\"Current state of the job (COMPLETED,RUNNING,FAILED,EXPIRED,QUEUED,UNKNOWN,TERMINATED)\",\"baseType\":\"STRING\",\"ordinal\":1,\"Title\":\"State\",\"__showThisField\":true},\"queuedStartDateTimeAsDate\":{\"name\":\"queuedStartDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":9,\"Title\":\"Queued Start Time\",\"__showThisField\":true},\"queuedDuration\":{\"name\":\"queuedDuration\",\"aspects\":{},\"description\":\"Length of time the job was in the queue\",\"baseType\":\"STRING\",\"ordinal\":10,\"Title\":\"Queued Duration\",\"__showThisField\":true},\"startDateTimeAsDate\":{\"name\":\"startDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":4,\"Title\":\"Start Time\",\"__showThisField\":true},\"endDateTimeAsDate\":{\"name\":\"endDateTimeAsDate\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":6,\"Title\":\"End Time\",\"__showThisField\":true},\"runTime\":{\"name\":\"runTime\",\"aspects\":{},\"description\":\"Length of time the job took to run\",\"baseType\":\"STRING\",\"ordinal\":7,\"Title\":\"Run Time\",\"__showThisField\":true},\"jobDescription\":{\"name\":\"jobDescription\",\"aspects\":{},\"description\":\"Description of this job\",\"baseType\":\"STRING\",\"ordinal\":13,\"Title\":\"Description\",\"__showThisField\":true},\"message\":{\"name\":\"message\",\"aspects\":{},\"description\":\"Extra information for reporting issues about the job\",\"baseType\":\"STRING\",\"ordinal\":2,\"Title\":\"Error Message\",\"__showThisField\":true},\"jobName\":{\"name\":\"jobName\",\"aspects\":{},\"description\":\"Name of this job\",\"baseType\":\"STRING\",\"ordinal\":12,\"Title\":\"jobName\",\"__showThisField\":false},\"referenceUri\":{\"name\":\"referenceUri\",\"aspects\":{},\"description\":\"URI to the job result for reference, if applicable (Data, Training, Clusters)\",\"baseType\":\"STRING\",\"ordinal\":17,\"Title\":\"referenceUri\",\"__showThisField\":false},\"endDateTime\":{\"name\":\"endDateTime\",\"aspects\":{},\"description\":\"Date and time the job was completed\",\"baseType\":\"STRING\",\"ordinal\":5,\"Title\":\"endDateTime\",\"__showThisField\":false},\"tags\":{\"name\":\"tags\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Queryable tags associated with this job\",\"baseType\":\"INFOTABLE\",\"ordinal\":15,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}},\"Title\":\"tags\",\"__showThisField\":false},\"jobTypesWithId\":{\"name\":\"jobTypesWithId\",\"aspects\":{\"dataShape\":\"FieldValuePair\"},\"description\":\"Job types with corresponding job IDs\",\"baseType\":\"INFOTABLE\",\"ordinal\":11,\"dataShape\":{\"fieldDefinitions\":{\"fieldName\":{\"name\":\"fieldName\",\"aspects\":{},\"description\":\"The field name\",\"baseType\":\"STRING\",\"ordinal\":1},\"fieldValue\":{\"name\":\"fieldValue\",\"aspects\":{},\"description\":\"The field value\",\"baseType\":\"STRING\",\"ordinal\":2}}},\"Title\":\"jobTypesWithId\",\"__showThisField\":false},\"startDateTime\":{\"name\":\"startDateTime\",\"aspects\":{},\"description\":\"Date and time the job was started\",\"baseType\":\"STRING\",\"ordinal\":3,\"Title\":\"startDateTime\",\"__showThisField\":false},\"queuedStartDateTime\":{\"name\":\"queuedStartDateTime\",\"aspects\":{},\"description\":\"Date and time the job was submitted\",\"baseType\":\"STRING\",\"ordinal\":8,\"Title\":\"queuedStartDateTime\",\"__showThisField\":false},\"additionalParameters\":{\"name\":\"additionalParameters\",\"aspects\":{\"dataShape\":\"AnalyticsJobConfigParameter\"},\"description\":\"Additional job-specific parameters\",\"baseType\":\"INFOTABLE\",\"ordinal\":16,\"dataShape\":{\"fieldDefinitions\":{\"parameterName\":{\"name\":\"parameterName\",\"aspects\":{},\"description\":\"The name of the parameter\",\"baseType\":\"STRING\",\"ordinal\":1},\"parameterValue\":{\"name\":\"parameterValue\",\"aspects\":{},\"description\":\"The value of the parameter\",\"baseType\":\"STRING\",\"ordinal\":2}}},\"Title\":\"additionalParameters\",\"__showThisField\":false},\"datasetRef\":{\"name\":\"datasetRef\",\"aspects\":{\"dataShape\":\"AnalyticsDatasetRef\"},\"description\":\"Reference to the dataset used for this job\",\"baseType\":\"INFOTABLE\",\"ordinal\":14,\"dataShape\":{\"fieldDefinitions\":{\"filter\":{\"name\":\"filter\",\"aspects\":{},\"description\":\"SQL WHERE clause to refine the dataset\",\"baseType\":\"STRING\",\"ordinal\":3},\"datasetUri\":{\"name\":\"datasetUri\",\"aspects\":{},\"description\":\"Location of the data\",\"baseType\":\"STRING\",\"ordinal\":1},\"metadata\":{\"name\":\"metadata\",\"aspects\":{\"dataShape\":\"AnalyticsDatasetMetadata\"},\"description\":\"Metadata of the dataset (for providing data as part of request)\",\"baseType\":\"INFOTABLE\",\"ordinal\":6,\"dataShape\":{\"fieldDefinitions\":{\"timeSamplingInterval\":{\"name\":\"timeSamplingInterval\",\"aspects\":{},\"description\":\"Time between observations in a Temporal field\",\"baseType\":\"INTEGER\",\"ordinal\":7},\"isStatic\":{\"name\":\"isStatic\",\"aspects\":{\"defaultValue\":false},\"description\":\"If true, this field remains unchanged over time\",\"baseType\":\"BOOLEAN\",\"ordinal\":8},\"fieldName\":{\"name\":\"fieldName\",\"aspects\":{},\"description\":\"Name of the field\",\"baseType\":\"STRING\",\"ordinal\":1},\"min\":{\"name\":\"min\",\"aspects\":{},\"description\":\"Minimum observed value for Continuous fields\",\"baseType\":\"NUMBER\",\"ordinal\":4},\"max\":{\"name\":\"max\",\"aspects\":{},\"description\":\"Maximum observed value for Continuous fields\",\"baseType\":\"NUMBER\",\"ordinal\":5},\"dataType\":{\"name\":\"dataType\",\"aspects\":{},\"description\":\"Format of the data (STRING,DOUBLE,BOOLEAN,INTEGER)\",\"baseType\":\"STRING\",\"ordinal\":2},\"opType\":{\"name\":\"opType\",\"aspects\":{},\"description\":\"Behavior of the data (CONTINUOUS,CATEGORICAL,ORDINAL,BOOLEAN,TEMPORAL,ENTITY_ID)\",\"baseType\":\"STRING\",\"ordinal\":3},\"values\":{\"name\":\"values\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Collection of possible values for Ordinal and Categorical fields\",\"baseType\":\"INFOTABLE\",\"ordinal\":6,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}}}}}},\"data\":{\"name\":\"data\",\"aspects\":{},\"description\":\"An infotable of data (must be flat. for providing data as part of request)\",\"baseType\":\"INFOTABLE\",\"ordinal\":5},\"format\":{\"name\":\"format\",\"aspects\":{},\"description\":\"Structure of the data (csv, parquet)\",\"baseType\":\"STRING\",\"ordinal\":2},\"exclusions\":{\"name\":\"exclusions\",\"aspects\":{\"dataShape\":\"GenericStringList\"},\"description\":\"Fields to remove from the dataset\",\"baseType\":\"INFOTABLE\",\"ordinal\":4,\"dataShape\":{\"fieldDefinitions\":{\"item\":{\"name\":\"item\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"Item\",\"baseType\":\"STRING\",\"ordinal\":1}}}}}},\"Title\":\"datasetRef\",\"__showThisField\":false}}",
+                                        "LastContainer" : false,
+                                        "Left" : 10,
+                                        "ResponsiveLayout" : true,
+                                        "ShowAllColumns" : false,
+                                        "ShowDataLoading" : false,
+                                        "ShowEditorsIfNoRowData" : false,
+                                        "Style" : "TW.AnalysisServices.PropertyDisplayStyle",
+                                        "Top" : 10,
+                                        "Type" : "propertydisplay",
+                                        "UseTheme" : false,
+                                        "Visible" : true,
+                                        "Width" : 250,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Property Display"
+                                      },
+                                      "Widgets" : [ ]
+                                    } ]
+                                  } ]
+                                } ]
+                              } ]
+                            } ]
+                          } ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Footer",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-30",
+                          "LastContainer" : false,
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "container",
+                          "userCannotRemove" : true
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "Columns" : 3,
+                            "DisplayName" : "layout-31",
+                            "Footer" : false,
+                            "FooterHeight" : 0,
+                            "Header" : false,
+                            "HeaderHeight" : 0,
+                            "Id" : "layout-31",
+                            "IncludeSpacingInFixedAreas" : false,
+                            "IsPrintLayout" : false,
+                            "LastContainer" : false,
+                            "Left" : 305,
+                            "LeftSidebar" : false,
+                            "LeftSidebarWidth" : 0,
+                            "Orientation" : "horizontal",
+                            "PctColumn1" : 40,
+                            "PctColumn2" : 20,
+                            "PctColumn3" : 40,
+                            "PctColumn4" : 1.999999999999993,
+                            "PctColumn5" : 1,
+                            "PctColumn6" : 1,
+                            "PctColumn7" : 1,
+                            "PctColumn8" : 1,
+                            "PctRow1" : 50,
+                            "PctRow2" : 50,
+                            "PctRow3" : 0,
+                            "PctRow4" : 0,
+                            "PctRow5" : 0,
+                            "PctRow6" : 0,
+                            "PctRow7" : 0,
+                            "PctRow8" : 0,
+                            "PrintMarginLeftRight" : 0.5,
+                            "PrintMarginTopBottom" : 0.5,
+                            "PrintWidth" : 650,
+                            "ResponsiveLayout" : true,
+                            "RightSidebar" : false,
+                            "RightSidebarWidth" : 0,
+                            "Rows" : 0,
+                            "ShowDataLoading" : true,
+                            "Spacing" : 0,
+                            "Top" : 15,
+                            "Type" : "layout",
+                            "Visible" : true,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "layout"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column 1",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-32",
+                              "LastContainer" : false,
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : false,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "container",
+                              "userCannotRemove" : true
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column 2",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-33",
+                              "LastContainer" : false,
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : false,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "container",
+                              "userCannotRemove" : true
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "ContainerClass" : "",
+                                "DisplayName" : "panel-35",
+                                "Height" : 200,
+                                "HideScrollbars" : false,
+                                "HorizontalAnchor" : "left",
+                                "Id" : "panel-35",
+                                "LastContainer" : false,
+                                "Left" : 45,
+                                "ResponsiveLayout" : true,
+                                "ShowDataLoading" : false,
+                                "Style" : "DefaultContainerStyle",
+                                "Top" : 20,
+                                "Type" : "panel",
+                                "VerticalAnchor" : "top",
+                                "Visible" : true,
+                                "Width" : 300,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "panel"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "ActiveStyle" : "TW.AnalysisServices.Accent1ButtonActiveStyle",
+                                  "Area" : "UI",
+                                  "CancelConfirmationButton" : "button2",
+                                  "ConfirmationButton1Label" : "Yes",
+                                  "ConfirmationButton2Label" : "No",
+                                  "ConfirmationPrompt" : "Do Action?",
+                                  "ConfirmationRequired" : false,
+                                  "ConfirmationTitle" : "Confirm Action",
+                                  "ContextId" : "",
+                                  "DefaultConfirmationButton" : "button1",
+                                  "Description" : "",
+                                  "Disabled" : false,
+                                  "DisabledStyle" : "TW.AnalysisServices.Accent1ButtonDisabledStyle",
+                                  "DisplayName" : "Close Button",
+                                  "FocusStyle" : "TW.AnalysisServices.Accent1ButtonFocusStyle",
+                                  "Height" : 30,
+                                  "HoverStyle" : "TW.AnalysisServices.Accent1ButtonHoverStyle",
+                                  "IconAlignment" : "left",
+                                  "Id" : "button-36",
+                                  "Label" : "Close",
+                                  "LastContainer" : false,
+                                  "Left" : 35,
+                                  "ResponsiveLayout" : false,
+                                  "RoundedCorners" : true,
+                                  "ShowDataLoading" : false,
+                                  "SingleClickSelectOnTablets" : true,
+                                  "Style" : "TW.AnalysisServices.Accent1ButtonStyle",
+                                  "TabSequence" : 0,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 10,
+                                  "Type" : "button",
+                                  "Visible" : true,
+                                  "Width" : 75,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "button",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              } ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column 3",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-34",
+                              "LastContainer" : false,
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : false,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 30,
+                              "__TypeDisplayName" : "container",
+                              "userCannotRemove" : true
+                            },
+                            "Widgets" : [ ]
+                          } ]
+                        } ]
+                      } ]
+                    } ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "ALWAYS",
+                    "DisplayName" : "Validation_Job_Exists",
+                    "Expression" : "if (rowCount > 0) Output=true; else Output=false;",
+                    "FireOnFirstValue" : false,
+                    "Height" : 28,
+                    "Id" : "expression-64",
+                    "LastContainer" : false,
+                    "Left" : 0,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 0,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "NUMBER",
+                      "DefaultValue" : "0",
+                      "Description" : "",
+                      "ParameterName" : "rowCount",
+                      "bindingDirection" : "",
+                      "bindingStatus" : false,
+                      "isBindingSource" : false,
+                      "isBindingTarget" : true,
+                      "name" : "rowCount"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DisplayName" : "Training_Metric_Job_Exist",
+                    "Expression" : "Output=((rowCount > 0)?true:false);",
+                    "Height" : 28,
+                    "Id" : "validator-79",
+                    "LastContainer" : false,
+                    "Left" : null,
+                    "Output" : true,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : null,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "NUMBER",
+                      "DefaultValue" : "0",
+                      "Description" : "",
+                      "ParameterName" : "rowCount",
+                      "bindingDirection" : "Target",
+                      "bindingStatus" : false,
+                      "bindingType" : "Property",
+                      "isBindingSource" : false,
+                      "isBindingTarget" : true,
+                      "name" : "rowCount"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+            <preview></preview>
+        </Mashup>
+    </Mashups>
+</Entities>

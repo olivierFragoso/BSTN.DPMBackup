@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StateDefinitions>
+        <StateDefinition
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_LookBackWindow"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "stateDefinitions" : [ {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "2",
+                "description" : "",
+                "displayString" : "2",
+                "name" : "2"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "4",
+                "description" : "",
+                "displayString" : "4",
+                "name" : "4"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "8",
+                "description" : "",
+                "displayString" : "8",
+                "name" : "8"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "16",
+                "description" : "",
+                "displayString" : "16",
+                "name" : "16"
+              }, {
+                "defaultStyleDefinition" : "",
+                "description" : "",
+                "displayString" : "1",
+                "name" : "1"
+              } ],
+              "stateType" : "string"
+            }
+            ]]>
+            </content>
+        </StateDefinition>
+    </StateDefinitions>
+</Entities>

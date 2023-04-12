@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Profiles_Detail_v1"
+         projectName="Thingworx_Analytics_Builder_Files"
+         rows="0.0"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Mashup Mobile Settings"
+                 isHidden="true"
+                 isMultiRow="false"
+                 name="MobileSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Disable Zoom"
+                             baseType="BOOLEAN"
+                             description="Disables zooming in and out within the mashup"
+                             name="disableZoom"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             aspect.friendlyName="Full Screen Mode"
+                             baseType="BOOLEAN"
+                             description="Open the mashup in full screen mode"
+                             name="fullScreenMode"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Height"
+                             baseType="STRING"
+                             description="The height of the mashup page"
+                             name="height"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-height"
+                             aspect.friendlyName="Height Type"
+                             baseType="STRING"
+                             description="Use the height of the device display, or a custom height (in px)"
+                             name="heightType"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Initial Scale"
+                             baseType="NUMBER"
+                             description="The initial zoom scale when the mashup is loaded for the first time"
+                             name="initialScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Shortcut Icon Title"
+                             baseType="STRING"
+                             description="A title for the mashup shortcut on the iOS home screen"
+                             name="iosShortcutIconTitle"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="black-translucent"
+                             aspect.friendlyName="Status Bar Appearance"
+                             baseType="STRING"
+                             description="The style of the iOS status bar"
+                             name="iosStatusBarAppearance"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="10.0"
+                             aspect.friendlyName="Maximum Scale"
+                             baseType="NUMBER"
+                             description="The maximum scale that users can zoom out to"
+                             name="maximumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="0.1"
+                             aspect.friendlyName="Minimum Scale"
+                             baseType="NUMBER"
+                             description="The minimum scale that users can zoom out to"
+                             name="minimumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Width"
+                             baseType="STRING"
+                             description="The width of the mashup page"
+                             name="width"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-width"
+                             aspect.friendlyName="Width Type"
+                             baseType="STRING"
+                             description="Use the width of the device display, or a custom width (in px)"
+                             name="widthType"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <disableZoom>false</disableZoom>
+                            <fullScreenMode>true</fullScreenMode>
+                            <height></height>
+                            <heightType>
+                            <![CDATA[
+                            device-height
+                            ]]>
+                            </heightType>
+                            <initialScale>1.0</initialScale>
+                            <iosShortcutIconTitle></iosShortcutIconTitle>
+                            <iosStatusBarAppearance>
+                            <![CDATA[
+                            black-translucent
+                            ]]>
+                            </iosStatusBarAppearance>
+                            <maximumScale>10.0</maximumScale>
+                            <minimumScale>0.1</minimumScale>
+                            <width></width>
+                            <widthType>
+                            <![CDATA[
+                            device-width
+                            ]]>
+                            </widthType>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="datasetUri"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="STRING"
+                 description=""
+                 name="goalName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="STRING"
+                 description=""
+                 name="profileJobId"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="3"
+                 baseType="STRING"
+                 description=""
+                 name="sql"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW_ML_Helper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : ".wait-image {\n    margin: auto !important;\n    position: relative !important;\n}",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW_ML_Helper" : {
+                  "DataName" : "Things_TW_ML_Helper",
+                  "EntityName" : "TW_ML_Helper",
+                  "EntityType" : "Things",
+                  "Id" : "36884aa7-adc2-47a1-9c67-5b63c6c516dd",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "f27458d2-edce-4afb-87fa-d6c0199e93e5",
+                    "Name" : "ExportProfilesAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ExportProfilesAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "da18ac5c-9ec2-4001-8ba0-f2308283c725",
+                    "Name" : "GetProfilesAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetProfilesAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "87bc83f3-d161-4644-9c3d-a87405e9c6ae",
+                    "Name" : "GetAnalyticsServerRuntimeInstance",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetAnalyticsServerRuntimeInstance"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "3bc5fad9-0738-4f73-b4e4-f2022ca9241e",
+                    "Name" : "ReturnStringAMS",
+                    "Parameters" : {
+                      "stringValue" : "1"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnStringAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "d994ee9d-68fe-4428-91d8-9447e6f10f24",
+                    "Name" : "ReturnStringAMS1",
+                    "Parameters" : {
+                      "stringValue" : "2"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnStringAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "bf417168-2454-46d8-86cd-f6386d038480",
+                    "Name" : "GetAverageGoalBySQLAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetAverageGoalBySQLAMS"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "328a4536-cd14-4844-9329-b24cd73195c3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetProfilesAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "d02bc6c0-712d-4317-855c-d207235c855c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "datasetUri",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "datasetUri",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetProfilesAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "66d61230-c5ee-4ddb-89c9-fb7d6a030bf8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "profiles",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetProfilesAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ExportProfilesAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "94fec303-dac1-4407-aff3-32179f02574a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetProfilesAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "Repeater-147",
+                "TargetSection" : ""
+              }, {
+                "Id" : "eef61365-796b-4034-9062-b76e722b293f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "profileJobId",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "jobId",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetProfilesAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "50de8cb9-cc34-47ac-a516-81bd0a1c1998",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "SelectedTabValue",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "eventsrouter-254",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "tabsv2-236",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b540be96-48f5-44e0-aef5-6130fdf04df4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input1",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnStringAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-254",
+                "TargetSection" : ""
+              }, {
+                "Id" : "02326f1f-5768-437b-ac5d-d81e707f5a82",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input2",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnStringAMS1",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-254",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8c6a7df9-367c-467b-8f9b-bc6c7d216516",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetAverageGoalBySQLAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "86133248-6376-4dae-883f-c5e1ce72d317",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "datasetUri",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "datasetUri",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetAverageGoalBySQLAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "ebc00753-9a4a-495d-ba81-77bf40c512d5",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "goalName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "goalName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetAverageGoalBySQLAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "646a9389-0ab6-41a8-9e64-44e47c55659c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "sql",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "sql",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetAverageGoalBySQLAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "d5e3a2d4-62ac-488f-af43-ae69f3700c60",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "averageGoal",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAverageGoalBySQLAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetProfilesAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              } ],
+              "DesignTimePermissions" : {
+                "Create" : [ ],
+                "Delete" : [ ],
+                "Metadata" : [ ],
+                "Read" : [ ],
+                "Update" : [ ]
+              },
+              "Events" : [ {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-170",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-171",
+                "EventTriggerSection" : "",
+                "Id" : "9a81e0f5-9d83-4fc5-8a4a-0660297d862d"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-172",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "PopupClosed",
+                "EventTriggerId" : "Navigation-170",
+                "EventTriggerSection" : "",
+                "Id" : "a76437e0-2deb-47d3-87cf-de6d8602b69a"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "container-202",
+                "EventHandlerService" : "ToggleExpandCollapse",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-206",
+                "EventTriggerSection" : "",
+                "Id" : "c2fbc2c6-af3c-4708-84d1-6800fac23662"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetAnalyticsServerRuntimeInstance",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "b61ed74e-1a32-4ca8-a3ff-0f9c3cc4d266"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnStringAMS1",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetProfilesAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "6f316297-ed92-4e5e-9c81-9f48155519e7"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnStringAMS",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "datasetUriChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "bd76a075-31bc-435a-ada9-56ea06fcbf5f"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnStringAMS",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "profileJobIdChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "1b1a86e3-8296-4a38-bbd0-69bf4ce39ad1"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetAverageGoalBySQLAMS",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetAnalyticsServerRuntimeInstance",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "898252c6-8e7d-4fe7-a0cc-cf7396b599da"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetAverageGoalBySQLAMS",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "datasetUriChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "ff61fb66-94e4-4e0a-b440-abc26e655e74"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetAverageGoalBySQLAMS",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "profileJobIdChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "70701263-9ff2-4d8a-8da5-08b8af5efbf7"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetProfilesAMS",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetAverageGoalBySQLAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "cfd160cd-9043-4bbc-b3b8-fc7b6bab3924"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetAnalyticsServerRuntimeInstance",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "RefreshRequested",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "45cadab9-b4c4-4444-a103-f59bf450a377"
+              } ],
+              "RunTimePermissions" : {
+                "permissions" : [ ]
+              },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButton" : "SimplePlus",
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImage" : "",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButton" : "SimpleGear",
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : false,
+                  "Style" : "DefaultMashupStyle",
+                  "StyleTheme" : "Base Theme",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "UseMasterTheme" : false,
+                  "UseTheme" : false,
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "datasetUri"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "profileJobId"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "goalName"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "sql"
+                  } ],
+                  "id_index" : 266,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CurrentTab" : 1,
+                    "DefaultTabAtRuntime" : 2,
+                    "Description" : "",
+                    "DisplayName" : "Wait or Show Profile Tab",
+                    "Height" : 300,
+                    "Id" : "tabsv2-236",
+                    "LastContainer" : false,
+                    "Left" : 125,
+                    "MaxTabWidth" : 256,
+                    "NumberOfTabs" : 2,
+                    "ResponsiveLayout" : true,
+                    "RoundedCorners" : false,
+                    "SelectedTabValue" : "",
+                    "ShowDataLoading" : false,
+                    "Tab10Disabled" : false,
+                    "Tab10Image" : "",
+                    "Tab10Name" : "Tab10Name",
+                    "Tab10Value" : "Tab10Value",
+                    "Tab10Visible" : true,
+                    "Tab11Disabled" : false,
+                    "Tab11Image" : "",
+                    "Tab11Name" : "Tab11Name",
+                    "Tab11Value" : "Tab11Value",
+                    "Tab11Visible" : true,
+                    "Tab12Disabled" : false,
+                    "Tab12Image" : "",
+                    "Tab12Name" : "Tab12Name",
+                    "Tab12Value" : "Tab12Value",
+                    "Tab12Visible" : true,
+                    "Tab13Disabled" : false,
+                    "Tab13Image" : "",
+                    "Tab13Name" : "Tab13Name",
+                    "Tab13Value" : "Tab13Value",
+                    "Tab13Visible" : true,
+                    "Tab14Disabled" : false,
+                    "Tab14Image" : "",
+                    "Tab14Name" : "Tab14Name",
+                    "Tab14Value" : "Tab14Value",
+                    "Tab14Visible" : true,
+                    "Tab15Disabled" : false,
+                    "Tab15Image" : "",
+                    "Tab15Name" : "Tab15Name",
+                    "Tab15Value" : "Tab15Value",
+                    "Tab15Visible" : true,
+                    "Tab16Disabled" : false,
+                    "Tab16Image" : "",
+                    "Tab16Name" : "Tab16Name",
+                    "Tab16Value" : "Tab16Value",
+                    "Tab16Visible" : true,
+                    "Tab1Disabled" : false,
+                    "Tab1Image" : "",
+                    "Tab1Name" : "Wait",
+                    "Tab1Value" : "1",
+                    "Tab1Visible" : true,
+                    "Tab2Disabled" : false,
+                    "Tab2Image" : "",
+                    "Tab2Name" : "Profiles",
+                    "Tab2Value" : "2",
+                    "Tab2Visible" : true,
+                    "Tab3Disabled" : false,
+                    "Tab3Image" : "",
+                    "Tab3Name" : "Tab3Name",
+                    "Tab3Value" : "Tab3Value",
+                    "Tab3Visible" : true,
+                    "Tab4Disabled" : false,
+                    "Tab4Image" : "",
+                    "Tab4Name" : "Tab4Name",
+                    "Tab4Value" : "Tab4Value",
+                    "Tab4Visible" : true,
+                    "Tab5Disabled" : false,
+                    "Tab5Image" : "",
+                    "Tab5Name" : "Tab5Name",
+                    "Tab5Value" : "Tab5Value",
+                    "Tab5Visible" : true,
+                    "Tab6Disabled" : false,
+                    "Tab6Image" : "",
+                    "Tab6Name" : "Tab6Name",
+                    "Tab6Value" : "Tab6Value",
+                    "Tab6Visible" : true,
+                    "Tab7Disabled" : false,
+                    "Tab7Image" : "",
+                    "Tab7Name" : "Tab7Name",
+                    "Tab7Value" : "Tab7Value",
+                    "Tab7Visible" : true,
+                    "Tab8Disabled" : false,
+                    "Tab8Image" : "",
+                    "Tab8Name" : "Tab8Name",
+                    "Tab8Value" : "Tab8Value",
+                    "Tab8Visible" : true,
+                    "Tab9Disabled" : false,
+                    "Tab9Image" : "",
+                    "Tab9Name" : "Tab9Name",
+                    "Tab9Value" : "Tab9Value",
+                    "Tab9Visible" : true,
+                    "TabContentStyle" : "TW.AnalysisServices.ContainerStyle",
+                    "TabDisabledStyle" : "TW.AnalysisServices.ContainerStyle",
+                    "TabHeight" : 0,
+                    "TabSelectedStyle" : "TW.AnalysisServices.ContainerStyle",
+                    "TabSpacing" : 2,
+                    "TabUnselectedStyle" : "TW.AnalysisServices.ContainerStyle",
+                    "Top" : 150,
+                    "Type" : "tabsv2",
+                    "Visible" : true,
+                    "Width" : 300,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Tabs - Responsive"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "Description" : "",
+                      "DisplayName" : "Wait Tab",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-237",
+                      "LastContainer" : false,
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : false,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container",
+                      "userCannotRemove" : true
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 0,
+                        "DisplayName" : "layout-258",
+                        "Footer" : true,
+                        "FooterHeight" : 20,
+                        "Header" : true,
+                        "HeaderHeight" : 20,
+                        "Id" : "layout-258",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "LastContainer" : false,
+                        "Left" : 200,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "vertical",
+                        "PctColumn1" : 50,
+                        "PctColumn2" : 50,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 100,
+                        "PctRow2" : 100,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : false,
+                        "RightSidebarWidth" : 0,
+                        "Rows" : 1,
+                        "ShowDataLoading" : false,
+                        "Spacing" : 0,
+                        "Top" : 95,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Header",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-259",
+                          "LastContainer" : false,
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : false,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container",
+                          "userCannotRemove" : true
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Alignment" : "center",
+                            "Area" : "UI",
+                            "BackgroundFill" : "content",
+                            "DisplayName" : "valuedisplay-257",
+                            "Height" : 22,
+                            "Id" : "valuedisplay-257",
+                            "ImageScaling" : "Width",
+                            "Label" : "",
+                            "LabelAlignment" : "left",
+                            "LastContainer" : false,
+                            "Left" : 75,
+                            "Overflow" : "hidden",
+                            "ResponsiveLayout" : true,
+                            "ShowDataLoading" : false,
+                            "TextIfNoValue" : "Profiles are being retrieved, one moment  ...   ",
+                            "TextIfNoValueOffset" : 0,
+                            "TextIfNoValueStyle" : "TW.AnalysisServices.Accent2AccordionChildSelectedStyle",
+                            "TextWrap" : true,
+                            "ToolTipField" : "",
+                            "ToolTipStyle" : "DefaultTooltipStyle",
+                            "Top" : 20,
+                            "Type" : "valuedisplay",
+                            "UseTheme" : false,
+                            "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                            "ValueDisplayStyle" : "DefaultValueDisplayStyle",
+                            "VerticalAlignment" : "middle",
+                            "Visible" : true,
+                            "Width" : 100,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Value Display",
+                            "__supportsLabel" : true,
+                            "__supportsTooltip" : true
+                          },
+                          "Widgets" : [ ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Row 1",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-260",
+                          "LastContainer" : false,
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : false,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container",
+                          "userCannotRemove" : true
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Alignment" : "center",
+                            "Area" : "UI",
+                            "BackgroundFill" : "content",
+                            "Description" : "",
+                            "DisplayName" : "Wait icon",
+                            "Height" : 22,
+                            "Id" : "valuedisplay-266",
+                            "ImageScaling" : "none",
+                            "Label" : "",
+                            "LabelAlignment" : "left",
+                            "LastContainer" : false,
+                            "Left" : 260,
+                            "Overflow" : "hidden",
+                            "ResponsiveLayout" : true,
+                            "ShowDataLoading" : false,
+                            "TextIfNoValue" : "",
+                            "TextIfNoValueOffset" : 0,
+                            "TextIfNoValueStyle" : "TW_ML_Filter_Count",
+                            "TextWrap" : true,
+                            "ToolTipField" : "",
+                            "ToolTipStyle" : "DefaultTooltipStyle",
+                            "Top" : 145,
+                            "Type" : "valuedisplay",
+                            "UseTheme" : false,
+                            "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                            "ValueDisplayStyle" : "DefaultValueDisplayStyle",
+                            "VerticalAlignment" : "top",
+                            "Visible" : true,
+                            "Width" : 100,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Value Display",
+                            "__supportsLabel" : true,
+                            "__supportsTooltip" : true
+                          },
+                          "Widgets" : [ ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Footer",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-262",
+                          "LastContainer" : false,
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container",
+                          "userCannotRemove" : true
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "DisplayName" : "panel-252",
+                            "Height" : 200,
+                            "HideScrollbars" : false,
+                            "HorizontalAnchor" : "left",
+                            "Id" : "panel-252",
+                            "LastContainer" : false,
+                            "Left" : 65,
+                            "ResponsiveLayout" : true,
+                            "ShowDataLoading" : false,
+                            "Style" : "TW.AnalysisServices.ContainerStyle",
+                            "Top" : 5,
+                            "Type" : "panel",
+                            "VerticalAnchor" : "top",
+                            "Visible" : true,
+                            "Width" : 300,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Panel"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "Area" : "UI",
+                              "DataShape" : "",
+                              "DataType" : "STRING",
+                              "DisplayName" : "Tab Selector Event Router",
+                              "Id" : "eventsrouter-254",
+                              "LastContainer" : false,
+                              "Left" : 0,
+                              "NumberOfInputs" : 2,
+                              "ResponsiveLayout" : false,
+                              "ShowDataLoading" : false,
+                              "Top" : 0,
+                              "Type" : "eventsrouter",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Events Router"
+                            },
+                            "Widgets" : [ ]
+                          } ]
+                        } ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "Description" : "",
+                      "DisplayName" : "Profiles Tab",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-238",
+                      "LastContainer" : false,
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : false,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container",
+                      "userCannotRemove" : true
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "AllowSelection" : false,
+                        "Area" : "UI",
+                        "AutoSelectFirstRow" : false,
+                        "DiffVsAvgPercent" : "diffVsAvgPercent",
+                        "DisplayName" : "Repeater-147",
+                        "FixedMashupHeight" : 200,
+                        "FixedMashupWidth" : 200,
+                        "Height" : 300,
+                        "HideInnerScrollbars" : false,
+                        "Id" : "Repeater-147",
+                        "ItemLoadBehavior" : "load-all",
+                        "LastContainer" : false,
+                        "Left" : 0,
+                        "Mashup" : "TW_ML_Profile_Detail_v1",
+                        "MashupHeight" : 200,
+                        "MashupParameters" : [ {
+                          "BaseType" : "INFOTABLE",
+                          "Description" : "",
+                          "ParameterName" : "profile"
+                        }, {
+                          "BaseType" : "STRING",
+                          "Description" : "",
+                          "ParameterName" : "profileNumberString"
+                        } ],
+                        "MashupWidth" : 200,
+                        "RepeaterCellStyle" : "DefaultRepeaterCellStyle",
+                        "RepeaterSelectedStyle" : "DefaultRepeaterSelectedStyle",
+                        "RepeaterStyle" : "DefaultRepeaterStyle",
+                        "RepeaterUnselectedStyle" : "DefaultRepeaterUnselectedStyle",
+                        "ResponsiveLayout" : true,
+                        "ReuseMashups" : true,
+                        "SelectionHeight" : 25,
+                        "SelectionWidth" : 25,
+                        "ShowDataLoading" : false,
+                        "Top" : 0,
+                        "Type" : "repeater",
+                        "View" : "vertical",
+                        "Visible" : true,
+                        "Width" : 400,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Repeater",
+                        "avgGoal" : "averageGoal",
+                        "featureName" : "fieldName",
+                        "groupName" : "filtersCount",
+                        "profile" : "profile",
+                        "profileNumber" : "filtersCount",
+                        "profileNumberString" : "profileNumberString",
+                        "records" : "records",
+                        "values" : "displayValue"
+                      },
+                      "Widgets" : [ ]
+                    } ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+            <preview></preview>
+        </Mashup>
+    </Mashups>
+</Entities>

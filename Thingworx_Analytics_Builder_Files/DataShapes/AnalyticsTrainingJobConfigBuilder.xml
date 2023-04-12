@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <DataShapes>
+        <DataShape
+         aspect.isExtension="true"
+         baseDataShape=""
+         description="Analytics Training Job Configuration, with some added fields for usage in Analytics Builder"
+         documentationContent=""
+         homeMashup=""
+         name="AnalyticsTrainingJobConfigBuilder"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <FieldDefinitions>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Metric used to compare set of learners (PEARSONS, RMSE, ROC)"
+                 name="comparisionMetric"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Data values"
+                 name="data"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="URI for the dataset"
+                 name="datasetUri"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Description of the Training job"
+                 name="description"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="The Ensemble Learning technique used to generate a model (ELITE_AVERAGE, BEST, AVERAGE or SOLOIST)"
+                 name="ensembleTechnique"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.dataShape="GenericStringList"
+                 baseType="INFOTABLE"
+                 description="The list features to be excluded for the training job"
+                 name="exclusions"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Refine dataset by operating on data values"
+                 name="filter"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Format of the data supplied (CSV, JSON, CLQUET)"
+                 name="format"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="The field for which a training model is created"
+                 name="goalField"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="BOOLEAN"
+                 description="Allows for training time series model to predict sensor value that will not exist during scoring"
+                 name="isVirtualSensor"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="LONG"
+                 description="The ID assigned to the job"
+                 name="jobId"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Name of the Training job"
+                 name="jobName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INFOTABLE"
+                 description="A collection of learners used when building model (LINEAR_REGRESSION, LOGISTIC_REGRESSION, DECISION_TREE, RANDOM_FOREST, GRADIENT_BOOST, and NEURAL_NET)"
+                 name="learners"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description="How much history to consider for time series datasets"
+                 name="lookbackSize"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description="How many fields to evaluate at once. Either 1 or 2."
+                 name="maxAllowedFields"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.dataShape="AnalyticsDatasetMetadata"
+                 baseType="INFOTABLE"
+                 description="Metadata"
+                 name="metadata"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="newJobName"
+                 ordinal="18"></FieldDefinition>
+                <FieldDefinition
+                 aspect.dataShape="GenericStringList"
+                 baseType="INFOTABLE"
+                 description="Queryable tags associated to this Training job"
+                 name="tags"
+                 ordinal="0"></FieldDefinition>
+            </FieldDefinitions>
+        </DataShape>
+    </DataShapes>
+</Entities>

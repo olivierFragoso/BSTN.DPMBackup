@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <ThingShapes>
+        <ThingShape
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         className="com.ptc.base.CommonHelper"
+         description="Thing Shape that provides helper functions that are applicable across components"
+         documentationContent=""
+         homeMashup=""
+         name="PTC.Base.CommonHelper_TS"
+         projectName="PTC.Base"
+         tags="">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Adds an entry to the audit log stream"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="AddAuditLogEntry">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Name of the Building Block that the event took place"
+                         name="buildingBlockName"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Name of the Entity that the event took place in"
+                         name="entityName"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Actual message of the audit log. Tells what the user was doing at the time of the log."
+                         name="logMessage"
+                         ordinal="4"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="String Category for the area which the event corresponds to  (user management, modelling, asset view, etc.)"
+                         name="solutionArea"
+                         ordinal="3"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="convert field names of a table to a new table."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="ConvertTableFromTo">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="The converted table"
+                         name="newTable"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="The table to be converted"
+                         name="oldTable"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Creates an infotable with the passed in datashape. If there is a database thing configured, and if the datashape has a corresponding  'AP' shape, it will get it, merge the two, and create the infotable."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="CreateInfoTable">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="DATASHAPENAME"
+                         description="Name of the datashape to create an infotable for."
+                         name="dataShapeName"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns a list of audit logs from the Audit Log stream withing a given time range."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetAuditLogsForDateRange">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="DATETIME"
+                         description="End Date for the query"
+                         name="endDate"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="QUERY"
+                         description="Query object used to filter the results further"
+                         name="query"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATETIME"
+                         description="Start date for the query"
+                         name="startDate"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Get current user's locale"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetCurrentUserLocale">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns the configured DB thing from the Solution Configuration Thing"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetDatabaseThingName">
+                    <ResultType
+                     baseType="THINGNAME"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Returns the name of the thing that contains the DB configuration"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetDBConfigurationThingName">
+                    <ResultType
+                     baseType="THINGNAME"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category=""
+                 description="***DEPRECATED DPM 1.2.1*** This service will be deleted in a future release."
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetSoftwareCopyrightDocument">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="STRING"
+                         description="Prefix name of the copyright files in different language"
+                         name="copyrightFileNamePrefix"
+                         ordinal="0"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Localize a value of a token created using a Datashape, fieldname, value input"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="LocalizeData">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="DATASHAPENAME"
+                         description="Name of datashape"
+                         name="dataShapeName"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="STRING"
+                         description="Name of field"
+                         name="fieldName"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="STRING"
+                         description="The actual value to localize"
+                         name="value"
+                         ordinal="3"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Retrieve the localized value for the specified token."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="LocalizeToken">
+                    <ResultType
+                     baseType="STRING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Token value"
+                         name="stringToken"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Moved in PTC.OperatorAdvisor.JobOrderManager_TS"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="MergeInfoTables">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="datashape of the new infotable"
+                         name="dataShapeName"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="first table to merge"
+                         name="infoTable"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="second table to merge"
+                         name="infoTableAP"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Deletes the audit log entries between two date ranges"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="PurgeAuditLog">
+                    <ResultType
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="DATETIME"
+                         description="End date of the query"
+                         name="endDate"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATETIME"
+                         description="Start Date of the query"
+                         name="startDate"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Set the specified fields in each row of the infotable if the field is null."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="SetNullFieldsToAllowNull">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Array of  field names to allow setting null. i.e. [&quot;field1&quot;, &quot;field2&quot;]"
+                         name="fieldNames"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description=""
+                         name="infoTable"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="AddAuditLogEntry">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    if (buildingBlockName && entityName && solutionArea && logMessage) {
+                                    	var values = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    		infoTableName: "InfoTable",
+                                    		dataShapeName: "PTC.Base.AuditLogDefinition"
+                                    	});
+                                    
+                                    	values.AddRow({
+                                    		buildingBlockName: buildingBlockName,
+                                    		entityName: entityName,
+                                    		solutionArea: solutionArea,
+                                    		logMessage: logMessage
+                                    	});
+                                    
+                                    	try {
+                                    		Things["PTC.Base.AuditLog"].AddStreamEntry({
+                                    			values: values /* INFOTABLE */ ,
+                                    			source: entityName /* STRING */
+                                    		});
+                                    	} catch (err) {
+                                    		logger.error(me.name + " - " + err.fileName + ":" + err.lineNumber + " - " + err);
+                                    		throw ("An error has occurred. Please check the script logs for more details.");
+                                    	}
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="ConvertTableFromTo">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let fieldMap = {};
+                                    let dataShapeFields = newTable.dataShape.fields;
+                                    
+                                    Object.keys(dataShapeFields).forEach(function(fieldName) {
+                                    	fieldMap[fieldName.toLowerCase()] = fieldName;
+                                    });
+                                    oldTable.rows.toArray().forEach(row => {
+                                    	Object.keys(row).map(field => renameField(row, field, fieldMap[field.toLowerCase()]));
+                                    	newTable.AddRow(row);
+                                    });
+                                    let result = newTable;
+                                    
+                                    function renameField(row, oldFieldName, newFieldName) {
+                                    	if (newFieldName && oldFieldName != newFieldName) {
+                                    		row[newFieldName] = row[oldFieldName];
+                                    		delete row[oldFieldName];
+                                    	}
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="CreateInfoTable">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                    	let infoTable = createInfoTable(dataShapeName);
+                                    
+                                    	let databaseName = me.GetDatabaseThingName();
+                                        
+                                        var result = infoTable;
+                                    
+                                    	if (Things[databaseName]) {
+                                    		let dataShapeNameAP = Things[me.GetDatabaseThingName()].GetDatashapeNameAp({
+                                    			dataShapeName: dataShapeName
+                                    		});
+                                    
+                                            if(dataShapeNameAP) {
+                                    			let infoTableAP = createInfoTable(dataShapeNameAP);
+                                    
+                                    			result = mergeInfoTables(infoTable, infoTableAP);
+                                            }
+                                        }
+                                    } catch (err) {
+                                    	logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    
+                                    function createInfoTable(dataShapeName) {
+                                    	return Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    		infoTableName: "InfoTable",
+                                    		dataShapeName: dataShapeName
+                                    	});
+                                    }
+                                    
+                                    function mergeInfoTables(infoTableToMerge, infoTableToAdd) {
+                                    	if (infoTableToAdd && infoTableToAdd.dataShape && infoTableToAdd.dataShape.fields) {
+                                    		let dataShapeFields = infoTableToAdd.dataShape.fields;
+                                    		for (let fieldName in dataShapeFields) {
+                                    			if (!infoTableToMerge.dataShape.fields[fieldName]) {
+                                    				let newField = new Object();
+                                    				newField.name = dataShapeFields[fieldName].name;
+                                    				newField.baseType = dataShapeFields[fieldName].baseType.name();
+                                    				infoTableToMerge.AddField(newField);
+                                    			}
+                                    		}
+                                    	}
+                                    	return infoTableToMerge;
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetAuditLogsForDateRange">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    if (startDate && endDate) {  
+                                    	try {
+                                    		var result = Things["PTC.Base.AuditLog"].QueryStreamEntriesWithData({
+                                    			endDate: endDate /* DATETIME */ ,
+                                    			query: query /* QUERY */ ,
+                                    			startDate: startDate /* DATETIME */
+                                    		});
+                                    	} catch (err) {
+                                    		logger.error(me.name + " - " + err.fileName + ":" + err.lineNumber + " - " + err);
+                                    		throw ("An error has occurred. Please check the script logs for more details.");
+                                    	}
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetCurrentUserLocale">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                            let currentLanguage = Resources["CurrentSessionInfo"].GetCurrentUserLanguage().split(',')[0];
+                                            currentLanguage = currentLanguage && currentLanguage != "Default" ? currentLanguage : "en";
+                                            result = currentLanguage;
+                                        } catch (err) {
+                                            logger.error("Thing [{}] Service [{}] error at line [{}] : {}", me.name, err.fileName, err.lineNumber, err);
+                                            throw me.LocalizeToken({
+                                                stringToken: ("PTC.Base.ErrorMessage")
+                                            });
+                                        }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetDatabaseThingName">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                    	var result = Things[me.GetDBConfigurationThingName()].GetDefaultConfiguredDatabaseThing();
+                                    } catch (err) {
+                                    	logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetDBConfigurationThingName">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                        var baseManager = Things["PTC.Base.EntryPoint"].GetConfiguredComponentManager({
+                                    		identifier: "ComponentManager"
+                                    	});
+                                    	var result = Things[baseManager].GetConfiguredManagerForIdentifier({
+                                    		identifier: "PTC.DBConnection.Manager"
+                                    	});
+                                    } catch (err) {
+                                    	logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="***DEPRECATED DPM 1.2.1*** This service will be deleted in a future release."
+                 handlerName="Reflection"
+                 name="GetSoftwareCopyrightDocument">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="LocalizeData">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                       let token = getToken(dataShapeName, fieldName, value);
+                                       let localizedToken = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken({
+                                               token: token
+                                       });
+                                       localizedToken = localizedToken.trim();
+                                       result = (localizedToken === "???" || localizedToken.length == 0 ? value : localizedToken);
+                                    } catch (err) {
+                                       logger.error("Thing [{}] Service [{}] error at line [{}] : {}", me.name, err.fileName, err.lineNumber, err);
+                                       throw me.LocalizeToken({
+                                       stringToken: ("PTC.Base.ErrorMessage")
+                                       });
+                                    }
+                                    /**
+                                     * Returns generated token to serach in localisatio table.
+                                     * @dataShapeName {string} - The name of datashape
+                                     * @fieldName {string} - The datashape field name
+                                     * @value {string} - The actual value of the datashape field
+                                     */
+                                    function getToken(dataShapeName, fieldName, value) {
+                                       return dataShapeName + "." + fieldName + "." + value;
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="LocalizeToken">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                        var result = localize(stringToken);
+                                    } catch (err) {
+                                       logger.error("Thing [{}] Service [{}] error at line [{}] : {}", me.name, err.fileName, err.lineNumber, err);
+                                       throw localize("PTC.Base.ErrorMessage");
+                                    }
+                                    function localize(token) {
+                                        let localizedToken = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken({
+                                            token: token
+                                        });
+                                        return localizedToken === "???" ? token : localizedToken;
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="MergeInfoTables">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var mergeInfotable = me.CreateInfoTable({
+                                    	dataShapeName: dataShapeName
+                                    });
+                                    
+                                    var tableLength = infoTable.rows.length;
+                                    var tableLengthAP = 0;
+                                    if(infoTableAP){
+                                        tableLengthAP = infoTableAP.rows.length;
+                                    }
+                                    for (var x=0; x < tableLength; x++) {
+                                        var row = infoTable.rows[x];
+                                        var newRow = {};
+                                        copyRow(newRow, row);
+                                        if(x < tableLengthAP){
+                                            var rowAP = infoTableAP.rows[x];
+                                            copyRow(newRow, rowAP);
+                                        }
+                                        mergeInfotable.AddRow(newRow);
+                                    }
+                                    
+                                    var result = mergeInfotable;
+                                    
+                                    function copyRow(row, rowToCopy){
+                                        if(row && rowToCopy){
+                                            for (var key in rowToCopy) {
+                                                if(!row.hasOwnProperty(key)){
+                                                    row[key] = rowToCopy[key];
+                                                }
+                                            }
+                                        }
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="PurgeAuditLog">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                    	Things["PTC.Base.AuditLog"].PurgeStreamEntries({
+                                    		endDate: endDate /* DATETIME */ ,
+                                    		immediate: true /* BOOLEAN */ ,
+                                    		startDate: startDate /* DATETIME */
+                                    	});
+                                    } catch (err) {
+                                    	logger.error(me.name + " - " + err.fileName + ":" + err.lineNumber + " - " + err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="SetNullFieldsToAllowNull">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    try {
+                                    	let fieldNameArray = fieldNames && fieldNames.array ? JSON.parse(fieldNames.array) : [];
+                                    
+                                    	if (Array.isArray(fieldNameArray) && fieldNameArray.length) {
+                                    		if (!infoTable.getField("__Fields")) {
+                                    			infoTable.AddField({
+                                    				name: "__Fields",
+                                    				baseType: "JSON"
+                                    			});
+                                    		}
+                                    
+                                    		infoTable.rows.toArray().forEach(row => {
+                                    			let fields = [];
+                                    			fieldNameArray.filter(field => row[field] == null).forEach(emptyField => {
+                                    				fields.push({
+                                    					name: emptyField,
+                                    					isNull: true
+                                    				});
+                                    			});
+                                    			if (fields.length > 0) {
+                                    				row.__Fields = {
+                                    					fields: fields
+                                    				};
+                                    			}
+                                    		});
+                                    	}
+                                    
+                                    	var result = infoTable;
+                                    } catch (err) {
+                                    	logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                    	throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="PTC.Base.Default_OR:PTC.Base.Default_UG"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

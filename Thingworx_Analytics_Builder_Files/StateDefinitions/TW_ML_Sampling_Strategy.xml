@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StateDefinitions>
+        <StateDefinition
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Sampling_Strategy"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "stateDefinitions" : [ {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "SAMPLE_WITHOUT_REPLACEMENT",
+                "description" : "",
+                "displayString" : "Sample without Replacement",
+                "name" : "Sample without Replacement"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "SAMPLE_WITH_REPLACEMENT",
+                "description" : "",
+                "displayString" : "Sample with Replacement",
+                "name" : "Sample with Replacement"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "DOWNSAMPLE_AND_SAMPLE_WITHOUT_REPLACEMENT",
+                "description" : "",
+                "displayString" : "Downsample and Sample without Replacement",
+                "name" : "Downsample and Sample without Replacement"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "UPSAMPLE_AND_SAMPLE_WITHOUT_REPLACEMENT",
+                "description" : "",
+                "displayString" : "Upsample and Sample without Replacement",
+                "name" : "Upsample and Sample without Replacement"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "NONE",
+                "description" : "",
+                "displayString" : "None",
+                "name" : "None"
+              }, {
+                "defaultStyleDefinition" : "",
+                "description" : "",
+                "displayString" : "SAMPLE_WITHOUT_REPLACEMENT",
+                "name" : "SAMPLE_WITHOUT_REPLACEMENT"
+              } ],
+              "stateType" : "string"
+            }
+            ]]>
+            </content>
+        </StateDefinition>
+    </StateDefinitions>
+</Entities>

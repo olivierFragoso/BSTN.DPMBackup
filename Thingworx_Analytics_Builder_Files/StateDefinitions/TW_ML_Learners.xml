@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StateDefinitions>
+        <StateDefinition
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Learners"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "stateDefinitions" : [ {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Model_Learner_Decision_Tree_v1",
+                "description" : "",
+                "displayString" : "Decision Tree",
+                "name" : "Decision Tree"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Model_Learner_Gradient_Boost_v1",
+                "description" : "",
+                "displayString" : "Gradient Boost",
+                "name" : "Gradient Boost"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Model_Learner_Linear_Regression_v1",
+                "description" : "",
+                "displayString" : "Linear Regression",
+                "name" : "Linear Regression"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Model_Learner_Neural_Net_v1",
+                "description" : "",
+                "displayString" : "Neural Net",
+                "name" : "Neural Net"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Model_Learner_Random_Forest_v1",
+                "description" : "",
+                "displayString" : "Random Forest",
+                "name" : "Random Forest"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Model_Learner_Logistic_Regression_v1",
+                "description" : "",
+                "displayString" : "Logistic Regression",
+                "name" : "Logistic Regression"
+              }, {
+                "defaultStyleDefinition" : "",
+                "defaultValue" : "TW_ML_Model_Learner_SVM_v1",
+                "description" : "",
+                "displayString" : "SVM (Boolean Only)",
+                "name" : "SVM (Boolean Only)"
+              }, {
+                "defaultStyleDefinition" : "",
+                "description" : "",
+                "displayString" : "",
+                "name" : ""
+              } ],
+              "stateType" : "string"
+            }
+            ]]>
+            </content>
+        </StateDefinition>
+    </StateDefinitions>
+</Entities>

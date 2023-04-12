@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <Things>
+        <Thing
+         aspect.isEditableExtensionObject="false"
+         aspect.isExtension="true"
+         description="Base Component Entry Point. Contains metadata information about the Base Component, as well as the configuration for determining the default manager thing."
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         inheritedValueStream=""
+         name="PTC.Base.EntryPoint"
+         projectName="PTC.Base"
+         published="false"
+         tags=""
+         thingTemplate="PTC.Base.EntryPoint_TT"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="PTC.Base.Default_OR:PTC.Base.Default_UG"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Configuration table to store the components core manager"
+                 isMultiRow="true"
+                 name="ComponentManager"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="unique identifier for the manager that needs to be configured"
+                             name="id"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="false"
+                             aspect.thingShape="PTC.Base.CommonManagement_TS"
+                             baseType="THINGNAME"
+                             description="Name of the Manager Thing to be configured"
+                             name="managerThingName"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <id>
+                            <![CDATA[
+                            ComponentManager
+                            ]]>
+                            </id>
+                            <managerThingName>
+                            <![CDATA[
+                            PTC.Base.Manager
+                            ]]>
+                            </managerThingName>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DeployComponent">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        logger.info("Entering {}:DeployComponent::Entry", me.name);
+                                        let projectName = me.GetProjectName();
+                                        if (!projectName) {
+                                        	throw "Project name is missing";
+                                        }
+                                        let buildingBlockName = projectName.split(".")[1];
+                                        if (!buildingBlockName) {
+                                        	throw "Building block name is missing";
+                                        }
+                                        
+                                        let manager = projectName + ".Manager";
+                                        let baseManager = me.GetConfiguredComponentManager({
+                                        	identifier: "ComponentManager"
+                                        });
+                                        
+                                        Things[baseManager].AddGlobalManagerConfigurationEntry({
+                                        	managerName: manager,
+                                        	key: manager
+                                        });
+                                        
+                                        let result = true;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties>
+                <componentType>
+                    <Value>
+                    <![CDATA[
+                    BuildingBlock
+                    ]]>
+                    </Value>
+                    <Timestamp>2020-09-30T12:43:26.194Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentType>
+                <componentDeploymentState>
+                    <Value>
+                    <![CDATA[
+                    Configured
+                    ]]>
+                    </Value>
+                    <Timestamp>2022-09-12T18:49:36.982Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentDeploymentState>
+                <componentDefaultOrg>
+                    <Value>
+                    <![CDATA[
+                    PTC.Base.Default_OR
+                    ]]>
+                    </Value>
+                    <Timestamp>2020-09-30T12:42:37.658Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentDefaultOrg>
+                <dependentComponents>
+                    <Value>
+                        <infoTable>
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="Common name of the component"
+                                     name="ComponentName"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="Component's project name"
+                                     name="ComponentProjectName"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows></Rows>
+                        </infoTable>
+                    </Value>
+                    <Timestamp>2023-02-28T14:50:01.253Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </dependentComponents>
+                <deployComponentStatus>
+                    <Value>
+                        <infoTable>
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     aspect.defaultValue="{}"
+                                     aspect.isPrimaryKey="false"
+                                     baseType="JSON"
+                                     description="Information about the internal status."
+                                     name="additionalInfo"
+                                     ordinal="4"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="Name of the Component"
+                                     name="name"
+                                     ordinal="1"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="config status of the component"
+                                     name="status"
+                                     ordinal="3"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="Type of action."
+                                     name="type"
+                                     ordinal="2"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows></Rows>
+                        </infoTable>
+                    </Value>
+                    <Timestamp>1970-01-01T00:00:00.000Z</Timestamp>
+                    <Quality>UNKNOWN</Quality>
+                </deployComponentStatus>
+                <componentDescription>
+                    <Value>
+                    <![CDATA[
+                    Base Component. Contains templates and services to manage the building block structure
+                    ]]>
+                    </Value>
+                    <Timestamp>2020-09-30T12:43:06.924Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentDescription>
+                <migrateComponentStatus>
+                    <Value>
+                        <infoTable>
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     aspect.defaultValue="{}"
+                                     aspect.isPrimaryKey="false"
+                                     baseType="JSON"
+                                     description="Information about the internal status."
+                                     name="additionalInfo"
+                                     ordinal="4"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="Name of the Component"
+                                     name="name"
+                                     ordinal="1"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="config status of the component"
+                                     name="status"
+                                     ordinal="3"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="Type of action."
+                                     name="type"
+                                     ordinal="2"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows></Rows>
+                        </infoTable>
+                    </Value>
+                    <Timestamp>1970-01-01T00:00:00.000Z</Timestamp>
+                    <Quality>UNKNOWN</Quality>
+                </migrateComponentStatus>
+                <componentDefaultUserGroup>
+                    <Value>
+                    <![CDATA[
+                    PTC.Base.Default_UG
+                    ]]>
+                    </Value>
+                    <Timestamp>2020-09-30T12:42:46.427Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentDefaultUserGroup>
+                <componentThumbnail>
+                    <Value>
+                    <![CDATA[
+                    PTC.Base.ComponentIcon_ME
+                    ]]>
+                    </Value>
+                    <Timestamp>2020-09-30T12:43:18.894Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentThumbnail>
+                <componentVersion>
+                    <Value>
+                    <![CDATA[
+                    1.2.1
+                    ]]>
+                    </Value>
+                    <Timestamp>2020-09-30T12:43:31.611Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentVersion>
+                <componentMainMashup>
+                    <Value></Value>
+                    <Timestamp>2020-09-30T12:43:10.071Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentMainMashup>
+                <componentName>
+                    <Value>
+                    <![CDATA[
+                    Base
+                    ]]>
+                    </Value>
+                    <Timestamp>2020-09-30T12:43:13.832Z</Timestamp>
+                    <Quality>GOOD</Quality>
+                </componentName>
+                <upgradeComponentStatus>
+                    <Value>
+                        <infoTable>
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     aspect.defaultValue="{}"
+                                     aspect.isPrimaryKey="false"
+                                     baseType="JSON"
+                                     description="Information about the internal status."
+                                     name="additionalInfo"
+                                     ordinal="4"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="Name of the Component"
+                                     name="name"
+                                     ordinal="1"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="config status of the component"
+                                     name="status"
+                                     ordinal="3"></FieldDefinition>
+                                    <FieldDefinition
+                                     aspect.isPrimaryKey="false"
+                                     baseType="STRING"
+                                     description="Type of action."
+                                     name="type"
+                                     ordinal="2"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows></Rows>
+                        </infoTable>
+                    </Value>
+                    <Timestamp>1970-01-01T00:00:00.000Z</Timestamp>
+                    <Quality>UNKNOWN</Quality>
+                </upgradeComponentStatus>
+            </ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

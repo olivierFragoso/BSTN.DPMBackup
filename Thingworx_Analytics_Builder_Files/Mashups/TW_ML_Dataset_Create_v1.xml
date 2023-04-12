@@ -1,0 +1,3947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isFlex="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Dataset_Create_v1"
+         projectName="Thingworx_Analytics_Builder_Files"
+         rows="0.0"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Mashup Mobile Settings"
+                 isHidden="true"
+                 isMultiRow="false"
+                 name="MobileSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Disable Zoom"
+                             baseType="BOOLEAN"
+                             description="Disables zooming in and out within the mashup"
+                             name="disableZoom"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             aspect.friendlyName="Full Screen Mode"
+                             baseType="BOOLEAN"
+                             description="Open the mashup in full screen mode"
+                             name="fullScreenMode"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Height"
+                             baseType="STRING"
+                             description="The height of the mashup page"
+                             name="height"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-height"
+                             aspect.friendlyName="Height Type"
+                             baseType="STRING"
+                             description="Use the height of the device display, or a custom height (in px)"
+                             name="heightType"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Initial Scale"
+                             baseType="NUMBER"
+                             description="The initial zoom scale when the mashup is loaded for the first time"
+                             name="initialScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Shortcut Icon Title"
+                             baseType="STRING"
+                             description="A title for the mashup shortcut on the iOS home screen"
+                             name="iosShortcutIconTitle"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="black-translucent"
+                             aspect.friendlyName="Status Bar Appearance"
+                             baseType="STRING"
+                             description="The style of the iOS status bar"
+                             name="iosStatusBarAppearance"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="10.0"
+                             aspect.friendlyName="Maximum Scale"
+                             baseType="NUMBER"
+                             description="The maximum scale that users can zoom out to"
+                             name="maximumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="0.1"
+                             aspect.friendlyName="Minimum Scale"
+                             baseType="NUMBER"
+                             description="The minimum scale that users can zoom out to"
+                             name="minimumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Width"
+                             baseType="STRING"
+                             description="The width of the mashup page"
+                             name="width"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-width"
+                             aspect.friendlyName="Width Type"
+                             baseType="STRING"
+                             description="Use the width of the device display, or a custom width (in px)"
+                             name="widthType"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <disableZoom>false</disableZoom>
+                            <fullScreenMode>true</fullScreenMode>
+                            <height></height>
+                            <heightType>
+                            <![CDATA[
+                            device-height
+                            ]]>
+                            </heightType>
+                            <initialScale>1.0</initialScale>
+                            <iosShortcutIconTitle></iosShortcutIconTitle>
+                            <iosStatusBarAppearance>
+                            <![CDATA[
+                            black-translucent
+                            ]]>
+                            </iosStatusBarAppearance>
+                            <maximumScale>10.0</maximumScale>
+                            <minimumScale>0.1</minimumScale>
+                            <width></width>
+                            <widthType>
+                            <![CDATA[
+                            device-width
+                            ]]>
+                            </widthType>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ParameterDefinitions></ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "p.widget-htmltextarea {\n    margin-bottom: 5px;\n}\n\nol.builderList {\n    margin: 0;\n    padding-left: 15px;\n    padding-bottom: 5px;\n    list-style-position: outside;\n}\n\nol.builderList li {\n    padding-left: 5px;\n}\n\nul.builderList {\n    margin: 0;\n    padding-left: 15px;\n    padding-bottom: 5px;\n    list-style-position: outside;\n    list-style-type: disc;\n} \n\nul.builderList li {\n    padding-left: 5px;\n}",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW_ML_Helper" : {
+                  "DataName" : "Things_TW_ML_Helper",
+                  "EntityName" : "TW_ML_Helper",
+                  "EntityType" : "Things",
+                  "Id" : "1ee10497-113a-4334-8091-f7cb85fc6519",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "50b07987-f950-41e3-8dd0-f9ec471746ee",
+                    "Name" : "ReturnUploadMessage1",
+                    "Parameters" : {
+                      "messageNumber" : 1
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnUploadMessage"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2ee83ae9-e866-4b37-b589-5bceba7067eb",
+                    "Name" : "ReturnUploadMessage2",
+                    "Parameters" : {
+                      "messageNumber" : 2
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnUploadMessage"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "a299b566-38af-4f74-86de-5cc2464950d5",
+                    "Name" : "ReturnUploadMessage3",
+                    "Parameters" : {
+                      "messageNumber" : 3
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnUploadMessage"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "9ac85fe7-7ed0-43c2-929c-50f7139ceb65",
+                    "Name" : "GetAnalyticsServerRuntimeInstance",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetAnalyticsServerRuntimeInstance"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "b5f11efe-2fcd-4741-89d3-c533054c1427",
+                    "Name" : "ValidateDatasetUploadParametersAMS",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "ShowErrorMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ValidateDatasetUploadParametersAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "0514098e-25d5-4854-a0c6-7fcd74805f41",
+                    "Name" : "CreateDatasetAMS",
+                    "Parameters" : {
+                      "hasHeader" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "CreateDatasetAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "6a531248-5dc6-4c94-84f6-09870622bda3",
+                    "Name" : "ReturnUploadMessage4",
+                    "Parameters" : {
+                      "messageNumber" : 4
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnUploadMessage"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "9f103cd0-5821-4fde-a2be-0bdafb05170a",
+                    "Name" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2e211030-542a-47b9-9720-0c2218a0564c",
+                    "Name" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2a0e2fae-10b1-4533-9e85-42df14ec521a",
+                    "Name" : "ReturnUploadMessage5",
+                    "Parameters" : {
+                      "messageNumber" : 5
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnUploadMessage"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2147e653-bc91-415d-8faa-2bb1a046d5b8",
+                    "Name" : "DeleteDataAndMetaAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "DeleteDataAndMetaAMS"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "cd981258-8cf5-499b-bc7e-ab0313d2cb24",
+                    "Name" : "ReturnUploadMessage6",
+                    "Parameters" : {
+                      "messageNumber" : 6
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnUploadMessage"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "169a37cf-d027-4e06-ad2a-179e56051d37",
+                    "Name" : "GetAnalyticsServerDataInstance",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetAnalyticsServerDataInstance"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "4afd4a31-d934-4876-8080-40b57ccbce45",
+                    "Name" : "ConvertJsonToAnalyticsDatasetMetadata",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "",
+                      "ShowErrorMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ConvertJsonToAnalyticsDatasetMetadata"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "94b4c563-ed60-4bbd-9b6f-60a10312a47b",
+                    "Name" : "ReturnUploadMessage7",
+                    "Parameters" : {
+                      "messageNumber" : 7
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnUploadMessage"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "eb59a064-6d91-46d3-b293-3b9d9f959484",
+                    "Name" : "GetCurrentUserDirectory",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserDirectory"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "aec37f50-b3e3-437f-8b0f-a1415e8a959a",
+                    "Name" : "DoesTimeseriesDatasetHaveMVI",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "DoesTimeseriesDatasetHaveMVI"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "06f32260-cfac-4d81-84c4-756a60da9783",
+                    "Name" : "ReturnFalseAMS",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ReturnFalseAMS"
+                  } ]
+                },
+                "Things_TW_ML_Metadata_Helper" : {
+                  "DataName" : "Things_TW_ML_Metadata_Helper",
+                  "EntityName" : "TW_ML_Metadata_Helper",
+                  "EntityType" : "Things",
+                  "Id" : "0792dc92-4c10-4f58-8cfb-c5cbe7afa21b",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2a71bd71-2bae-4bf0-8754-1ae76723a2e9",
+                    "Name" : "DetectMetadata",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "DetectMetadata"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "f1554e69-99e1-4360-84c6-edff8905d085",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ValidateDatasetUploadParametersAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "c28e2e74-3213-47bb-892c-a316accc9df3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "configurationFileFullPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ValidateDatasetUploadParametersAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "96a42e00-c007-4c19-8bf4-6de4fcdebd5c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "dataFileFullPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-86",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ValidateDatasetUploadParametersAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "e1d82095-6f89-496a-9b4e-27a53ec815b0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "string",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ValidateDatasetUploadParametersAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-127",
+                "TargetSection" : ""
+              }, {
+                "Id" : "820fc992-8350-4eeb-86bd-99bcc728815d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Message",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ValidateDatasetUploadParametersAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "StatusMessage-125",
+                "TargetSection" : ""
+              }, {
+                "Id" : "feb25da1-cd2b-49b2-9b0a-542e533d45a8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "RepositoryName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "metaRepo",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateDatasetAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "3e8c1dd5-937a-4cec-bba6-f36035597353",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "metaFilePath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateDatasetAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "b0651daf-d28e-406a-a79a-bcc3edea5df4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "RepositoryName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "datasetRepo",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-86",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateDatasetAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "5f9ee134-0de7-4176-a20d-ddd22ecf7d2b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "dataFilePath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-86",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateDatasetAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "4c1c533f-69cb-4f41-b39b-6e45c9dbe9f4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "datasetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-12",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateDatasetAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "9e5c4138-ef14-43f4-af39-17968ce21f01",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateDatasetAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "0e9b4455-a1f9-46fa-a640-5ac8552f7679",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "datasetJobId",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "CreateDatasetAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnUploadMessage4",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "7c100813-8de3-4c0d-ae8a-33ef6b52a73e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "jobId",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "CreateDatasetAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "04f897c1-3b44-49ee-b5e8-77cea018cbb4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "6604de7f-3c5d-4a64-872c-5389bf45b6f7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "AutoRefresh",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "autorefresh-152",
+                "TargetSection" : ""
+              }, {
+                "Id" : "648ba426-c1ef-4c4d-ad00-94016577a217",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "isActive",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-154",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c8edda8e-3f83-439b-9574-b715968d5039",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "jobId",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "CreateDatasetAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "e387d81c-352a-4765-ae11-ee55fd7c550e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "AnalyticsServerRuntimeInstance",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAnalyticsServerRuntimeInstance",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "5a885f16-5815-4dac-b9f8-78b2d24547dc",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "datasetJobId",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "CreateDatasetAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnUploadMessage5",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "5372002b-ed45-43bd-95e8-10e2bf523cf9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "jobSucceeded",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "datasetJobSucceeded",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-160",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1cbdb834-bb15-4723-a110-1b56256800bd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "RepositoryName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "RepositoryName",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-86",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DeleteDataAndMetaAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "42798d57-5e75-42ec-885b-47f5ca007f70",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "dataPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-86",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DeleteDataAndMetaAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "d478b0a8-0baa-48ff-b9c9-3d88c45b7910",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "metaPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DeleteDataAndMetaAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "d7224c86-7405-4bf6-9ff2-376c16040b69",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "datasetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-12",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ValidateDatasetUploadParametersAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "ae1d1d16-5722-444c-8391-e2753c63e4a6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-151",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-92",
+                "TargetSection" : ""
+              }, {
+                "Id" : "683da3e9-848a-4c0a-aae9-c00b519f4c90",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-151",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "FileUploadExtended-90",
+                "TargetSection" : ""
+              }, {
+                "Id" : "af13385a-9275-41de-86cf-5d3dca84b439",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "datasetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-12",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-167",
+                "TargetSection" : ""
+              }, {
+                "Id" : "67b88198-14d8-427b-8fd6-77aea8c76829",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "csvPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-86",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-167",
+                "TargetSection" : ""
+              }, {
+                "Id" : "7b49410b-1e26-4420-9c3a-c1b8e5024a97",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "jsonPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-167",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9b31bf24-ec61-440c-8a2c-7dd5ccb254a9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "uploadMetadata",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-151",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-167",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1d684958-778c-476f-8cb3-2e8e0c4564b0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-151",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-166",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2f9a973d-9f6c-47eb-802f-c6fdd0faba2b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input1",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnUploadMessage1",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-168",
+                "TargetSection" : ""
+              }, {
+                "Id" : "907a845b-4ad3-4c04-9292-f6f3710e518c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input2",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnUploadMessage2",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-168",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d4105120-8f58-4340-93a2-c13fd08c6bd0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input3",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnUploadMessage3",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-168",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3e88a2ab-8920-4e9d-89af-2ae3e10bb9e1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input4",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnUploadMessage4",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-168",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d070d96b-f20b-4be0-a0c9-bf9329731cd3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input5",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnUploadMessage5",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-168",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c3c9a00e-e6e8-44e1-abe5-01d13f704052",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "eventsrouter-168",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "HtmlTextArea-102",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b86ca29a-d06b-4353-9d92-9e58e925c271",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "uploadMetadata",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-151",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ValidateDatasetUploadParametersAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "4f64a83c-26e9-4c02-93a7-dc75ba8a0b42",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "uploadMetadata",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-151",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-170",
+                "TargetSection" : ""
+              }, {
+                "Id" : "959cfdfd-d14c-4eb7-aa10-b6732ccf2276",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "reviewUploadedMetadata",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-166",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-171",
+                "TargetSection" : ""
+              }, {
+                "Id" : "05062522-796f-40cd-9857-a35283854500",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input6",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnUploadMessage6",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-168",
+                "TargetSection" : ""
+              }, {
+                "Id" : "03778b3d-1655-418b-be75-30625acebd49",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FileName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "csvFileName",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-86",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-173",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2f1d064c-f21d-4aa4-ac98-d5f1698eb86c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "datasetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-12",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-174",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e2d1904a-e6e7-402a-a9bd-a96c027eeb15",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "isMetadataInferred",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-175",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-174",
+                "TargetSection" : ""
+              }, {
+                "Id" : "74414899-26f7-46e7-9b0b-c2218b609e61",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "isMetadataUploaded",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-151",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-175",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3a116077-5bf0-4f64-8ace-1cfac6a51464",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "isTimeSeries",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-169",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-174",
+                "TargetSection" : ""
+              }, {
+                "Id" : "12aea9c4-daf2-4d45-ad3d-c28e2c0e5ffa",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "csvURI",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-173",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-174",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e9258455-b7c9-4c53-a782-59d7a587051f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "datasetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-12",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-176",
+                "TargetSection" : ""
+              }, {
+                "Id" : "694d1c5a-a8a4-4a41-b033-d3e898148d6d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "isMetadataInferred",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-175",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-176",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f230e13d-04e5-41e7-8e77-e30ef2e56e90",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "isTimeSeries",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-169",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-176",
+                "TargetSection" : ""
+              }, {
+                "Id" : "cfca1c7a-0dc6-4831-b391-0adb73902f90",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "csvURI",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-173",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-176",
+                "TargetSection" : ""
+              }, {
+                "Id" : "482aa446-8999-4b3d-ae2f-80348d0f0e8a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "metadata",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ConvertJsonToAnalyticsDatasetMetadata",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-176",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0c8d0b94-7738-4a1a-94ba-85450b732a6e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FileName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "jsonPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ConvertJsonToAnalyticsDatasetMetadata",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "b02427e8-245e-4be8-8f51-9bf04e810bcd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "RepositoryName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "repository",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ConvertJsonToAnalyticsDatasetMetadata",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "073b7845-18bb-4e4b-817f-16bfaf2cc6ab",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "filePath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ConvertJsonToAnalyticsDatasetMetadata",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "db0ba2d8-3a77-4a0b-88c2-d05f9b9cf15d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "uploadMetadata",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-151",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-178",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b6849a1e-cdaf-49c6-b7cc-a64064f70b4a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "reviewUploadedMetadata",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-166",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-178",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b0f299e2-52b4-4d37-8696-bd39b38c7e7a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Disabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-178",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-169",
+                "TargetSection" : ""
+              }, {
+                "Id" : "70304191-02b7-4a10-abd5-6a71dc902a9c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "dataURI",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-173",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DetectMetadata",
+                "TargetSection" : "Things_TW_ML_Metadata_Helper"
+              }, {
+                "Id" : "a0a47fdb-a03c-46e0-af88-7b51b0e4688f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input7",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnUploadMessage7",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-168",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5edbda53-15e3-4882-85cd-d1ce37c1cf93",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "metadata",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "metadata",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "DetectMetadata",
+                "SourceSection" : "Things_TW_ML_Metadata_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-174",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a2396b67-e305-4d14-af07-f173137204a7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "datasetCreateSuccess",
+                  "TargetPropertyBaseType" : "INFOTABLE"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnUploadMessage5",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "0cecd214-43c0-48bf-b339-4ba959fd7d70",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "success",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "detectMetadataSucceeded",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "DetectMetadata",
+                "SourceSection" : "Things_TW_ML_Metadata_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-179",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c5237365-60d3-40c8-aea7-d5fa67f612fb",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "errorMessage",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "datasetCreateSuccess.message",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "DetectMetadata",
+                "SourceSection" : "Things_TW_ML_Metadata_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnUploadMessage7",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "ea0a4a32-bbf5-4233-bf43-2242be54c4d0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "success",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "datasetCreateSuccess.jobSucceeded",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "DetectMetadata",
+                "SourceSection" : "Things_TW_ML_Metadata_Helper",
+                "TargetArea" : "Data",
+                "TargetId" : "ReturnUploadMessage7",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "7ed033f2-9ef0-416f-a83d-9ebefcdee519",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "jobSucceeded",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "createJobSucceeded",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-180",
+                "TargetSection" : ""
+              }, {
+                "Id" : "42a8c0c3-57f4-4c4e-acf4-a09b918d0bd9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "createJobActive",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-180",
+                "TargetSection" : ""
+              }, {
+                "Id" : "946dc0d9-a06e-4066-a27c-83ec367c5e32",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "buttonsDisabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-180",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-167",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5a498a5d-3fbf-4cc9-aa99-f8ed3cc68dd9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Path",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCurrentUserDirectory",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "FileUploadExtended-86",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4d072b5f-04f2-4cc1-89bd-4d0b7306445a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Path",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCurrentUserDirectory",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "FileUploadExtended-90",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5b789896-dbf7-42cf-8234-fe0b85567e5d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "directory",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCurrentUserDirectory",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-173",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4642d219-5831-403b-9568-5fb83b44ea4e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Input1",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-183",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-182",
+                "TargetSection" : ""
+              }, {
+                "Id" : "73d3a821-dc11-450d-ad8c-1d228762555f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Input2",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-184",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-182",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c7d296af-7fc5-4e08-9cb9-6c35c5f83f75",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "submittingNotCheckingJobStatus",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "eventsrouter-182",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-180",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9f9cf791-428e-4c92-b3f4-ef2bd3a7cbad",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "jobDescription",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textarea-185",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-174",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f0f60e31-df25-46cc-a9c0-18f45de1911f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "jobDescription",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textarea-185",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "navigation-176",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4d797bcc-f680-4ec5-9fa3-dc30f29f8b13",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "description",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textarea-185",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateDatasetAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "e72a473d-87eb-4a40-b94a-f73b8229e6f1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "datasetDescription",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textarea-185",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ValidateDatasetUploadParametersAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "80eff12b-1230-4795-8df4-e6b19dbac50a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "RepositoryName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "repository",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceDetails" : "",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ValidateDatasetUploadParametersAMS",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "f53383ad-0b5e-457e-bb3c-12c75a104d08",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "RepositoryName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "repository",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceDetails" : "",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DoesTimeseriesDatasetHaveMVI",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "9ac93283-7665-4b6a-a550-e0c5aac9f8b2",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "filePath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceDetails" : "",
+                "SourceId" : "FileUploadExtended-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DoesTimeseriesDatasetHaveMVI",
+                "TargetSection" : "Things_TW_ML_Helper"
+              }, {
+                "Id" : "9b7dd08c-e9fe-4ee4-ba14-825595c1d704",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "mviIncludedInDataset",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "DoesTimeseriesDatasetHaveMVI",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-186",
+                "TargetSection" : ""
+              }, {
+                "Id" : "59407019-c644-487d-84fd-aed2bf4767d5",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Input2",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ReturnFalseAMS",
+                "SourceSection" : "Things_TW_ML_Helper",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-188",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5d4edc9b-53b0-481f-90c4-c8e05b072fd4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "Input1",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-167",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-188",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b65d7939-6471-4e35-b39c-76e69caa2511",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Disabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "eventsrouter-188",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Button-51",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : {
+                "Create" : [ ],
+                "Delete" : [ ],
+                "Metadata" : [ ],
+                "Read" : [ ],
+                "Update" : [ ]
+              },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-52",
+                "EventTriggerSection" : "",
+                "Id" : "7bc42d2e-e177-4ad1-81ec-0c130fffcfd1"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "StatusMessage-125",
+                "EventHandlerService" : "ShowMessage",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-127",
+                "EventTriggerSection" : "",
+                "Id" : "71cced45-38e8-4546-9fc1-2a36f2e28b40"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-127",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ValidateDatasetUploadParametersAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "d5fa6490-fd1d-40af-9d68-cd0248592071"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnUploadMessage4",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "CreateDatasetAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "9c5439db-598c-4a86-a93f-b501fa3ab762"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetAnalyticsServerRuntimeInstance",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "39ade14c-3028-4d80-891b-d4521656407d"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Refresh",
+                "EventTriggerId" : "autorefresh-152",
+                "EventTriggerSection" : "",
+                "Id" : "df4b6895-3f66-45a9-8f05-85853f690520"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-154",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "a93a7ba8-2642-40b2-a301-2856bb6e365b"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "validator-154",
+                "EventTriggerSection" : "",
+                "Id" : "c0c04281-2049-43bb-b53c-fcb2f4ac90b3"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnUploadMessage5",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "72654681-e282-4037-890f-6e2400d711f5"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "validator-160",
+                "EventTriggerSection" : "",
+                "Id" : "7dc132ae-3d4a-4218-8581-ce13e4a03780"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-160",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "236648ec-c027-46e8-b561-c14997c0acec"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "DeleteDataAndMetaAMS",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnBooleanTrueIfDatasetCreateJobSuccessfulAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "00bbd6c1-9693-4267-a7ee-3dec75dfd9d8"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "container-139",
+                "EventHandlerService" : "ToggleExpandCollapse",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-165",
+                "EventTriggerSection" : "",
+                "Id" : "25f3b9cb-922e-4513-8e96-edf3f97528d0"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "FileUploadExtended-86",
+                "EventHandlerService" : "StartUpload",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnUploadMessage1",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "98c7988e-5cfc-4f50-a1d9-2af309a454ae"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ValidateDatasetUploadParametersAMS",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-51",
+                "EventTriggerSection" : "",
+                "Id" : "f95f786a-4e2b-4ce6-a83b-c74318244fe3"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-170",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "UploadComplete",
+                "EventTriggerId" : "FileUploadExtended-86",
+                "EventTriggerSection" : "",
+                "Id" : "7818c921-d221-4140-b3e7-a5e3e72fc03a"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnUploadMessage2",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "validator-170",
+                "EventTriggerSection" : "",
+                "Id" : "c0a704da-e9c4-45bd-bfdc-63f3f848f081"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "FileUploadExtended-90",
+                "EventHandlerService" : "StartUpload",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnUploadMessage2",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "072890f0-51b6-43cf-b627-f841df36c2eb"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "CreateDatasetAMS",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnUploadMessage3",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "9c2b1da5-e58b-4e7f-9872-c1d56086b02c"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnUploadMessage4",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "df7bd511-138d-4243-920d-b90bc2768c51"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnUploadMessage6",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "validator-170",
+                "EventTriggerSection" : "",
+                "Id" : "490cc6b5-fb1b-40db-bbe0-099532138d1f"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetAnalyticsServerDataInstance",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "97231e6c-8926-42e1-974d-eb8c0dec4338"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "PopupClosed",
+                "EventTriggerId" : "navigation-174",
+                "EventTriggerSection" : "",
+                "Id" : "2e729d55-29c1-4b34-bfa4-3faa437c5828"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "PopupClosed",
+                "EventTriggerId" : "navigation-176",
+                "EventTriggerSection" : "",
+                "Id" : "b5e639d3-23e4-441d-b3b5-2660f8b66c93"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "navigation-176",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ConvertJsonToAnalyticsDatasetMetadata",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "4db9d1a7-13aa-41bf-a360-cd5dd1b0d966"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "DeleteDataAndMetaAMS",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "PopupClosed",
+                "EventTriggerId" : "navigation-174",
+                "EventTriggerSection" : "",
+                "Id" : "7877fd17-5ea4-4b77-99ca-bbef71f3a2ac"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "DeleteDataAndMetaAMS",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "PopupClosed",
+                "EventTriggerId" : "navigation-176",
+                "EventTriggerSection" : "",
+                "Id" : "7877fd17-5ea4-4b77-99ca-bbef71f3a2ad"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ConvertJsonToAnalyticsDatasetMetadata",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "validator-171",
+                "EventTriggerSection" : "",
+                "Id" : "7877fd17-5ea4-4b77-99ca-bbef71f3a2ab"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-171",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "UploadComplete",
+                "EventTriggerId" : "FileUploadExtended-90",
+                "EventTriggerSection" : "",
+                "Id" : "ac3e3421-9baf-4827-8240-86b72edf02ea"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Metadata_Helper",
+                "EventHandlerService" : "DetectMetadata",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnUploadMessage6",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "878a1f64-b4e5-4492-b953-b57b39baec29"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnUploadMessage7",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "DetectMetadata",
+                "EventTriggerSection" : "Things_TW_ML_Metadata_Helper",
+                "Id" : "e40166b7-9d3a-4bdf-b426-d6b3eaa2a0f4"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-179",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnUploadMessage7",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "64acb38c-9e98-45eb-8088-7ad6c5b4edbb"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "navigation-174",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "validator-179",
+                "EventTriggerSection" : "",
+                "Id" : "1fceb953-5d04-4841-bd31-4c27c7bf1e3c"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "GetCurrentUserDirectory",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "f25a85cf-803a-4432-8a7f-3ef513dba939"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-183",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-51",
+                "EventTriggerSection" : "",
+                "Id" : "61edb852-f4b1-436d-8045-b4215b9225e5"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-184",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-127",
+                "EventTriggerSection" : " ",
+                "Id" : "d222c922-59b2-45ab-aefa-5977a73a8f89"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnUploadMessage7",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "validator-179",
+                "EventTriggerSection" : " ",
+                "Id" : "ce42d712-7e5e-4115-825f-f85c3d95b5a0"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-184",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "validator-179",
+                "EventTriggerSection" : " ",
+                "Id" : "26159192-362d-457c-b60f-40c6eaa63818"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-184",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "UploadFailed",
+                "EventTriggerId" : "FileUploadExtended-86",
+                "EventTriggerSection" : "",
+                "Id" : "d31e60e6-8e01-4551-917b-c413ee3190d8"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-184",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "UploadFailed",
+                "EventTriggerId" : "FileUploadExtended-90",
+                "EventTriggerSection" : "",
+                "Id" : "28e371e0-9b1f-4c47-b8ad-c094b54b1638"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-184",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ReturnBooleanTrueIfDatasetCreateJobActiveAMS",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "00256307-36c2-48f7-8d0a-a9a6c970be7b"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnUploadMessage1",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-127",
+                "EventTriggerSection" : " ",
+                "Id" : "baf16a6a-b3a2-4142-92de-1a011e38e929"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "DoesTimeseriesDatasetHaveMVI",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "validator-171",
+                "EventTriggerSection" : "",
+                "Id" : "10cc5748-2ffa-4020-a051-6c19bd4ff0e4"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-186",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "DoesTimeseriesDatasetHaveMVI",
+                "EventTriggerSection" : "Things_TW_ML_Helper",
+                "Id" : "a94e8088-da19-4df7-844e-8411dd194745"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "statusmessage-187",
+                "EventHandlerService" : "ShowMessage",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "validator-186",
+                "EventTriggerSection" : "",
+                "Id" : "1bcffee4-f4d6-4be7-997a-b6743f9b732e"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnFalseAMS",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "validator-186",
+                "EventTriggerSection" : "",
+                "Id" : "273dd8a6-b854-43de-94ae-7760601ea06d"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_ML_Helper",
+                "EventHandlerService" : "ReturnUploadMessage3",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "validator-186",
+                "EventTriggerSection" : "",
+                "Id" : "39cdd878-9f7d-4e4d-bb4a-1c87d7b7bb78"
+              } ],
+              "RunTimePermissions" : {
+                "permissions" : [ ]
+              },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButton" : "SimplePlus",
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImage" : "",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButton" : "SimpleGear",
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : false,
+                  "Style" : "DefaultMashupStyle",
+                  "StyleTheme" : "Base Theme",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "UseMasterTheme" : false,
+                  "UseTheme" : false,
+                  "UseThemeForHybrids" : false,
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ ],
+                  "id_index" : 188,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 2,
+                    "DisplayName" : "layout-136",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : false,
+                    "HeaderHeight" : 0,
+                    "Id" : "layout-136",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "LastContainer" : false,
+                    "Left" : 255,
+                    "LeftSidebar" : false,
+                    "LeftSidebarWidth" : 0,
+                    "Orientation" : "horizontal",
+                    "PctColumn1" : 95,
+                    "PctColumn2" : 5,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 50,
+                    "PctRow2" : 50,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : true,
+                    "RightSidebarWidth" : 300,
+                    "Rows" : 0,
+                    "ShowDataLoading" : true,
+                    "Spacing" : 0,
+                    "Top" : 200,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Column 1",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-137",
+                      "LastContainer" : false,
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : false,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "container",
+                      "userCannotRemove" : true
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "ContainerClass" : "",
+                        "DisplayName" : "Panel-11",
+                        "Height" : 200,
+                        "HideScrollbars" : false,
+                        "HorizontalAnchor" : "left",
+                        "Id" : "Panel-11",
+                        "LastContainer" : false,
+                        "Left" : 195,
+                        "ResponsiveLayout" : true,
+                        "ShowDataLoading" : false,
+                        "Style" : "DefaultPanelStyle",
+                        "Top" : 25,
+                        "Type" : "panel",
+                        "VerticalAnchor" : "top",
+                        "Visible" : true,
+                        "Width" : 300,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Panel"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "CursorPosition" : 0,
+                          "DefaultTextboxFocusStyle" : "TW.AnalysisServices.FocusStyle",
+                          "Description" : "",
+                          "DisplayName" : "Dataset Name TextBox",
+                          "Height" : 25,
+                          "Id" : "Textbox-12",
+                          "InnerShadow" : false,
+                          "Label" : "Dataset Name (required):",
+                          "LabelAlignment" : "left",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "MaskInputCharacters" : false,
+                          "PlaceholderText" : "",
+                          "ReadOnly" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Style" : "TW.AnalysisServices.TextBoxStyle",
+                          "TabSequence" : 1,
+                          "Text" : "",
+                          "TextAlign" : "left",
+                          "TextboxLabelStyle" : "TW.AnalysisServices.LabelStyle",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 0,
+                          "Type" : "textbox",
+                          "Visible" : true,
+                          "Width" : 340,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Textbox",
+                          "__supportsLabel" : true,
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "ActiveStyle" : "TW.AnalysisServices.Accent1ButtonActiveStyle",
+                          "Area" : "UI",
+                          "CancelConfirmationButton" : "button2",
+                          "ConfirmationButton1Label" : "Yes",
+                          "ConfirmationButton2Label" : "No",
+                          "ConfirmationPrompt" : "Do Action?",
+                          "ConfirmationRequired" : false,
+                          "ConfirmationTitle" : "Confirm Action",
+                          "ContextId" : "",
+                          "DefaultConfirmationButton" : "button1",
+                          "Description" : "",
+                          "Disabled" : true,
+                          "DisabledStyle" : "TW.AnalysisServices.Accent1ButtonDisabledStyle",
+                          "DisplayName" : "Submit Button",
+                          "FocusStyle" : "TW.AnalysisServices.Accent1ButtonFocusStyle",
+                          "Height" : 30,
+                          "HoverStyle" : "TW.AnalysisServices.Accent1ButtonHoverStyle",
+                          "IconAlignment" : "left",
+                          "Id" : "Button-51",
+                          "Label" : "Submit",
+                          "LastContainer" : false,
+                          "Left" : 320,
+                          "ResponsiveLayout" : false,
+                          "RoundedCorners" : true,
+                          "ShowDataLoading" : false,
+                          "SingleClickSelectOnTablets" : true,
+                          "Style" : "TW.AnalysisServices.Accent1ButtonStyle",
+                          "TabSequence" : 8,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 359,
+                          "Type" : "button",
+                          "Visible" : true,
+                          "Width" : 75,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Button",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "ActiveStyle" : "TW.AnalysisServices.Accent1ButtonActiveStyle",
+                          "Area" : "UI",
+                          "CancelConfirmationButton" : "button2",
+                          "ConfirmationButton1Label" : "Yes",
+                          "ConfirmationButton2Label" : "No",
+                          "ConfirmationPrompt" : "Do Action?",
+                          "ConfirmationRequired" : false,
+                          "ConfirmationTitle" : "Confirm Action",
+                          "ContextId" : "",
+                          "DefaultConfirmationButton" : "button1",
+                          "Description" : "",
+                          "Disabled" : false,
+                          "DisabledStyle" : "TW.AnalysisServices.Accent1ButtonDisabledStyle",
+                          "DisplayName" : "Cancel Button",
+                          "FocusStyle" : "TW.AnalysisServices.Accent1ButtonFocusStyle",
+                          "Height" : 30,
+                          "HoverStyle" : "TW.AnalysisServices.Accent1ButtonHoverStyle",
+                          "IconAlignment" : "left",
+                          "Id" : "Button-52",
+                          "Label" : "Cancel",
+                          "LastContainer" : false,
+                          "Left" : 450,
+                          "ResponsiveLayout" : false,
+                          "RoundedCorners" : true,
+                          "ShowDataLoading" : false,
+                          "SingleClickSelectOnTablets" : true,
+                          "Style" : "TW.AnalysisServices.Accent1ButtonStyle",
+                          "TabSequence" : 9,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 359,
+                          "Type" : "button",
+                          "Visible" : true,
+                          "Width" : 75,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Button",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "Description" : "",
+                          "DisplayName" : "Upload Configuration File",
+                          "DisplayPathTextBox" : false,
+                          "DisplayRepositorySelector" : false,
+                          "DisplayUploadButton" : false,
+                          "FileName" : "",
+                          "FocusStyle" : "TW.AnalysisServices.FocusStyle",
+                          "FullPath" : "",
+                          "Height" : 40,
+                          "Id" : "FileUploadExtended-90",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "Path" : "/",
+                          "RepositoryName" : "AnalyticsUploadStorage",
+                          "RepositoryStyle" : "TW.AnalysisServices.RepositoryStyle",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Style" : "TW.AnalysisServices.FileUploadStyle",
+                          "TabSequence" : 5,
+                          "Top" : 260,
+                          "Type" : "fileuploadext",
+                          "Visible" : true,
+                          "Width" : 200,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "File Upload Extended"
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DisplayName" : "Upload Data File",
+                          "DisplayPathTextBox" : false,
+                          "DisplayRepositorySelector" : false,
+                          "DisplayUploadButton" : false,
+                          "FileName" : "",
+                          "FocusStyle" : "TW.AnalysisServices.FocusStyle",
+                          "FullPath" : "",
+                          "Height" : 40,
+                          "Id" : "FileUploadExtended-86",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "Path" : "/",
+                          "RepositoryName" : "AnalyticsUploadStorage",
+                          "RepositoryStyle" : "TW.AnalysisServices.RepositoryStyle",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Style" : "TW.AnalysisServices.FileUploadStyle",
+                          "TabSequence" : 3,
+                          "Top" : 175,
+                          "Type" : "fileuploadext",
+                          "Visible" : true,
+                          "Width" : 200,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "File Upload Extended"
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "AllowEllipsis" : false,
+                          "Area" : "UI",
+                          "Description" : "",
+                          "DisplayName" : "Config File label",
+                          "Height" : 20,
+                          "Id" : "Label-92",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Style" : "TW.AnalysisServices.LabelStyle",
+                          "Text" : "File Containing Dataset Field Configuration (JSON format):",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 235,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 340,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "AllowEllipsis" : false,
+                          "Area" : "UI",
+                          "Description" : "",
+                          "DisplayName" : "Data File label",
+                          "Height" : 22,
+                          "Id" : "Label-93",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Style" : "TW.AnalysisServices.LabelStyle",
+                          "Text" : "File Containing Dataset Data (CSV format):",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 150,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 340,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DisplayName" : "Fieldset-103",
+                          "FieldsetLabelStyle" : "TW.AnalysisServices.FieldsetLabelStyle",
+                          "FieldsetStyle" : "TW.AnalysisServices.FieldsetStyle",
+                          "Height" : 235,
+                          "Id" : "Fieldset-103",
+                          "LastContainer" : false,
+                          "Left" : 375,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Title" : "Status Messages",
+                          "Top" : 5,
+                          "Type" : "fieldset",
+                          "UseTheme" : false,
+                          "Visible" : true,
+                          "Width" : 460,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Fieldset"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "DisplayName" : "HtmlTextArea-102",
+                            "EscapeHTMLText" : false,
+                            "Height" : 218,
+                            "Id" : "HtmlTextArea-102",
+                            "Label" : "",
+                            "LabelAlignment" : "left",
+                            "LabelStyle" : {
+                              "backgroundColor" : "",
+                              "displayString" : "",
+                              "fontEmphasisBold" : true,
+                              "fontEmphasisItalic" : false,
+                              "fontEmphasisUnderline" : false,
+                              "foregroundColor" : "#000000",
+                              "image" : "",
+                              "lineColor" : "#c0c0c0",
+                              "lineStyle" : "solid",
+                              "lineThickness" : 1,
+                              "secondaryBackgroundColor" : "",
+                              "textSize" : "normal"
+                            },
+                            "LastContainer" : false,
+                            "Left" : 5,
+                            "ReadOnly" : true,
+                            "ResponsiveLayout" : false,
+                            "ShowBorder" : false,
+                            "ShowDataLoading" : false,
+                            "ShowToolbar" : true,
+                            "Text" : "",
+                            "ToolTipField" : "",
+                            "ToolTipStyle" : "DefaultTooltipStyle",
+                            "Top" : 15,
+                            "Type" : "htmltextarea",
+                            "UseTheme" : false,
+                            "Visible" : true,
+                            "Width" : 450,
+                            "Z-index" : 15,
+                            "__TypeDisplayName" : "Html TextArea",
+                            "__supportsLabel" : true,
+                            "__supportsTooltip" : true
+                          },
+                          "Widgets" : [ ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DisplayName" : "StatusMessage-125",
+                          "Height" : 20,
+                          "Id" : "StatusMessage-125",
+                          "LastContainer" : false,
+                          "Left" : 560,
+                          "Message" : "bob",
+                          "MessageType" : "error",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Top" : 275,
+                          "Type" : "statusmessage",
+                          "Visible" : true,
+                          "Width" : 200,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Status Message"
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "Description" : "",
+                          "DisplayName" : "ValidationResultHandler",
+                          "Expression" : "Output=(string != undefined && string.trim().length > 0);",
+                          "Height" : 20,
+                          "Id" : "Validator-127",
+                          "LastContainer" : false,
+                          "Left" : 320,
+                          "Output" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Top" : 290,
+                          "Type" : "validator",
+                          "Visible" : true,
+                          "Width" : 160,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Validator",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "string",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "string"
+                          } ],
+                          "parameters" : [ {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "string",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "string"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "Description" : "",
+                          "Disabled" : false,
+                          "DisplayName" : "Upload Metadata checkbox",
+                          "FocusStyle" : "DefaultFocusStyle",
+                          "Height" : 20,
+                          "Id" : "checkbox-151",
+                          "LastContainer" : false,
+                          "Left" : 10,
+                          "Prompt" : "Upload metadata",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "State" : true,
+                          "Style" : "DefaultCheckboxStyle",
+                          "TabSequence" : 4,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 215,
+                          "Type" : "checkbox",
+                          "Visible" : true,
+                          "Width" : 180,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Checkbox",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "ActiveStyle" : "DefaultButtonActiveStyle",
+                          "Area" : "UI",
+                          "AutoRefresh" : false,
+                          "AutoRefreshTabSequence" : 14,
+                          "DisplayName" : "Check Dataset Job Status Refresh",
+                          "FocusStyle" : "DefaultButtonFocusStyle",
+                          "Height" : 20,
+                          "HoverStyle" : "DefaultButtonHoverStyle",
+                          "IconAlignment" : "left",
+                          "Id" : "autorefresh-152",
+                          "Label" : "Refresh Now",
+                          "LastContainer" : false,
+                          "Left" : 160,
+                          "RefreshInterval" : 1,
+                          "RefreshNowTabSequence" : 14,
+                          "RefreshToggleLabel" : "On",
+                          "RefreshToggleLabelOff" : "Off",
+                          "RefreshToggleSliderStyle" : "DefaultAutoRefreshToggleSliderStyle",
+                          "RefreshToggleStyle" : "DefaultAutoRefreshToggleStyle",
+                          "RefreshToggleStyleOff" : "DefaultAutoRefreshToggleOffStyle",
+                          "ResponsiveLayout" : false,
+                          "ShowControls" : true,
+                          "ShowDataLoading" : true,
+                          "Style" : "DefaultButtonStyle",
+                          "Top" : 410,
+                          "Type" : "autorefresh",
+                          "UseTheme" : false,
+                          "Visible" : false,
+                          "Width" : 150,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Auto Refresh"
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "Description" : "Wait for job completion",
+                          "DisplayName" : "DatasetJobIsActive",
+                          "Expression" : "Output=isActive;",
+                          "Height" : 20,
+                          "Id" : "validator-154",
+                          "LastContainer" : false,
+                          "Left" : 320,
+                          "Output" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 310,
+                          "Type" : "validator",
+                          "Visible" : true,
+                          "Width" : 160,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Validator",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "isActive",
+                            "isBindingTarget" : true,
+                            "name" : "isActive"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "Description" : "Close popup on success",
+                          "DisplayName" : "DatasetJobSucceededRouter",
+                          "Expression" : "Output=datasetJobSucceeded;",
+                          "Height" : 20,
+                          "Id" : "validator-160",
+                          "LastContainer" : false,
+                          "Left" : 320,
+                          "Output" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 330,
+                          "Type" : "validator",
+                          "Visible" : true,
+                          "Width" : 160,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Validator",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "datasetJobSucceeded",
+                            "isBindingTarget" : true,
+                            "name" : "datasetJobSucceeded"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "Description" : "",
+                          "Disabled" : false,
+                          "DisplayName" : "Review Metadata checkbox",
+                          "FocusStyle" : "DefaultFocusStyle",
+                          "Height" : 20,
+                          "Id" : "checkbox-166",
+                          "LastContainer" : false,
+                          "Left" : 10,
+                          "Prompt" : "Review uploaded metadata",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "State" : false,
+                          "Style" : "DefaultCheckboxStyle",
+                          "TabSequence" : 6,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 300,
+                          "Type" : "checkbox",
+                          "Visible" : true,
+                          "Width" : 180,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Checkbox",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : true,
+                          "DataChangeType" : "VALUE",
+                          "Description" : "",
+                          "DisplayName" : "SubmitDisabled",
+                          "Expression" : "Output=(datasetName == \"\" || csvPath.length <= 2 || (uploadMetadata && jsonPath.length <=2) || buttonsDisabled === true);",
+                          "FireOnFirstValue" : false,
+                          "Height" : 20,
+                          "Id" : "expression-167",
+                          "LastContainer" : false,
+                          "Left" : 280,
+                          "OutputBaseType" : "BOOLEAN",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 240,
+                          "Type" : "expression",
+                          "Visible" : true,
+                          "Width" : 170,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Expression",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "datasetName",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "datasetName"
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "csvPath",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "csvPath"
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "uploadMetadata",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "uploadMetadata"
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "jsonPath",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "jsonPath"
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "buttonsDisabled",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "buttonsDisabled"
+                          } ],
+                          "helperType" : "expression",
+                          "parameters" : [ {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "datasetName",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "datasetName"
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "csvPath",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "csvPath"
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "uploadMetadata",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "uploadMetadata"
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "jsonPath",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "jsonPath"
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "buttonsDisabled",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "buttonsDisabled"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DataShape" : "",
+                          "DataType" : "STRING",
+                          "DisplayName" : "StatusMessageRouter",
+                          "Height" : 23,
+                          "Id" : "eventsrouter-168",
+                          "LastContainer" : false,
+                          "Left" : 560,
+                          "NumberOfInputs" : 7,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 250,
+                          "Type" : "eventsrouter",
+                          "Visible" : true,
+                          "Width" : 183,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Events Router"
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "Description" : "",
+                          "Disabled" : false,
+                          "DisplayName" : "Time Series checkbox",
+                          "FocusStyle" : "DefaultFocusStyle",
+                          "Height" : 20,
+                          "Id" : "checkbox-169",
+                          "LastContainer" : false,
+                          "Left" : 10,
+                          "Prompt" : "Time series data",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "State" : false,
+                          "Style" : "DefaultCheckboxStyle",
+                          "TabSequence" : 7,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 325,
+                          "Type" : "checkbox",
+                          "Visible" : true,
+                          "Width" : 120,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Checkbox",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "Description" : "",
+                          "DisplayName" : "UploadedMetadataRouter",
+                          "Expression" : "Output=uploadMetadata;",
+                          "Height" : 20,
+                          "Id" : "validator-170",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "Output" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 250,
+                          "Type" : "validator",
+                          "Visible" : true,
+                          "Width" : 160,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Validator",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "uploadMetadata",
+                            "isBindingTarget" : true,
+                            "name" : "uploadMetadata"
+                          } ],
+                          "editMode" : "edit",
+                          "helperType" : "validator"
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "Description" : "",
+                          "DisplayName" : "ReviewUploadedMetadataRouter",
+                          "Expression" : "Output=reviewUploadedMetadata;",
+                          "Height" : 20,
+                          "Id" : "validator-171",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "Output" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 265,
+                          "Type" : "validator",
+                          "Visible" : true,
+                          "Width" : 160,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Validator",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "reviewUploadedMetadata",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "reviewUploadedMetadata"
+                          } ],
+                          "parameters" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "reviewUploadedMetadata",
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "reviewUploadedMetadata"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : true,
+                          "DataChangeType" : "VALUE",
+                          "Description" : "",
+                          "DisplayName" : "uploadedCsvUri",
+                          "Expression" : "Output=(encodeURI(\"thingworx://AnalyticsUploadStorage/\" + directory + \"/\" + csvFileName));",
+                          "FireOnFirstValue" : false,
+                          "Height" : 20,
+                          "Id" : "expression-173",
+                          "LastContainer" : false,
+                          "Left" : 185,
+                          "OutputBaseType" : "STRING",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 80,
+                          "Type" : "expression",
+                          "Visible" : true,
+                          "Width" : 170,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Expression",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "csvFileName",
+                            "bindingDirection" : "",
+                            "bindingStatus" : true,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "csvFileName"
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "directory",
+                            "bindingDirection" : "",
+                            "bindingStatus" : false,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "directory"
+                          } ],
+                          "helperType" : "expression",
+                          "parameters" : [ {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "csvFileName",
+                            "bindingDirection" : "",
+                            "bindingStatus" : true,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "csvFileName"
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "directory",
+                            "bindingDirection" : "",
+                            "bindingStatus" : false,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "directory"
+                          } ],
+                          "parametersToDelete" : [ ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "Area" : "UI",
+                          "ClickOutsideToClose" : false,
+                          "Description" : "",
+                          "DisplayName" : "Edit Inferred Metadata link",
+                          "FixedPopupHeight" : 500,
+                          "FixedPopupWidth" : 1070,
+                          "Height" : 20,
+                          "Icon" : "",
+                          "IconAlignment" : "left",
+                          "Id" : "navigation-174",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "MashupName" : "TW_ML_Dataset_EditMetadata_v1",
+                          "MashupParameters" : [ {
+                            "BaseType" : "INFOTABLE",
+                            "Description" : "",
+                            "ParameterName" : "metadata",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "INFOTABLE",
+                              "description" : "",
+                              "name" : "metadata",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "datasetName",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "STRING",
+                              "description" : "",
+                              "name" : "datasetName",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "jobDescription",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "STRING",
+                              "description" : "",
+                              "name" : "jobDescription",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "csvURI",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "STRING",
+                              "description" : "",
+                              "name" : "csvURI",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "isMetadataInferred",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "BOOLEAN",
+                              "description" : "",
+                              "name" : "isMetadataInferred",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "isTimeSeries",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "BOOLEAN",
+                              "description" : "",
+                              "name" : "isTimeSeries",
+                              "ordinal" : 0
+                            }
+                          } ],
+                          "MessageToShow" : "Mashup must be selected",
+                          "ModalPopupOpacity" : 0.5,
+                          "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                          "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                          "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                          "PopupScrolling" : "auto",
+                          "PopupTitle" : "Review Metadata",
+                          "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                          "ReloadOnReplace" : false,
+                          "ResponsiveLayout" : false,
+                          "RoundedCorners" : true,
+                          "ShowCloseButton" : true,
+                          "ShowDataLoading" : true,
+                          "ShowMessageIfNoMashup" : false,
+                          "SingleClickSelectOnTablets" : true,
+                          "Style" : "DefaultNavigationStyle",
+                          "TabSequence" : 10,
+                          "TargetWindow" : "modal-popup",
+                          "Text" : "Edit Inferred Metadata",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 385,
+                          "Transparent" : false,
+                          "Type" : "navigation",
+                          "UseTheme" : false,
+                          "Visible" : false,
+                          "Width" : 150,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Navigation",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : true,
+                          "DataChangeType" : "VALUE",
+                          "Description" : "",
+                          "DisplayName" : "isMetadataInferred",
+                          "Expression" : "Output=!isMetadataUploaded;",
+                          "FireOnFirstValue" : false,
+                          "Height" : 20,
+                          "Id" : "expression-175",
+                          "LastContainer" : false,
+                          "Left" : 185,
+                          "OutputBaseType" : "BOOLEAN",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 115,
+                          "Type" : "expression",
+                          "Visible" : true,
+                          "Width" : 170,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Expression",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "DefaultValue" : false,
+                            "Description" : "",
+                            "ParameterName" : "isMetadataUploaded",
+                            "bindingDirection" : "Target",
+                            "bindingType" : "Property",
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "shown" : true
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "Area" : "UI",
+                          "ClickOutsideToClose" : false,
+                          "Description" : "",
+                          "DisplayName" : "Edit Uploaded Metadata link",
+                          "FixedPopupHeight" : 500,
+                          "FixedPopupWidth" : 1070,
+                          "Height" : 20,
+                          "Icon" : "",
+                          "IconAlignment" : "left",
+                          "Id" : "navigation-176",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "MashupName" : "TW_ML_Dataset_EditMetadata_v1",
+                          "MashupParameters" : [ {
+                            "BaseType" : "INFOTABLE",
+                            "Description" : "",
+                            "ParameterName" : "metadata",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "INFOTABLE",
+                              "description" : "",
+                              "name" : "metadata",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "datasetName",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "STRING",
+                              "description" : "",
+                              "name" : "datasetName",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "jobDescription",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "STRING",
+                              "description" : "",
+                              "name" : "jobDescription",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "csvURI",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "STRING",
+                              "description" : "",
+                              "name" : "csvURI",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "isMetadataInferred",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "BOOLEAN",
+                              "description" : "",
+                              "name" : "isMetadataInferred",
+                              "ordinal" : 0
+                            }
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "isTimeSeries",
+                            "ParmDef" : {
+                              "aspects" : {
+                                "dataShape" : "AnalyticsDatasetMetadata"
+                              },
+                              "baseType" : "BOOLEAN",
+                              "description" : "",
+                              "name" : "isTimeSeries",
+                              "ordinal" : 0
+                            }
+                          } ],
+                          "MessageToShow" : "Mashup must be selected",
+                          "ModalPopupOpacity" : 0.5,
+                          "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                          "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                          "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                          "PopupScrolling" : "auto",
+                          "PopupTitle" : "Review Metadata",
+                          "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                          "ReloadOnReplace" : false,
+                          "ResponsiveLayout" : false,
+                          "RoundedCorners" : true,
+                          "ShowCloseButton" : true,
+                          "ShowDataLoading" : true,
+                          "ShowMessageIfNoMashup" : false,
+                          "SingleClickSelectOnTablets" : true,
+                          "Style" : "DefaultNavigationStyle",
+                          "TabSequence" : 11,
+                          "TargetWindow" : "modal-popup",
+                          "Text" : "Edit Uploaded Metadata",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 410,
+                          "Transparent" : false,
+                          "Type" : "navigation",
+                          "UseTheme" : false,
+                          "Visible" : false,
+                          "Width" : 150,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Navigation",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : true,
+                          "DataChangeType" : "VALUE",
+                          "Description" : "",
+                          "DisplayName" : "DisableTimeSeriesCheckbox",
+                          "Expression" : "Output=(uploadMetadata && !reviewUploadedMetadata);",
+                          "FireOnFirstValue" : false,
+                          "Height" : 20,
+                          "Id" : "expression-178",
+                          "LastContainer" : false,
+                          "Left" : 185,
+                          "OutputBaseType" : "BOOLEAN",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 200,
+                          "Type" : "expression",
+                          "Visible" : true,
+                          "Width" : 170,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Expression",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "uploadMetadata",
+                            "isBindingTarget" : true,
+                            "name" : "uploadMetadata"
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "reviewUploadedMetadata",
+                            "isBindingTarget" : true,
+                            "name" : "reviewUploadedMetadata"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "Description" : "",
+                          "DisplayName" : "DetectMetadataSucceeded",
+                          "Expression" : "Output=detectMetadataSucceeded;",
+                          "Height" : 20,
+                          "Id" : "validator-179",
+                          "LastContainer" : false,
+                          "Left" : 320,
+                          "Output" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 350,
+                          "Type" : "validator",
+                          "Visible" : true,
+                          "Width" : 160,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Validator",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "Description" : "",
+                            "ParameterName" : "detectMetadataSucceeded",
+                            "isBindingTarget" : true,
+                            "name" : "detectMetadataSucceeded"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : true,
+                          "DataChangeType" : "VALUE",
+                          "Description" : "",
+                          "DisplayName" : "ButtonsDisabled",
+                          "Expression" : "Output=(submittingNotCheckingJobStatus || createJobActive || createJobSucceeded);",
+                          "FireOnFirstValue" : false,
+                          "Height" : 20,
+                          "Id" : "expression-180",
+                          "LastContainer" : false,
+                          "Left" : 410,
+                          "OutputBaseType" : "BOOLEAN",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 240,
+                          "Type" : "expression",
+                          "Visible" : true,
+                          "Width" : 170,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Expression",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "DefaultValue" : false,
+                            "Description" : "",
+                            "ParameterName" : "createJobActive",
+                            "bindingDirection" : "",
+                            "bindingStatus" : true,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "createJobActive",
+                            "value" : false
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "DefaultValue" : false,
+                            "Description" : "",
+                            "ParameterName" : "createJobSucceeded",
+                            "bindingDirection" : "",
+                            "bindingStatus" : true,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "createJobSucceeded",
+                            "value" : false
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "DefaultValue" : false,
+                            "Description" : "",
+                            "ParameterName" : "submittingNotCheckingJobStatus",
+                            "bindingDirection" : "",
+                            "bindingStatus" : true,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "submittingNotCheckingJobStatus",
+                            "value" : false
+                          } ],
+                          "createJobActive" : false,
+                          "createJobSucceeded" : false,
+                          "parameters" : [ {
+                            "BaseType" : "BOOLEAN",
+                            "DefaultValue" : false,
+                            "Description" : "",
+                            "ParameterName" : "createJobActive",
+                            "bindingDirection" : "",
+                            "bindingStatus" : true,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "createJobActive",
+                            "value" : false
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "DefaultValue" : false,
+                            "Description" : "",
+                            "ParameterName" : "createJobSucceeded",
+                            "bindingDirection" : "",
+                            "bindingStatus" : true,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "createJobSucceeded",
+                            "value" : false
+                          }, {
+                            "BaseType" : "BOOLEAN",
+                            "DefaultValue" : false,
+                            "Description" : "",
+                            "ParameterName" : "submittingNotCheckingJobStatus",
+                            "bindingDirection" : "",
+                            "bindingStatus" : true,
+                            "isBindingSource" : false,
+                            "isBindingTarget" : true,
+                            "isValid" : true,
+                            "name" : "submittingNotCheckingJobStatus",
+                            "value" : false
+                          } ],
+                          "shown" : {
+                            "AutoEvaluate" : true,
+                            "Changed" : true,
+                            "DataChangeType" : true,
+                            "Description" : true,
+                            "DisplayName" : true,
+                            "Evaluate" : true,
+                            "Expression" : true,
+                            "FireOnFirstValue" : true,
+                            "Output" : true,
+                            "OutputBaseType" : true
+                          },
+                          "submittingNotCheckingJobStatus" : false
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DisplayName" : "Dataset Description TextArea",
+                          "Height" : 82,
+                          "Id" : "textarea-185",
+                          "InnerShadow" : false,
+                          "Label" : "Dataset Description:",
+                          "LabelAlignment" : "left",
+                          "LastContainer" : false,
+                          "Left" : 5,
+                          "ReadOnly" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "TW.AnalysisServices.TextBoxStyle",
+                          "TabSequence" : 2,
+                          "Text" : "",
+                          "TextareaFocusStyle" : "TW.AnalysisServices.FocusStyle",
+                          "TextareaLabelStyle" : "TW.AnalysisServices.LabelStyle",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 46,
+                          "Type" : "textarea",
+                          "Visible" : true,
+                          "Width" : 340,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "TextArea",
+                          "__supportsLabel" : true,
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Column 2",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-138",
+                      "LastContainer" : false,
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : false,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "container",
+                      "userCannotRemove" : true
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "ContainerClass" : "",
+                        "Description" : "",
+                        "DisplayName" : "Info button panel",
+                        "Height" : 200,
+                        "HideScrollbars" : true,
+                        "HorizontalAnchor" : "left",
+                        "Id" : "panel-164",
+                        "LastContainer" : false,
+                        "Left" : 25,
+                        "ResponsiveLayout" : true,
+                        "ShowDataLoading" : true,
+                        "Style" : "TW.AnalysisServices.NoStyle",
+                        "Top" : 125,
+                        "Type" : "panel",
+                        "VerticalAnchor" : "top",
+                        "Visible" : true,
+                        "Width" : 300,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Panel"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "ActiveStyle" : "TW_ML_Help",
+                          "Area" : "UI",
+                          "CancelConfirmationButton" : "button2",
+                          "ConfirmationButton1Label" : "Yes",
+                          "ConfirmationButton2Label" : "No",
+                          "ConfirmationPrompt" : "Do Action?",
+                          "ConfirmationRequired" : false,
+                          "ConfirmationTitle" : "Confirm Action",
+                          "ContextId" : "",
+                          "DefaultConfirmationButton" : "button1",
+                          "Description" : "",
+                          "Disabled" : false,
+                          "DisabledStyle" : "TW.AnalysisServices.Accent1ButtonDisabledStyle",
+                          "DisplayName" : "Info button",
+                          "FocusStyle" : "TW_ML_Help",
+                          "Height" : 25,
+                          "HoverStyle" : "TW_ML_Help",
+                          "IconAlignment" : "left",
+                          "Id" : "button-165",
+                          "Label" : "",
+                          "LastContainer" : false,
+                          "Left" : 0,
+                          "ResponsiveLayout" : false,
+                          "RoundedCorners" : true,
+                          "ShowDataLoading" : false,
+                          "SingleClickSelectOnTablets" : true,
+                          "Style" : "TW_ML_Help",
+                          "TabSequence" : 12,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 0,
+                          "Type" : "button",
+                          "Visible" : true,
+                          "Width" : 25,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "button",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Right Sidebar",
+                      "ExpandCollapseTabLocation" : "inside",
+                      "Expanded" : false,
+                      "Id" : "container-139",
+                      "LastContainer" : false,
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : false,
+                      "ShowExpandCollapseTab" : true,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 0,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 0,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "container",
+                      "userCannotRemove" : true
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "DisplayName" : "htmltextarea-140",
+                        "EscapeHTMLText" : false,
+                        "Height" : 200,
+                        "Id" : "htmltextarea-140",
+                        "Label" : "",
+                        "LabelAlignment" : "left",
+                        "LabelStyle" : "DefaultWidgetLabelStyle",
+                        "LastContainer" : false,
+                        "Left" : 0,
+                        "ReadOnly" : true,
+                        "ResponsiveLayout" : true,
+                        "ShowBorder" : false,
+                        "ShowDataLoading" : false,
+                        "ShowToolbar" : true,
+                        "Text" : "<p>To create a new dataset:</p> <ol class=\"builderList\"> <li>Provide a <b>Dataset Name</b>.</li> <li>Provide an optional <b>Dataset Description</b>.</li> <li>For the <b>Dataset Data</b> file, click <b>Choose File</b> and navigate to a CSV file containing the data to be uploaded. The dataset must include a header row.</li> <li><b>The Dataset Field Configuration</b> file provides the metadata skeleton used to structure the data you load into the dataset. Configure the following parameters:<ul class=\"builderList\"><li><b>Upload metadata</b> &ndash; To use pre-created metadata, select this option. Then click&nbsp;<b>Choose File</b> and navigate to a stored JSON file containing the configuration information. If the metadata does not yet exist, clear this option and ThingWorx Analytics will infer the metadata automatically. The inferred metadata will be presented for review and editing.</li><li><b>Review uploaded metadata</b> &ndash; If pre-existing metadata is uploaded, select this option to display the uploaded metadata for review and editing.</li><li><b>Time series data</b> &ndash; If the new dataset represents time series information, select this option. This option is used only when reviewing metadata.</li></ul></li> <li>Click <b>Submit</b> to begin the upload.</li> </ol>",
+                        "ToolTipField" : "",
+                        "ToolTipStyle" : "DefaultTooltipStyle",
+                        "Top" : 0,
+                        "Type" : "htmltextarea",
+                        "UseTheme" : false,
+                        "Visible" : true,
+                        "Width" : 400,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "htmltextarea",
+                        "__supportsLabel" : true,
+                        "__supportsTooltip" : true
+                      },
+                      "Widgets" : [ ]
+                    } ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DataShape" : "",
+                    "DataType" : "BOOLEAN",
+                    "DisplayName" : "SubmittingNotCheckingJobStatus",
+                    "Id" : "eventsrouter-182",
+                    "LastContainer" : false,
+                    "Left" : null,
+                    "NumberOfInputs" : "2",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : null,
+                    "Type" : "eventsrouter",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Events Router"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "ALWAYS",
+                    "DisplayName" : "submitButtonClicked",
+                    "Expression" : "Output=true;",
+                    "FireOnFirstValue" : false,
+                    "Height" : 28,
+                    "Id" : "expression-183",
+                    "LastContainer" : false,
+                    "Left" : null,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : null,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ ],
+                    "parameters" : [ ],
+                    "shown" : {
+                      "AutoEvaluate" : true,
+                      "Changed" : true,
+                      "DataChangeType" : true,
+                      "Description" : true,
+                      "DisplayName" : true,
+                      "Evaluate" : true,
+                      "Expression" : true,
+                      "FireOnFirstValue" : true,
+                      "Output" : true,
+                      "OutputBaseType" : true
+                    }
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "ALWAYS",
+                    "Description" : "Sending false to events router on job submission failure so it will no longer disable buttons",
+                    "DisplayName" : "submissionFailedOrCheckingJobStatus",
+                    "Expression" : "false",
+                    "FireOnFirstValue" : false,
+                    "Height" : 28,
+                    "Id" : "expression-184",
+                    "LastContainer" : false,
+                    "Left" : null,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : null,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ ],
+                    "parameters" : [ ],
+                    "shown" : {
+                      "AutoEvaluate" : true,
+                      "Changed" : true,
+                      "DataChangeType" : true,
+                      "Description" : true,
+                      "DisplayName" : true,
+                      "Evaluate" : true,
+                      "Expression" : true,
+                      "FireOnFirstValue" : true,
+                      "Output" : true,
+                      "OutputBaseType" : true
+                    }
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DisplayName" : "showPreventFilterCreationMessage",
+                    "Expression" : "Output=mviIncludedInDataset;",
+                    "Height" : 28,
+                    "Id" : "validator-186",
+                    "LastContainer" : false,
+                    "Left" : null,
+                    "Output" : true,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : null,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "DefaultValue" : false,
+                      "Description" : "",
+                      "ParameterName" : "mviIncludedInDataset",
+                      "bindingDirection" : "Target",
+                      "bindingType" : "Property",
+                      "isBindingSource" : false,
+                      "isBindingTarget" : true,
+                      "shown" : true
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "PreventFilterCreationForTimeseriesWithMVI",
+                    "Height" : 28,
+                    "Id" : "statusmessage-187",
+                    "LastContainer" : false,
+                    "Left" : null,
+                    "Message" : "Columns in a timeseries dataset cannot be configured with missing value treatments.",
+                    "MessageType" : "error",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : null,
+                    "Type" : "statusmessage",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Status Message"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DataShape" : "",
+                    "DataType" : "BOOLEAN",
+                    "DisplayName" : "submitCancelButtonEnableDisable",
+                    "Id" : "eventsrouter-188",
+                    "LastContainer" : false,
+                    "Left" : null,
+                    "NumberOfInputs" : "2",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : null,
+                    "Type" : "eventsrouter",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Events Router"
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+            <preview></preview>
+        </Mashup>
+    </Mashups>
+</Entities>

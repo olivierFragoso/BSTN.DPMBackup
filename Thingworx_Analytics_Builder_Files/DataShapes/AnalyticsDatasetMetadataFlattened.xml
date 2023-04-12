@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <DataShapes>
+        <DataShape
+         aspect.isExtension="true"
+         baseDataShape=""
+         description="Metadata describing the fields of a dataset"
+         documentationContent=""
+         homeMashup=""
+         name="AnalyticsDatasetMetadataFlattened"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <FieldDefinitions>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Format of the data (STRING,DOUBLE,BOOLEAN,INTEGER)"
+                 name="dataType"
+                 ordinal="2"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Name of the field"
+                 name="fieldName"
+                 ordinal="1"></FieldDefinition>
+                <FieldDefinition
+                 baseType="BOOLEAN"
+                 description="If true, this field remains unchanged over time"
+                 name="isStatic"
+                 ordinal="8"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description="Maximum observed value for Continuous fields"
+                 name="max"
+                 ordinal="5"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description="Minimum observed value for Continuous fields"
+                 name="min"
+                 ordinal="4"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Optional comma-separated list of values that should be treated as though the values are null. Only applicable when missingValueTreatment is specified."
+                 name="missingValueIndicatorsAsString"
+                 ordinal="11"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Missing input values are automatically replaced by this value. Only applicable when missingValueTreatment is AS_VALUE."
+                 name="missingValueReplacement"
+                 ordinal="10"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Optional method for treating missing values (AS_LAST,AS_IS,AS_VALUE,AS_MEAN,AS_MEDIAN)."
+                 name="missingValueTreatment"
+                 ordinal="9"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Behavior of the data (CONTINUOUS,CATEGORICAL,ORDINAL,BOOLEAN,TEMPORAL,ENTITY_ID)"
+                 name="opType"
+                 ordinal="3"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description="Time between observations in a Temporal field"
+                 name="timeSamplingInterval"
+                 ordinal="7"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="valuesAsString"
+                 ordinal="8"></FieldDefinition>
+            </FieldDefinitions>
+        </DataShape>
+    </DataShapes>
+</Entities>

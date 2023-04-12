@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <DataShapes>
+        <DataShape
+         aspect.isExtension="true"
+         baseDataShape=""
+         description="Machine Learning Signal"
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Signals"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <FieldDefinitions>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="dataType"
+                 ordinal="8"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description=""
+                 name="description"
+                 ordinal="2"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description="Number of features included combined"
+                 name="featuresAtATime"
+                 ordinal="9"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description="Mutual Information gained by this feature"
+                 name="informationGain"
+                 ordinal="4"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description=""
+                 name="maxMI"
+                 ordinal="6"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description=""
+                 name="mi"
+                 ordinal="3"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description=""
+                 name="minMI"
+                 ordinal="7"></FieldDefinition>
+                <FieldDefinition
+                 aspect.isPrimaryKey="true"
+                 baseType="STRING"
+                 description="Name of the feature"
+                 name="name"
+                 ordinal="1"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description=""
+                 name="pearsonCorrelation"
+                 ordinal="5"></FieldDefinition>
+            </FieldDefinitions>
+        </DataShape>
+    </DataShapes>
+</Entities>

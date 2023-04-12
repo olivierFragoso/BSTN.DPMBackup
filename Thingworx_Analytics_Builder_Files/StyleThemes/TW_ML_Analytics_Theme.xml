@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <StyleThemes>
+        <StyleTheme
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         name="TW_ML_Analytics_Theme"
+         projectName="Thingworx_Analytics_Builder_Files"
+         tags="Applications:LynxV1">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "props" : [ {
+                "name" : "e-button-primary-hover-backgroundcolor",
+                "value" : "#96ca4f"
+              }, {
+                "name" : "e-button-primary-hover-fontcolor",
+                "value" : "#ffffff"
+              }, {
+                "name" : "e-button-primary-hover-fontweight",
+                "value" : "700"
+              }, {
+                "name" : "e-button-primary-backgroundcolor",
+                "value" : "#5bb73b"
+              }, {
+                "name" : "e-button-primary-fontcolor",
+                "value" : "#ffffff"
+              }, {
+                "name" : "e-button-primary-fontweight",
+                "value" : "700"
+              }, {
+                "name" : "e-button-primary-bordercolor",
+                "value" : "#5bb73b"
+              }, {
+                "name" : "e-button-primary-hover-bordercolor",
+                "value" : "#96ca4f"
+              }, {
+                "name" : "e-button-primary-disabled-bordercolor",
+                "value" : "#f7f7f7"
+              }, {
+                "name" : "e-list-row-backgroundcolor-selected",
+                "value" : "#5bb73b"
+              }, {
+                "name" : "e-textfield-border-radius",
+                "value" : "1px"
+              }, {
+                "name" : "e-textfield-bordercolor",
+                "value" : "#66cc33"
+              } ],
+              "version" : "0.1"
+            }
+            ]]>
+            </content>
+            <preview></preview>
+        </StyleTheme>
+    </StyleThemes>
+</Entities>

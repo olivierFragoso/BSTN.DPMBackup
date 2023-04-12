@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         inheritedValueStream=""
+         name="TW_ML_Metadata_Helper"
+         projectName="Thingworx_Analytics_Builder_Files"
+         published="false"
+         tags="Applications:LynxV1"
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="true"
+                         name="TW_AnalyticServer_Users"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="TW_AnalyticServer_Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW_AnalyticServer_Organization"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CreateDataset">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="datasetName"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="dataURI"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="description"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="AnalyticsDatasetMetadataFlattened"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="editableMetadata"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="previousJobId"
+                             ordinal="4"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DetectMetadata">
+                        <ResultType
+                         aspect.dataShape="DetectMetadataResult"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="dataURI"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetCreateDatasetHtmlStatus">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="jobId"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="AnalyticsStateWithMessage"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="jobResult"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="messageNumber"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetEditMetadataGridConfiguration">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="isMetadataInferred"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="isTimeSeries"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="MakeMetadataEditable">
+                        <ResultType
+                         aspect.dataShape="AnalyticsDatasetMetadataFlattened"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="AnalyticsDatasetMetadata"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="metadata"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="MakeMetadataNonEditable">
+                        <ResultType
+                         aspect.dataShape="AnalyticsDatasetMetadata"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="AnalyticsDatasetMetadataFlattened"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="editableMetadata"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ParseCsvToStringList">
+                        <ResultType
+                         aspect.dataShape="GenericStringList"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="string"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="Pause">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="milliseconds"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Persists the json as a file in AnalyticsUploadStorage and returns the path."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="SaveMetadataJSON">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="datasetName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="AnalyticsDatasetMetadataFlattened"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="editableMetadata"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ValidateEditedMetadata">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="AnalyticsDatasetMetadataFlattened"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="editedMetadata"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="isMetadataInferred"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="isTimeSeries"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="AnalyticsDatasetMetadata"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="originalMetadata"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateDataset">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        let serviceName=":CreateDataset";
+                                        logger.info(serviceName+": dataURI="+dataURI+", datasetName="+datasetName+",previousJobId="+previousJobId);
+                                        
+                                        // Used by TW_ML_Dataset_EditMetadata_v1. When dataset creation fails, delete that job before the next
+                                        // attempt to avoid having two jobs with the same dataset name.
+                                        if (previousJobId) {
+                                            logger.info(serviceName+": Deleting previous job: " + previousJobId);
+                                            try {
+                                                Things["TW_ML_Helper"].DeleteDatasetAMS({ jobId : previousJobId });
+                                            } catch (e) {
+                                                logger.error(serviceName+": Failed to delete previous job: " + previousJobId);
+                                            }
+                                        }
+                                        
+                                        var dataMicroserver = Things[Things["TW_ML_Helper"].GetAnalyticsServerDataInstance()];
+                                        var datasetRef = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({ dataShapeName : "AnalyticsDatasetRef" });
+                                        
+                                        datasetRef.AddRow({ 
+                                            datasetUri: dataURI, 
+                                            metadata: me.MakeMetadataNonEditable({ editableMetadata : editableMetadata }),
+                                            format : "csv" });
+                                        
+                                        var result = dataMicroserver.CreateDatasetWithDatasetRef({
+                                            datasetRef: datasetRef,
+                                            tags: Things["TW_ML_Helper"].GetBuilderDatasetTags({ datasetName : datasetName, isCreate : true }),
+                                            description: description
+                                        });
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DetectMetadata">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({ dataShapeName : "DetectMetadataResult" });
+                                        var resultRow = new Object();
+                                        
+                                        var dataMicroserver = Things[Things["TW_ML_Helper"].GetAnalyticsServerDataInstance()];
+                                        var datasetRef = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({ dataShapeName : "AnalyticsDatasetRef" });
+                                        datasetRef.AddRow({ 
+                                            datasetUri: dataURI,
+                                            format : "csv" 
+                                        });
+                                        
+                                        try {
+                                            resultRow.metadata = dataMicroserver.DetectMetadata({
+                                                datasetRef: datasetRef
+                                            });
+                                            resultRow.success = true;
+                                        } catch (e) {
+                                            resultRow.success = false;
+                                            resultRow.errorMessage = Things["TW_ML_Helper"].EscapeHTML({ 
+                                                string : e.message.replace("com.thingworx.common.exceptions.GenericHTTPException: ", "") 
+                                            });
+                                        }
+                                        result.AddRow(resultRow);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetCreateDatasetHtmlStatus">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var serviceName = "GetCreateDatasetHtmlStatus";
+                                        logger.info(serviceName+": Executing");
+                                        logger.info(serviceName+": messageNumber="+messageNumber);
+                                        logger.info(serviceName+": jobId="+jobId);
+                                        
+                                        var result = "";
+                                        
+                                        if (messageNumber >= 1)
+                                            result += "Submitting Create Dataset request...<br/>";
+                                        if (messageNumber >= 2)
+                                            result += "Dataset Create Job with jobId: " + jobId + " in progress...<br/>";
+                                        if (messageNumber >= 3 && jobResult.jobSucceeded)
+                                            result += "Dataset Create Job with jobId: " + jobId + " was successful.<br/>";
+                                        if (messageNumber >= 3 && !jobResult.jobSucceeded)
+                                            result += "Dataset Create Job with jobId: " + jobId + " failed with error:<br/><span style='color:red'>" + 
+                                                Things["TW_ML_Helper"].EscapeHTML({ string : jobResult.message }) + "</span>";
+                                        
+                                        logger.info(serviceName+": result="+result);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetEditMetadataGridConfiguration">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        let serviceName="GetEditMetadataGridConfiguration";
+                                        logger.info(serviceName+": isTimeSeries="+isTimeSeries);
+                                        logger.info(serviceName+": isMetadataInferred="+isMetadataInferred);
+                                        
+                                        let fieldNameWidth = 90;
+                                        let valuesWidth = 100;
+                                        if (!isTimeSeries) {
+                                            // Recover about 90px from leaving off timeSamplingInterval and isStatic columns
+                                            fieldNameWidth += 50;
+                                            valuesWidth += 40;
+                                        }
+                                        if (isMetadataInferred) {
+                                            // Recover about 95px from leaving off buttons to add/remove rows
+                                            fieldNameWidth += 55;
+                                            valuesWidth += 40;
+                                        }
+                                        
+                                        let result = {
+                                            "columns": [{
+                                                    "name": "fieldName",
+                                                    "display": "Field Name",
+                                                    "type": "text",
+                                                    "ctrlAttr": {
+                                                        "readonly": "readonly"
+                                                    },
+                                                    "ctrlCss": {
+                                                        "width": fieldNameWidth + "px",
+                                                        "background-color": "rgb(247, 247, 247)",
+                                                        "border": "rgb(173,181,189)",
+                                                        "color": "rgb(174, 182, 189)",
+                                                    },
+                                                    "displayTooltip": {
+                                                        items: 'td',
+                                                        content: 'The name of the field as it appears in the dataset',
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    },
+                                                    "dynamicUiTooltip" : {
+                                                        items: "'input'",
+                                                        content: "(function() { return this.value; })",
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    }
+                                                }, {
+                                                    "name": "opType",
+                                                    "display": "Op Type",
+                                                    "type": "select",
+                                                    "ctrlOptions": [
+                                                        {value:"CONTINUOUS", label:"Continuous"},
+                                                        {value:"CATEGORICAL", label:"Categorical"},
+                                                        {value:"BOOLEAN", label:"Boolean"},
+                                                        {value:"INFORMATIONAL", label:"Informational"},
+                                                        {value:"ORDINAL", label:"Ordinal"},
+                                                        {value:"TEXT", label:"Text"},
+                                                        {value:"TEMPORAL", label:"Temporal"},
+                                                        {value:"ENTITY_ID", label:"Entity ID"}
+                                                    ],
+                                                    "displayTooltip": {
+                                                        items: 'td',
+                                                        content: 'How the data in the field will be used',
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    }
+                                                }, {
+                                                    "name": "dataType",
+                                                    "display": "Data Type",
+                                                    "type": "select",
+                                                    "ctrlOptions": [
+                                                        {value:"STRING", label:"String"},
+                                                        {value:"DOUBLE", label:"Double"},
+                                                        {value:"BOOLEAN", label:"Boolean"},
+                                                        {value:"INTEGER", label:"Integer"},
+                                                        {value:"LONG", label:"Long"},
+                                                        {value:"DATETIME", label:"DateTime"}
+                                                    ],
+                                                    "displayTooltip": {
+                                                        items: 'td',
+                                                        content: 'The type of data the field contains',
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    }
+                                                }, {
+                                                    "name": "min",
+                                                    "display": "Min",
+                                                    "type": "text",
+                                                    "ctrlCss": {
+                                                        "width": "50px"
+                                                    },
+                                                    "displayTooltip": {
+                                                        items: 'td',
+                                                        content: 'The minimum field value, for informational purposes only',
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    }
+                                                }, {
+                                                    "name": "max",
+                                                    "display": "Max",
+                                                    "type": "text",
+                                                    "ctrlCss": {
+                                                        "width": "50px"
+                                                    },
+                                                    "displayTooltip": {
+                                                        items: 'td',
+                                                        content: 'The maximum field value, for informational purposes only',
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    }
+                                                }, {
+                                                    "name": "valuesAsString",
+                                                    "display": "Values",
+                                                    "type": "text",
+                                                    "ctrlCss": {
+                                                        "width": valuesWidth + "px"
+                                                    },
+                                                    // Tooltip adds spaces after commas for readability
+                                                    "dynamicUiTooltip" : {
+                                                        items: "'input'",
+                                                        content: "(function() { return this.value ? this.value.replace(/,/g , \", \") : \"\"; })",
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    },
+                                                    "displayTooltip": {
+                                                        items: 'td',
+                                                        content: 'CSV list of acceptable values for Ordinal or Categorical fields',
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    },
+                                                    "dynamicOnClick": "(function(evt, rowIndex) { " +
+                                                            "$('.valuesTextArea').val(parseCSV(evt.target.value)); " +
+                                                            "$('.valuesModal').data('inputID', evt.target.id); " +
+                                                            "$('#valuesPopupBar').html('Values for ' + $('.appendGrid > table').appendGrid('getRowValue', rowIndex).fieldName); " +
+                                                            "$('.valuesModalPopup').draggable({ handle : '#valuesPopupBar' }); " +
+                                                            "$('.valuesModal').toggle(); " +
+                                                        "})"
+                                                }, {
+                                                    "name": "timeSamplingInterval",
+                                                    "display": "Sampling Interval",
+                                                    "type": "text",
+                                                    "ctrlCss": {
+                                                        "width": "50px"
+                                                    },
+                                                    "displayCss": {
+                                                        "width": "50px",
+                                                        "white-space": "normal",
+                                                        "line-height": 1.1
+                                                    },
+                                                    "displayTooltip": {
+                                                        items: 'td',
+                                                        content: 'An integer representing the time between observations in a Temporal field',
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    }
+                                                }, {
+                                                    "name": "isStatic",
+                                                    "display": "Static",
+                                                    "type": "checkbox",
+                                                    "displayTooltip": {
+                                                        items: 'td',
+                                                        content: 'A flag set to true if the field value cannot change over time',
+                                                        classes: {
+                                                            "ui-tooltip": "twas-ui-tooltip"
+                                                        },
+                                                    }
+                                                }
+                                            ],
+                                            "hideButtons": {
+                                                "remove": true,
+                                                "append": true,
+                                                "removeLast": true,
+                                                "insert": true,
+                                                "moveUp": true,
+                                                "moveDown": true
+                                            },
+                                            "hideRowNumColumn": true,
+                                            "afterRowAppended": "(function(caller, parentRowIndex, addedRowIndex) { " +
+                                                        "var cell = $(caller).appendGrid('getCellCtrl', 'fieldName', addedRowIndex[0]); " +
+                                                        "cell.readOnly = false; " +
+                                                        "cell.style.backgroundColor = ''; " +
+                                                        "cell.style.border = ''; " +
+                                                        "cell.style.color = ''; " +
+                                                    "})",
+                                            "afterRowInserted": "(function(caller, parentRowIndex, addedRowIndex) { " +
+                                                        "var cell = $(caller).appendGrid('getCellCtrl', 'fieldName', addedRowIndex[0]); " +
+                                                        "cell.readOnly = false; " +
+                                                        "cell.style.backgroundColor = ''; " +
+                                                        "cell.style.border = ''; " +
+                                                        "cell.style.color = ''; " +
+                                                    "})"
+                                        };
+                                        
+                                        // TA-8278: Only add MVI columns if NOT timeseries
+                                        let MVTreatment = {
+                                            "name": "missingValueTreatment",
+                                            "display": "Missing Value Treatment",
+                                            "type": "select",
+                                            "ctrlOptions": [
+                                                {value:null, label:" "},
+                                                {value:"AS_IS", label:"AS_IS"},
+                                                {value:"AS_LAST", label:"AS_LAST"},
+                                                {value:"AS_MEAN", label:"AS_MEAN"},
+                                                {value:"AS_MEDIAN", label:"AS_MEDIAN"},
+                                                {value:"AS_VALUE", label:"AS_VALUE"}
+                                            ],
+                                            "ctrlCss": {
+                                                "width": "110px"
+                                            },
+                                            "displayTooltip": {
+                                                items: 'td',
+                                                content: 'Method for treating missing values',
+                                                classes: {
+                                                    "ui-tooltip": "twas-ui-tooltip"
+                                                },
+                                            }
+                                        };
+                                        
+                                        let MVIndicator = {
+                                            "name": "missingValueIndicatorsAsString",
+                                            "display": "Missing Value Indicators",
+                                            "type": "text",
+                                            "ctrlCss": {
+                                                "width": "110px"
+                                            },
+                                            // Tooltip adds spaces after commas for readability
+                                            "dynamicUiTooltip" : {
+                                                items: "'input'",
+                                                content: "(function() { return this.value ? this.value.replace(/,/g , \", \") : \"\"; })",
+                                                classes: {
+                                                    "ui-tooltip": "twas-ui-tooltip"
+                                                },
+                                            },
+                                            "displayTooltip": {
+                                                items: 'td',
+                                                content: 'CSV list of values that should be treated as though the values are missing',
+                                                classes: {
+                                                    "ui-tooltip": "twas-ui-tooltip"
+                                                },
+                                            }
+                                        };
+                                        
+                                        let MVReplacement = {
+                                            "name": "missingValueReplacement",
+                                            "display": "Missing Value Replacement",
+                                            "type": "text",
+                                            "ctrlCss": {
+                                                "width": "110px"
+                                            },
+                                            "displayTooltip": {
+                                                items: 'td',
+                                                content: 'Missing input values are automatically replaced by this value',
+                                                classes: {
+                                                    "ui-tooltip": "twas-ui-tooltip"
+                                                },
+                                            }
+                                        };
+                                        
+                                        if (!isTimeSeries) {
+                                            // TA-8278: Add in MVI columns
+                                            result.columns.splice(6, 0, MVTreatment, MVIndicator, MVReplacement);
+                                            
+                                            // Remove TEMPORAL and ENTITY_ID
+                                            result.columns[1].ctrlOptions.pop();
+                                            result.columns[1].ctrlOptions.pop();
+                                            
+                                            // Remove AS_LAST From MV Treatment
+                                            result.columns[6].ctrlOptions.splice(2, 1);
+                                            
+                                            // Remove timeSamplingInterval and isStatic
+                                            result.columns.pop();
+                                            result.columns.pop();
+                                        }
+                                        
+                                        if (!isMetadataInferred) {
+                                            // Field list elements can change
+                                            result.hideButtons.remove = false;
+                                            result.hideButtons.append = false;
+                                            result.hideButtons.removeLast = false;
+                                            result.hideButtons.insert = false;
+                                            result.hideButtons.moveUp = false;
+                                            result.hideButtons.moveDown = false;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="MakeMetadataEditable">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({ dataShapeName : "AnalyticsDatasetMetadataFlattened" });
+                                        
+                                        for (var i=0; i < metadata.rows.length; i++) {
+                                            var row = metadata.rows[i];
+                                            var editableRow = new Object();
+                                            editableRow.fieldName = row.fieldName;
+                                            editableRow.opType = row.opType;
+                                            editableRow.min = row.min;
+                                            editableRow.max = row.max;
+                                            editableRow.timeSamplingInterval = row.timeSamplingInterval;
+                                            editableRow.isStatic = row.isStatic;
+                                            editableRow.dataType = row.dataType;
+                                            editableRow.missingValueTreatment = row.missingValueTreatment;
+                                            editableRow.missingValueReplacement = row.missingValueReplacement;
+                                              // Flatten values table into a CSV line, if it exists
+                                            if (typeof row["values"] != "function") {
+                                                var editableValues = [];
+                                                for (var j=0; j < row["values"].rows.length; j++) {
+                                                    editableValues.push(escapeForCsv(row["values"].rows[j].item));
+                                                }
+                                                editableRow.valuesAsString = editableValues.join(",");
+                                            }
+                                        
+                                            // Flatten missingValueIndicators table into a CSV line, if it exists
+                                            editableRow.missingValueIndicatorsAsString = null;
+                                            if (row.missingValueIndicators != null) {
+                                                var editableMissingValueIndicators = [];
+                                                for (var j=0; j < row["missingValueIndicators"].rows.length; j++) {
+                                                    if (row["missingValueIndicators"].rows[j].item != null) {
+                                                        editableMissingValueIndicators.push(escapeForCsv(row["missingValueIndicators"].rows[j].item));
+                                                    }
+                                                }
+                                                editableRow.missingValueIndicatorsAsString = editableMissingValueIndicators.join(",");
+                                            }
+                                              result.AddRow(editableRow);
+                                        }
+                                        
+                                        // Analytics CSV format is org.apache.commons.csv.CSVFormat.EXCEL
+                                        function escapeForCsv(value) {
+                                            if (value.indexOf(',') > -1 || value.indexOf('"') > -1) {
+                                                value = '"' + value.replace(/"/g, '""') + '"';
+                                            }
+                                            return value;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="MakeMetadataNonEditable">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({ dataShapeName : "AnalyticsDatasetMetadata" });
+                                        
+                                        for (var i=0; i < editableMetadata.rows.length; i++) {
+                                            var editableRow = editableMetadata.rows[i];
+                                            var row = new Object();
+                                            row.fieldName = editableRow.fieldName;
+                                            row.opType = editableRow.opType;
+                                            row.dataType = editableRow.dataType;
+                                            row.min = editableRow.min;
+                                            row.max = editableRow.max;
+                                            row.timeSamplingInterval = editableRow.timeSamplingInterval;
+                                            row.isStatic = editableRow.isStatic;
+                                              if (editableRow.missingValueTreatment) {
+                                                row.missingValueTreatment = (editableRow.missingValueTreatment.trim().length == 0) ? null : editableRow.missingValueTreatment.trim();
+                                            }
+                                              if (editableRow.missingValueReplacement) {
+                                                row.missingValueReplacement = (editableRow.missingValueReplacement.trim().length == 0) ? null : editableRow.missingValueReplacement.trim();
+                                            }
+                                              if (editableRow.missingValueIndicatorsAsString) {
+                                                row.missingValueIndicators = me.ParseCsvToStringList({ string : editableRow.missingValueIndicatorsAsString });
+                                            }
+                                              if (editableRow.valuesAsString) {
+                                                // This style of assignment is necessary as values is a Javascript function.
+                                                row["values"] = me.ParseCsvToStringList({ string : editableRow.valuesAsString });
+                                            }
+                                              result.AddRow(row);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ParseCsvToStringList">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // Modified from https://stackoverflow.com/a/14991797
+                                        function parseCSV(str) {
+                                            var arr = [];
+                                            var quote = false;  // true means we're inside a quoted field
+                                        
+                                            // iterate over each character, keep track of current column (of the returned array)
+                                            var col, c;
+                                            for (col = c = 0; c < str.length; c++) {
+                                                var cc = str[c], nc = str[c+1];        // current character, next character (empty if out of range)
+                                                arr[col] = arr[col] || '';             // create a new column (start with empty string) if necessary
+                                        
+                                                // If the current character is a quotation mark, and we're inside a
+                                                // quoted field, and the next character is also a quotation mark,
+                                                // add a quotation mark to the current column and skip the next character
+                                                if (cc == '"' && quote && nc == '"') { arr[col] += cc; ++c; continue; }  
+                                        
+                                                // If it's just one quotation mark, begin/end quoted field
+                                                if (cc == '"') { quote = !quote; continue; }
+                                        
+                                                // If it's a comma and we're not in a quoted field, move on to the next column
+                                                if (cc == ',' && !quote) { ++col; continue; }
+                                        
+                                                // Otherwise, append the current character to the current column
+                                                arr[col] += cc;
+                                            }
+                                            
+                                            // Does not handle errors with even numbers of unescaped quotes inside values
+                                            if (quote) {
+                                                throw "Invalid CSV: '" + str + "'. Make sure all quoted values are closed, and literal double-quotes are quoted and escaped as \"\".";
+                                            }
+                                            return arr;
+                                        }
+                                        
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({ dataShapeName : "GenericStringList" });
+                                        var valuesArray = parseCSV(string);
+                                        for (var j=0; j < valuesArray.length; j++) {
+                                            result.AddRow({ item : valuesArray[j].trim() });
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="Pause">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        pause(milliseconds);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="SaveMetadataJSON">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // Modify the AnalyticsDatasetMetadata to conform to "Prepare Data and Metadata" in documentation.
+                                        // This is related to the internal DatasetRefMetadata object, which is like AnalyticsDatasetMetadata
+                                        // except that min and max are replaced by a "range" object, values is a list instead of an infotable,
+                                        // and only the rows (not data shape) from the metadata InfoTable are used.
+                                        var metadataJson = editableMetadata.ToJSON();
+                                        for (var i=0; i < metadataJson.rows.length; i++) {
+                                            var field = metadataJson.rows[i];
+                                            field.range = { min : field.min, max : field.max };
+                                            delete field.min;
+                                            delete field.max;
+                                            
+                                            field.values = field.valuesAsString ? stringTableToArray(me.ParseCsvToStringList({ string: field.valuesAsString })) : [];
+                                            delete field.valuesAsString;
+                                              if (field.missingValueTreatment == null || field.missingValueTreatment.trim().length == 0) {
+                                                delete field.missingValueTreatment;
+                                            }
+                                              if (field.missingValueReplacement == null || field.missingValueReplacement.trim().length == 0) {
+                                                delete field.missingValueReplacement;
+                                            }
+                                              if (field.missingValueIndicatorsAsString == null || field.missingValueIndicatorsAsString.trim().length == 0) {
+                                                delete field.missingValueIndicators;
+                                            } else {
+                                                field.missingValueIndicators = stringTableToArray(me.ParseCsvToStringList({ string: field.missingValueIndicatorsAsString }));
+                                            }
+                                            delete field.missingValueIndicatorsAsString;
+                                        }
+                                        
+                                        // Create the file in a user subfolder folder to avoid conflicts.
+                                        // The file will be downloaded with the specified name so we shouldn't add any extra ID to the name.
+                                        var fileName = Things["TW_ML_Helper"].GetCurrentUserDirectory() + "/EditedMetadata/" + datasetName + ".json";
+                                        Things["AnalyticsUploadStorage"].SaveText({
+                                            path: fileName,
+                                            content: metadataJson.rows
+                                        });
+                                        
+                                        var result = "/Thingworx/FileRepositories/AnalyticsUploadStorage/" + fileName;
+                                        
+                                        function stringTableToArray(table) {
+                                            var array = [];
+                                            for (var i=0; i < table.rows.length; i++) {
+                                                array.push(table.rows[i].item);
+                                            }
+                                            return array;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ValidateEditedMetadata">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var errors = [];
+                                        
+                                        try {
+                                            var dataMicroserver = Things[Things["TW_ML_Helper"].GetAnalyticsServerDataInstance()];
+                                            var errorTable = dataMicroserver.ValidateDataAndOpTypes({
+                                                inferredMetadata: originalMetadata,
+                                                editedMetadata: me.MakeMetadataNonEditable({ editableMetadata : editedMetadata }),
+                                                isMetadataInferred: isMetadataInferred,
+                                                isTimeSeries: isTimeSeries
+                                            });
+                                        
+                                            for (var i=0; i < errorTable.rows.length; i++) {
+                                                errors.push(Things["TW_ML_Helper"].EscapeHTML({ string : errorTable.rows[i].item }));
+                                            }
+                                        } catch(e) {
+                                            // Strip objects and line numbers from exception for UI message
+                                            var message = e.message;
+                                            if (message.indexOf("::") > -1) {
+                                                message = message.substr(message.indexOf("::") + 2).trim();
+                                            }
+                                            if (message.lastIndexOf("(") > -1) {
+                                                message = message.substr(0, message.lastIndexOf("(")).trim();
+                                            }
+                                            errors.push(Things["TW_ML_Helper"].EscapeHTML({ string : message }));
+                                        }
+                                        
+                                        if (errors.length > 0) {
+                                            errors.unshift('<span style="color:red;font-weight:bold">Errors</span>');
+                                        }
+                                        var result = errors.join("<br/>");
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>
