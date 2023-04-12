@@ -8,7 +8,7 @@
          description="pwd: DPMUser@12345!"
          documentationContent=""
          enabled="true"
-         homeMashup=""
+         homeMashup="PTC.ProductionDashboard.MainFrame_MU"
          locked="false"
          lockedTime="1970-01-01T00:00:00.000Z"
          mobileMashup=""
@@ -220,7 +220,7 @@
                             <value></value>
                         </Row>
                         <Row>
-                            <lastUpdateTime>1970-01-01T00:00:00.000Z</lastUpdateTime>
+                            <lastUpdateTime>2023-04-12T13:24:46.597Z</lastUpdateTime>
                             <name>
                             <![CDATA[
                             UseGitCommitUserValues

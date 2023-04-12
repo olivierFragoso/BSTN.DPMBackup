@@ -290,7 +290,109 @@
                 <ServiceDefinitions></ServiceDefinitions>
                 <EventDefinitions></EventDefinitions>
                 <ServiceMappings></ServiceMappings>
-                <ServiceImplementations></ServiceImplementations>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ValidatePTCProductionBlockExpired">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description=""
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        if (logger.debugEnabled) {
+                                        	logger.debug("Entering {}:ValidatePTCProductionBlockExpired with parameters productionBlockEndTime:{} productionBlockUid:{}", me.name, productionBlockEndTime, productionBlockUid);
+                                        }
+                                        try {
+                                        	if (isReadySetProductionBlockExpired(productionBlockEndTime, productionBlockUid)) {
+                                        		me.PTCLastExpiredProductionBlockUid = productionBlockUid;
+                                                
+                                                try {
+                                                        var operationManager = Things["PTC.ProductionDashboard.Manager"];
+                                                        let expiredProductionBlockInfo = operationManager.GetProductionBlockInfo({ thingName : me.name,
+                                                                                            productionBlockUid: productionBlockUid});
+                                                        if(expiredProductionBlockInfo.hasUnaccountedTime && expiredProductionBlockInfo.unaccountedTime < 11)
+                                                        {
+                                        
+                                                            const CONVERT_MIN_TO_SEC = 60;
+                                                            let reasonTreeGrid = Things["PTC.ReasonCodeImpl.Manager"].GetReasonTreeGrid({ 
+                                                                                                                                    modelUid: expiredProductionBlockInfo.modelUid,
+                                                                                                                                        materialMasterUid: expiredProductionBlockInfo.materialMasterUid,
+                                                                                                                                        includeReasonTypeNames: "SmallStops"});
+                                                            var query = {
+                                                                        "filters": {
+                                                                        "type": "EQ",
+                                                                           "fieldName": "reasonCategoryName",
+                                                                                       "value": "Small Stops"
+                                                                                    }};
+                                        
+                                                            var param = { t: reasonTreeGrid,query: query};
+                                                            var smallStopReason = Resources["InfoTableFunctions"].Query(param);           
+                                        
+                                                            let allEvent = operationManager.AddOrUpdateEvent({
+                                                                impact: expiredProductionBlockInfo.unaccountedTime /* NUMBER [Required] */,
+                                                                thingName: me.name /* THINGNAME [Required] ,*/,
+                                                                reasonModelUid: expiredProductionBlockInfo.modelUid /* STRING */,
+                                                                lossValue: expiredProductionBlockInfo.unaccountedTime * CONVERT_MIN_TO_SEC /* NUMBER */,
+                                                                notes: "Smart Capacity:Automatic Update" /* STRING */,
+                                                                productionBlockUid: expiredProductionBlockInfo.productionBlockUid /* STRING */,
+                                                                materialMasterUid: expiredProductionBlockInfo.materialMasterUid /* STRING */,
+                                                                quantity: expiredProductionBlockInfo.unaccountedTime /* NUMBER */,
+                                                                jobOrderUid: expiredProductionBlockInfo.jobOrderUid /* STRING */,
+                                                                reallocateFromGoodCount: false /* BOOLEAN */,
+                                                                 eventTypeUid: smallStopReason[0].reasonTypeUid /* STRING */,            
+                                                                reasonCategoryUid: smallStopReason[0].reasonCategoryUid /* STRING */,
+                                                                eventCategoryUid: smallStopReason[0].reasonCategoryUid /* STRING */,
+                                                                reasonTypeUid: smallStopReason[0].reasonTypeUid /* STRING */,
+                                                                modelUid: expiredProductionBlockInfo.modelUid /* STRING */
+                                                            });
+                                                        }
+                                                } catch(err) {
+                                                    //swallowing the error here after logging it
+                                                    logger.error("Thing [{}] Service [{}] error at line [{}] . Can not insert accounted speed loss automatically error: {}", me.name, err.fileName, err.lineNumber, err);            
+                                                } 
+                                            }
+                                        } catch (err) {
+                                        	logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                        	throw ("An error has occurred. Please check the script logs for more details.");
+                                        }
+                                        
+                                        function isReadySetProductionBlockExpired(productionBlockEndTime, productionBlockUid) {
+                                        	let baseConditionValidation = me.PTCLastExpiredProductionBlockUid != productionBlockUid;
+                                        
+                                        	if (baseConditionValidation && me.IsPTCAutomationWorkUnit()) {
+                                        		let timeDifferenceInMinutes = dateDifference(new Date(), productionBlockEndTime) / 60000;
+                                        		return (me.PTCLastProcessedEventTimestamp >= productionBlockEndTime || timeDifferenceInMinutes > me.GetPTCMaxProductionBlockExpirationWaitTime());
+                                        	}
+                                        	return baseConditionValidation;
+                                        }
+                                        
+                                        if (logger.debugEnabled) {
+                                        	logger.debug("Exiting {}:ValidatePTCProductionBlockExpired", me.name);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
                 <Subscriptions></Subscriptions>
             </ThingShape>
             <ImplementedShapes>

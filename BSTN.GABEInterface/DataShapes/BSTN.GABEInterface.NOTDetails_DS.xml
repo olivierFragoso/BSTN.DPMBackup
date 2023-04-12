@@ -9,7 +9,7 @@
          description=""
          documentationContent=""
          homeMashup=""
-         name="BSTN.GABEInterface.MaterialDetails.DS"
+         name="BSTN.GABEInterface.NOTDetails_DS"
          projectName="BSTN.GABEInterface"
          tags="">
             <avatar></avatar>
@@ -28,35 +28,41 @@
             <ConfigurationTables></ConfigurationTables>
             <FieldDefinitions>
                 <FieldDefinition
-                 baseType="INTEGER"
-                 description="ClassMasterName"
-                 name="ClassMasterName"
-                 ordinal="5"></FieldDefinition>
-                <FieldDefinition
-                 baseType="STRING"
-                 description="DefaultUnit"
-                 name="DefaultUnit"
-                 ordinal="3"></FieldDefinition>
-                <FieldDefinition
-                 baseType="STRING"
-                 description="Description"
-                 name="Description"
-                 ordinal="2"></FieldDefinition>
+                 baseType="DATETIME"
+                 description="EndTime"
+                 name="EndTime"
+                 ordinal="4"></FieldDefinition>
                 <FieldDefinition
                  baseType="INTEGER"
                  description="ID"
                  name="ID"
                  ordinal="0"></FieldDefinition>
                 <FieldDefinition
-                 baseType="STRING"
-                 description="MaterialID"
-                 name="MaterialID"
-                 ordinal="1"></FieldDefinition>
-                <FieldDefinition
+                 aspect.isPrimaryKey="false"
                  baseType="BOOLEAN"
-                 description="Processed"
+                 description=""
                  name="Processed"
                  ordinal="6"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Reason"
+                 name="Reason"
+                 ordinal="5"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description="Source"
+                 name="Source"
+                 ordinal="1"></FieldDefinition>
+                <FieldDefinition
+                 baseType="DATETIME"
+                 description="StartTime"
+                 name="StartTime"
+                 ordinal="3"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="WorkUnit"
+                 name="WorkUnit"
+                 ordinal="2"></FieldDefinition>
             </FieldDefinitions>
         </DataShape>
     </DataShapes>

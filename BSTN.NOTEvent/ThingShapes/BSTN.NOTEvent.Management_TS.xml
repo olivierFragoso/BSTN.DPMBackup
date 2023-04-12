@@ -62,6 +62,23 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
+                 name="CreatePLCLossEvents">
+                    <ResultType
+                     aspect.dataShape="PTC.OperationKPI.AllEvents"
+                     baseType="NOTHING"
+                     description=""
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description=""
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
                  name="EndNOTEvent">
                     <ResultType
                      aspect.dataShape="PTC.OperationKPI.AllEvents"
@@ -504,7 +521,7 @@
                 <ServiceImplementation
                  description=""
                  handlerName="Script"
-                 name="EndNOTEvent">
+                 name="CreatePLCLossEvents">
                     <ConfigurationTables>
                         <ConfigurationTable
                          dataShapeName=""
@@ -525,6 +542,192 @@
                                 <Row>
                                     <code>
                                     <![CDATA[
+                                    // result: INFOTABLE dataShape: "BSTN.GABEInterface.NOTDetails_DS"
+                                    let NOTDetails = Things["BSTN.GABEInterface.Manager"].GetNOTDetails();
+                                    
+                                    for(i=0; NOTDetails.length(); i++){
+                                        if(NOTDetails.Source == 2){
+                                        
+                                            let workUnit = me.GetWorkUnitThingNameFromCMTAsset({
+                                            	workUnitName: NOTDetails[i].WorkUnit /* STRING */
+                                            });
+                                            
+                                            let modelUid = me.GetModelUidFromCMTAsset({
+                                            	workUnitName: NOTDetails[i].WorkUnit /* STRING */
+                                            });
+                                            
+                                            // Get Production block for beginning of NOT Event
+                                            let productionBlock = me.GetProductionBlockAtNOTStart({
+                                            	thingName: workUnit /* THINGNAME */,
+                                            	NOTStartTime: NOTDetails[i].StartTime /* DATETIME */
+                                            });
+                                            
+                                            //Calculate Impact
+                                            let Impact = Math.trunc((NOTDetails[i].EndTime - NOTDetails[i].StartTime)/60000);
+                                            
+                                            //Initialize Reason
+                                            let Reason = "Unknown";
+                                            if(NOTDetails[i].Reason != ""){
+                                                reason = NOTDetails[i].Reason;
+                                            }
+                                            
+                                            
+                                            // Get reasonCodeElements for std change
+                                            let reasonCodeElements = getReasonCodeElements(modelUid, Reason);
+                                            
+                                            // result: INFOTABLE dataShape: "PTC.OperationKPI.AllEvents"
+                                            let result = Things["PTC.ProductionDashboard.Manager"].CreateOrUpdateEvent({
+                                            	comments: undefined /* STRING */,
+                                            	eventCategory: undefined /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                            	eventUid: undefined /* STRING */,
+                                            	impact: Impact /* NUMBER [Required] */,
+                                            	reallocateFromGoodCount: undefined /* BOOLEAN {"defaultValue":false} */,
+                                            	thingName: workUnit /* THINGNAME [Required] */,
+                                            	productionBlock: productionBlock /* INFOTABLE [Required] {"dataShape":"PTC.ProductionDashboard.ProductionBlock"} */,
+                                            	dataShapeName: "PTC.OperationKPI.LossEvent" /* DATASHAPENAME */,
+                                            	isAutomation: false /* BOOLEAN {"defaultValue":false} */,
+                                            	reasonCodeElements: reasonCodeElements /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                            	eventTime: NOTDetails[i].StartTime /* DATETIME */,
+                                            	modelUid: modelUid /* STRING */,
+                                            	reasonModelUid: undefined /* STRING */,
+                                            	sourceEventUid: undefined /* STRING */
+                                            });
+                                            // result: INTEGER
+                                            Things["BSTN.GABEInterface.Manager"].DeleteCompletedNOT({
+                                            	WorkUnit: NOTDetails[i].WorkUnit /* STRING [Required] */
+                                            });
+                                        }
+                                    }
+                                        
+                                    //functions
+                                    function getReasonCodeElements(modelUid, reasonName){
+                                        let reasonManager = "PTC.ReasonCodeImpl.Manager";
+                                        let reasonTree = Things[reasonManager].GetReasonTreeGrid({
+                                            includeReasonTypeNames: undefined /* STRING */,
+                                            onlyReasonCategories: false /* BOOLEAN {"defaultValue":false} */,
+                                            onlyEnabledReason: true /* BOOLEAN {"defaultValue":false} */,
+                                            filterReasonCategoryUid: undefined /* STRING */,
+                                            modelUid: modelUid /* STRING */,
+                                            materialMasterUid: undefined /* STRING */
+                                        });
+                                        return Resources["InfoTableFunctions"].Query({
+                                            t: reasonTree /* INFOTABLE */,
+                                            query: {
+                                              "filters":{
+                                              "type": "LIKE",
+                                              "fieldName": "reasonName",
+                                              "value": reasonName
+                                              }
+                                            } 
+                                        });
+                                    }
+                                    
+                                    //Change Reason Code:
+                                    //// initialize change reason
+                                    //    	let stdChangeReason = cached.changeType + " Change Criteria";
+                                    //        
+                                    //        // check if Change Delay is present
+                                    //        let isChangeDelay = false;
+                                    //        if(cached.endStdChangeTime < cached.NOTEndTime){
+                                    //            isChangeDelay = true;
+                                    //        }
+                                    //        
+                                    //        // calculate std change impact
+                                    //        let stdChangeImpact = 1;
+                                    //        if (isChangeDelay){
+                                    //            stdChangeImpact = Math.trunc((cached.endStdChangeTime - cached.NOTStartTime)/60000);
+                                    //        } else {
+                                    //            stdChangeImpact = Math.trunc((cached.NOTEndTime - cached.NOTStartTime)/60000);
+                                    //        }
+                                    //        
+                                    //        // Get reasonCodeElements for std change
+                                    //        let stdChangeReasonCodeElements = getReasonCodeElements("7", modelUid, stdChangeReason);
+                                    //        
+                                    //        // result: INFOTABLE dataShape: "PTC.OperationKPI.AllEvents"
+                                    //        let result = Things["PTC.ProductionDashboard.Manager"].CreateOrUpdateEvent({
+                                    //        	comments: cached.eventComments /* STRING */,
+                                    //        	eventCategory: undefined /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                    //        	eventUid: undefined /* STRING */,
+                                    //        	impact: stdChangeImpact /* NUMBER [Required] */,
+                                    //        	reallocateFromGoodCount: undefined /* BOOLEAN {"defaultValue":false} */,
+                                    //        	thingName: workUnit /* THINGNAME [Required] */,
+                                    //        	productionBlock: productionBlock /* INFOTABLE [Required] {"dataShape":"PTC.ProductionDashboard.ProductionBlock"} */,
+                                    //        	dataShapeName: "PTC.OperationKPI.LossEvent" /* DATASHAPENAME */,
+                                    //        	isAutomation: false /* BOOLEAN {"defaultValue":false} */,
+                                    //        	reasonCodeElements: stdChangeReasonCodeElements /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                    //        	eventTime: cached.NOTStartTime /* DATETIME */,
+                                    //        	modelUid: modelUid /* STRING */,
+                                    //        	reasonModelUid: undefined /* STRING */,
+                                    //        	sourceEventUid: undefined /* STRING */
+                                    //        });
+                                    //        
+                                    //        // If change delay present run again
+                                    //        if(isChangeDelay){
+                                    //            // Get Change Delay Impact
+                                    //            let changeDelayImpact = Math.trunc((cached.NOTEndTime - cached.endStdChangeTime)/60000);
+                                    //            
+                                    //            // Get reasonCodeElements for std change
+                                    //            let changeDelayReason = cached.changeType + " Change Delay";
+                                    //        	let changeDelayReasonCodeElements = getReasonCodeElements("7", modelUid, changeDelayReason); 
+                                    //            // result: INFOTABLE dataShape: "PTC.OperationKPI.AllEvents"
+                                    //            let result = Things["PTC.ProductionDashboard.Manager"].CreateOrUpdateEvent({
+                                    //            	comments: cached.eventComments /* STRING */,
+                                    //            	eventCategory: undefined /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                    //            	eventUid: undefined /* STRING */,
+                                    //            	impact: changeDelayImpact /* NUMBER [Required] */,
+                                    //            	reallocateFromGoodCount: undefined /* BOOLEAN {"defaultValue":false} */,
+                                    //            	thingName: workUnit /* THINGNAME [Required] */,
+                                    //            	productionBlock: productionBlock /* INFOTABLE [Required] {"dataShape":"PTC.ProductionDashboard.ProductionBlock"} */,
+                                    //            	dataShapeName: "PTC.OperationKPI.LossEvent" /* DATASHAPENAME */,
+                                    //            	isAutomation: false /* BOOLEAN {"defaultValue":false} */,
+                                    //            	reasonCodeElements: changeDelayReasonCodeElements /* INFOTABLE {"dataShape":"PTC.ReasonCode.ReasonTreeGrid"} */,
+                                    //            	eventTime: cached.endStdChangeTime /* DATETIME */,
+                                    //            	modelUid: modelUid /* STRING */,
+                                    //            	reasonModelUid: undefined /* STRING */,
+                                    //            	sourceEventUid: undefined /* STRING */
+                                    //            });
+                                    //        }
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="EndNOTEvent">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                    <FieldDefinition
+                                     baseType="JSON"
+                                     description=""
+                                     name="editorSettings"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    // result: INTEGER
+                                    let result = Things["BSTN.GABEInterface.Manager"].UpdateNOTProcessedFlag({
+                                    	WorkUnit: workUnitName /* STRING [Required] */
+                                    });
+                                    
                                     let impact = me.GetNOTDuration({
                                     	NOTStartTime: NOTStartTime /* DATETIME */
                                     });
@@ -580,11 +783,6 @@
                                         });  
                                     }
                                     
-                                    // result: INTEGER
-                                    Things["BSTN.GABEInterface.Manager"].DeleteCompletedNOT({
-                                    	WorkUnit: workUnitName /* STRING [Required] */
-                                    });
-                                    
                                     
                                     
                                     //functions
@@ -611,6 +809,13 @@
                                     }
                                     ]]>
                                     </code>
+                                    <editorSettings>
+                                        <json>
+                                        <![CDATA[
+                                        {"viewState":{"viewState":{"firstPositionDeltaTop":0,"scrollLeft":0,"firstPosition":{"column":1,"lineNumber":1}},"cursorState":[{"inSelectionMode":false,"selectionStart":{"column":1,"lineNumber":1},"position":{"column":1,"lineNumber":1}}],"contributionsState":{"editor.contrib.wordHighlighter":false,"editor.contrib.folding":{"provider":"indent","lineCount":81,"foldedImports":false}}}}
+                                        ]]>
+                                        </json>
+                                    </editorSettings>
                                 </Row>
                             </Rows>
                         </ConfigurationTable>
@@ -640,22 +845,82 @@
                                 <Row>
                                     <code>
                                     <![CDATA[
-                                    //Get workUnitThingname from job order
+                                    if (logger.debugEnabled) {
+                                        logger.debug("Entering {}:ValidatePTCProductionBlockExpired with parameters productionBlockEndTime:{} productionBlockUid:{}", me.name, productionBlockEndTime, productionBlockUid);
+                                    }
+                                    try {
+                                        if (isReadySetProductionBlockExpired(productionBlockEndTime, productionBlockUid)) {
+                                            me.PTCLastExpiredProductionBlockUid = productionBlockUid;
                                     
-                                    let cached = Things[workUnitThingname].cachedChangeover;
+                                             try {
+                                                    var operationManager = Things["TF.GRI.DPM.ProductionDashboardImpl.Manager"];
+                                                    let expiredProductionBlockInfo = operationManager.GetProductionBlockInfo({ thingName : me.name,
+                                                                                        productionBlockUid: productionBlockUid});
+                                                    if(expiredProductionBlockInfo.hasUnaccountedTime && expiredProductionBlockInfo.unaccountedTime < 16)
+                                                    {
                                     
-                                    // do your calculations here
-                                    	// use this to get your variables you need:
-                                    	//let NOTStartTime = cached[0].NOTStartTime;
+                                                        const CONVERT_MIN_TO_SEC = 60;
+                                                        let reasonTreeGrid = Things["PTC.ReasonCodeImpl.Manager"].GetReasonTreeGrid({ 
+                                                                                                                                modelUid: expiredProductionBlockInfo.modelUid,
+                                                                                                                                    materialMasterUid: expiredProductionBlockInfo.materialMasterUid,
+                                                                                                                                    includeReasonTypeNames: "SpeedLoss"});
+                                                        var query = {
+                                                                    "filters": {
+                                                                    "type": "EQ",
+                                                                       "fieldName": "reasonCategoryName",
+                                                                                   "value": "Speed Loss"
+                                                                                }};
                                     
+                                                        var param = { t: reasonTreeGrid,query: query};
+                                                        var speedLossReason = Resources["InfoTableFunctions"].Query(param);           
                                     
-                                    // insert calculations here
-                                    	// use this to write back to infotable
-                                    	//cached[0].endSTDChangeTime = endStdChangeTime;
+                                                        let allEvent = operationManager.AddOrUpdateEvent({
+                                                            impact: expiredProductionBlockInfo.unaccountedTime /* NUMBER [Required] */,
+                                                            thingName: me.name /* THINGNAME [Required] ,*/,
+                                                            reasonModelUid: expiredProductionBlockInfo.modelUid /* STRING */,
+                                                            lossValue: expiredProductionBlockInfo.unaccountedTime * CONVERT_MIN_TO_SEC /* NUMBER */,
+                                                            notes: "Smart Capacity:Automatic Update" /* STRING */,
+                                                            productionBlockUid: expiredProductionBlockInfo.productionBlockUid /* STRING */,
+                                                            materialMasterUid: expiredProductionBlockInfo.materialMasterUid /* STRING */,
+                                                            quantity: expiredProductionBlockInfo.unaccountedTime /* NUMBER */,
+                                                            jobOrderUid: expiredProductionBlockInfo.jobOrderUid /* STRING */,
+                                                            reallocateFromGoodCount: false /* BOOLEAN */,
+                                                             eventTypeUid: speedLossReason[0].reasonTypeUid /* STRING */,            
+                                                            reasonCategoryUid: speedLossReason[0].reasonCategoryUid /* STRING */,
+                                                            eventCategoryUid: speedLossReason[0].reasonCategoryUid /* STRING */,
+                                                            reasonTypeUid: speedLossReason[0].reasonTypeUid /* STRING */,
+                                                            modelUid: expiredProductionBlockInfo.modelUid /* STRING */
+                                                        });
+                                                    }
+                                            } catch(err) {
+                                                //swallowing the error here after logging it
+                                                logger.error("Thing [{}] Service [{}] error at line [{}] . Can not insert accounted speed loss automatically error: {}", me.name, err.fileName, err.lineNumber, err);            
+                                            } 
+                                        }
+                                    } catch (err) {
+                                        logger.error("{} - {}:{} - {}", me.name, err.fileName, err.lineNumber, err);
+                                        throw ("An error has occurred. Please check the script logs for more details.");
+                                    }
                                     
+                                     
                                     
-                                    // call service to create events in DPM (GABE work unit name)
-                                    	Things["BSTN.NOTEvent.Manager"].CreateChangeoverEvents(workUnitName);
+                                    function isReadySetProductionBlockExpired(productionBlockEndTime, productionBlockUid) {
+                                        let baseConditionValidation = me.PTCLastExpiredProductionBlockUid != productionBlockUid;
+                                    
+                                     
+                                    
+                                        if (baseConditionValidation && me.IsPTCAutomationWorkUnit()) {
+                                            let timeDifferenceInMinutes = dateDifference(new Date(), productionBlockEndTime) / 60000;
+                                            return (me.PTCLastProcessedEventTimestamp >= productionBlockEndTime || timeDifferenceInMinutes > me.GetPTCMaxProductionBlockExpirationWaitTime());
+                                        }
+                                        return baseConditionValidation;
+                                    }
+                                    
+                                     
+                                    
+                                    if (logger.debugEnabled) {
+                                        logger.debug("Exiting {}:ValidatePTCProductionBlockExpired", me.name);
+                                    }
                                     ]]>
                                     </code>
                                 </Row>

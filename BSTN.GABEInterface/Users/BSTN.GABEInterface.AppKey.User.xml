@@ -5,7 +5,7 @@
  universal="password">
     <Users>
         <User
-         description=""
+         description="pwd: DPMUser@12345!"
          documentationContent=""
          enabled="true"
          homeMashup=""

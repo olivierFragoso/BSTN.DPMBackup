@@ -9,8 +9,8 @@
          description=""
          documentationContent=""
          homeMashup=""
-         name="BSTN.GABEInterface.MaterialDetails.DS"
-         projectName="BSTN.GABEInterface"
+         name="BSTN.MasterDataImport.WorkMaster_DS"
+         projectName="BSTN.MasterDataImport"
          tags="">
             <avatar></avatar>
             <DesignTimePermissions>
@@ -29,24 +29,14 @@
             <FieldDefinitions>
                 <FieldDefinition
                  baseType="INTEGER"
-                 description="ClassMasterName"
-                 name="ClassMasterName"
-                 ordinal="5"></FieldDefinition>
-                <FieldDefinition
-                 baseType="STRING"
-                 description="DefaultUnit"
-                 name="DefaultUnit"
-                 ordinal="3"></FieldDefinition>
-                <FieldDefinition
-                 baseType="STRING"
-                 description="Description"
-                 name="Description"
-                 ordinal="2"></FieldDefinition>
-                <FieldDefinition
-                 baseType="INTEGER"
                  description="ID"
                  name="ID"
                  ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 baseType="NUMBER"
+                 description="IdealCycleTime"
+                 name="IdealCycleTime"
+                 ordinal="3"></FieldDefinition>
                 <FieldDefinition
                  baseType="STRING"
                  description="MaterialID"
@@ -56,7 +46,12 @@
                  baseType="BOOLEAN"
                  description="Processed"
                  name="Processed"
-                 ordinal="6"></FieldDefinition>
+                 ordinal="4"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="WorkUnit"
+                 name="WorkUnit"
+                 ordinal="2"></FieldDefinition>
             </FieldDefinitions>
         </DataShape>
     </DataShapes>

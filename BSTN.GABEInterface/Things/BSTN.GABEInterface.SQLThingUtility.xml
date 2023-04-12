@@ -143,16 +143,16 @@
                 <PropertyDefinitions></PropertyDefinitions>
                 <ServiceDefinitions>
                     <ServiceDefinition
-                     aspect.isAsync="true"
+                     aspect.isAsync="false"
                      category=""
                      description=""
                      isAllowOverride="false"
                      isLocalOnly="false"
                      isOpen="false"
                      isPrivate="false"
-                     name="CallDeleteCompletedNOT">
+                     name="CallCheckForExistingWorkMaster">
                         <ResultType
-                         baseType="NUMBER"
+                         baseType="INFOTABLE"
                          description=""
                          name="result"
                          ordinal="0"></ResultType>
@@ -161,7 +161,7 @@
                              aspect.isRequired="true"
                              baseType="STRING"
                              description=""
-                             name="WorkUnit"
+                             name="MaterialIDWithEquipment"
                              ordinal="1"></FieldDefinition>
                         </ParameterDefinitions>
                     </ServiceDefinition>
@@ -176,6 +176,22 @@
                      name="CallGetMaterialMasterData">
                         <ResultType
                          aspect.dataShape="BSTN.GABEInterface.MaterialDetails.DS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CallGetNOTDetails">
+                        <ResultType
                          baseType="INFOTABLE"
                          description=""
                          name="result"
@@ -216,7 +232,108 @@
                         <ParameterDefinitions></ParameterDefinitions>
                     </ServiceDefinition>
                     <ServiceDefinition
-                     aspect.isAsync="false"
+                     aspect.isAsync="true"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CallInsertNewMaterialMaster">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="assemblyrelationship"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="assemblytype"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="defaultunit"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="description"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="enable"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="id"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="siteuid"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="source"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="uid"
+                             ordinal="10"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="version"
+                             ordinal="9"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="true"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CallInsertNewWorkMaster">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="false"
+                             baseType="INTEGER"
+                             description=""
+                             name="duration"
+                             ordinal="10"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="MaterialIDWithEquipment"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="siteuid"
+                             ordinal="7"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="true"
                      category=""
                      description=""
                      isAllowOverride="false"
@@ -292,7 +409,7 @@
                      isPrivate="false"
                      name="CallUpdateMaterialMasterProcessedFlag">
                         <ResultType
-                         baseType="NUMBER"
+                         baseType="NOTHING"
                          description=""
                          name="result"
                          ordinal="0"></ResultType>
@@ -302,6 +419,29 @@
                              baseType="INTEGER"
                              description=""
                              name="ID"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="true"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CallUpdateNOTProcessedFlag">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="WorkUnit"
                              ordinal="1"></FieldDefinition>
                         </ParameterDefinitions>
                     </ServiceDefinition>
@@ -355,6 +495,38 @@
                              description=""
                              name="ID"
                              ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="true"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CallUpdateWorkMaster">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="NUMBER"
+                             description=""
+                             name="duration"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="MaterialIDWithEquipment"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="INTEGER"
+                             description=""
+                             name="siteuid"
+                             ordinal="7"></FieldDefinition>
                         </ParameterDefinitions>
                     </ServiceDefinition>
                     <ServiceDefinition
@@ -426,6 +598,22 @@
                      isLocalOnly="false"
                      isOpen="false"
                      isPrivate="false"
+                     name="DUMMY_DATA_ADD_MATERIAL_MASTER_DETAILS_ROW">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
                      name="DUMMY_DATA_ADD_WORK_MASTER_DETAILS_ROW">
                         <ResultType
                          baseType="NUMBER"
@@ -456,12 +644,12 @@
                 <ServiceImplementations>
                     <ServiceImplementation
                      description=""
-                     handlerName="SQLCommand"
-                     name="CallDeleteCompletedNOT">
+                     handlerName="SQLQuery"
+                     name="CallCheckForExistingWorkMaster">
                         <ConfigurationTables>
                             <ConfigurationTable
                              dataShapeName=""
-                             description="SQLCommand"
+                             description="SQLQuery"
                              isMultiRow="false"
                              name="Query"
                              ordinal="0">
@@ -489,8 +677,8 @@
                                         <maxItems>500.0</maxItems>
                                         <sql>
                                         <![CDATA[
-                                        DELETE FROM TWX_DPM_NOTDetails
-                                        WHERE WorkUnit = [[WorkUnit]];
+                                        SELECT * FROM workmaster 
+                                        WHERE id = [[MaterialIDWithEquipment]];
                                         ]]>
                                         </sql>
                                         <timeout>60.0</timeout>
@@ -536,6 +724,50 @@
                                         <![CDATA[
                                         Select * FROM TWX_DPM_MaterialDetails
                                         WHERE Processed = 0;
+                                        ]]>
+                                        </sql>
+                                        <timeout>60.0</timeout>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="SQLQuery"
+                     name="CallGetNOTDetails">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description="SQLQuery"
+                             isMultiRow="false"
+                             name="Query"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="maxItems"
+                                         name="maxItems"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="sql"
+                                         name="sql"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="timeout"
+                                         name="timeout"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <maxItems>500.0</maxItems>
+                                        <sql>
+                                        <![CDATA[
+                                        SELECT * FROM TWX_DPM_NOTDetails
                                         ]]>
                                         </sql>
                                         <timeout>60.0</timeout>
@@ -626,6 +858,115 @@
                                         <![CDATA[
                                         Select * FROM TWX_DPM_WorkMasterDetails
                                         WHERE Processed = 0;
+                                        ]]>
+                                        </sql>
+                                        <timeout>60.0</timeout>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="SQLCommand"
+                     name="CallInsertNewMaterialMaster">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description="SQLCommand"
+                             isMultiRow="false"
+                             name="Query"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="maxItems"
+                                         name="maxItems"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="sql"
+                                         name="sql"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="timeout"
+                                         name="timeout"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <maxItems>500.0</maxItems>
+                                        <sql>
+                                        <![CDATA[
+                                        INSERT INTO materialmaster (assemblyrelationship,assemblytype,defaultunit,description,enable,id,siteuid,source,version)
+                                        VALUES (
+                                         NULL,
+                                         NULL,
+                                         [[defaultunit]],
+                                         [[description]],
+                                         [[enable]],
+                                         [[id]],
+                                         [[siteuid]],
+                                         NULL,
+                                         [[version]])
+                                        ]]>
+                                        </sql>
+                                        <timeout>60.0</timeout>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="SQLCommand"
+                     name="CallInsertNewWorkMaster">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description="SQLCommand"
+                             isMultiRow="false"
+                             name="Query"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="maxItems"
+                                         name="maxItems"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="sql"
+                                         name="sql"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="timeout"
+                                         name="timeout"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <maxItems>500.0</maxItems>
+                                        <sql>
+                                        <![CDATA[
+                                        INSERT INTO workmaster (description,duration,durationunitofmeasure,id,longdescription,name,sequencenumber,siteuid,version,worktype)
+                                        VALUES (
+                                         NULL,
+                                         [[duration]],
+                                         NULL,
+                                         [[MaterialIDWithEquipment]],
+                                         NULL,
+                                         [[MaterialIDWithEquipment]],
+                                         NULL,
+                                         [[siteuid]],
+                                         NULL,
+                                         NULL)
                                         ]]>
                                         </sql>
                                         <timeout>60.0</timeout>
@@ -739,6 +1080,52 @@
                     <ServiceImplementation
                      description=""
                      handlerName="SQLCommand"
+                     name="CallUpdateNOTProcessedFlag">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description="SQLCommand"
+                             isMultiRow="false"
+                             name="Query"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="maxItems"
+                                         name="maxItems"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="sql"
+                                         name="sql"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="timeout"
+                                         name="timeout"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <maxItems>500.0</maxItems>
+                                        <sql>
+                                        <![CDATA[
+                                        UPDATE TWX_DPM_NOTDetails
+                                        SET Processed = 1
+                                        WHERE WorkUnit = [[WorkUnit]];
+                                        ]]>
+                                        </sql>
+                                        <timeout>60.0</timeout>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="SQLCommand"
                      name="CallUpdateNOTReasonCodeForCMT">
                         <ConfigurationTables>
                             <ConfigurationTable
@@ -831,6 +1218,62 @@
                     <ServiceImplementation
                      description=""
                      handlerName="SQLCommand"
+                     name="CallUpdateWorkMaster">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description="SQLCommand"
+                             isMultiRow="false"
+                             name="Query"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="maxItems"
+                                         name="maxItems"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="sql"
+                                         name="sql"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="timeout"
+                                         name="timeout"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <maxItems>500.0</maxItems>
+                                        <sql>
+                                        <![CDATA[
+                                        UPDATE workmaster
+                                        SET 
+                                        description = NULL,
+                                        duration = [[duration]],
+                                        durationunitofmeasure = NULL,
+                                        longdescription = NULL,
+                                        name = [[MaterialIDWithEquipment]],
+                                        sequencenumber = NULL,
+                                        siteuid = [[siteuid]],
+                                        version = NULL,
+                                        worktype = NULL
+                                        
+                                        WHERE id = [[MaterialIDWithEquipment]]
+                                        ]]>
+                                        </sql>
+                                        <timeout>60.0</timeout>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="SQLCommand"
                      name="CallUpdateWorkMasterProcessedFlag">
                         <ConfigurationTables>
                             <ConfigurationTable
@@ -865,7 +1308,7 @@
                                         <![CDATA[
                                         UPDATE TWX_DPM_WorkMasterDetails
                                         SET Processed = 1
-                                        WHERE ID = [[ID]];
+                                        WHERE ID = [[ID]]
                                         ]]>
                                         </sql>
                                         <timeout>60.0</timeout>
@@ -954,8 +1397,59 @@
                                         <maxItems>500.0</maxItems>
                                         <sql>
                                         <![CDATA[
-                                        INSERT INTO TWX_DPM_JobOrderDetails 
-                                        Values (12350,'TESTEVENT2','56789','MATERIAL','WORKUNIT',5000,'12/12/23','2346',0);
+                                        INSERT INTO TWX_DPM_JobOrderDetails
+                                        Values (970,'JOCreation','Test14JobOrder172APEXA06','TESTMAT893','172APEXA06',7000,'2023-04-11 16:48:00',0,0,'Size');
+                                        
+                                        INSERT INTO TWX_DPM_JobOrderDetails
+                                        Values (972,'JOQtyProduced','Test14JobOrder172APEXA06','TESTMAT893','172APEXA06',3100,'2023-04-11 16:48:30',0,0,'Size');
+                                        
+                                        INSERT INTO TWX_DPM_JobOrderDetails
+                                        Values (974,'JOChangeOver','Test14JobOrder172APEXA06','TESTMAT893','172APEXA06',0,'2023-04-11 16:49:00',14,0,'Size');
+                                        ]]>
+                                        </sql>
+                                        <timeout>60.0</timeout>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="SQLCommand"
+                     name="DUMMY_DATA_ADD_MATERIAL_MASTER_DETAILS_ROW">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             dataShapeName=""
+                             description="SQLCommand"
+                             isMultiRow="false"
+                             name="Query"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="maxItems"
+                                         name="maxItems"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="sql"
+                                         name="sql"
+                                         ordinal="0"></FieldDefinition>
+                                        <FieldDefinition
+                                         baseType="NUMBER"
+                                         description="timeout"
+                                         name="timeout"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <maxItems>500.0</maxItems>
+                                        <sql>
+                                        <![CDATA[
+                                        INSERT INTO TWX_DPM_MaterialDetails
+                                        Values (893,'TESTMAT893','Test Material 893','Each',1,893,0);
                                         ]]>
                                         </sql>
                                         <timeout>60.0</timeout>
@@ -1000,7 +1494,7 @@
                                         <sql>
                                         <![CDATA[
                                         INSERT INTO TWX_DPM_WorkMasterDetails 
-                                        Values (12370,'MATERIAL','WORKUNIT',5000,0);
+                                        Values (12370,'TESTMAT890','124WWPW13',5000,0);
                                         ]]>
                                         </sql>
                                         <timeout>60.0</timeout>

@@ -5,14 +5,14 @@
  universal="password">
     <Users>
         <User
-         description=""
+         description="pwd: DPMUser@12345!"
          documentationContent=""
          enabled="true"
          homeMashup=""
          locked="false"
          lockedTime="1970-01-01T00:00:00.000Z"
          mobileMashup=""
-         name="hpanuganti"
+         name="PolarisUser"
          projectName="BSTN.DPM"
          scimExternalId=""
          scimId=""
@@ -220,7 +220,7 @@
                             <value></value>
                         </Row>
                         <Row>
-                            <lastUpdateTime>2023-04-04T17:29:52.210Z</lastUpdateTime>
+                            <lastUpdateTime>1970-01-01T00:00:00.000Z</lastUpdateTime>
                             <name>
                             <![CDATA[
                             UseGitCommitUserValues
@@ -254,20 +254,7 @@
                     </Rows>
                 </ConfigurationTable>
             </ConfigurationTables>
-            <PersistentValues>
-                <PersistentValue
-                 name="IDE_LicenseClicked">
-                <![CDATA[
-                {"IDE_LicenseClicked":true}
-                ]]>
-                </PersistentValue>
-                <PersistentValue
-                 name="recentlyAccessed">
-                <![CDATA[
-                {"array":[{"compositeType":"Thing","entityTimestamp":1681315802925,"isEditing":false,"mode":"read","name":"PTC.Base.Manager","ordinal":20,"projectName":"PTC.Base","projectTimestamp":1681315802925,"selected":true,"type":"Thing"},{"active":true,"attributes":{"selected.bind":"navData.selected"},"class":"tw-icon-browse-entities-icon","componentPath":"thingworx-ui-platform/features/general/components/nav","hasPopover":false,"isComponent":true,"isEditing":false,"isPanel":true,"key":"browse","name":"browse","primary":true,"selected":false,"selectedNav":"Group","show":false,"tagName":"twx-browse-collections","title":"tw.components.primary-nav.browse"},{"compositeType":"Thing","entityTimestamp":1681313173657,"isEditing":false,"mode":"edit","name":"PTCDTS.Base.Permissions.IAMConfiguration","ordinal":20,"projectName":"PTCDTS.Base.Permissions","projectTimestamp":1681313173657,"selected":false,"title":"Thing:PTCDTS.Base.Permissions.IAMConfiguration","type":"Thing"},{"compositeType":"Thing","entityTimestamp":1681312033781,"isEditing":false,"mode":"edit","name":"PTCDTS.Base.Manager","ordinal":20,"projectName":"PTCDTS.Base","projectTimestamp":1681312033781,"selected":false,"title":"Thing:PTCDTS.Base.Manager","type":"Thing"},{"compositeType":"Thing","entityTimestamp":1681311898710,"isEditing":false,"mode":"edit","name":"PTC.SolutionFramework.Manager","ordinal":20,"projectName":"PTC.SolutionFramework","projectTimestamp":1681311898710,"selected":false,"title":"Thing:PTC.SolutionFramework.Manager","type":"Thing"},{"active":false,"attributes":{"current-route.bind":"navData.currentRoute","selected.bind":"navData.selected"},"class":"tw-icon-monitor-icon","componentPath":"thingworx-ui-platform/features/monitoring","hasPopover":false,"isComponent":true,"isEditing":false,"isPanel":true,"key":"monitoring","name":"monitoring","primary":true,"selected":false,"selectedNav":"ApplicationLog","show":false,"tagName":"monitoring-panel","title":"tw.components.primary-nav.monitoring"}],"settings":{"sortBy":"recent"}}
-                ]]>
-                </PersistentValue>
-            </PersistentValues>
+            <PersistentValues></PersistentValues>
         </User>
     </Users>
 </Entities>

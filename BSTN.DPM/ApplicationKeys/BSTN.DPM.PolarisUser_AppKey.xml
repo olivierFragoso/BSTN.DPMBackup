@@ -3,22 +3,19 @@
  majorVersion="9"
  minorVersion="3"
  universal="password">
-    <Projects>
-        <Project
-         artifactId=""
-         aspect.projectType="Component"
-         dependsOn="{&quot;extensions&quot;:&quot;PTC.ActionTracker:1.2.1,PTC.BottleneckAnalysis:1.2.1,PTC.PerformanceAnalysis:1.2.1,PTC.ReasonCodeImpl:1.2.1,PTC.MfgModel:1.2.1,PTC.Status:1.2.1,PTC.Shift:1.2.1,PTC.JobOrder:1.2.1,PTC.MaterialMaster:1.2.1,PTC.WorkMaster:1.2.1,PTC.ProductionDashboard:1.2.1,PTC.OperationKPI:1.2.1,PTC.ReasonCode:1.2.1&quot;,&quot;projects&quot;:&quot;BAMG.DPM.Wilson.ISA95:1.0.0,BSTN.NOTEvent:1.0.0&quot;}"
+    <ApplicationKeys>
+        <ApplicationKey
+         clientName=""
          description=""
          documentationContent=""
-         groupId=""
+         expirationDate="2030-01-01T05:00:00.000Z"
          homeMashup=""
-         minPlatformVersion=""
-         name="BSTN.DPM"
-         packageVersion="1.0.0"
+         ipWhitelist=""
+         keyId=""
+         name="BSTN.DPM.PolarisUser_AppKey"
          projectName="BSTN.DPM"
-         publishResult=""
-         state="DRAFT"
-         tags="">
+         tags=""
+         userNameReference="PolarisUser">
             <avatar></avatar>
             <DesignTimePermissions>
                 <Create></Create>
@@ -33,6 +30,6 @@
             </VisibilityPermissions>
             <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
             <ConfigurationTables></ConfigurationTables>
-        </Project>
-    </Projects>
+        </ApplicationKey>
+    </ApplicationKeys>
 </Entities>

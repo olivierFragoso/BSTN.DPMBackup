@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ majorVersion="9"
+ minorVersion="3"
+ universal="password">
+    <Mashups>
+        <Mashup
+         aspect.isFlex="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="Mashup containing reusable tree widget for displaying a nested hierarchy of reasons. {PTC.ReasonCode.ReasonTree_MU}"
+         documentationContent=""
+         homeMashup=""
+         name="BTSN.NOTEvent.ReasonTree"
+         projectName="BSTN.NOTEvent"
+         rows="0.0"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Mashup Mobile Settings"
+                 isHidden="true"
+                 isMultiRow="false"
+                 name="MobileSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Disable Zoom"
+                             baseType="BOOLEAN"
+                             description="Disables zooming in and out within the mashup"
+                             name="disableZoom"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             aspect.friendlyName="Full Screen Mode"
+                             baseType="BOOLEAN"
+                             description="Open the mashup in full screen mode"
+                             name="fullScreenMode"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Height"
+                             baseType="STRING"
+                             description="The height of the mashup page"
+                             name="height"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-height"
+                             aspect.friendlyName="Height Type"
+                             baseType="STRING"
+                             description="Use the height of the device display, or a custom height (in px)"
+                             name="heightType"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Initial Scale"
+                             baseType="NUMBER"
+                             description="The initial zoom scale when the mashup is loaded for the first time"
+                             name="initialScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Shortcut Icon Title"
+                             baseType="STRING"
+                             description="A title for the mashup shortcut on the iOS home screen"
+                             name="iosShortcutIconTitle"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="black-translucent"
+                             aspect.friendlyName="Status Bar Appearance"
+                             baseType="STRING"
+                             description="The style of the iOS status bar"
+                             name="iosStatusBarAppearance"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="10.0"
+                             aspect.friendlyName="Maximum Scale"
+                             baseType="NUMBER"
+                             description="The maximum scale that users can zoom out to"
+                             name="maximumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="0.1"
+                             aspect.friendlyName="Minimum Scale"
+                             baseType="NUMBER"
+                             description="The minimum scale that users can zoom out to"
+                             name="minimumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Width"
+                             baseType="STRING"
+                             description="The width of the mashup page"
+                             name="width"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-width"
+                             aspect.friendlyName="Width Type"
+                             baseType="STRING"
+                             description="Use the width of the device display, or a custom width (in px)"
+                             name="widthType"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <disableZoom>false</disableZoom>
+                            <fullScreenMode>true</fullScreenMode>
+                            <height>
+                            <![CDATA[
+                            device-height
+                            ]]>
+                            </height>
+                            <heightType>
+                            <![CDATA[
+                            device-height
+                            ]]>
+                            </heightType>
+                            <initialScale>1.0</initialScale>
+                            <iosShortcutIconTitle></iosShortcutIconTitle>
+                            <iosStatusBarAppearance>
+                            <![CDATA[
+                            black-translucent
+                            ]]>
+                            </iosStatusBarAppearance>
+                            <maximumScale>10.0</maximumScale>
+                            <minimumScale>0.1</minimumScale>
+                            <width>
+                            <![CDATA[
+                            device-width
+                            ]]>
+                            </width>
+                            <widthType>
+                            <![CDATA[
+                            device-width
+                            ]]>
+                            </widthType>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="BOOLEAN"
+                 description=""
+                 name="allowExpand"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="STRING"
+                 description=""
+                 name="defaultSelectedRows"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="STRING"
+                 description="The field name to search for to match a row that should expand"
+                 name="identifier"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="STRING"
+                 description=""
+                 name="includeReasonTypeNames"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="STRING"
+                 description="Optional. Enables the user to filter by material master UID"
+                 name="materialMasterUid"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="BOOLEAN"
+                 description=""
+                 name="onlyEnabledReason"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="BOOLEAN"
+                 description=""
+                 name="onlyReasonCategories"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="STRING"
+                 description=""
+                 name="searchValue"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="OUT"
+                 aspect.dataShape="PTC.ReasonCode.ReasonTreeGrid"
+                 aspect.isDataTableEntry="true"
+                 aspect.isMandatory="false"
+                 baseType="INFOTABLE"
+                 description=""
+                 name="selectedReason"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="STRING"
+                 description=""
+                 name="selectedReasonCategoryUid"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.bindingDirection="IN"
+                 aspect.isMandatory="false"
+                 baseType="THINGNAME"
+                 description=""
+                 name="thingName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : ".PTCPDTreeGrid .xhdr{\n    display: none;\n}\n",
+              "Data" : {
+                "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS" : {
+                  "DataName" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                  "EntityName" : "PTC.ReasonCode.ModelLogic_TS",
+                  "EntityType" : "DynamicThingShapes",
+                  "Id" : "dc5fe329-117a-4cd6-a1b2-2846f88b9a23",
+                  "RefreshInterval" : 0,
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "33456f6f-59b3-49f9-b1fc-5a1c66de6c24",
+                    "Name" : "GetPTCReasonTreeGrid",
+                    "Parameters" : {
+                      "onlyReasonCategories" : false
+                    },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[[PTC.Base.ErrorMessage]]",
+                      "CustomSuccessMessage" : "",
+                      "ShowErrorMessage" : true,
+                      "ShowSuccessMessage" : false
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetPTCReasonTreeGrid"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "888c537e-cbe8-49a7-86f7-1d85d3392c52",
+                    "Name" : "GetPTCReasonCodeManager",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[[PTC.Base.ErrorMessage]]",
+                      "CustomSuccessMessage" : "",
+                      "ShowErrorMessage" : true,
+                      "ShowSuccessMessage" : false
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetPTCReasonCodeManager"
+                  } ]
+                },
+                "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS" : {
+                  "DataName" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                  "EntityName" : "PTC.ReasonCode.TreeSelectorManagement_TS",
+                  "EntityType" : "DynamicThingShapes",
+                  "Id" : "fb4c9712-e4d7-43f7-8d47-badb0f94ad06",
+                  "RefreshInterval" : 0,
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5ea727ee-5b42-4d06-97de-4a82a1b4ae04",
+                    "Name" : "GetExpandTreeRow",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[[PTC.Base.ErrorMessage]]",
+                      "CustomSuccessMessage" : "",
+                      "ShowErrorMessage" : true,
+                      "ShowSuccessMessage" : false
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetExpandTreeRow"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "0ac87303-16b8-42b8-89d2-4550cb0c861f",
+                    "Name" : "ClearReasonTree",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ClearReasonTree"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "dfb7c628-1f8f-484b-96e6-c2500df60483",
+                    "Name" : "GetTreeRow",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetTreeRow"
+                  } ]
+                },
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "81f5e3cb-a2b3-42c0-bf95-8f234a34eef8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "thingName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "value",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Entity"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EntityName",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS"
+              }, {
+                "Id" : "3789e89d-a0b1-43ad-b537-ad4183724600",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPTCReasonTreeGrid",
+                "SourceName" : "GetPTCReasonTreeGrid",
+                "SourceSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "TargetArea" : "UI",
+                "TargetId" : "treegridadvanced-3",
+                "TargetSection" : ""
+              }, {
+                "Id" : "fc6afb42-bfb2-447d-b8ed-1a252b8d2f23",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedRows",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "selectedReason",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceDetails" : "",
+                "SourceId" : "treegridadvanced-3",
+                "SourceSection" : "",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f7cae9f3-3292-46c4-974c-4e863848e0cd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "treeGrid",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPTCReasonTreeGrid",
+                "SourceSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "TargetArea" : "Data",
+                "TargetId" : "GetExpandTreeRow",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS"
+              }, {
+                "Id" : "e2ce08a4-1d5d-488e-b9f8-d3d5a1cc1f6f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "identifier",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "identifier",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetExpandTreeRow",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS"
+              }, {
+                "Id" : "bc03bfde-70c7-4166-b061-d7a578742a34",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "value",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Entity"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPTCReasonCodeManager",
+                "SourceSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "TargetArea" : "Data",
+                "TargetId" : "EntityName",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS"
+              }, {
+                "Id" : "71e21526-9d9f-4f6f-8205-9b94f8529abe",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "searchValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "searchValue",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetExpandTreeRow",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS"
+              }, {
+                "Id" : "7b1203bd-8fbf-4052-831d-aef61cf79e0d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "includeReasonTypeNames",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "includeReasonTypeNames",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPTCReasonTreeGrid",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS"
+              }, {
+                "Id" : "4bc17f6b-e514-4364-b6e6-c6eed14f9635",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "onlyReasonCategories",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "onlyReasonCategories",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPTCReasonTreeGrid",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS"
+              }, {
+                "Id" : "8357f460-4842-4276-842a-19924e2b6940",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "materialMasterUid",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "materialMasterUid",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPTCReasonTreeGrid",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS"
+              }, {
+                "Id" : "fb3192d5-70ab-41f9-8333-cb49f7f74500",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "selectedReasonCategoryUid",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "filterReasonCategoryUid",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPTCReasonTreeGrid",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS"
+              }, {
+                "Id" : "b98f0478-9276-40b8-9d0e-02f35fe2df6b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "onlyEnabledReason",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "onlyEnabledReason",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPTCReasonTreeGrid",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS"
+              }, {
+                "Id" : "7d6c8b43-9290-4cbf-a2b3-5238ac9e011c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Input2",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ClearReasonTree",
+                "SourceName" : "ClearReasonTree",
+                "SourceSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-13",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f18fb587-72e0-4842-8e39-6ca6f0a6fed4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Input1",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetExpandTreeRow",
+                "SourceSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "TargetArea" : "UI",
+                "TargetId" : "eventsrouter-13",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a059fa37-a081-41df-95cc-6acdcc937477",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "SelectedRows",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "eventsrouter-13",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "treegridadvanced-3",
+                "TargetSection" : ""
+              }, {
+                "Id" : "66c7937d-cc24-4cf3-8c55-3cd83501b5bd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "allowExpand",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "isExpand",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetTreeRow",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS"
+              }, {
+                "Id" : "581093aa-b45f-49d5-9d2e-db96efbbb51e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "ExpandRows",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetTreeRow",
+                "SourceSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "TargetArea" : "UI",
+                "TargetId" : "treegridadvanced-3",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e0689a0b-976d-40a9-bbff-549e4a456722",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "treeGrid",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetExpandTreeRow",
+                "SourceSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "TargetArea" : "Data",
+                "TargetId" : "GetTreeRow",
+                "TargetSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS"
+              }, {
+                "Id" : "b601512d-4b31-4697-8d34-3746d7b3edad",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "defaultSelectedRows",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "property",
+                  "TargetProperty" : "DefaultSelectedRows",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "treegridadvanced-3",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "EventHandlerService" : "GetExpandTreeRow",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetPTCReasonTreeGrid",
+                "EventTriggerSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "Id" : "e7436bca-63c3-4188-ad46-84e7528e24fb"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "EventHandlerService" : "GetPTCReasonTreeGrid",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetPTCReasonCodeManager",
+                "EventTriggerSection" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "Id" : "50d71578-dc81-47dd-9220-ac96ea6746ad"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "EventHandlerService" : "GetPTCReasonCodeManager",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "thingNameChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "ceb6f29b-faa2-49b2-b1c9-988d0c31d85e"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "EventHandlerService" : "GetPTCReasonTreeGrid",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "materialMasterUidChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "881481c7-f139-4a75-94ed-876320c6c328"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "EventHandlerService" : "GetPTCReasonTreeGrid",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "selectedReasonCategoryUidChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "16f0b1f0-d71f-4656-98ef-8111c1107086"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "EventHandlerService" : "ClearReasonTree",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "searchValueChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "f795c9da-757e-4ba1-9ed8-cb85860f1f2a"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "EventHandlerService" : "GetTreeRow",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetExpandTreeRow",
+                "EventTriggerSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "Id" : "8db2fd12-936a-475b-bdf3-3edc9eeb8443"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                "EventHandlerService" : "GetPTCReasonTreeGrid",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ClearReasonTree",
+                "EventTriggerSection" : "DynamicThingShapes_PTC.ReasonCode.TreeSelectorManagement_TS",
+                "Id" : "b89c8bc6-d99c-4dfb-b33b-e0d99035eb3d"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButton" : "SimplePlus",
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImage" : "",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButton" : "SimpleGear",
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "StyleProperties" : {
+                    "data" : {
+                      "flexcontainer-2" : {
+                        "parts" : {
+                          "$" : {
+                            "$" : {
+                              "border-color" : "#C2C7CE",
+                              "border-style" : "solid",
+                              "border-width" : "1px"
+                            }
+                          }
+                        },
+                        "widget" : "flex-container"
+                      }
+                    },
+                    "meta" : {
+                      "type" : "WidgetStyler",
+                      "version" : "1.0"
+                    }
+                  },
+                  "StyleTheme" : "PTC Convergence Theme",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "UseMasterTheme" : false,
+                  "UseTheme" : false,
+                  "UseThemeForHybrids" : false,
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "defaultSelectedRows"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "BOOLEAN",
+                    "Description" : "",
+                    "ParameterName" : "allowExpand"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "BOOLEAN",
+                    "Description" : "",
+                    "ParameterName" : "onlyEnabledReason"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "selectedReasonCategoryUid"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "STRING",
+                    "Description" : "Optional. Enables the user to filter by material master UID",
+                    "ParameterName" : "materialMasterUid"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "includeReasonTypeNames"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "searchValue"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "STRING",
+                    "Description" : "The field name to search for to match a row that should expand",
+                    "ParameterName" : "identifier"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "BOOLEAN",
+                    "Description" : "",
+                    "ParameterName" : "onlyReasonCategories"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "OUT",
+                      "dataShape" : "PTC.ReasonCode.ReasonTreeGrid",
+                      "isDataTableEntry" : true,
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "INFOTABLE",
+                    "Description" : "",
+                    "ParameterName" : "selectedReason"
+                  }, {
+                    "Aspects" : {
+                      "bindingDirection" : "IN",
+                      "isMandatory" : false
+                    },
+                    "BaseType" : "THINGNAME",
+                    "Description" : "",
+                    "ParameterName" : "thingName"
+                  } ],
+                  "id_index" : 13,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "main-container",
+                    "EnableExpandCollapse" : false,
+                    "ExpandCollapseTabLocation" : "inside",
+                    "Expanded" : true,
+                    "Id" : "flexcontainer-2",
+                    "LastContainer" : true,
+                    "Overlay" : false,
+                    "ResponsiveLayout" : true,
+                    "ShowDataLoading" : true,
+                    "ShowExpandCollapseTab" : false,
+                    "SourceURL" : "",
+                    "Style" : "DefaultContainerStyle",
+                    "StyleProperties" : { },
+                    "Type" : "flexcontainer",
+                    "UseTheme" : true,
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Responsive Container",
+                    "align-content" : "flex-start",
+                    "align-items" : "center",
+                    "flex-basis" : "auto",
+                    "flex-direction" : "column",
+                    "flex-grow" : 1,
+                    "flex-max-height" : "",
+                    "flex-max-width" : "",
+                    "flex-min-height" : "",
+                    "flex-min-width" : "",
+                    "flex-shrink" : 1,
+                    "flex-size" : "default",
+                    "flex-wrap" : "nowrap",
+                    "iconClass" : "widgets-flexcontainer",
+                    "isLocked" : true,
+                    "justify-content" : "center",
+                    "positioning" : "responsive",
+                    "prev-align" : "flex-start",
+                    "userCannotRemove" : true
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoScroll" : false,
+                      "CellBorderStyle" : "DefaultGridAdvancedCellBorderStyle",
+                      "CellValidationErrorStyle" : "DefaultGridAdvancedCellValidationErrorStyle",
+                      "CellValidationErrorTooltipStyle" : "DefaultGridAdvancedCellValidationErrorTooltipStyle",
+                      "ColumnFormat" : {
+                        "formatInfo" : [ {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Reason tree node uid",
+                          "FieldName" : "reasonTreeNodeUid",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "reasonTreeNodeUid",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Parent of the current reason tree node uid",
+                          "FieldName" : "parentReasonTreeNodeUid",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "parentReasonTreeNodeUid",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Unique identifier for reason category",
+                          "FieldName" : "reasonCategoryUid",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "reasonCategoryUid",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Unique identifier for reason",
+                          "FieldName" : "reasonUid",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "reasonUid",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Display name of the reason",
+                          "FieldName" : "displayName",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "displayName",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : false,
+                          "inLayout" : true
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Reason category name",
+                          "FieldName" : "reasonCategoryName",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "reasonCategoryName",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Reason name",
+                          "FieldName" : "reasonName",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "reasonName",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "the final reason explains if it is an acceptable final reason or not",
+                          "FieldName" : "isFinalReason",
+                          "FormatOptions" : {
+                            "FormatString" : "checkbox",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "BOOLEAN",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "isFinalReason",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Boolean that determines if there are other children reasons",
+                          "FieldName" : "hasChildrenReasons",
+                          "FormatOptions" : {
+                            "FormatString" : "checkbox",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "BOOLEAN",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "hasChildrenReasons",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Name of reason type",
+                          "FieldName" : "reasonTypeName",
+                          "FormatOptions" : {
+                            "FormatString" : "",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "reasonTypeName",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Unique identifier for reason type",
+                          "FieldName" : "reasonTypeUid",
+                          "FormatOptions" : {
+                            "FormatString" : "",
+                            "formatInfo" : {
+                              "StateFormats" : [ ]
+                            },
+                            "formatText" : "View",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "reasonTypeUid",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "Description" : "Display name of the reason",
+                          "FieldName" : "reasonDisplayName",
+                          "FormatOptions" : {
+                            "FormatString" : "",
+                            "renderer" : "STRING",
+                            "roundingEnabled" : true,
+                            "showDependentField" : false
+                          },
+                          "Title" : "reasonDisplayName",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "auto",
+                          "headerTextAlignment" : "left",
+                          "hidden" : true,
+                          "inLayout" : false
+                        } ]
+                      },
+                      "Configuration" : "",
+                      "ConfigurationId" : 9,
+                      "CookiePersistence" : false,
+                      "CustomClass" : "PTCPDTreeGrid",
+                      "DataOverflow" : "clipped",
+                      "DataServiceBindingDef" : {
+                        "dataName" : "DynamicThingShapes_PTC.ReasonCode.ModelLogic_TS",
+                        "entityName" : "PTC.ReasonCode.ModelLogic_TS",
+                        "entityType" : "DynamicThingShapes",
+                        "sourceId" : "GetPTCReasonTreeGrid",
+                        "target" : "GetPTCReasonTreeGrid"
+                      },
+                      "DefaultSelectedRows" : "",
+                      "DisplayName" : "lossEventReasons-treeGridAdvanced",
+                      "DisplayOnlyMode" : false,
+                      "EditButtonsLocation" : "top-right",
+                      "EnableAddDeleteButtons" : false,
+                      "EnableCallbackOnSelectedRowsChange" : true,
+                      "EnableContextMenu" : false,
+                      "EnableEditButtons" : false,
+                      "EnableFilterEventOnConfigChange" : true,
+                      "EnableFooter" : false,
+                      "EnableGridReset" : false,
+                      "EnableGridSearch" : false,
+                      "EnableKeyboardNavigation" : true,
+                      "EnableSorting" : false,
+                      "ExpandLoadedRows" : false,
+                      "ExpandRowOnDoubleClick" : true,
+                      "FocusStyle" : "PTC.MfgModel.NoStyle_SY",
+                      "GridResetButtonLocation" : "top-right",
+                      "GridSearchLocation" : "top-left",
+                      "HasChildrenFieldName" : "hasChildrenReasons",
+                      "HeaderOverflow" : "tooltip",
+                      "Height" : 526,
+                      "IDFieldName" : "reasonTreeNodeUid",
+                      "IDPathSeparator" : ":;",
+                      "Id" : "treegridadvanced-3",
+                      "IncludeRowExpansionParents" : false,
+                      "IsEditable" : false,
+                      "LastContainer" : false,
+                      "Left" : 0,
+                      "MaxHeaderHeight" : 100,
+                      "MaxRowCacheSize" : 50000,
+                      "MinRowHeight" : 30,
+                      "ParentIDFieldName" : "parentReasonTreeNodeUid",
+                      "PreserveRowExpansion" : false,
+                      "ResponsiveLayout" : true,
+                      "RowAlternateBackgroundStyle" : "PTC.Administration.TableRowNonSelected_SY",
+                      "RowBackgroundStyle" : "PTC.Administration.TableRowNonSelected_SY",
+                      "RowBorderStyle" : "DefaultGridAdvancedRowBorderStyle",
+                      "RowCollapseIconStyle" : "DefaultRowCollapseIconStyle",
+                      "RowExpansionIconStyle" : "DefaultRowExpansionIconStyle",
+                      "RowFormat" : {
+                        "FieldName" : "",
+                        "StateDefinition" : "",
+                        "StateDefinitionType" : "fixed",
+                        "StateFormats" : [ {
+                          "state" : "PTC.MfgModel.RowStyle_SY",
+                          "stateName" : "fixed"
+                        } ]
+                      },
+                      "RowFormat_StateParameters" : [ ],
+                      "RowHoverStyle" : "PTC.Administration.TableRowHover_SY",
+                      "RowIconStyle" : "PTC.MfgModel.NoStyle_SY",
+                      "RowSelectedStyle" : "PTC.Administration.TableRowSelected_SY",
+                      "RowSelection" : "single",
+                      "SelectedRows" : "",
+                      "ShowDataLoading" : true,
+                      "SortAscendingStyle" : "DefaultSortAscendingStyle",
+                      "SortDescendingStyle" : "DefaultSortDescendingStyle",
+                      "TableFooterStyle" : "DefaultGridAdvancedFooterStyle",
+                      "TableHeaderStyle" : "PTC.MfgModel.NoStyle_SY",
+                      "TableWrapperStyle" : "PTC.MfgModel.NoStyle_SY",
+                      "ToolbarStyle" : "DefaultToolbarStyle",
+                      "TooltipStyle" : "DefaultTooltipStyle",
+                      "Top" : 0,
+                      "Type" : "treegridadvanced",
+                      "UseTheme" : false,
+                      "Visible" : true,
+                      "Width" : 672,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Tree Grid Advanced"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DataShape" : "PTC.ReasonCode.ReasonTreeGrid",
+                    "DataType" : "INFOTABLE",
+                    "DisplayName" : "TreeSelectionEventsRouter",
+                    "Id" : "eventsrouter-13",
+                    "LastContainer" : false,
+                    "Left" : null,
+                    "NumberOfInputs" : "2",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : null,
+                    "Type" : "eventsrouter",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Events Router"
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+            <preview></preview>
+        </Mashup>
+    </Mashups>
+</Entities>

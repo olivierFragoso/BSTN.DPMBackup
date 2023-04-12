@@ -42,7 +42,7 @@
                  name="AddStandardChangeoverTime">
                     <ResultType
                      aspect.dataShape="BSTN.NOTEvent.ChangeoverCache_DS"
-                     baseType="DATETIME"
+                     baseType="NOTHING"
                      description=""
                      name="result"
                      ordinal="0"></ResultType>
@@ -63,7 +63,29 @@
                  isLocalOnly="false"
                  isOpen="false"
                  isPrivate="false"
-                 name="CheckExistentMaterial">
+                 name="CheckExistingMaterial">
+                    <ResultType
+                     baseType="INTEGER"
+                     description="Returns a number if material we are searching for exists. "
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="The material we are checking that exists"
+                         name="material"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Check if the material is existent in DPM"
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="CheckExistingMaterialDPM">
                     <ResultType
                      baseType="BOOLEAN"
                      description="Returns true if material we are searching for exists. "
@@ -77,9 +99,9 @@
                          ordinal="2"></FieldDefinition>
                         <FieldDefinition
                          baseType="STRING"
-                         description="WorkunitThingName to search for materials"
-                         name="workUnitThingName"
-                         ordinal="1"></FieldDefinition>
+                         description=""
+                         name="workUnitInput"
+                         ordinal="2"></FieldDefinition>
                     </ParameterDefinitions>
                 </ServiceDefinition>
                 <ServiceDefinition
@@ -150,7 +172,8 @@
                  isPrivate="false"
                  name="test">
                     <ResultType
-                     baseType="INFOTABLE"
+                     aspect.dataShape="JobOrderDetails_DS"
+                     baseType="DATETIME"
                      description=""
                      name="result"
                      ordinal="0"></ResultType>
@@ -285,7 +308,7 @@
                                     	workUnitName: jobOrderDetailsChangeover.WorkUnit /* STRING */
                                     });
                                     
-                                    let result = endStdChangeTime;
+                                    //let result = endStdChangeTime;
                                     ]]>
                                     </code>
                                 </Row>
@@ -296,7 +319,7 @@
                 <ServiceImplementation
                  description=""
                  handlerName="Script"
-                 name="CheckExistentMaterial">
+                 name="CheckExistingMaterial">
                     <ConfigurationTables>
                         <ConfigurationTable
                          dataShapeName=""
@@ -317,16 +340,74 @@
                                 <Row>
                                     <code>
                                     <![CDATA[
-                                    let exist = false;
+                                    let masterDataImportManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.MasterDataImport.Manager"});
                                     
-                                    Things[workUnitThingName].GetPTCExecutionWorkMasterMaterials().rows.toArray().forEach(row => {
-                                    	if (row.id === material) {
-                                    		exist = true;
-                                    	}
+                                    result = Things[masterDataImportManager].CheckForExistingMaterial({
+                                    	MaterialID: material /* STRING */
+                                    });
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="CheckExistingMaterialDPM">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         dataShapeName=""
+                         description=""
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({
+                                    	identifier: "PTC.MfgModel.Manager"
+                                    });
+                                    let materialPresent = false;
+                                    
+                                    let workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    		infoTableName: "InfoTable",
+                                    		dataShapeName: "WorkUnitName_DS"
+                                    	});
+                                    
+                                    	workUnitItemInfotable.item = workUnitInput;
+                                    
+                                    	resultingWorkUnitItemInfotable = Things[mfgModelManager].GetModelsByName({
+                                    		modelNames: workUnitItemInfotable
+                                    	});
+                                    
+                                    let workUnit = resultingWorkUnitItemInfotable.thingName;
+                                    
+                                    // result: INFOTABLE dataShape: "PTC.MaterialMaster.MaterialMaster"
+                                    let allMaterialsInfotable = Things[workUnit].GetPTCExecutionWorkMasterMaterials({
+                                    	filter: undefined /* JSON */,
+                                    	offset: undefined /* INTEGER */,
+                                    	limit: undefined /* INTEGER */
                                     });
                                     
+                                    allMaterialsInfotable.rows.toArray().forEach(row => {
+                                        if(row.id === material){
+                                        materialPresent = true;
+                                        }
+                                    });
                                     
-                                    result = exist;
+                                    let result = materialPresent;
                                     ]]>
                                     </code>
                                 </Row>
@@ -431,11 +512,12 @@
                                     		});
                                     
                                     		//let newDateTime = txnTimestamp.setSeconds(txnTimestamp.getSeconds() + 3);
-                                    		let newDateTime = new Date();
+                                    //		let newDateTime = new Date();
+                                            let stringDate = txnTimestamp + 'GMT-6';
                                     
                                     		infotableUpdateJobOrder.name = "PTCJobOrderID";
                                     		infotableUpdateJobOrder.quality = "Good";
-                                    		infotableUpdateJobOrder.time = Date.now();
+                                    		infotableUpdateJobOrder.time = new Date(stringDate);
                                     		infotableUpdateJobOrder.value = jobOrderID;
                                     
                                     		Things[workUnit].UpdatePropertyValues({
@@ -480,8 +562,20 @@
                                     let jobOrderDetailsInfotable = me.ProcessProductionOperationData();
                                     let result;
                                     let infotableIndex = 0;
-                                    let productionOperationsManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.ProductionOperations.Manager"});
-                                    let GABEInterfaceManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.GABEInterface.Manager"});
+                                    let materialExists;
+                                    let workUnit;
+                                    let materialExistsDPM;
+                                    let productionOperationsManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({
+                                    	identifier: "BSTN.ProductionOperations.Manager"
+                                    });
+                                    let GABEInterfaceManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({
+                                    	identifier: "BSTN.GABEInterface.Manager"
+                                    });
+                                    let masterDataImportManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({
+                                    	identifier: "BSTN.MasterDataImport.Manager"
+                                    });
+                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"});
+                                    
                                     
                                     // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(JobOrderDetails_DS)
                                     let processJobOrderDetailsInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
@@ -494,22 +588,69 @@
                                     
                                     	//Check if it is JOCreation, JOQtyProduced or JOChangeOver
                                     	if (row.EventType === "JOCreation") {
+                                    		//Check if material exists in DPM
+                                    		materialExistsDPM = Things[productionOperationsManager].CheckExistingMaterialDPM({
+                                    			material: row.Material /* STRING */ ,
+                                    			workUnitInput: row.WorkUnit /* STRING */
+                                    		});
+                                    
+                                    		if (!materialExistsDPM) {
+                                    			//Check if material exists within GABE and create the material & WorkMasterData
+                                    			Things[masterDataImportManager].ProcessGABEMaterialMaster();
+                                    			Things[masterDataImportManager].ProcessGABEWorkMaster();
+                                    			materialExists = Things[productionOperationsManager].CheckExistingMaterial({
+                                    				material: row.Material /* STRING */
+                                    			});
+                                    			if (!materialExists) {
+                                    				if (logger.debugEnabled) {
+                                    					logger.debug("Material:{} was not found", row.material);
+                                    				}
+                                    				return;
+                                    			} else {
+                                    				let workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    					infoTableName: "InfoTable",
+                                    					dataShapeName: "WorkUnitName_DS"
+                                    				});
+                                    
+                                    				workUnitItemInfotable.item = row.WorkUnit;
+                                    
+                                    				let resultingWorkUnitItemInfotable = Things[mfgModelManager].GetModelsByName({
+                                    					modelNames: workUnitItemInfotable
+                                    				});
+                                    
+                                    				let workCenterName = resultingWorkUnitItemInfotable.thingName.replace('WU', 'WC');
+                                    
+                                    				let matMasterUid = Things["BSTN.GABEInterface.Manager"].CheckForExistingMaterial({
+                                    					MaterialID: row.Material /* STRING */
+                                    				});
+                                    
+                                    				Things["PTC.WorkMasterImpl.Manager"].AddWorkMasterData({
+                                    					workcenterUid: Things[workCenterName].PTCModelUid /* STRING [Required] */ ,
+                                    					productionBlockDuration: 30 /* NUMBER */ ,
+                                    					productionBlockTypeUid: "1" /* STRING */ ,
+                                    					idealCycleTime: 60 /* NUMBER [Required] */ ,
+                                    					materialMasterUid: matMasterUid /* STRING [Required] */
+                                    				});
+                                    			}
+                                    		}
+                                    
                                     		Things[productionOperationsManager].CreateAndStartNewJobOrder({
                                     			jobOrderCreationInfoTable: processJobOrderDetailsInfotable /* INFOTABLE {"dataShape":"JobOrderDetails_DS"} */
                                     		});
                                     	}
+                                    
                                     	if (row.EventType === "JOQtyProduced") {
-                                    		// result: INFOTABLE dataShape: "NamedVTQ"
                                     		Things[productionOperationsManager].UpdateProductionQuantity({
                                     			JobOrderDetails: processJobOrderDetailsInfotable /* INFOTABLE {"dataShape":"JobOrderDetails_DS"} */
                                     		});
                                     	}
+                                    
                                     	if (row.EventType === "JOChangeOver") {
-                                    		
+                                    		Things[productionOperationsManager].AddStandardChangeoverTime({
+                                    			jobOrderDetailsChangeover: processJobOrderDetailsInfotable /* INFOTABLE {"dataShape":"JobOrderDetails_DS"} */
+                                    		});
                                     	}
-                                    	//Check if material is different
-                                    	//Calculate Changeover
-                                    	//Check if material exists within DPM
+                                    
                                     	//UpdateProductionProcessedData
                                     	row.Processed = true;
                                     	Things[GABEInterfaceManager].UpdateProductionOperationsProcessedFlag({
@@ -585,14 +726,24 @@
                                 <Row>
                                     <code>
                                     <![CDATA[
-                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"});
-                                    //let mfgModelManager = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"})];
+                                    let GABEInterfaceManager = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"BSTN.GABEInterface.Manager"})];
                                     
-                                    //let test1 = Things[Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"})];
+                                    //let result = GABEInterfaceManager.GetProductionOperationsData();
                                     
-                                    Things[mfgModelManager].GetPropertyValues();
+                                    let info1 = GABEInterfaceManager.GetProductionOperationsData();
                                     
-                                    let result = Things[mfgModelManager].GetPropertyValues();
+                                    let result;
+                                    let date1;
+                                    
+                                    info1.rows.toArray().forEach(row => {
+                                        date1 = row.TxnTimestamp;
+                                    });
+                                    
+                                    let stringDate = date1 + 'GMT-6';
+                                    
+                                    result = new Date(stringDate);
+                                    
+                                    //result = Date.now();
                                     ]]>
                                     </code>
                                 </Row>
@@ -658,51 +809,45 @@
                                     let workUnit;
                                     let txnQuantity;
                                     let txnTimestamp;
-                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({identifier:"PTC.MfgModel.Manager"});
-                                    
-                                    //let result = mfgModelManager;
+                                    let mfgModelManager = Things["PTC.Base.Manager"].GetConfiguredManagerForIdentifier({
+                                    	identifier: "PTC.MfgModel.Manager"
+                                    });
                                     
                                     try {
-                                    	JobOrderDetails.rows.toArray().forEach(row => {
-                                    		eventType = row.EventType;
-                                    		jobOrderID = row.JobOrderID;
-                                    		material = row.Material;
-                                    		txnQuantity = row.TxnQuantity;
-                                    		txnTimestamp = row.TxnTimestamp;
+                                    	eventType = JobOrderDetails.EventType;
+                                    	jobOrderID = JobOrderDetails.JobOrderID;
+                                    	material = JobOrderDetails.Material;
+                                    	txnQuantity = JobOrderDetails.TxnQuantity;
+                                    	txnTimestamp = JobOrderDetails.TxnTimestamp;
                                     
-                                    		let workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
-                                    			infoTableName: "InfoTable",
-                                    			dataShapeName: "WorkUnitName_DS"
-                                    		});
+                                    	let workUnitItemInfotable = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    		infoTableName: "InfoTable",
+                                    		dataShapeName: "WorkUnitName_DS"
+                                    	});
                                     
-                                    		workUnitItemInfotable.item = row.WorkUnit;
+                                    	workUnitItemInfotable.item = JobOrderDetails.WorkUnit;
                                     
-                                    		resultingWorkUnitItemInfotable = Things[mfgModelManager].GetModelsByName({
-                                    			modelNames: workUnitItemInfotable
-                                    		});
+                                    	resultingWorkUnitItemInfotable = Things[mfgModelManager].GetModelsByName({
+                                    		modelNames: workUnitItemInfotable
+                                    	});
                                     
-                                    		workUnit = resultingWorkUnitItemInfotable.thingName;
+                                    	workUnit = resultingWorkUnitItemInfotable.thingName;
                                     
-                                    		//Updating the quantity using the updatePropertyValues service
-                                    		if (eventType === "JOQtyProduced") {
+                                    	//Updating the quantity using the updatePropertyValues service
+                                    	let infotableUpdateQuantity = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
+                                    		infoTableName: "InfoTable",
+                                    		dataShapeName: "NamedVTQ"
+                                    	});
+                                        
+                                        let stringDate = txnTimestamp + 'GMT-6';
                                     
-                                    			// CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(NamedVTQ)
-                                    			let infotableUpdateQuantity = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({
-                                    				infoTableName: "InfoTable",
-                                    				dataShapeName: "NamedVTQ"
-                                    			});
+                                    	infotableUpdateQuantity.name = "PTCProductionCount";
+                                    	infotableUpdateQuantity.quality = "Good";
+                                    	infotableUpdateQuantity.time = new Date(stringDate);
+                                    	infotableUpdateQuantity.value = txnQuantity;
                                     
-                                    			infotableUpdateQuantity.name = "PTCProductionCount";
-                                    			infotableUpdateQuantity.quality = "Good";
-                                    			infotableUpdateQuantity.time = txnTimestamp;
-                                    			infotableUpdateQuantity.value = txnQuantity;
-                                    
-                                    			Things[workUnit].UpdatePropertyValues({
-                                    				values: infotableUpdateQuantity /* INFOTABLE {"dataShape":"NamedVTQ"} */
-                                    			});
-                                    
-                                    //			result = mfgModelManager;
-                                    		}
+                                    	Things[workUnit].UpdatePropertyValues({
+                                    		values: infotableUpdateQuantity /* INFOTABLE {"dataShape":"NamedVTQ"} */
                                     	});
                                     } catch (err) {
                                     	throw err;
